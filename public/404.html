@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ExportVisor | Redirecting...</title>
+    <script>
+      // Single Page Application redirect for GitHub Pages
+      // Preserves the path and query parameters when redirecting to /
+      (function() {
+        var path = window.location.pathname;
+        var search = window.location.search;
+        var hash = window.location.hash;
+        
+        // Normalize path
+        var cleanPath = path.replace(/^\/+/, '');
+        sessionStorage.setItem('spa_redirect', path + search + hash);
+        
+        window.location.replace('/' + (cleanPath ? '?' + cleanPath : '') + hash);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/">ExportVisor</a>...</p>
+  </body>
+</html>

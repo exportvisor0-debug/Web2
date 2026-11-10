@@ -1,0 +1,30 @@
+# ExportVisor Robots Exclusion Standard
+# https://exportvisor.com
+
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Host & Sitemaps
+Host: https://exportvisor.com
+Sitemap: https://exportvisor.com/sitemap.xml

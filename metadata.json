@@ -1,0 +1,6 @@
+{
+  "name": "ExportVisor - Bangladesh Leather Sourcing & Export Partner",
+  "description": "Direct Tannery Export Desk & manufacturing partner in Bangladesh. Direct factory gate exports of wet blue, crust, and finished bovine leather from Savar tanneries with pre-shipment quality inspection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

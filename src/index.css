@@ -1,0 +1,368 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([class~="dark"], [class~="dark"] *));
+
+@layer base {
+  :root {
+    --brand-primary: #15120E;
+    --brand-secondary: #221C16;
+    --brand-accent: #C89D43;
+    --brand-accent-hover: #D6AC4B;
+    --brand-accent-light: #E5BE58;
+    --brand-accent-dark: #A67C24;
+    --brand-accent-glow: rgba(200, 157, 67, 0.25);
+    --brand-cream: #FAF8F5;
+    --brand-surface: #F5EFE6;
+    --brand-border: rgba(200, 157, 67, 0.2);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FAF8F5;
+    color: #15120E;
+  }
+
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+
+  .font-body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  .font-mono-data {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4EFEB;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8CFCA;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BBAEA7;
+}
+
+/* Checkmark Success Animation Keyframes */
+@keyframes checkmark-draw {
+  0% {
+    stroke-dashoffset: 48;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes circle-scale {
+  0% {
+    transform: scale(0.65);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes ring-glow {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-circle-scale {
+  animation: circle-scale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-checkmark-draw {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: checkmark-draw 0.45s 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-ring-glow {
+  animation: ring-glow 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Global Website Animations: Gold Shimmer, Float, and Soft Glow */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes light-sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  50%, 100% {
+    transform: translateX(200%);
+  }
+}
+
+.animate-gold-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(245, 210, 117, 0.25), transparent);
+  background-size: 200% 100%;
+  animation: gold-shimmer 4s infinite linear;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4.5s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.animate-light-sweep {
+  animation: light-sweep 6s ease-in-out infinite;
+}
+
+/* Premium Gold Utilities matching Logo Icon (#C89D43 / #D6AC4B / #B8892E) */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #DFB75A 0%, #C89D43 45%, #E5BE58 75%, #B8892E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-light {
+  color: #D6AC4B;
+}
+
+.text-gold-primary {
+  color: #C89D43;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #D6AC4B 0%, #C89D43 55%, #B8892E 100%);
+}
+
+.bg-gold-subtle {
+  background: linear-gradient(135deg, rgba(200, 157, 67, 0.12) 0%, rgba(229, 190, 88, 0.06) 100%);
+}
+
+.border-gold-accent {
+  border-color: rgba(200, 157, 67, 0.35);
+}
+
+.shadow-gold-subtle {
+  box-shadow: 0 4px 20px -2px rgba(200, 157, 67, 0.25);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 0 25px rgba(200, 157, 67, 0.3);
+}
+
+/* Eye-Catching Colorful Icon Card Utilities */
+.icon-badge-gold {
+  background: linear-gradient(135deg, rgba(200, 157, 67, 0.18) 0%, rgba(229, 190, 88, 0.08) 100%);
+  color: #C89D43;
+  border: 1px solid rgba(200, 157, 67, 0.3);
+}
+
+/* Ensure Hero section always retains deep dark luxury background and dark-gold blend in both themes */
+#hero {
+  background: radial-gradient(ellipse at 75% 25%, rgba(200, 157, 67, 0.18) 0%, rgba(20, 13, 6, 0.96) 50%, #070503 100%) !important;
+  color: #FFFFFF !important;
+}
+
+/* ExportVisor Light Theme Brand Accents matching Logo */
+.brand-badge-light {
+  background: linear-gradient(135deg, rgba(212, 167, 44, 0.14) 0%, rgba(200, 157, 67, 0.06) 100%);
+  color: #7A5A17;
+  border: 1px solid rgba(200, 157, 67, 0.38);
+}
+
+.brand-card-light:hover {
+  border-color: rgba(200, 157, 67, 0.65);
+  box-shadow: 0 12px 30px -4px rgba(200, 157, 67, 0.22);
+}
+
+.icon-badge-emerald {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(5, 150, 105, 0.08) 100%);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+
+.icon-badge-blue {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.16) 0%, rgba(59, 130, 246, 0.08) 100%);
+  color: #2563EB;
+  border: 1px solid rgba(37, 99, 235, 0.28);
+}
+
+.icon-badge-indigo {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.16) 0%, rgba(129, 140, 248, 0.08) 100%);
+  color: #4F46E5;
+  border: 1px solid rgba(99, 102, 241, 0.28);
+}
+
+.icon-badge-amber {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.18) 0%, rgba(217, 119, 6, 0.08) 100%);
+  color: #D97706;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.icon-badge-rose {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.16) 0%, rgba(225, 29, 72, 0.08) 100%);
+  color: #E11D48;
+  border: 1px solid rgba(244, 63, 94, 0.28);
+}
+
+/* ========================================================
+   LUXURY DARK MODE THEME SYSTEM (Obsidian Black & High-Contrast Gold)
+   ======================================================== */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0A0806;
+  color: #ECE6E1;
+}
+
+/* Base Surfaces in Dark Mode */
+html.dark .bg-white {
+  background-color: #130F0C !important;
+}
+
+html.dark .bg-\[\#FAF8F5\] {
+  background-color: #0C0907 !important;
+}
+
+html.dark .bg-\[\#FAF8F5\]\/95 {
+  background-color: rgba(12, 9, 7, 0.95) !important;
+}
+
+html.dark .bg-stone-50 {
+  background-color: #17130F !important;
+}
+
+html.dark .bg-stone-100 {
+  background-color: #1D1814 !important;
+}
+
+html.dark .bg-stone-200 {
+  background-color: #27211C !important;
+}
+
+html.dark .bg-stone-200\/80,
+html.dark .bg-stone-200\/70,
+html.dark .bg-stone-200\/60 {
+  background-color: rgba(39, 33, 28, 0.75) !important;
+}
+
+/* High-Contrast Luxury Typography in Dark Mode */
+html.dark .text-\[\#15120E\],
+html.dark .text-\[\#181310\] {
+  color: #F8F5F0 !important;
+}
+
+html.dark .text-stone-900,
+html.dark .text-stone-800 {
+  color: #EDE7E2 !important;
+}
+
+html.dark .text-stone-700 {
+  color: #D3CAC4 !important;
+}
+
+html.dark .text-stone-600 {
+  color: #B2A79F !important;
+}
+
+html.dark .text-stone-500 {
+  color: #9A8E85 !important;
+}
+
+/* High-Contrast Gold Accent & Borders */
+html.dark .border-stone-200,
+html.dark .border-stone-200\/90,
+html.dark .border-stone-200\/80,
+html.dark .border-stone-200\/60,
+html.dark .border-stone-300 {
+  border-color: rgba(200, 157, 67, 0.28) !important;
+}
+
+html.dark .border-stone-100 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Keep Inputs Crisp in Dark Mode */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #17120E !important;
+  color: #F8F5F0 !important;
+  border-color: rgba(200, 157, 67, 0.35) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #8C8076 !important;
+}
+
+/* Modals & Backdrop Blur */
+html.dark .bg-white\/95 {
+  background-color: rgba(18, 14, 11, 0.96) !important;
+}
+
+/* Dark Mode Scrollbars */
+html.dark ::-webkit-scrollbar-track {
+  background: #0D0A08;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #33281E;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #C89D43;
+}
+
