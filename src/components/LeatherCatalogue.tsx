@@ -18,8 +18,9 @@ import {
   ChevronDown,
   Gauge,
   Compass,
-  CheckCircle2,
   X,
+  LayoutGrid,
+  List,
 } from "lucide-react";
 import { SectionShareButton } from "./SectionShareButton";
 import { useLanguage } from "../context/LanguageContext";
@@ -42,7 +43,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
   const isBn = language === "bn";
 
   // Filter States
-  const [selectedStage, setSelectedStage] = useState<StageFilter>("Finished");
+  const [selectedStage, setSelectedStage] = useState<StageFilter>("Crust");
   const [selectedTanning, setSelectedTanning] = useState<string>("All");
   const [selectedGrain, setSelectedGrain] = useState<string>("All");
   const [selectedAnimal, setSelectedAnimal] = useState<string>("All");
@@ -52,6 +53,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [showAdvancedFilters, setShowAdvancedFilters] = useState<boolean>(false);
+  const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
 
   // Reset page when filters change
   useEffect(() => {
@@ -195,11 +197,11 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
 
   const hasActiveFilters =
     activeFilterCount > 0 ||
-    selectedStage !== "Finished" ||
+    selectedStage !== "Crust" ||
     searchQuery.trim() !== "";
 
   const handleResetFilters = () => {
-    setSelectedStage("Finished");
+    setSelectedStage("Crust");
     setSelectedTanning("All");
     setSelectedGrain("All");
     setSelectedAnimal("All");
@@ -278,40 +280,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 p-2 bg-[#F6F2E8]/80 dark:bg-[#15100B] border border-[#E5DBBE] dark:border-[#2C2117] rounded-2xl">
             
-            {/* 1. Finished Leather Tab */}
-            <button
-              type="button"
-              onClick={() => setSelectedStage("Finished")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group ${
-                selectedStage === "Finished"
-                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
-                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
-              }`}
-            >
-              <div className="flex items-center justify-between gap-1 mb-1.5 flex-wrap">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono ${
-                  selectedStage === "Finished" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
-                }`}>
-                  {isBn ? "ফিনিশড লেদার" : "Finished Leather"}
-                </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
-                  selectedStage === "Finished"
-                    ? "bg-[#FAF3E0] dark:bg-[#C89D43]/25 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/50"
-                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
-                }`}>
-                  {stageCounts.Finished} Articles
-                </span>
-              </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white truncate">Full Aniline, Pull-Up, Nappa</div>
-              <p className="text-[10px] sm:text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Luxury shoes, bags, garments & upholstery
-              </p>
-              {selectedStage === "Finished" && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
-              )}
-            </button>
-
-            {/* 2. Crust Leather Tab */}
+            {/* 1. Crust Leather Tab */}
             <button
               type="button"
               onClick={() => setSelectedStage("Crust")}
@@ -340,6 +309,39 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                 Semi-finished substrate for finishing tanneries
               </p>
               {selectedStage === "Crust" && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
+              )}
+            </button>
+
+            {/* 2. Finished Leather Tab */}
+            <button
+              type="button"
+              onClick={() => setSelectedStage("Finished")}
+              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group ${
+                selectedStage === "Finished"
+                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
+                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-1 mb-1.5 flex-wrap">
+                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono ${
+                  selectedStage === "Finished" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
+                }`}>
+                  {isBn ? "ফিনিশড লেদার" : "Finished Leather"}
+                </span>
+                <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
+                  selectedStage === "Finished"
+                    ? "bg-[#FAF3E0] dark:bg-[#C89D43]/25 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/50"
+                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
+                }`}>
+                  {stageCounts.Finished} Articles
+                </span>
+              </div>
+              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white truncate">Full Aniline, Pull-Up, Nappa</div>
+              <p className="text-[10px] sm:text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Luxury shoes, bags, garments & upholstery
+              </p>
+              {selectedStage === "Finished" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
               )}
             </button>
@@ -450,46 +452,76 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
             {/* Quick Filter Actions */}
             <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap">
               
-              {/* Sustainable Filter Pill */}
+              {/* Sustainable Filter Toggle */}
               <button
                 type="button"
                 onClick={() => setOnlySustainable(!onlySustainable)}
-                className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border cursor-pointer transition-all ${
+                className={`inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-xl border cursor-pointer transition-all whitespace-nowrap ${
                   onlySustainable
                     ? "bg-[#FAF4E2] text-[#8C6214] border-[#C89D43] shadow-xs font-bold dark:bg-[#C89D43]/20 dark:text-[#F3CE6D]"
                     : "bg-[#FAF8F5] dark:bg-[#1A140F] text-stone-700 dark:text-stone-300 border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43]/70"
                 }`}
               >
                 <Leaf className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span>LWG / Eco Only</span>
+                <span>LWG / Eco</span>
               </button>
 
               {/* Detailed Filters Toggle */}
               <button
                 type="button"
                 onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                className={`inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-xl border cursor-pointer transition-all ${
-                  showAdvancedFilters || activeFilterCount > 0
+                className={`inline-flex items-center gap-2 px-3.5 py-2 text-xs font-semibold rounded-xl border cursor-pointer transition-all whitespace-nowrap ${
+                  showAdvancedFilters || selectedTanning !== "All" || selectedApplication !== "All"
                     ? "bg-[#FAF4E2] dark:bg-[#C89D43]/20 text-[#8C6214] dark:text-[#F3CE6D] border-[#C89D43] shadow-xs font-bold"
                     : "bg-[#FAF8F5] dark:bg-[#1A140F] text-stone-700 dark:text-stone-300 border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43]/70"
                 }`}
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-[#C89D43]" />
-                <span>{isBn ? "ফিল্টার সমূহ" : "Advanced Filters"}</span>
-                {activeFilterCount > 0 && (
+                <span>{isBn ? "আরও ফিল্টার" : "More Filters"}</span>
+                {(selectedTanning !== "All" || selectedApplication !== "All") && (
                   <span className="w-4 h-4 rounded-full bg-[#C89D43] text-[#15120E] text-[10px] font-bold flex items-center justify-center font-mono">
-                    {activeFilterCount}
+                    {(selectedTanning !== "All" ? 1 : 0) + (selectedApplication !== "All" ? 1 : 0)}
                   </span>
                 )}
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${showAdvancedFilters ? "rotate-180" : ""}`} />
               </button>
+
+              {/* Grid / List View Switcher */}
+              <div className="inline-flex items-center p-1 bg-[#FAF8F5] dark:bg-[#1A140F] border border-[#DED4BD] dark:border-stone-700 rounded-xl">
+                <button
+                  type="button"
+                  onClick={() => setViewMode("grid")}
+                  title={isBn ? "গ্রিড ভিউ" : "Gallery Grid View"}
+                  aria-label="Gallery Grid View"
+                  className={`p-1.5 rounded-lg cursor-pointer transition-colors ${
+                    viewMode === "grid"
+                      ? "bg-[#C89D43] text-[#15120E] shadow-2xs"
+                      : "text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-white"
+                  }`}
+                >
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setViewMode("list")}
+                  title={isBn ? "তালিকা ভিউ" : "Quick Spec List View"}
+                  aria-label="Quick Spec List View"
+                  className={`p-1.5 rounded-lg cursor-pointer transition-colors ${
+                    viewMode === "list"
+                      ? "bg-[#C89D43] text-[#15120E] shadow-2xs"
+                      : "text-stone-500 hover:text-stone-800 dark:text-stone-400 dark:hover:text-white"
+                  }`}
+                >
+                  <List className="w-3.5 h-3.5" />
+                </button>
+              </div>
 
               {/* Reset Filter Button */}
               {hasActiveFilters && (
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#8C6214] dark:text-[#F3CE6D] hover:bg-[#FAF4E2] dark:hover:bg-[#1C150F] rounded-xl border border-transparent hover:border-[#C89D43]/30 cursor-pointer transition-all"
+                  className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-[#8C6214] dark:text-[#F3CE6D] hover:bg-[#FAF4E2] dark:hover:bg-[#1C150F] rounded-xl border border-transparent hover:border-[#C89D43]/30 cursor-pointer transition-all whitespace-nowrap"
                   title="Reset all filters to default"
                 >
                   <RotateCcw className="w-3.5 h-3.5 text-[#C89D43]" />
@@ -499,6 +531,49 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
 
             </div>
 
+          </div>
+
+          {/* Always-Visible 1-Tap Quick Filters (Animal & Popular Grain) */}
+          <div className="mt-3.5 pt-3.5 border-t border-[#EAE3D2]/70 dark:border-stone-800/80 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 mr-1">
+                {isBn ? "চামড়ার ধরন:" : "Hide:"}
+              </span>
+              {animalOptions.map((opt) => (
+                <button
+                  key={opt}
+                  type="button"
+                  onClick={() => setSelectedAnimal(opt)}
+                  className={`px-2.5 py-1 text-xs rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
+                    selectedAnimal === opt
+                      ? "bg-[#1C1712] dark:bg-[#C89D43] text-white dark:text-[#15120E] font-semibold"
+                      : "bg-[#FAF8F5] dark:bg-[#1A140F] text-stone-600 dark:text-stone-300 border border-[#E5DBBE] dark:border-stone-700 hover:border-[#C89D43]"
+                  }`}
+                >
+                  {opt === "All" ? (isBn ? "সবগুলো" : "All Hides") : opt}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-1.5 flex-wrap">
+              <span className="text-[11px] font-mono uppercase tracking-wider text-stone-500 dark:text-stone-400 mr-1">
+                {isBn ? "গ্রেইন:" : "Grain:"}
+              </span>
+              {["All", "Full Grain", "Top Grain", "Nubuck", "Suede", "Split"].map((opt) => (
+                <button
+                  key={opt}
+                  type="button"
+                  onClick={() => setSelectedGrain(opt)}
+                  className={`px-2.5 py-1 text-xs rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
+                    selectedGrain === opt
+                      ? "bg-[#1C1712] dark:bg-[#C89D43] text-white dark:text-[#15120E] font-semibold"
+                      : "bg-[#FAF8F5] dark:bg-[#1A140F] text-stone-600 dark:text-stone-300 border border-[#E5DBBE] dark:border-stone-700 hover:border-[#C89D43]"
+                  }`}
+                >
+                  {opt === "All" ? (isBn ? "সব গ্রেইন" : "All Grains") : opt}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Advanced Multi-Faceted Filter Strips (Interactive Chips in Brand Colors) */}
@@ -631,26 +706,47 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
 
           {/* Active Filter Summary Bar */}
           <div className="flex items-center justify-between pt-3 mt-3 border-t border-[#EAE3D2] dark:border-stone-800 text-xs text-stone-500 dark:text-stone-400 flex-wrap gap-2">
-            <div>
+            <div className="flex items-center gap-2 flex-wrap">
               {isBn ? (
                 <span>
-                  দেখাচ্ছে: <strong className="text-[#1C1712] dark:text-[#FAF6F0] font-mono">{filteredProducts.length}</strong> টি আর্টিকেল
-                  {selectedStage !== "All" && ` (${selectedStage} Leather)`}
+                  দেখাচ্ছে: <strong className="text-[#1C1712] dark:text-[#FAF6F0] font-mono tabular-nums">{filteredProducts.length}</strong> টি আর্টিকেল
+                  {selectedStage !== "All" && ` (${selectedStage})`}
                 </span>
               ) : (
                 <span>
-                  Showing <strong className="text-[#1C1712] dark:text-[#FAF6F0] font-mono">{filteredProducts.length}</strong> matching articles
-                  {selectedStage !== "All" && ` in ${selectedStage} Stage`}
+                  Showing <strong className="text-[#1C1712] dark:text-[#FAF6F0] font-mono tabular-nums">{filteredProducts.length}</strong> articles
+                  {selectedStage !== "All" && ` in ${selectedStage}`}
                 </span>
+              )}
+
+              {selectedTanning !== "All" && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedTanning("All")}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#FAF3E0] dark:bg-[#C89D43]/20 text-[#8C6214] dark:text-[#F3CE6D] text-[11px] font-medium cursor-pointer"
+                >
+                  <span>{selectedTanning}</span>
+                  <X className="w-3 h-3" />
+                </button>
+              )}
+              {selectedApplication !== "All" && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedApplication("All")}
+                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#FAF3E0] dark:bg-[#C89D43]/20 text-[#8C6214] dark:text-[#F3CE6D] text-[11px] font-medium cursor-pointer"
+                >
+                  <span>{selectedApplication}</span>
+                  <X className="w-3 h-3" />
+                </button>
               )}
             </div>
 
             <div className="text-[11px] font-medium text-[#8C6214] dark:text-[#F3CE6D] flex items-center gap-1.5">
-              <Info className="w-3.5 h-3.5 text-[#C89D43]" />
+              <Info className="w-3.5 h-3.5 text-[#C89D43] shrink-0" />
               <span>
                 {isBn
-                  ? "যে কোনো আর্টিকেলের বিস্তারিত স্পেসিফিকেশন দেখতে কার্ডে ক্লিক করুন"
-                  : "Click 'View Details' on any card to view complete technical specs & lab dips"}
+                  ? "ছবির নিচে জুম বা ফুল HD আইকনে ক্লিক করে গ্রেইন দেখুন অথবা ডিটেইলসে ক্লিক করুন"
+                  : "Click any photo for specs, or use the Zoom / Full HD icons on hover"}
               </span>
             </div>
           </div>
@@ -672,165 +768,222 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
           </div>
         ) : (
           <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
-              {paginatedProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="bg-white dark:bg-[#130E0A] border border-[#E8DFC8] dark:border-stone-800/90 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-[#C89D43] hover:shadow-[0_16px_36px_-6px_rgba(200,157,67,0.22)] group hover:-translate-y-1.5"
-                >
-                  <div>
-                    {/* Media Container with 2.4x Interactive Grain Magnifier */}
-                    <LeatherImageMagnifier
-                      src={product.image}
-                      alt={`${product.name} hide sample`}
-                      zoomLevel={2.4}
-                      aspectRatioClass="aspect-[4/3]"
-                      category={product.stage}
-                      badgeLabel={product.articleNumber}
-                      isSustainable={product.isSustainable}
-                      onClick={() => {
-                        trackEvent("product_detail_view", { product_id: product.id });
-                        onSelectProduct(product);
-                      }}
-                    />
+            {viewMode === "grid" ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+                {paginatedProducts.map((product) => (
+                  <div
+                    key={product.id}
+                    className="bg-white dark:bg-[#130E0A] border border-[#E8DFC8] dark:border-stone-800/90 rounded-2xl overflow-hidden flex flex-col justify-between transition-all duration-200 hover:border-[#C89D43] hover:shadow-[0_14px_32px_-6px_rgba(200,157,67,0.2)] group hover:-translate-y-0.5"
+                  >
+                    <div>
+                      {/* Unobstructed High-Resolution 4:3 Leather Photo */}
+                      <LeatherImageMagnifier
+                        src={product.image}
+                        alt={`${product.name} hide sample`}
+                        mode="card"
+                        zoomLevel={3}
+                        aspectRatioClass="aspect-[4/3]"
+                        isSustainable={product.isSustainable}
+                        onClick={() => {
+                          trackEvent("product_detail_view", { product_id: product.id });
+                          onSelectProduct(product);
+                        }}
+                      />
 
-                    {/* Card Content */}
-                    <div className="p-5 sm:p-6 space-y-3.5">
-                      
-                      {/* Top Meta Strip: Article Number Badge & Tanning Info */}
-                      <div className="flex items-center justify-between text-xs gap-2">
-                        <span className="font-mono text-xs px-2.5 py-0.5 rounded-md bg-[#FAF3E0] dark:bg-[#C89D43]/20 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/40 font-bold">
-                          {product.articleNumber || product.id}
-                        </span>
-                        <div className="text-[11px] font-medium text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-                          <span>{product.animal}</span>
-                          <span aria-hidden="true" className="text-stone-300 dark:text-stone-700">·</span>
-                          <span>{product.tanningMethod.split(" ")[0]}</span>
-                        </div>
-                      </div>
-
-                      {/* Title & Description */}
-                      <div>
-                        <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1C1712] dark:text-[#FAF6F0] group-hover:text-[#9E731C] dark:group-hover:text-[#E5BE58] transition-colors leading-snug">
-                          <a
-                            href={`/product/${product.id}`}
-                            title={`${product.name} - Bangladesh Leather Sourcing & Export`}
-                            aria-label={`View technical specifications for ${product.name}`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              trackEvent("product_detail_view", { product_id: product.id });
-                              onSelectProduct(product);
-                            }}
-                            className="hover:underline"
-                          >
-                            {product.name}
-                          </a>
-                        </h3>
-                        <p className="mt-2 text-xs text-stone-600 dark:text-stone-300 line-clamp-2 leading-relaxed">
-                          {product.shortDescription}
-                        </p>
-                      </div>
-
-                      {/* Eco-Compliant Sourcing Tag */}
-                      {product.isSustainable && (
-                        <div className="flex items-center gap-1.5 p-2 bg-[#F6F8F3] dark:bg-[#121A10] border border-[#A5D6A7]/50 dark:border-[#2E7D32]/40 rounded-lg text-[11px] text-emerald-900 dark:text-emerald-300">
-                          <Leaf className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                          <span className="font-bold text-emerald-950 dark:text-emerald-200">LWG / Eco:</span>
-                          <span className="truncate">{product.sustainabilityNote}</span>
-                        </div>
-                      )}
-
-                      {/* Bespoke Thickness Callout Strip (Highlighting Buyer Specification) */}
-                      <div className="p-2.5 rounded-lg bg-gradient-to-r from-[#FAF6ED] to-[#FFFDF9] dark:from-[#1C150F] dark:to-[#150F0A] border border-[#C89D43]/35 flex items-center justify-between gap-2 text-xs">
-                        <div className="flex items-center gap-1.5 text-stone-700 dark:text-stone-300 font-semibold shrink-0">
-                          <Gauge className="w-3.5 h-3.5 text-[#C89D43]" />
-                          <span>Thickness:</span>
-                        </div>
-                        <span className="text-[#8C6214] dark:text-[#F3CE6D] font-bold text-right truncate">
-                          {isBn ? "বায়ারের চাহিদা অনুযায়ী কাস্টমাইজড" : "Customized per Buyer Tech Pack"}
-                        </span>
-                      </div>
-
-                      {/* Unboxed Metadata Parameters */}
-                      <div className="text-[11px] text-stone-500 dark:text-stone-400 space-y-1.5 pt-1">
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="text-stone-700 dark:text-stone-300 font-semibold">Origin:</span>
-                          <span>Savar, Bangladesh</span>
-                          <span aria-hidden="true" className="text-stone-300 dark:text-stone-700">·</span>
-                          <span className="text-stone-700 dark:text-stone-300 font-semibold">Grain:</span>
-                          <span>{product.grainType}</span>
+                      {/* Clean Card Content */}
+                      <div className="p-5 sm:p-6 space-y-3">
+                        {/* Quiet Single-Line Metadata */}
+                        <div className="flex items-center justify-between text-xs gap-2 text-stone-500 dark:text-stone-400">
+                          <span className="font-mono font-bold text-[#8C6214] dark:text-[#E5BE58]">
+                            {product.articleNumber || product.id}
+                          </span>
+                          <span className="truncate">
+                            {product.animal} · {product.tanningMethod}
+                          </span>
                         </div>
 
-                        <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="text-stone-700 dark:text-stone-300 font-semibold">Inspection:</span>
-                          <span>Pre-Shipment Quality Verified</span>
-                          <span aria-hidden="true" className="text-stone-300 dark:text-stone-700">·</span>
-                          <span className="text-[#8C6214] dark:text-[#E5BE58] font-semibold">FOB/CFR</span>
+                        {/* Title & Description */}
+                        <div>
+                          <h3 className="font-display text-xl sm:text-2xl font-bold text-[#1C1712] dark:text-[#FAF6F0] group-hover:text-[#9E731C] dark:group-hover:text-[#E5BE58] transition-colors leading-snug">
+                            <a
+                              href={`/product/${product.id}`}
+                              title={`${product.name} - Bangladesh Leather Export`}
+                              aria-label={`View technical specifications for ${product.name}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                trackEvent("product_detail_view", { product_id: product.id });
+                                onSelectProduct(product);
+                              }}
+                              className="hover:underline"
+                            >
+                              {product.name}
+                            </a>
+                          </h3>
+                          <p className="mt-1.5 text-xs sm:text-[13px] text-stone-600 dark:text-stone-300 line-clamp-2 leading-relaxed">
+                            {product.shortDescription}
+                          </p>
+                        </div>
+
+                        {/* Clean Hairline Specification Rows */}
+                        <div className="pt-2.5 border-t border-stone-100 dark:border-stone-800/80 space-y-1.5 text-xs text-stone-600 dark:text-stone-300">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-stone-400 dark:text-stone-500">Grain & Stage</span>
+                            <span className="font-medium text-stone-800 dark:text-stone-200 text-right">
+                              {product.grainType} · {product.stage}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-stone-400 dark:text-stone-500">Thickness</span>
+                            <span className="font-semibold text-[#8C6214] dark:text-[#F3CE6D] text-right truncate">
+                              {isBn ? "টেক প্যাক অনুযায়ী কাস্টম" : "Custom per Tech Pack"}
+                            </span>
+                          </div>
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-stone-400 dark:text-stone-500 shrink-0">Use</span>
+                            <span className="text-right truncate font-medium">
+                              {product.applications.slice(0, 2).join(" · ")}
+                            </span>
+                          </div>
                         </div>
                       </div>
+                    </div>
 
-                      {/* Applications Preview */}
-                      <div className="space-y-1 pt-1 border-t border-stone-100 dark:border-stone-800/80">
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-stone-400 dark:text-stone-500 block font-mono">
-                          Target Applications
-                        </span>
-                        <p className="text-xs text-stone-600 dark:text-stone-300 line-clamp-1 font-medium">
-                          {product.applications.slice(0, 3).join(" · ")}
-                        </p>
+                    {/* Spacious Touch-Friendly Card Footer */}
+                    <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-[#EAE3D2]/70 dark:border-stone-800/80 flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            trackEvent("product_detail_view", { product_id: product.id });
+                            onSelectProduct(product);
+                          }}
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] dark:bg-stone-800 hover:bg-[#FAF4E2] dark:hover:bg-[#201913] text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-[#8C6214] dark:hover:text-[#F3CE6D] border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-all whitespace-nowrap"
+                        >
+                          <span>{isBn ? "বিস্তারিত" : "View Specs"}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43]" />
+                        </button>
+
+                        <button
+                          type="button"
+                          onClick={(e) => handleCopyProductLink(e, product.id)}
+                          title={`Copy direct link: /product/${product.id}`}
+                          className="p-2.5 rounded-xl text-stone-400 dark:text-stone-500 hover:text-[#C89D43] hover:bg-[#FAF4E2] dark:hover:bg-stone-800 transition-colors cursor-pointer"
+                          aria-label={`Copy link for ${product.name}`}
+                        >
+                          {copiedId === product.id ? (
+                            <Check className="w-4 h-4 text-emerald-600" />
+                          ) : (
+                            <Link2 className="w-4 h-4" />
+                          )}
+                        </button>
                       </div>
 
+                      <button
+                        type="button"
+                        onClick={() => {
+                          trackEvent("request_quote_click", {
+                            location: "product_card",
+                            product_name: product.name,
+                          });
+                          onRequestQuote(`${product.name} (${product.articleNumber || product.id})`);
+                        }}
+                        className="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-[#15120E] bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap group/btn flex-1 sm:flex-initial"
+                      >
+                        <span>{t.catalogue.requestQuote}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-[#15120E] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      </button>
                     </div>
                   </div>
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-3.5">
+                {paginatedProducts.map((product) => (
+                  <div
+                    key={product.id}
+                    className="bg-white dark:bg-[#130E0A] border border-[#E8DFC8] dark:border-stone-800/90 rounded-2xl p-3.5 sm:p-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 hover:border-[#C89D43] transition-colors"
+                  >
+                    <div className="w-full sm:w-44 shrink-0 rounded-xl overflow-hidden border border-stone-200 dark:border-stone-800">
+                      <LeatherImageMagnifier
+                        src={product.image}
+                        alt={`${product.name} hide sample`}
+                        mode="card"
+                        zoomLevel={3}
+                        aspectRatioClass="aspect-[4/3]"
+                        isSustainable={product.isSustainable}
+                        onClick={() => {
+                          trackEvent("product_detail_view", { product_id: product.id });
+                          onSelectProduct(product);
+                        }}
+                      />
+                    </div>
 
-                  {/* Card Action Footer */}
-                  <div className="p-4 sm:p-6 pt-0 border-t border-[#EAE3D2]/70 dark:border-stone-800/80 mt-2 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
-                    <div className="flex items-center gap-1.5 shrink-0">
+                    <div className="flex-1 min-w-0 space-y-1.5">
+                      <div className="flex items-center gap-2 text-xs text-stone-500 dark:text-stone-400 flex-wrap">
+                        <span className="font-mono font-bold text-[#8C6214] dark:text-[#E5BE58]">
+                          {product.articleNumber || product.id}
+                        </span>
+                        <span aria-hidden="true">·</span>
+                        <span>{product.stage}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>{product.animal}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>{product.grainType}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>{product.tanningMethod}</span>
+                      </div>
+                      <h3 className="font-display text-xl font-bold text-[#1C1712] dark:text-[#FAF6F0]">
+                        <a
+                          href={`/product/${product.id}`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            trackEvent("product_detail_view", { product_id: product.id });
+                            onSelectProduct(product);
+                          }}
+                          className="hover:text-[#9E731C] dark:hover:text-[#E5BE58] hover:underline"
+                        >
+                          {product.name}
+                        </a>
+                      </h3>
+                      <p className="text-xs text-stone-600 dark:text-stone-300 line-clamp-2">
+                        {product.shortDescription}
+                      </p>
+                      <div className="text-[11px] text-stone-500 dark:text-stone-400">
+                        {product.applications.slice(0, 3).join(" · ")}
+                      </div>
+                    </div>
+
+                    <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-stone-100 dark:border-stone-800">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          trackEvent("request_quote_click", {
+                            location: "product_list",
+                            product_name: product.name,
+                          });
+                          onRequestQuote(`${product.name} (${product.articleNumber || product.id})`);
+                        }}
+                        className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-[#15120E] bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] rounded-xl cursor-pointer whitespace-nowrap"
+                      >
+                        <span>{t.catalogue.requestQuote}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+                      </button>
                       <button
                         type="button"
                         onClick={() => {
                           trackEvent("product_detail_view", { product_id: product.id });
                           onSelectProduct(product);
                         }}
-                        className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[#FAF8F5] dark:bg-stone-800 hover:bg-[#FAF4E2] dark:hover:bg-[#201913] text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-[#8C6214] dark:hover:text-[#F3CE6D] border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-all shadow-2xs"
+                        className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-[#FAF8F5] dark:bg-stone-800 text-xs font-semibold text-stone-700 dark:text-stone-200 border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer whitespace-nowrap"
                       >
-                        <span>{isBn ? "ডিটেইলস দেখুন" : "View Details"}</span>
+                        <span>{isBn ? "বিস্তারিত" : "View Specs"}</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43]" />
                       </button>
-
-                      <button
-                        type="button"
-                        onClick={(e) => handleCopyProductLink(e, product.id)}
-                        title={`Copy direct link: /product/${product.id}`}
-                        className="p-2 rounded-lg text-stone-400 dark:text-stone-500 hover:text-[#C89D43] hover:bg-[#FAF4E2] dark:hover:bg-stone-800 transition-colors cursor-pointer"
-                        aria-label={`Copy link for ${product.name}`}
-                      >
-                        {copiedId === product.id ? (
-                          <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        ) : (
-                          <Link2 className="w-3.5 h-3.5" />
-                        )}
-                      </button>
                     </div>
-
-                    <button
-                      type="button"
-                      onClick={() => {
-                        trackEvent("request_quote_click", {
-                          location: "product_card",
-                          product_name: product.name,
-                        });
-                        onRequestQuote(`${product.name} (${product.articleNumber || product.id})`);
-                      }}
-                      className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-[#15120E] bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-lg transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap group/btn w-full sm:w-auto"
-                    >
-                      <span>{t.catalogue.requestQuote}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-[#15120E] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                    </button>
                   </div>
-
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            )}
 
             {/* Pagination Controls */}
             {totalPages > 1 && (

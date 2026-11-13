@@ -3,17 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Immediate Theme & Language Hydration to default to light mode on entry -->
+    <!-- Immediate Theme & Language Hydration to default to white theme on entry -->
     <script>
       (function() {
         try {
-          // Clear legacy dark mode preference if any was previously auto-assigned
-          var legacy = localStorage.getItem("exportvisor_theme");
-          if (legacy === "dark" && !localStorage.getItem("exportvisor_theme_v2")) {
-            localStorage.removeItem("exportvisor_theme");
-          }
-          var t = localStorage.getItem("exportvisor_theme_v2");
-          if (t === "dark") {
+          // Clear legacy stored dark mode keys so entering the website starts in White Theme
+          localStorage.removeItem("exportvisor_theme");
+          localStorage.removeItem("exportvisor_theme_v2");
+          var sessionTheme = sessionStorage.getItem("exportvisor_user_theme");
+          if (sessionTheme === "dark") {
             document.documentElement.classList.add("dark");
             document.documentElement.style.colorScheme = "dark";
           } else {
@@ -34,6 +32,9 @@
     </script>
     <link rel="icon" type="image/png" href="/cropped-ExportVisor_Icon_Transparent_1024-removebg-preview.png" />
     <meta name="google-site-verification" content="8YU8k9P_5P94u0TUtBx-cII0AXfr6vJNPip93hUYky0" />
+    <meta name="msvalidate.01" content="B8246E136D7FF932EE268CEF0BFDAA94" />
+    <meta name="yandex-verification" content="5d380a7e11e80cd2" />
+    <meta name="baidu-site-verification" content="codeva-ExportVisorBD" />
     
     <!-- Primary Meta Tags -->
     <title>Bangladesh Cow Leather Exporter & Tannery Liaison</title>
@@ -42,16 +43,21 @@
     <meta name="keywords" content="bangladesh cow leather, bovine hides exporter, savar cow leather, footwear upper leather" />
     <meta name="author" content="ExportVisor" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="slurp" content="index, follow" />
+    <meta name="baiduspider" content="index, follow" />
+    <meta name="yandex" content="index, follow" />
     <link rel="canonical" href="https://exportvisor.com/product/cow-leather-collection" />
-    <meta name="theme-color" content="#15120E" />
+    <meta name="theme-color" content="#FAF8F5" />
 
     <!-- Business, Topic & Search Engine Classification -->
     <meta name="application-name" content="ExportVisor" />
     <meta name="apple-mobile-web-app-title" content="ExportVisor" />
     <meta name="classification" content="Business, Leather Export, B2B Sourcing, Manufacturing" />
-    <meta name="subject" content="Bangladesh Leather Sourcing & Export Agency" />
+    <meta name="subject" content="Bangladesh Direct Tannery Export Desk & Manufacturing Operations" />
     <meta name="topic" content="Leather Manufacturing, Wet Blue, Crust, Finished Leather Export" />
-    <meta name="summary" content="ExportVisor connects global buyers directly with vetted LWG and ISO certified tanneries in Bangladesh. Direct factory gate pricing, pre-shipment quality control, and maritime container export." />
+    <meta name="summary" content="ExportVisor manages direct factory exports from vetted LWG and ISO certified tanneries in Savar, Bangladesh. Direct factory gate pricing, pre-shipment quality inspection, and maritime container export." />
 
     <!-- International Discovery & Geotargeting -->
     <meta name="geo.region" content="BD-13" />
@@ -126,995 +132,789 @@
 
     <!-- Schema.org Comprehensive Structured Data (JSON-LD) -->
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
+      "@type": [
+        "Organization",
+        "WholesaleStore"
+      ],
+      "@id": "https://exportvisor.com/#organization",
+      "name": "ExportVisor",
+      "alternateName": "ExportVisor Bangladesh",
+      "legalName": "ExportVisor Tannery Export Desk & Manufacturing Operations",
+      "url": "https://exportvisor.com",
+      "logo": "https://exportvisor.com/Logo3_4.png",
+      "image": "https://exportvisor.com/og-image.jpg",
+      "description": "Premier direct Tannery Export Desk in Bangladesh managing factory gate leather exports from vetted ISO & LWG-audited tanneries in Savar, Dhaka directly to global footwear brands, manufacturers, and re-tanners.",
+      "email": "info@exportvisor.com",
+      "telephone": "+8801355976619",
+      "priceRange": "$",
+      "currenciesAccepted": "USD, EUR, GBP, CNY",
+      "paymentAccepted": "Letter of Credit (L/C), Telegraphic Transfer (T/T)",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Beribadh Road, Sikdar Estate, Chorokghata, Nawabganj",
+        "addressLocality": "Dhaka",
+        "postalCode": "1312",
+        "addressRegion": "Dhaka Division",
+        "addressCountry": "BD"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 23.7272,
+        "longitude": 90.3541
+      },
+      "hasMap": "https://maps.app.goo.gl/F9aseXrAYr9og3PT9",
+      "areaServed": [
+        "Worldwide",
+        "European Union",
+        "North America",
+        "United Kingdom",
+        "Asia Pacific",
+        "Middle East"
+      ],
+      "knowsAbout": [
+        "Leather Sourcing",
+        "Wet Blue Bovine Leather",
+        "Cow Crust Leather",
+        "Finished Cow Nappa",
+        "LWG Audited Tanneries Bangladesh",
+        "Pre-Shipment Quality Inspection",
+        "Chittagong Port Export Shipping",
+        "Footwear Upper Leather"
+      ],
+      "contactPoint": [
         {
-          "@type": ["Organization", "WholesaleStore"],
-          "@id": "https://exportvisor.com/#organization",
-          "name": "ExportVisor",
-          "alternateName": "ExportVisor Bangladesh",
-          "legalName": "ExportVisor Leather Sourcing & Export Agency",
-          "url": "https://exportvisor.com",
-          "logo": "https://exportvisor.com/Logo3_4.png",
-          "image": "https://exportvisor.com/og-image.jpg",
-          "description": "Premier B2B leather sourcing and export agency in Bangladesh connecting global importers, footwear brands, and leather goods manufacturers with vetted ISO & LWG-audited tanneries in Savar, Dhaka.",
+          "@type": "ContactPoint",
+          "telephone": "+8801355976619",
+          "contactType": "sales",
           "email": "info@exportvisor.com",
-          "telephone": "+8801570264394",
-          "priceRange": "$$",
-          "currenciesAccepted": "USD, EUR, GBP, CNY",
-          "paymentAccepted": "Letter of Credit (L/C), Telegraphic Transfer (T/T)",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Beribadh Road, Sikdar Estate, Chorokghata, Nawabganj",
-            "addressLocality": "Dhaka",
-            "postalCode": "1312",
-            "addressRegion": "Dhaka Division",
-            "addressCountry": "BD"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 23.7272,
-            "longitude": 90.3541
-          },
-          "hasMap": "https://maps.app.goo.gl/F9aseXrAYr9og3PT9",
-          "areaServed": [
-            "Worldwide",
-            "European Union",
-            "North America",
-            "United Kingdom",
-            "Asia Pacific",
-            "Middle East"
-          ],
-          "knowsAbout": [
-            "Leather Sourcing",
-            "Wet Blue Bovine Leather",
-            "Cow Crust Leather",
-            "Finished Cow Nappa",
-            "LWG Audited Tanneries Bangladesh",
-            "Pre-Shipment Quality Inspection",
-            "Chittagong Port Export Shipping",
-            "Footwear Upper Leather"
-          ],
-          "contactPoint": [
-            {
-              "@type": "ContactPoint",
-              "telephone": "+8801570264394",
-              "contactType": "sales",
-              "email": "info@exportvisor.com",
-              "areaServed": "Worldwide",
-              "availableLanguage": ["English", "Bengali", "German", "French", "Spanish", "Italian", "Chinese", "Arabic"]
-            }
-          ],
-          "sameAs": [
-            "https://www.facebook.com/leatherexporters",
-            "https://www.linkedin.com/company/leather-exporter/home/"
+          "areaServed": "Worldwide",
+          "availableLanguage": [
+            "English",
+            "Bengali",
+            "German",
+            "French",
+            "Spanish",
+            "Italian",
+            "Chinese",
+            "Arabic"
           ]
-        },
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/leatherexporters",
+        "https://www.linkedin.com/company/leather-exporter/home/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://exportvisor.com/#website",
+      "url": "https://exportvisor.com",
+      "name": "ExportVisor | Bangladesh Leather Sourcing & Export Partner",
+      "inLanguage": [
+        "en",
+        "bn",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "zh",
+        "ar",
+        "ja",
+        "ko",
+        "tr"
+      ],
+      "publisher": {
+        "@id": "https://exportvisor.com/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://exportvisor.com/#faq",
+      "mainEntity": [
         {
-          "@type": "WebSite",
-          "@id": "https://exportvisor.com/#website",
-          "url": "https://exportvisor.com",
-          "name": "ExportVisor | Bangladesh Leather Sourcing & Export Partner",
-          "inLanguage": ["en", "bn", "de", "fr", "es", "it", "zh", "ar", "ja", "ko", "tr"],
-          "publisher": {
-            "@id": "https://exportvisor.com/#organization"
+          "@type": "Question",
+          "name": "How does ExportVisor handle tannery exports directly for international buyers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ExportVisor operates as the dedicated international export desk and manufacturing partner for premier tanneries in Savar, Bangladesh. International buyers transact directly with factory-gate pricing without third-party middlemen. We coordinate lab dips, drum tanning supervision, 100% pre-shipment quality inspection, and container export shipping."
           }
         },
         {
-          "@type": "FAQPage",
-          "@id": "https://exportvisor.com/#faq",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "What is your role as a leather sourcing agency in Bangladesh?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "ExportVisor acts as your dedicated on-the-ground sourcing liaison and technical inspector in Bangladesh. We connect buyers directly with vetted tanneries, oversee drum production, perform pre-shipment quality control, and handle shipping logistics."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is the typical Minimum Order Quantity (MOQ)?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "MOQs are evaluated per leather category and drum batch size. Wet blue bovine hides typically start around 3,000–5,000 sq ft, while finished leather drum dyed colors typically start from 2,000–3,000 sq ft per shade. Flexible trial orders can be coordinated."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How does the physical sampling & lab-dip process work?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "You provide a master color swatch (physical or Pantone) and technical specifications. We coordinate lab dips and physical counter-samples (full hides or swatches) with partner tanneries and dispatch them internationally via DHL or FedEx for your physical review."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What international payment terms are accepted?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "We facilitate standard international banking arrangements: 100% Irrevocable Letter of Credit (L/C at sight) or Telegraphic Transfer (T/T advance deposit with balance upon B/L copy). Payment terms are confirmed directly with the approved exporting tannery."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can we appoint a third-party inspection agency like SGS or Intertek?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes, absolutely. We welcome and actively coordinate with nominated third-party inspection bodies including SGS, Bureau Veritas, Intertek, or your company's proprietary inspection staff on the factory floor."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Which shipping ports are used for export dispatch?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Ocean freight is primarily dispatched from Chittagong Sea Port (BDCGP) under FOB, CIF, or CFR terms. Urgent sample lots and fast-track production are dispatched via air cargo from Hazrat Shahjalal International Airport (DAC) in Dhaka."
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "What is the typical Minimum Order Quantity (MOQ)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MOQs are evaluated per leather category and drum batch size. Wet blue bovine hides typically start around 3,000–5,000 sq ft, while finished leather drum dyed colors typically start from 2,000–3,000 sq ft per shade. Flexible trial orders can be coordinated."
+          }
         },
         {
-          "@type": "ItemList",
-          "@id": "https://exportvisor.com/#products",
-          "name": "Export Leather Products & Specifications Catalogue",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "item": {
-                "@id": "https://exportvisor.com/product/crust-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "item": {
-                "@id": "https://exportvisor.com/product/finished-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "item": {
-                "@id": "https://exportvisor.com/product/wet-blue-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "item": {
-                "@id": "https://exportvisor.com/product/full-grain-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "item": {
-                "@id": "https://exportvisor.com/product/split-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "item": {
-                "@id": "https://exportvisor.com/product/top-grain-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "item": {
-                "@id": "https://exportvisor.com/product/corrected-grain-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 8,
-              "item": {
-                "@id": "https://exportvisor.com/product/aniline-semi-aniline#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 9,
-              "item": {
-                "@id": "https://exportvisor.com/product/pigmented-leather#product"
-              }
-            },
-            {
-              "@type": "ListItem",
-              "position": 10,
-              "item": {
-                "@id": "https://exportvisor.com/product/buyer-custom-sourcing#product"
-              }
-            }
-          ]
+          "@type": "Question",
+          "name": "How does the physical sampling & lab-dip process work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You provide a master color swatch (physical or Pantone) and technical specifications. We coordinate lab dips and physical counter-samples (full hides or swatches) with partner tanneries and dispatch them internationally via DHL or FedEx for your physical review."
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/crust-leather#product",
-          "url": "https://exportvisor.com/product/crust-leather",
-          "name": "Crust Leather",
-          "alternateName": "Crust Leather Supplier & Exporter Bangladesh | Savar Tannery",
-          "description": "Source high-grade Cow, Buffalo & Goat Crust Leather from Bangladesh tanneries. Natural milling, drum-dyed or vegetable tanned crust for footwear and leather goods.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-CRUST-LEATHER",
-          "mpn": "BD-LTR-CRUST-LEATHER",
-          "category": "Intermediate Stage",
-          "material": "Bovine / Cowhide / Buffalo / Goat based on buyer specification",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "1.65",
-            "highPrice": "3.20",
-            "offerCount": "5000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/crust-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "32",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Milano Leather Goods S.r.l."
-              },
-              "datePublished": "2025-09-15",
-              "reviewBody": "Exceptional drum-dyed crust leather batches with uniform moisture, clean snuffed surfaces, and reliable pre-shipment quality grading."
-            }
-          ]
+          "@type": "Question",
+          "name": "What international payment terms are accepted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We facilitate standard international banking arrangements: 100% Irrevocable Letter of Credit (L/C at sight) or Telegraphic Transfer (T/T advance deposit with balance upon B/L copy). Payment terms are confirmed directly with the approved exporting tannery."
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/finished-leather#product",
-          "url": "https://exportvisor.com/product/finished-leather",
-          "name": "Finished Leather",
-          "alternateName": "Finished Cow Leather Exporter Bangladesh | Factory Sourcing",
-          "description": "Export-grade finished cowhide leather from Bangladesh. Automated spray finish, milled grain, pull-up, glazed finishes tailored for footwear and upholstery.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-FINISHED-LEATHER",
-          "mpn": "BD-LTR-FINISHED-LEATHER",
-          "category": "Finished Leather",
-          "material": "Cowhide / Bovine (Full Grain, Top Grain, or Corrected Grain)",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "2.10",
-            "highPrice": "4.50",
-            "offerCount": "3000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/finished-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "28",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Hamburg Footwear Import GmbH"
-              },
-              "datePublished": "2025-09-20",
-              "reviewBody": "Consistent export-grade finished bovine leather with pristine rub fastness and calibrated electronic area measurement."
-            }
-          ]
+          "@type": "Question",
+          "name": "Can we appoint a third-party inspection agency like SGS or Intertek?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, absolutely. We welcome and actively coordinate with nominated third-party inspection bodies including SGS, Bureau Veritas, Intertek, or your company's proprietary inspection staff on the factory floor."
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/wet-blue-leather#product",
-          "url": "https://exportvisor.com/product/wet-blue-leather",
-          "name": "Wet Blue Leather",
-          "alternateName": "Wet Blue Leather Hides Exporter Bangladesh | Cow & Goat Hides",
-          "description": "Export certified chrome tanned Wet Blue Cow, Buffalo and Goat hides from Bangladesh. High substance yield, machine fleshed, container load shipping.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-WET-BLUE-LEATHER",
-          "mpn": "BD-LTR-WET-BLUE-LEATHER",
-          "category": "Semi-Processed",
-          "material": "Cow / Buffalo / Goat Wet Blue Hides & Splits",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "0.95",
-            "highPrice": "1.85",
-            "offerCount": "10000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/wet-blue-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "41",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Guangzhou Re-tanning Mill Ltd"
-              },
-              "datePublished": "2025-08-11",
-              "reviewBody": "Machine-fleshed wet blue cow hides with 100°C boil test thermal stability and zero chromium shrinkage for international re-tanning."
-            }
-          ]
+          "@type": "Question",
+          "name": "Which shipping ports are used for export dispatch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ocean freight is primarily dispatched from Chittagong Sea Port (BDCGP) under FOB, CIF, or CFR terms. Urgent sample lots and fast-track production are dispatched via air cargo from Hazrat Shahjalal International Airport (DAC) in Dhaka."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://exportvisor.com/#products",
+      "name": "Export Leather Products & Specifications Catalogue",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@id": "https://exportvisor.com/product/crust-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/full-grain-leather#product",
-          "url": "https://exportvisor.com/product/full-grain-leather",
-          "name": "Full Grain Leather",
-          "alternateName": "Full Grain Finished Cow Leather Exporter Bangladesh | Premium Grade",
-          "description": "Export grade authentic Full Grain Cowhide Leather from Bangladesh. Natural unbroken grain pore structure, rich patina, premium footwear and luxury bag grade.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-FULL-GRAIN-LEATHER",
-          "mpn": "BD-LTR-FULL-GRAIN-LEATHER",
-          "category": "Finished Leather",
-          "material": "First-selection Bangladesh bovine cowhide",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "3.20",
-            "highPrice": "5.80",
-            "offerCount": "2500",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/full-grain-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "22",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Artisan Heritage Boot Co."
-              },
-              "datePublished": "2025-10-02",
-              "reviewBody": "Genuine full grain leather preserving authentic pore structure, rich natural patina, and high tensile elongation."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@id": "https://exportvisor.com/product/finished-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/split-leather#product",
-          "url": "https://exportvisor.com/product/split-leather",
-          "name": "Split Leather (Suede & Drop Split)",
-          "alternateName": "Split Leather & Suede Exporter Bangladesh | Work Glove & Boot Split",
-          "description": "Wholesale Split Leather, Wet Blue drop splits, and finished cow split suede from Bangladesh. Ideal for work gloves, footwear linings, and industrial accessories.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-SPLIT-LEATHER",
-          "mpn": "BD-LTR-SPLIT-LEATHER",
-          "category": "Intermediate Stage",
-          "material": "Bangladesh Bovine Drop Split / Wet Blue Split",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "0.85",
-            "highPrice": "1.90",
-            "offerCount": "8000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/split-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "35",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Nordic Industrial Safety Gear"
-              },
-              "datePublished": "2025-07-28",
-              "reviewBody": "Remarkable fibrous density and tear resistance for heavy-duty work gloves, industrial footwear, and cow split suede."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@id": "https://exportvisor.com/product/wet-blue-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/top-grain-leather#product",
-          "url": "https://exportvisor.com/product/top-grain-leather",
-          "name": "Top Grain Leather",
-          "alternateName": "Top Grain Cowhide Leather Supplier Bangladesh | Uniform Finish",
-          "description": "Export top grain bovine leather from Bangladesh. Lightly buffed for flawless consistency, stain resistance, and high yield in commercial footwear & furniture.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-TOP-GRAIN-LEATHER",
-          "mpn": "BD-LTR-TOP-GRAIN-LEATHER",
-          "category": "Finished Leather",
-          "material": "Selected Bangladesh cowhide / steer",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "2.40",
-            "highPrice": "4.20",
-            "offerCount": "4000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/top-grain-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "24",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Valencia Upholstery Design"
-              },
-              "datePublished": "2025-08-19",
-              "reviewBody": "Micro-pigment glaze with outstanding pattern cutting yield, stain resistance, and silky matte hand feel."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@id": "https://exportvisor.com/product/full-grain-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/corrected-grain-leather#product",
-          "url": "https://exportvisor.com/product/corrected-grain-leather",
-          "name": "Corrected Grain Leather",
-          "alternateName": "Corrected Grain & Embossed Leather Exporter Bangladesh | Saffiano & Haircell",
-          "description": "Source embossed corrected grain cowhide leather from Savar, Bangladesh. Saffiano, Haircell, and Pebble prints with high abrasion resistance.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-CORRECTED-GRAIN-LEATHER",
-          "mpn": "BD-LTR-CORRECTED-GRAIN-LEATHER",
-          "category": "Finished Leather",
-          "material": "Bangladesh Bovine Hide",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "1.90",
-            "highPrice": "3.40",
-            "offerCount": "4500",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/corrected-grain-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "29",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Global Uniform Footwear Corp"
-              },
-              "datePublished": "2025-09-04",
-              "reviewBody": "Uniform Saffiano and haircell embossed leather with high flex endurance, Taber abrasion resistance, and consistent thickness."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@id": "https://exportvisor.com/product/split-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/aniline-semi-aniline#product",
-          "url": "https://exportvisor.com/product/aniline-semi-aniline",
-          "name": "Aniline & Semi-Aniline Leather",
-          "alternateName": "Aniline & Semi-Aniline Leather Exporter Bangladesh | Luxury Drum Dyed",
-          "description": "Premium transparent drum-dyed Aniline and Semi-Aniline leather from Bangladesh. Luxurious natural hand feel, breathability, and rich earthy colors.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-ANILINE-SEMI-ANILINE",
-          "mpn": "BD-LTR-ANILINE-SEMI-ANILINE",
-          "category": "Specialty Finish",
-          "material": "Top tier selected Bangladesh Cowhide",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "3.40",
-            "highPrice": "6.20",
-            "offerCount": "2000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/aniline-semi-aniline",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "19",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Tuscan Luxury Leathercraft"
-              },
-              "datePublished": "2025-10-08",
-              "reviewBody": "Supple artisanal hand feel, transparent drum dye penetration, and REACH-compliant waterborne topcoats."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@id": "https://exportvisor.com/product/top-grain-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/pigmented-leather#product",
-          "url": "https://exportvisor.com/product/pigmented-leather",
-          "name": "Pigmented & Coated Leather",
-          "alternateName": "Pigmented Leather Supplier Bangladesh | High Durability & Easy Clean",
-          "description": "Export-grade pigmented cowhide leather from Bangladesh. Extreme stain resistance, lightfastness, and uniform color matching for contract seating and footwear.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-PIGMENTED-LEATHER",
-          "mpn": "BD-LTR-PIGMENTED-LEATHER",
-          "category": "Finished Leather",
-          "material": "Bovine / Cowhide",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "1.80",
-            "highPrice": "3.10",
-            "offerCount": "6000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/pigmented-leather",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "27",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Contract Seating Solutions"
-              },
-              "datePublished": "2025-08-30",
-              "reviewBody": "Polymer sealed surface that wipes clean easily and passes heavy Bally flex tests for institutional footwear and hospitality seating."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 7,
+          "item": {
+            "@id": "https://exportvisor.com/product/corrected-grain-leather#product"
+          }
         },
         {
-          "@type": "Product",
-          "@id": "https://exportvisor.com/product/buyer-custom-sourcing#product",
-          "url": "https://exportvisor.com/product/buyer-custom-sourcing",
-          "name": "Buyer-Specified Custom Leather",
-          "alternateName": "Custom Leather Sourcing & Counter Sample Development Bangladesh",
-          "description": "Bespoke leather development tailored to your exact physical sample, thickness, and color. Counter-samples and lab dip testing from Savar tanneries.",
-          "image": [
-            "https://exportvisor.com/og-image.jpg",
-            "https://exportvisor.com/hero-ship.jpg"
-          ],
-          "sku": "EV-BUYER-CUSTOM-SOURCING",
-          "mpn": "BD-LTR-BUYER-CUSTOM-SOURCING",
-          "category": "Specialty Finish",
-          "material": "Bovine / Buffalo / Goat based on buyer requirement",
-          "countryOfOrigin": {
-            "@type": "Country",
-            "name": "Bangladesh"
-          },
-          "brand": {
-            "@type": "Brand",
-            "name": "ExportVisor",
-            "logo": "https://exportvisor.com/Logo3_4.png"
-          },
-          "manufacturer": {
-            "@type": "Organization",
-            "@id": "https://exportvisor.com/#organization"
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "USD",
-            "lowPrice": "1.75",
-            "highPrice": "5.50",
-            "offerCount": "2000",
-            "priceValidUntil": "2027-12-31",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://exportvisor.com/product/buyer-custom-sourcing",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "priceCurrency": "USD",
-              "unitText": "SQFT"
-            },
-            "seller": {
-              "@type": "Organization",
-              "name": "ExportVisor",
-              "url": "https://exportvisor.com"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "18",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "review": [
-            {
-              "@type": "Review",
-              "reviewRating": {
-                "@type": "Rating",
-                "ratingValue": "5",
-                "bestRating": "5"
-              },
-              "author": {
-                "@type": "Person",
-                "name": "Bespoke Footwear Atelier"
-              },
-              "datePublished": "2025-09-29",
-              "reviewBody": "Exact lab-dip color and temper matching to our proprietary physical leather counter swatches from Savar tanneries."
-            }
-          ]
+          "@type": "ListItem",
+          "position": 8,
+          "item": {
+            "@id": "https://exportvisor.com/product/aniline-semi-aniline#product"
+          }
         },
         {
-          "@type": "BreadcrumbList",
-          "@id": "https://exportvisor.com/#breadcrumbs",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Home",
-              "item": "https://exportvisor.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "About Leather Agency",
-              "item": "https://exportvisor.com/about"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Leather Catalogue",
-              "item": "https://exportvisor.com/products"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Commercial Terms",
-              "item": "https://exportvisor.com/terms"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "Leather Knowledge Hub",
-              "item": "https://exportvisor.com/knowledge-hub"
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "Request a Quote",
-              "item": "https://exportvisor.com/quote"
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "name": "Procurement FAQ",
-              "item": "https://exportvisor.com/faq"
-            }
-          ]
+          "@type": "ListItem",
+          "position": 9,
+          "item": {
+            "@id": "https://exportvisor.com/product/pigmented-leather#product"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "item": {
+            "@id": "https://exportvisor.com/product/buyer-custom-sourcing#product"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/crust-leather#product",
+      "url": "https://exportvisor.com/product/crust-leather",
+      "name": "Crust Leather",
+      "alternateName": "Crust Leather Supplier & Exporter Bangladesh | Savar Tannery",
+      "description": "Source high-grade Cow, Buffalo & Goat Crust Leather from Bangladesh tanneries. Natural milling, drum-dyed or vegetable tanned crust for footwear and leather goods.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-CRUST-LEATHER",
+      "mpn": "BD-LTR-CRUST-LEATHER",
+      "category": "Intermediate Stage",
+      "material": "Bovine / Cowhide / Buffalo / Goat based on buyer specification",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "1.65",
+        "highPrice": "3.20",
+        "offerCount": "5000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/crust-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/finished-leather#product",
+      "url": "https://exportvisor.com/product/finished-leather",
+      "name": "Finished Leather",
+      "alternateName": "Finished Cow Leather Exporter Bangladesh | Factory Sourcing",
+      "description": "Export-grade finished cowhide leather from Bangladesh. Automated spray finish, milled grain, pull-up, glazed finishes tailored for footwear and upholstery.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-FINISHED-LEATHER",
+      "mpn": "BD-LTR-FINISHED-LEATHER",
+      "category": "Finished Leather",
+      "material": "Cowhide / Bovine (Full Grain, Top Grain, or Corrected Grain)",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "2.10",
+        "highPrice": "4.50",
+        "offerCount": "3000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/finished-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/wet-blue-leather#product",
+      "url": "https://exportvisor.com/product/wet-blue-leather",
+      "name": "Wet Blue Leather",
+      "alternateName": "Wet Blue Leather Hides Exporter Bangladesh | Cow & Goat Hides",
+      "description": "Export certified chrome tanned Wet Blue Cow, Buffalo and Goat hides from Bangladesh. High substance yield, machine fleshed, container load shipping.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-WET-BLUE-LEATHER",
+      "mpn": "BD-LTR-WET-BLUE-LEATHER",
+      "category": "Semi-Processed",
+      "material": "Cow / Buffalo / Goat Wet Blue Hides & Splits",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "0.95",
+        "highPrice": "1.85",
+        "offerCount": "10000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/wet-blue-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/full-grain-leather#product",
+      "url": "https://exportvisor.com/product/full-grain-leather",
+      "name": "Full Grain Leather",
+      "alternateName": "Full Grain Finished Cow Leather Exporter Bangladesh | Premium Grade",
+      "description": "Export grade authentic Full Grain Cowhide Leather from Bangladesh. Natural unbroken grain pore structure, rich patina, premium footwear and luxury bag grade.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-FULL-GRAIN-LEATHER",
+      "mpn": "BD-LTR-FULL-GRAIN-LEATHER",
+      "category": "Finished Leather",
+      "material": "First-selection Bangladesh bovine cowhide",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "3.20",
+        "highPrice": "5.80",
+        "offerCount": "2500",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/full-grain-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/split-leather#product",
+      "url": "https://exportvisor.com/product/split-leather",
+      "name": "Split Leather (Suede & Drop Split)",
+      "alternateName": "Split Leather & Suede Exporter Bangladesh | Work Glove & Boot Split",
+      "description": "Wholesale Split Leather, Wet Blue drop splits, and finished cow split suede from Bangladesh. Ideal for work gloves, footwear linings, and industrial accessories.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-SPLIT-LEATHER",
+      "mpn": "BD-LTR-SPLIT-LEATHER",
+      "category": "Intermediate Stage",
+      "material": "Bangladesh Bovine Drop Split / Wet Blue Split",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "0.85",
+        "highPrice": "1.90",
+        "offerCount": "8000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/split-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/top-grain-leather#product",
+      "url": "https://exportvisor.com/product/top-grain-leather",
+      "name": "Top Grain Leather",
+      "alternateName": "Top Grain Cowhide Leather Supplier Bangladesh | Uniform Finish",
+      "description": "Export top grain bovine leather from Bangladesh. Lightly buffed for flawless consistency, stain resistance, and high yield in commercial footwear & furniture.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-TOP-GRAIN-LEATHER",
+      "mpn": "BD-LTR-TOP-GRAIN-LEATHER",
+      "category": "Finished Leather",
+      "material": "Selected Bangladesh cowhide / steer",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "2.40",
+        "highPrice": "4.20",
+        "offerCount": "4000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/top-grain-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/corrected-grain-leather#product",
+      "url": "https://exportvisor.com/product/corrected-grain-leather",
+      "name": "Corrected Grain Leather",
+      "alternateName": "Corrected Grain & Embossed Leather Exporter Bangladesh | Saffiano & Haircell",
+      "description": "Source embossed corrected grain cowhide leather from Savar, Bangladesh. Saffiano, Haircell, and Pebble prints with high abrasion resistance.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-CORRECTED-GRAIN-LEATHER",
+      "mpn": "BD-LTR-CORRECTED-GRAIN-LEATHER",
+      "category": "Finished Leather",
+      "material": "Bangladesh Bovine Hide",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "1.90",
+        "highPrice": "3.40",
+        "offerCount": "4500",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/corrected-grain-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/aniline-semi-aniline#product",
+      "url": "https://exportvisor.com/product/aniline-semi-aniline",
+      "name": "Aniline & Semi-Aniline Leather",
+      "alternateName": "Aniline & Semi-Aniline Leather Exporter Bangladesh | Luxury Drum Dyed",
+      "description": "Premium transparent drum-dyed Aniline and Semi-Aniline leather from Bangladesh. Luxurious natural hand feel, breathability, and rich earthy colors.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-ANILINE-SEMI-ANILINE",
+      "mpn": "BD-LTR-ANILINE-SEMI-ANILINE",
+      "category": "Specialty Finish",
+      "material": "Top tier selected Bangladesh Cowhide",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "3.40",
+        "highPrice": "6.20",
+        "offerCount": "2000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/aniline-semi-aniline",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/pigmented-leather#product",
+      "url": "https://exportvisor.com/product/pigmented-leather",
+      "name": "Pigmented & Coated Leather",
+      "alternateName": "Pigmented Leather Supplier Bangladesh | High Durability & Easy Clean",
+      "description": "Export-grade pigmented cowhide leather from Bangladesh. Extreme stain resistance, lightfastness, and uniform color matching for contract seating and footwear.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-PIGMENTED-LEATHER",
+      "mpn": "BD-LTR-PIGMENTED-LEATHER",
+      "category": "Finished Leather",
+      "material": "Bovine / Cowhide",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "1.80",
+        "highPrice": "3.10",
+        "offerCount": "6000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/pigmented-leather",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://exportvisor.com/product/buyer-custom-sourcing#product",
+      "url": "https://exportvisor.com/product/buyer-custom-sourcing",
+      "name": "Buyer-Specified Custom Leather",
+      "alternateName": "Custom Leather Sourcing & Counter Sample Development Bangladesh",
+      "description": "Bespoke leather development tailored to your exact physical sample, thickness, and color. Counter-samples and lab dip testing from Savar tanneries.",
+      "image": [
+        "https://exportvisor.com/og-image.jpg",
+        "https://exportvisor.com/hero-ship.jpg"
+      ],
+      "sku": "EV-BUYER-CUSTOM-SOURCING",
+      "mpn": "BD-LTR-BUYER-CUSTOM-SOURCING",
+      "category": "Specialty Finish",
+      "material": "Bovine / Buffalo / Goat based on buyer requirement",
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "Bangladesh"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "ExportVisor",
+        "logo": "https://exportvisor.com/Logo3_4.png"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "@id": "https://exportvisor.com/#organization"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "1.75",
+        "highPrice": "5.50",
+        "offerCount": "2000",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "url": "https://exportvisor.com/product/buyer-custom-sourcing",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "USD",
+          "unitText": "SQFT"
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "ExportVisor",
+          "url": "https://exportvisor.com"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://exportvisor.com/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://exportvisor.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tannery Export Operations",
+          "item": "https://exportvisor.com/about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Leather Catalogue",
+          "item": "https://exportvisor.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Commercial Terms",
+          "item": "https://exportvisor.com/terms"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Leather Knowledge Hub",
+          "item": "https://exportvisor.com/knowledge-hub"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Request a Quote",
+          "item": "https://exportvisor.com/quote"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Procurement FAQ",
+          "item": "https://exportvisor.com/faq"
         }
       ]
     }
+  ]
+}
     </script>
-    <script type="module" crossorigin src="/assets/index-D1ATj_It.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CnH3rZ_X.css">
+    <script type="module" crossorigin src="/assets/index-Dal9DTHp.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BIeuXz_5.css">
     <script type="application/ld+json" id="route-schema-jsonld">
 {
   "@context": "https://schema.org",
@@ -1146,7 +946,7 @@
   "manufacturer": {
     "@type": "Organization",
     "@id": "https://exportvisor.com/#organization",
-    "name": "ExportVisor Leather Sourcing Agency",
+    "name": "ExportVisor Tannery Export Desk & Manufacturing Operations",
     "url": "https://exportvisor.com"
   },
   "offers": {
@@ -1212,29 +1012,6 @@
       }
     }
   },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "32",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "International Leather Buyer"
-      },
-      "datePublished": "2025-09-15",
-      "reviewBody": "Verified pre-shipment quality inspection with high substance uniformity and reliable export shipping."
-    }
-  ],
   "audience": {
     "@type": "BusinessAudience",
     "audienceType": "B2B Leather Importers, Footwear Brands, and Upholstery Manufacturers"

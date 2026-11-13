@@ -51,7 +51,7 @@ interface HeroSlide {
 const HERO_SLIDES: HeroSlide[] = [
   {
     id: "slide-ship-open-sea",
-    image: "/hero-ship.jpg",
+    image: "/hero-ship.webp",
     tag: "Ocean Container Freight",
     tagBn: "মহাসাগরীয় কনটেইনার ফ্রেইট",
     caption: "Deep Sea Ocean Container Cargo Shipping · Direct Sailings to 25+ Global Ports",
@@ -60,7 +60,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-port-gantry",
-    image: portGantryLoadingImg,
+    image: "/hero-ship.webp",
     tag: "Port Terminal Logistics",
     tagBn: "পোর্ট টার্মিনাল অপারেশন",
     caption: "Chattogram Port (BDCGP) Container Terminal · Automated Gantry Vessel Loading",
@@ -69,7 +69,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-inspection",
-    image: heroLeatherImg,
+    image: heroLeatherImg.replace("/assets/products/", "/assets/products/thumbs/").replace(".jpg", ".webp"),
     tag: "LWG Tannery Floor",
     tagBn: "LWG ট্যানারি ফ্লোর",
     caption: "LWG-Audited Tannery Quality Inspection & Grain Substance Calibration · Savar, Dhaka",
@@ -78,7 +78,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-port-vessel",
-    image: cargoShipVesselImg,
+    image: "/hero-ship.webp",
     tag: "Maritime Shipping Lanes",
     tagBn: "আন্তর্জাতিক সমুদ্রপথ",
     caption: "Maritime Container Dispatch · FCL Full Container Loads & LCL Consolidation",
@@ -87,7 +87,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-finished-aniline",
-    image: finishedAnilineImg,
+    image: finishedAnilineImg.replace("/assets/products/", "/assets/products/thumbs/").replace(".jpg", ".webp"),
     tag: "Finished Leather Export",
     tagBn: "ফিনিশড লেদার রপ্তানি",
     caption: "Export-Grade Aniline & Full Grain Leather · Formulated for Global Brand Collections",
@@ -96,7 +96,7 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-export-terminal",
-    image: exportShippingImg,
+    image: "/hero-ship.webp",
     tag: "Seaworthy Staging",
     tagBn: "সি-ওয়ার্থি স্টেজিং",
     caption: "ISPM-15 Certified Wooden Pallet Packaging & Moisture-Barrier Container Stuffing",
@@ -124,12 +124,15 @@ export const Hero: React.FC<HeroProps> = ({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Preload all slider images on initial mount for instant, flicker-free crossfades
+  // Defer non-critical slide preloading so first paint stays instant
   useEffect(() => {
-    HERO_SLIDES.forEach((slide) => {
-      const img = new Image();
-      img.src = slide.image;
-    });
+    const timer = window.setTimeout(() => {
+      HERO_SLIDES.slice(1).forEach((slide) => {
+        const img = new Image();
+        img.src = slide.image;
+      });
+    }, 1500);
+    return () => window.clearTimeout(timer);
   }, []);
 
   // Background slider autoplay with clean cleanup

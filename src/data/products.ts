@@ -5,10 +5,10 @@
  */
 
 // High-resolution Hero & Catalogue showcase images
-export const heroLeatherImg = "/assets/products/cow-full-aniline-oil-pull-up.jpg";
+export const heroLeatherImg = "/assets/products/finished-article-03-full-grain-pull-up-chrome.jpg";
 export const heroExportImg = "/hero-ship.jpg";
-export const crustLeatherImg = "/assets/products/cow-natural-milled-crust-chrome.jpg";
-export const finishedAnilineImg = "/assets/products/cow-full-aniline-pull-up-oil.jpg";
+export const crustLeatherImg = "/assets/products/crust-article-01-full-grain-chrome.jpg";
+export const finishedAnilineImg = "/assets/products/finished-article-01-full-grain-aniline-chrome.jpg";
 export const wetBlueImg = "/assets/products/wet-blue-chrome-full-grain.jpg";
 export const exportShippingImg = "/hero-ship.jpg";
 export const containerCargoShipImg = "/hero-ship.jpg";
@@ -3499,7 +3499,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "grainType": "Full Grain",
     "finishType": "Custom Formulated",
     "animal": "Cow & Goat",
-    "image": "/assets/products/finished-article-03-full-grain-pull-up-chrome.jpg",
+    "image": "/assets/products/bespoke-custom-leather-development.jpg",
     "badgeLabel": "Bespoke RFQ",
     "shortDescription": "Custom counter-sample formulation to match your physical sample, temper, color swatch, and tech pack.",
     "overview": "When standard catalogue specifications do not match your exact collection requirements, ExportVisor coordinates custom development with partner tanneries in Savar. We manage lab-dip recipes, counter-samples, and testing dispatches via DHL/FedEx directly to your facility.",

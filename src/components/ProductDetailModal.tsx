@@ -124,7 +124,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               <LeatherImageMagnifier
                 src={product.image}
                 alt={`${product.name} hide sample`}
-                zoomLevel={2.6}
+                mode="detail"
+                zoomLevel={3}
                 aspectRatioClass="aspect-[4/3]"
                 isSustainable={product.isSustainable}
                 category={product.stage}

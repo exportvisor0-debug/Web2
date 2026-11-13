@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Header } from "./components/Header";
@@ -7,22 +7,49 @@ import { Hero } from "./components/Hero";
 import { TrustComplianceStrip } from "./components/TrustComplianceStrip";
 import { AboutSection } from "./components/AboutSection";
 import { LeatherCatalogue } from "./components/LeatherCatalogue";
-import { LeatherGlossarySection } from "./components/LeatherGlossarySection";
-import { CommercialTermsSection } from "./components/CommercialTermsSection";
-import { LeatherMaintenanceCare } from "./components/LeatherMaintenanceCare";
-import { LeatherKnowledgeHub } from "./components/LeatherKnowledgeHub";
-import { BangladeshAdvantage } from "./components/BangladeshAdvantage";
-import { WhyExportVisor } from "./components/WhyExportVisor";
-import { QuoteInquirySection } from "./components/QuoteInquirySection";
-import { FAQSection } from "./components/FAQSection";
-import { Footer } from "./components/Footer";
-import { ProductDetailModal } from "./components/ProductDetailModal";
-import { CompanyProfileModal } from "./components/CompanyProfileModal";
-import { QuoteInquiryModal } from "./components/QuoteInquiryModal";
-import { RequestConsultationModal } from "./components/RequestConsultationModal";
 import { FloatingActions } from "./components/FloatingActions";
 import { LeatherProduct, LEATHER_PRODUCTS } from "./data/products";
 import { useSectionRouter, navigateTo, syncProductSeo } from "./utils/router";
+
+const LeatherGlossarySection = lazy(() =>
+  import("./components/LeatherGlossarySection").then((m) => ({ default: m.LeatherGlossarySection }))
+);
+const CommercialTermsSection = lazy(() =>
+  import("./components/CommercialTermsSection").then((m) => ({ default: m.CommercialTermsSection }))
+);
+const LeatherMaintenanceCare = lazy(() =>
+  import("./components/LeatherMaintenanceCare").then((m) => ({ default: m.LeatherMaintenanceCare }))
+);
+const LeatherKnowledgeHub = lazy(() =>
+  import("./components/LeatherKnowledgeHub").then((m) => ({ default: m.LeatherKnowledgeHub }))
+);
+const BangladeshAdvantage = lazy(() =>
+  import("./components/BangladeshAdvantage").then((m) => ({ default: m.BangladeshAdvantage }))
+);
+const WhyExportVisor = lazy(() =>
+  import("./components/WhyExportVisor").then((m) => ({ default: m.WhyExportVisor }))
+);
+const QuoteInquirySection = lazy(() =>
+  import("./components/QuoteInquirySection").then((m) => ({ default: m.QuoteInquirySection }))
+);
+const FAQSection = lazy(() =>
+  import("./components/FAQSection").then((m) => ({ default: m.FAQSection }))
+);
+const Footer = lazy(() =>
+  import("./components/Footer").then((m) => ({ default: m.Footer }))
+);
+const ProductDetailModal = lazy(() =>
+  import("./components/ProductDetailModal").then((m) => ({ default: m.ProductDetailModal }))
+);
+const CompanyProfileModal = lazy(() =>
+  import("./components/CompanyProfileModal").then((m) => ({ default: m.CompanyProfileModal }))
+);
+const QuoteInquiryModal = lazy(() =>
+  import("./components/QuoteInquiryModal").then((m) => ({ default: m.QuoteInquiryModal }))
+);
+const RequestConsultationModal = lazy(() =>
+  import("./components/RequestConsultationModal").then((m) => ({ default: m.RequestConsultationModal }))
+);
 
 function AppContent() {
   const [selectedProduct, setSelectedProduct] = useState<LeatherProduct | null>(null);
@@ -103,96 +130,102 @@ function AppContent() {
           onRequestQuote={(prodName) => handleScrollToQuoteSection(prodName)}
         />
 
-        {/* 3.1 Leather Glossary Section: Industry terms for non-expert buyers */}
-        <LeatherGlossarySection
-          onSelectProduct={(productId) => {
-            const found = LEATHER_PRODUCTS.find((p) => p.id === productId);
-            if (found) {
-              handleSelectProduct(found);
-            }
-          }}
-          onRequestQuote={(termName) => handleScrollToQuoteSection(termName)}
-        />
+        <Suspense fallback={null}>
+          {/* 3.1 Leather Glossary Section: Industry terms for non-expert buyers */}
+          <LeatherGlossarySection
+            onSelectProduct={(productId) => {
+              const found = LEATHER_PRODUCTS.find((p) => p.id === productId);
+              if (found) {
+                handleSelectProduct(found);
+              }
+            }}
+            onRequestQuote={(termName) => handleScrollToQuoteSection(termName)}
+          />
 
-        {/* 4. About ExportVisor */}
-        <AboutSection
-          onOpenProfile={() => setIsCompanyProfileOpen(true)}
-          onRequestQuote={() => handleScrollToQuoteSection()}
-        />
+          {/* 4. About ExportVisor */}
+          <AboutSection
+            onOpenProfile={() => setIsCompanyProfileOpen(true)}
+            onRequestQuote={() => handleScrollToQuoteSection()}
+          />
 
-        {/* 5. Confirmed Commercial Benchmarks & Terms (RFQ-Driven) */}
-        <CommercialTermsSection onRequestQuote={(topic) => handleScrollToQuoteSection(topic)} />
+          {/* 5. Confirmed Commercial Benchmarks & Terms (RFQ-Driven) */}
+          <CommercialTermsSection onRequestQuote={(topic) => handleScrollToQuoteSection(topic)} />
 
-        {/* 6. Leather Maintenance, Handling & Storage Guide */}
-        <LeatherMaintenanceCare
-          onRequestQuote={(context) => handleScrollToQuoteSection(context)}
-        />
+          {/* 6. Leather Maintenance, Handling & Storage Guide */}
+          <LeatherMaintenanceCare
+            onRequestQuote={(context) => handleScrollToQuoteSection(context)}
+          />
 
-        {/* 8. Leather Knowledge Hub (Wet Blue vs Finished Technical Advisory) */}
-        <LeatherKnowledgeHub
-          onRequestQuote={(prefill) => handleScrollToQuoteSection(prefill)}
-        />
+          {/* 8. Leather Knowledge Hub (Wet Blue vs Finished Technical Advisory) */}
+          <LeatherKnowledgeHub
+            onRequestQuote={(prefill) => handleScrollToQuoteSection(prefill)}
+          />
 
-        {/* 9. Source Leather from Bangladesh (Ecosystem) */}
-        <BangladeshAdvantage />
+          {/* 9. Source Leather from Bangladesh (Ecosystem) */}
+          <BangladeshAdvantage />
 
-        {/* 12. Why Partner with ExportVisor */}
-        <WhyExportVisor />
+          {/* 12. Why Partner with ExportVisor */}
+          <WhyExportVisor />
 
-        {/* 12. Request a Quote / Inquiry Form (Primary Lead Generation) */}
-        <QuoteInquirySection
-          prefilledProduct={quotePrefill}
-          onClearPrefill={() => setQuotePrefill("")}
-        />
+          {/* 12. Request a Quote / Inquiry Form (Primary Lead Generation) */}
+          <QuoteInquirySection
+            prefilledProduct={quotePrefill}
+            onClearPrefill={() => setQuotePrefill("")}
+          />
 
-        {/* 13. B2B Commercial FAQ */}
-        <FAQSection />
+          {/* 13. B2B Commercial FAQ */}
+          <FAQSection />
+        </Suspense>
       </main>
 
-      {/* 14. Corporate Footer */}
-      <Footer
-        onOpenCompanyProfile={() => setIsCompanyProfileOpen(true)}
-        onRequestQuote={(productName) => handleScrollToQuoteSection(productName)}
-      />
+      <Suspense fallback={null}>
+        {/* 14. Corporate Footer */}
+        <Footer
+          onOpenCompanyProfile={() => setIsCompanyProfileOpen(true)}
+          onRequestQuote={(productName) => handleScrollToQuoteSection(productName)}
+        />
+      </Suspense>
 
       {/* Floating Actions (WhatsApp & Quick Quote) */}
       <FloatingActions
         onRequestQuote={() => handleOpenQuoteModal()}
       />
 
-      {/* High-Intent Request a Consultation Modal */}
-      <RequestConsultationModal
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-        initialTopic={consultationTopic}
-      />
+      <Suspense fallback={null}>
+        {/* High-Intent Request a Consultation Modal */}
+        <RequestConsultationModal
+          isOpen={isConsultationModalOpen}
+          onClose={() => setIsConsultationModalOpen(false)}
+          initialTopic={consultationTopic}
+        />
 
-      {/* Product Detail Modal */}
-      <ProductDetailModal
-        product={selectedProduct}
-        onClose={handleCloseProductModal}
-        onRequestQuote={(productName) => {
-          handleCloseProductModal();
-          handleScrollToQuoteSection(productName);
-        }}
-      />
+        {/* Product Detail Modal */}
+        <ProductDetailModal
+          product={selectedProduct}
+          onClose={handleCloseProductModal}
+          onRequestQuote={(productName) => {
+            handleCloseProductModal();
+            handleScrollToQuoteSection(productName);
+          }}
+        />
 
-      {/* Company Profile Modal */}
-      <CompanyProfileModal
-        isOpen={isCompanyProfileOpen}
-        onClose={() => setIsCompanyProfileOpen(false)}
-        onRequestQuote={() => {
-          setIsCompanyProfileOpen(false);
-          handleScrollToQuoteSection();
-        }}
-      />
+        {/* Company Profile Modal */}
+        <CompanyProfileModal
+          isOpen={isCompanyProfileOpen}
+          onClose={() => setIsCompanyProfileOpen(false)}
+          onRequestQuote={() => {
+            setIsCompanyProfileOpen(false);
+            handleScrollToQuoteSection();
+          }}
+        />
 
-      {/* Quick Quote Modal */}
-      <QuoteInquiryModal
-        isOpen={isQuoteModalOpen}
-        onClose={() => setIsQuoteModalOpen(false)}
-        prefilledProduct={quotePrefill}
-      />
+        {/* Quick Quote Modal */}
+        <QuoteInquiryModal
+          isOpen={isQuoteModalOpen}
+          onClose={() => setIsQuoteModalOpen(false)}
+          prefilledProduct={quotePrefill}
+        />
+      </Suspense>
 
     </div>
   );

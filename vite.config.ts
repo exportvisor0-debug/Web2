@@ -28,6 +28,28 @@ export default defineConfig(({ mode }) => {
     define: {
       'process.env': JSON.stringify(processEnv),
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id: string) {
+            if (id.includes('node_modules')) {
+              if (id.includes('react-dom') || id.includes('/react/')) {
+                return 'vendor-react';
+              }
+              if (id.includes('motion') || id.includes('framer-motion')) {
+                return 'vendor-motion';
+              }
+              if (id.includes('lucide-react')) {
+                return 'vendor-icons';
+              }
+            }
+            if (id.includes('/src/data/products.ts')) {
+              return 'catalogue-data';
+            }
+          },
+        },
+      },
+    },
   };
 });
 
