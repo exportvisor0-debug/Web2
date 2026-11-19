@@ -441,13 +441,13 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                 }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-10 sm:pr-24 py-2.5 text-xs sm:text-sm bg-[#FAF8F5] dark:bg-[#1A140F] border border-[#DED4BD] dark:border-stone-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C89D43]/30 focus:border-[#C89D43] text-stone-800 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 transition-all"
+                className="w-full pl-10 pr-10 sm:pr-32 py-2.5 text-xs sm:text-sm bg-[#FAF8F5] dark:bg-[#1A140F] border border-[#DED4BD] dark:border-stone-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#C89D43]/30 focus:border-[#C89D43] text-stone-800 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 transition-all"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-2.5 sm:right-12 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-stone-600 dark:hover:text-white cursor-pointer"
+                  className="absolute right-2.5 sm:right-24 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-stone-600 dark:hover:text-white cursor-pointer"
                   title="Clear search"
                 >
                   <X className="w-3.5 h-3.5" />
@@ -803,10 +803,10 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                       <div className="p-5 sm:p-6 space-y-3">
                         {/* Quiet Single-Line Metadata */}
                         <div className="flex items-center justify-between text-xs gap-2 text-stone-500 dark:text-stone-400">
-                          <span className="font-mono font-bold text-[#8C6214] dark:text-[#E5BE58]">
+                          <span className="font-mono font-bold text-[#8C6214] dark:text-[#E5BE58] shrink-0 whitespace-nowrap">
                             {product.articleNumber || product.id}
                           </span>
-                          <span className="truncate">
+                          <span className="truncate text-right min-w-0">
                             {product.animal} · {product.tanningMethod}
                           </span>
                         </div>
@@ -857,26 +857,26 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                       </div>
                     </div>
 
-                    {/* Spacious Touch-Friendly Card Footer */}
-                    <div className="px-4 sm:px-6 pb-5 pt-3 border-t border-[#EAE3D2]/70 dark:border-stone-800/80 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 shrink-0">
+                    {/* Spacious Unbreakable Card Footer (Clean 2-row stack across mobile, tablet & desktop) */}
+                    <div className="px-4 sm:px-5 pb-5 pt-3.5 border-t border-[#EAE3D2]/75 dark:border-stone-800/80 flex flex-col gap-2.5">
+                      <div className="flex items-center gap-2">
                         <button
                           type="button"
                           onClick={() => {
                             trackEvent("product_detail_view", { product_id: product.id });
                             onSelectProduct(product);
                           }}
-                          className="inline-flex items-center gap-1.5 px-3.5 min-h-[44px] rounded-xl bg-[#FAF8F5] dark:bg-stone-800 hover:bg-[#FAF4E2] dark:hover:bg-[#201913] text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-[#8C6214] dark:hover:text-[#F3CE6D] border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-all whitespace-nowrap"
+                          className="flex-1 min-w-0 inline-flex items-center justify-center gap-1.5 px-3 min-h-[40px] rounded-xl bg-[#FAF8F5] dark:bg-stone-800/90 hover:bg-[#FAF4E2] dark:hover:bg-[#201913] text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-[#8C6214] dark:hover:text-[#F3CE6D] border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-all"
                         >
-                          <span>{isBn ? "বিস্তারিত" : "View Specs"}</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43]" />
+                          <span className="truncate">{isBn ? "বিস্তারিত দেখুন" : "View Technical Specs"}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43] shrink-0" />
                         </button>
 
                         <button
                           type="button"
                           onClick={(e) => handleCopyProductLink(e, product.id)}
                           title={`Copy direct link: /product/${product.id}`}
-                          className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-stone-400 dark:text-stone-500 hover:text-[#C89D43] hover:bg-[#FAF4E2] dark:hover:bg-stone-800 transition-colors cursor-pointer"
+                          className="w-[40px] h-[40px] shrink-0 flex items-center justify-center rounded-xl bg-[#FAF8F5] dark:bg-stone-800/90 border border-[#DED4BD] dark:border-stone-700 text-stone-500 dark:text-stone-400 hover:text-[#C89D43] hover:border-[#C89D43] hover:bg-[#FAF4E2] dark:hover:bg-[#201913] transition-colors cursor-pointer"
                           aria-label={`Copy link for ${product.name}`}
                         >
                           {copiedId === product.id ? (
@@ -896,10 +896,10 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                           });
                           onRequestQuote(product.name);
                         }}
-                        className="inline-flex items-center justify-center px-4 min-h-[44px] text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap group/btn flex-1 sm:flex-initial"
+                        className="w-full inline-flex items-center justify-center gap-1.5 px-4 min-h-[44px] py-2.5 text-xs font-bold tracking-wide text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer group/btn"
                       >
-                        <span>{t.catalogue.requestQuote}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        <span className="truncate">{t.catalogue.requestQuote}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-stone-950 shrink-0 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </button>
                     </div>
                   </div>
@@ -962,7 +962,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                       </div>
                     </div>
 
-                    <div className="flex sm:flex-col items-center sm:items-end justify-between gap-2 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-stone-100 dark:border-stone-800">
+                    <div className="flex flex-col sm:w-52 items-stretch gap-2 shrink-0 pt-3 sm:pt-0 border-t sm:border-t-0 border-stone-100 dark:border-stone-800">
                       <button
                         type="button"
                         onClick={() => {
@@ -972,10 +972,10 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                           });
                           onRequestQuote(product.name);
                         }}
-                        className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] rounded-xl cursor-pointer whitespace-nowrap"
+                        className="w-full inline-flex items-center justify-center gap-1.5 px-4 min-h-[42px] py-2 text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-xl cursor-pointer shadow-xs transition-all"
                       >
-                        <span>{t.catalogue.requestQuote}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950" />
+                        <span className="truncate">{t.catalogue.requestQuote}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-stone-950 shrink-0" />
                       </button>
                       <button
                         type="button"
@@ -983,10 +983,10 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                           trackEvent("product_detail_view", { product_id: product.id });
                           onSelectProduct(product);
                         }}
-                        className="inline-flex items-center gap-1 px-3.5 py-2 rounded-xl bg-[#FAF8F5] dark:bg-stone-800 text-xs font-semibold text-stone-700 dark:text-stone-200 border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer whitespace-nowrap"
+                        className="w-full inline-flex items-center justify-center gap-1.5 px-3.5 min-h-[38px] py-2 rounded-xl bg-[#FAF8F5] dark:bg-stone-800 text-xs font-semibold text-stone-700 dark:text-stone-200 border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-colors"
                       >
-                        <span>{isBn ? "বিস্তারিত" : "View Specs"}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43]" />
+                        <span className="truncate">{isBn ? "বিস্তারিত দেখুন" : "View Technical Specs"}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43] shrink-0" />
                       </button>
                     </div>
                   </div>
@@ -1090,7 +1090,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
           </div>
           <button
             onClick={() => onRequestQuote("Custom Leather Sourcing / Counter Sampling")}
-            className="px-6 py-3.5 text-xs font-bold bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] text-[#15120E] rounded-xl whitespace-nowrap cursor-pointer transition-all shadow-sm hover:shadow-lg"
+            className="w-full md:w-auto shrink-0 px-6 py-3.5 text-xs font-bold bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] text-[#15120E] rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-lg text-center"
           >
             {t.catalogue.customPromptCta}
           </button>

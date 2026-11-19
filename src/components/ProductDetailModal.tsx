@@ -486,7 +486,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               type="button"
               onClick={handleCopyLink}
               title="Copy direct product URL"
-              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 min-h-[42px] text-xs font-semibold text-stone-700 dark:text-stone-300 bg-white dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-700 border border-stone-200 dark:border-stone-700 rounded-lg transition-colors cursor-pointer"
+              className="inline-flex items-center justify-center gap-1.5 px-3 min-h-[42px] text-xs font-semibold text-stone-700 dark:text-stone-300 bg-white dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-700 border border-stone-200 dark:border-stone-700 rounded-lg transition-colors cursor-pointer"
             >
               {copiedLink ? (
                 <>
@@ -515,7 +515,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   location: "product_modal",
                 })
               }
-              className="inline-flex items-center justify-center gap-1.5 px-3.5 min-h-[44px] sm:min-h-[42px] text-xs font-bold tracking-wide text-white bg-gradient-to-r from-[#065F46] via-[#047857] to-[#065F46] hover:from-[#059669] hover:to-[#047857] border border-[#E5BE58]/75 rounded-lg transition-all shadow-xs"
+              className="inline-flex items-center justify-center gap-1.5 px-3.5 min-h-[42px] text-xs font-bold tracking-wide text-white bg-gradient-to-r from-[#065F46] via-[#047857] to-[#065F46] hover:from-[#059669] hover:to-[#047857] border border-[#E5BE58]/75 rounded-lg transition-all shadow-xs"
             >
               <MessageSquareText className="w-3.5 h-3.5 text-[#A7F3D0]" />
               <span>WhatsApp</span>
@@ -526,10 +526,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 onClose();
                 onRequestQuote(product.name);
               }}
-              className="inline-flex items-center justify-center px-4 sm:px-5 min-h-[44px] sm:min-h-[42px] text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43] hover:from-[#FCE39D] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle cursor-pointer whitespace-nowrap"
+              className="col-span-2 sm:col-span-1 inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 min-h-[44px] sm:min-h-[42px] text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43] hover:from-[#FCE39D] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle cursor-pointer"
             >
-              <span>{isBn ? "স্যাম্পল / কোটেশন নিন" : "Request Sample / Get Quote"}</span>
-              <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950" />
+              <span className="truncate">{isBn ? "স্যাম্পল / কোটেশন নিন" : "Request Sample / Get Quote"}</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-stone-950 shrink-0" />
             </button>
           </div>
         </div>

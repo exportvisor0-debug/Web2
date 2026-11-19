@@ -3,12 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { siteConfig } from "../config/siteConfig";
 import { trackEvent } from "../utils/analytics";
 import { useLanguage } from "../context/LanguageContext";
-import {
-  heroLeatherImg,
-  crustLeatherImg,
-  finishedAnilineImg,
-  wetBlueImg,
-} from "../data/products";
+import { crustLeatherImg } from "../data/products";
 import {
   ArrowUpRight,
   Layers,
@@ -42,8 +37,19 @@ const toWebpThumb = (imgPath: string) =>
 
 const HERO_SLIDES: HeroSlide[] = [
   {
+    id: "slide-luxury-leather-rolls",
+    image: "/hero-leather.webp",
+    mobileImage: "/hero-leather-mobile.webp",
+    tag: "Direct Tannery Craft",
+    tagBn: "সরাসরি ট্যানারি মান",
+    caption: "Full Grain, Semi-Aniline, Nappa & Crust Cowhide · Savar Tanneries",
+    captionBn: "ফুল গ্রেইন, সেমি-অ্যানিলিন, নাপ্পা ও ক্রাস্ট কাউহাইড · সাভার ট্যানারি",
+    alt: "Full-grain cognac espresso and tan cowhide leather rolls for global B2B export",
+  },
+  {
     id: "slide-ship-open-sea",
     image: "/hero-ship.webp",
+    mobileImage: "/hero-ship-mobile.webp",
     tag: "Maritime Export",
     tagBn: "সমুদ্রপথে রপ্তানি",
     caption: "Chattogram Port (BDCGP) Containerized Freight · 25+ Global Ports",
@@ -62,33 +68,23 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-finished-aniline",
-    image: finishedAnilineImg,
-    mobileImage: toWebpThumb(finishedAnilineImg),
+    image: "/hero-finished.webp",
+    mobileImage: "/hero-finished-mobile.webp",
     tag: "Finished Aniline",
     tagBn: "ফিনিশড অ্যানিলিন",
     caption: "Drum-Dyed Aniline, Pull-Up & Nappa · Precision Color Matching",
     captionBn: "ড্রাম-ডাইড অ্যানিলিন, পুল-আপ ও নাপ্পা · প্যানটোন কালার ম্যাচিং",
-    alt: "Export-grade aniline finished bovine leather hides for international brands",
+    alt: "Draped cognac mahogany and espresso full-grain aniline cowhide hides on dark obsidian stone",
   },
   {
     id: "slide-wet-blue-hides",
-    image: wetBlueImg,
-    mobileImage: toWebpThumb(wetBlueImg),
+    image: "/hero-wetblue.webp",
+    mobileImage: "/hero-wetblue-mobile.webp",
     tag: "Wet Blue & White",
     tagBn: "ওয়েট ব্লু ও হোয়াইট",
     caption: "Grade I–IV Selection · Chrome Tanned & Chrome-Free Wet White Hides",
     captionBn: "গ্রেড I–IV বাছাইকৃত ক্রোম ও ক্রোম-ফ্রি ওয়েট হোয়াইট হাইডস",
-    alt: "Wet blue chrome tanned bovine hides staged for international tannery shipment",
-  },
-  {
-    id: "slide-inspection",
-    image: heroLeatherImg,
-    mobileImage: toWebpThumb(heroLeatherImg),
-    tag: "Pre-Shipment QA",
-    tagBn: "প্রি-শিপমেন্ট QA",
-    caption: "Piece-by-Piece Gauge Calibration (±0.1mm) & SGS / Intertek Ready Audit",
-    captionBn: "প্রতি পিস ±০.১ মিমি থিকনেস ক্যালিব্রেশন ও SGS / Intertek অডিট সুবিধা",
-    alt: "Detailed hide inspection and substance calibration in Savar, Bangladesh",
+    alt: "Stacked precision-trimmed wet blue chrome tanned bovine hides staged for export",
   },
 ];
 
@@ -177,24 +173,22 @@ export const Hero: React.FC<HeroProps> = ({
         <AnimatePresence initial={false} mode="sync">
           <motion.div
             key={activeSlide.id}
-            initial={{ opacity: 0, scale: 1.03 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: currentSlide === 0 ? 1 : 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 w-full h-full"
           >
-            <motion.img
-              animate={{ scale: [1, 1.04, 1.01] }}
-              transition={{ duration: 16, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+            <img
               src={activeSlide.mobileImage || activeSlide.image}
               srcSet={
                 activeSlide.mobileImage
-                  ? `${activeSlide.mobileImage} 960w, ${activeSlide.image} 1920w`
+                  ? `${activeSlide.mobileImage} 900w, ${activeSlide.image} 1600w`
                   : undefined
               }
               sizes="100vw"
               alt={activeSlide.alt}
-              className="w-full h-full object-cover object-[72%_25%] sm:object-[68%_35%] md:object-center"
+              className="w-full h-full object-cover object-[78%_35%] sm:object-[70%_45%] md:object-center transition-transform duration-[14000ms] ease-out"
               loading={currentSlide === 0 ? "eager" : "lazy"}
               decoding={currentSlide === 0 ? "sync" : "async"}
               // @ts-ignore
@@ -204,10 +198,10 @@ export const Hero: React.FC<HeroProps> = ({
           </motion.div>
         </AnimatePresence>
 
-        {/* Precision Directional Scrim: protects crisp typography on left while keeping ocean/leather textures vivid */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070503]/45 via-[#080604]/76 to-[#070503]/96 sm:bg-gradient-to-r sm:from-[#070503]/92 sm:via-[#0B0805]/68 sm:to-[#070503]/18 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070503]/95 via-transparent to-[#070503]/30 pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(200,157,67,0.12)_0%,transparent_60%)] pointer-events-none" />
+        {/* Precision Directional Scrim: keeps luxury leather & ship sharp and vivid on right while ensuring crystal-clear text contrast on left */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070503]/68 via-[#080604]/78 to-[#070503]/95 sm:bg-gradient-to-r sm:from-[#070503]/95 sm:via-[#070503]/62 sm:to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070503]/90 via-transparent to-[#070503]/25 pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(200,157,67,0.08)_0%,transparent_55%)] pointer-events-none" />
       </div>
 
       {/* Main Executive Editorial Content — Zero-latency availability */}
