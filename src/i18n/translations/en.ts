@@ -14,11 +14,11 @@ export const en: TranslationDictionary = {
     whatsApp: "WhatsApp",
   },
   hero: {
-    kicker: "LWG-Certified Tannery Network · Bangladesh Leather Export Partner · B2B International",
+    kicker: "Bangladesh Direct Tannery Export Desk",
     headline: "Your Trusted Leather Sourcing Partner from Bangladesh",
     subheadline:
       "Direct B2B connection to vetted Bangladesh tanneries in Savar. Sourcing export-grade wet blue, crust, and finished leather with pre-shipment quality control and global port shipping.",
-    requestQuote: "Request a Quotation",
+    requestQuote: "Request Sample / Get Quote",
     exploreCatalogue: "Explore Leather Catalogue",
     pricingBasis: "Pricing Basis",
     pricingValue: "Per RFQ",
@@ -60,7 +60,7 @@ export const en: TranslationDictionary = {
       "All leather varieties are processed according to specific buyer tech packs and tannery availability. Final commercial parameters are confirmed upon technical review.",
     searchPlaceholder: "Search by leather type, shoe, sofa, cow, goat...",
     viewSpecs: "View Specifications",
-    requestQuote: "Request Quote",
+    requestQuote: "Request Sample / Get Quote",
     customPromptTitle: "Need a Custom Leather Specification or Specific Color Match?",
     customPromptDesc:
       "ExportVisor coordinates custom tannage formulation, lab dip approvals, and physical counter-samples based on your master physical swatch.",
@@ -135,7 +135,7 @@ export const en: TranslationDictionary = {
     title: "Leather Knowledge Hub & Specifications",
     subtitle:
       "Professional guidelines for handling, warehousing, and testing different leather forms—from hydrated wet blue hides to delicate finished aniline surfaces.",
-    consultationCta: "Request Tech Consultation",
+    consultationCta: "Request Sample / Get Quote",
     allTips: "All Technical Tips",
     wetBlue: "Wet Blue Handling",
     crust: "Crust Leather Storage",

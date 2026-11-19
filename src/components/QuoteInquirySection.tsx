@@ -117,7 +117,8 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
   const handleSendViaWhatsApp = () => {
     trackEvent("whatsapp_click", { location: "inquiry_submit_action" });
     const encodedText = encodeURIComponent(buildSummaryText());
-    window.open(`https://wa.me/8801355976619?text=${encodedText}`, "_blank");
+    const digits = siteConfig.contact.whatsappNumber.replace(/[^0-9]/g, "") || "8801355976619";
+    window.open(`https://api.whatsapp.com/send?phone=${digits}&text=${encodedText}`, "_blank", "noopener,noreferrer");
   };
 
   const handleSendViaEmail = () => {
@@ -147,10 +148,11 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl mb-12 sm:mb-16"
         >
-          <div className="flex flex-wrap items-center gap-3 mb-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
+          <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
               {t.inquiry.kicker}
-            </div>
+            </span>
             <SectionShareButton path="/quote" sectionName={t.inquiry.kicker} />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#15120E] dark:text-[#FAF6F0] leading-tight mt-1">
@@ -160,6 +162,49 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
             {t.inquiry.subtitle}
           </p>
         </motion.div>
+
+        {/* Zero-Risk Buyer Order Workflow */}
+        <div className="mb-10 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+          <div className="p-4 rounded-xl bg-[#FAF8F5] dark:bg-[#140F0B] border border-[#EAE3D2] dark:border-stone-800 flex items-start gap-3">
+            <span className="w-6 h-6 rounded-md bg-[#C89D43]/20 text-[#8C6214] dark:text-[#E5BE58] font-mono text-xs font-bold flex items-center justify-center shrink-0">01</span>
+            <div>
+              <div className="text-xs font-bold text-[#15120E] dark:text-[#FAF6F0]">
+                {language === "bn" ? "২৪ ঘণ্টার মধ্যে সরাসরি ফ্যাক্টরি কোটেশন" : "24h Direct Tannery Quotation"}
+              </div>
+              <p className="text-[11px] text-stone-600 dark:text-stone-400 mt-0.5 leading-snug">
+                {language === "bn"
+                  ? "বিনা বাধ্যবাধকতায় FOB/CIF দর এবং উৎপাদন শিডিউল পান।"
+                  : "Non-binding FOB Chattogram or CIF pricing directly from Savar floor."}
+              </p>
+            </div>
+          </div>
+          <div className="p-4 rounded-xl bg-[#FAF8F5] dark:bg-[#140F0B] border border-[#EAE3D2] dark:border-stone-800 flex items-start gap-3">
+            <span className="w-6 h-6 rounded-md bg-[#C89D43]/20 text-[#8C6214] dark:text-[#E5BE58] font-mono text-xs font-bold flex items-center justify-center shrink-0">02</span>
+            <div>
+              <div className="text-xs font-bold text-[#15120E] dark:text-[#FAF6F0]">
+                {language === "bn" ? "আগে সোয়াচ স্যাম্পল দেখুন (DHL/FedEx)" : "Physical Swatch Approval First"}
+              </div>
+              <p className="text-[11px] text-stone-600 dark:text-stone-400 mt-0.5 leading-snug">
+                {language === "bn"
+                  ? "বাল্ক অর্ডারের পূর্বে কুরিয়ারে ফিজিক্যাল স্যাম্পল ও ল্যাব-ডিপ যাচাই করুন।"
+                  : "Verify thickness, color & grain pull on physical hides before booking bulk."}
+              </p>
+            </div>
+          </div>
+          <div className="p-4 rounded-xl bg-[#FAF8F5] dark:bg-[#140F0B] border border-[#EAE3D2] dark:border-stone-800 flex items-start gap-3">
+            <span className="w-6 h-6 rounded-md bg-[#C89D43]/20 text-[#8C6214] dark:text-[#E5BE58] font-mono text-xs font-bold flex items-center justify-center shrink-0">03</span>
+            <div>
+              <div className="text-xs font-bold text-[#15120E] dark:text-[#FAF6F0]">
+                {language === "bn" ? "L/C পেমেন্ট ও SGS/Intertek পরিদর্শন" : "L/C Protection & SGS/Intertek QC"}
+              </div>
+              <p className="text-[11px] text-stone-600 dark:text-stone-400 mt-0.5 leading-snug">
+                {language === "bn"
+                  ? "ব্যাংকিং L/C সুরক্ষা ও তৃতীয় পক্ষের ইন্সপেকশন সুবিধা।"
+                  : "Irrevocable LC at Sight and 3rd-party SGS pre-shipment audit supported."}
+              </p>
+            </div>
+          </div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 items-start">
           
@@ -332,37 +377,37 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                   </div>
                   
                   <div className="max-w-lg mx-auto">
-                    <h3 className="font-display text-2xl sm:text-3xl font-semibold text-[#181310]">
+                    <h3 className="font-display text-2xl sm:text-3xl font-semibold text-[#181310] dark:text-white">
                       Inquiry Received Successfully
                     </h3>
-                    <p className="mt-3 text-sm text-stone-600 leading-relaxed">
+                    <p className="mt-3 text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                       Thank you for contacting ExportVisor. Your inquiry has been received. Our team will review your requirements and get back to you with commercial feasibility and indicative terms.
                     </p>
                   </div>
 
                   {/* Immediate Dispatch Action Buttons */}
-                  <div className="p-4 bg-white border border-stone-200 rounded-lg max-w-xl mx-auto text-left space-y-4">
+                  <div className="p-4 bg-white dark:bg-[#181310] border border-stone-200 dark:border-stone-800 rounded-lg max-w-xl mx-auto text-left space-y-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-stone-700 uppercase tracking-wider">
+                      <span className="text-xs font-semibold text-stone-700 dark:text-stone-200 uppercase tracking-wider">
                         Accelerate Your Response
                       </span>
                       <button
                         onClick={handleCopySummary}
-                        className="inline-flex items-center gap-1 text-xs text-stone-600 hover:text-stone-900 cursor-pointer"
+                        className="inline-flex items-center gap-1 text-xs text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white cursor-pointer"
                       >
                         {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
                         <span>{copied ? "Copied to clipboard" : "Copy Inquiry"}</span>
                       </button>
                     </div>
 
-                    <p className="text-xs text-stone-500">
+                    <p className="text-xs text-stone-500 dark:text-stone-400">
                       You can instantly transmit this inquiry directly to our desk on WhatsApp or launch your mail client:
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                       <button
                         onClick={handleSendViaWhatsApp}
-                        className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-xs cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-md text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-xs cursor-pointer"
                       >
                         <MessageSquareText className="w-4 h-4" />
                         <span>Send via WhatsApp</span>
@@ -370,7 +415,7 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
 
                       <button
                         onClick={handleSendViaEmail}
-                        className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-md text-xs font-semibold text-stone-800 bg-stone-100 hover:bg-stone-200 transition-colors border border-stone-300 cursor-pointer"
+                        className="inline-flex items-center justify-center gap-2 min-h-[44px] px-4 rounded-md text-xs font-semibold text-stone-800 dark:text-stone-200 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors border border-stone-300 dark:border-stone-700 cursor-pointer"
                       >
                         <Mail className="w-4 h-4" />
                         <span>Open in Email Client</span>
@@ -381,7 +426,7 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                   <div>
                     <button
                       onClick={() => setSubmitted(false)}
-                      className="text-xs font-semibold text-stone-500 hover:text-stone-800 underline cursor-pointer"
+                      className="text-xs font-semibold text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white underline cursor-pointer"
                     >
                       Submit another inquiry or edit details
                     </button>
@@ -392,14 +437,14 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                 <form onSubmit={handleSubmit} className="space-y-6">
                   
                   {errorMsg && (
-                    <div className="p-3 bg-red-50 border border-red-200 rounded-md text-xs text-red-700 flex items-center gap-2">
+                    <div className="p-3 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-md text-xs text-red-700 dark:text-red-300 flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 shrink-0" />
                       <span>{errorMsg}</span>
                     </div>
                   )}
 
                   {prefilledProduct && (
-                    <div className="p-3 bg-stone-100 border border-stone-200 rounded-md flex items-center justify-between text-xs">
+                    <div className="p-3 bg-stone-100 dark:bg-[#1A140F] border border-stone-200 dark:border-stone-800 rounded-md flex items-center justify-between text-xs text-stone-800 dark:text-stone-200">
                       <span>
                         Inquiring for: <strong>{prefilledProduct}</strong>
                       </span>
@@ -417,12 +462,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
 
                   {/* Section 1: Contact Information */}
                   <div>
-                    <span className="text-[11px] uppercase font-bold tracking-wider text-stone-400 block mb-3">
+                    <span className="text-[11px] uppercase font-bold tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
                       {language === "bn" ? "১. কোম্পানি ও যোগাযোগের বিবরণ" : "1. Company & Contact Details"}
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {t.inquiry.nameLabel} *
                         </label>
                         <input
@@ -432,12 +477,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.fullName}
                           onChange={handleChange}
                           placeholder={t.inquiry.namePlaceholder}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {t.inquiry.companyLabel} *
                         </label>
                         <input
@@ -447,12 +492,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.companyName}
                           onChange={handleChange}
                           placeholder={t.inquiry.companyPlaceholder}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {language === "bn" ? "দেশ / অঞ্চল *" : "Country / Region *"}
                         </label>
                         <input
@@ -462,12 +507,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.country}
                           onChange={handleChange}
                           placeholder={language === "bn" ? "উদাঃ ইতালি, জার্মানি, যুক্তরাষ্ট্র, জাপান..." : "e.g. Italy, Germany, USA, Japan..."}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {t.inquiry.emailLabel} *
                         </label>
                         <input
@@ -477,12 +522,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.email}
                           onChange={handleChange}
                           placeholder={t.inquiry.emailPlaceholder}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div className="sm:col-span-2">
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {t.inquiry.phoneLabel}
                         </label>
                         <input
@@ -491,28 +536,28 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder={t.inquiry.phonePlaceholder}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Section 2: Leather Specification */}
-                  <div className="pt-2 border-t border-stone-200">
-                    <span className="text-[11px] uppercase font-bold tracking-wider text-stone-400 block mb-3">
+                  <div className="pt-2 border-t border-stone-200 dark:border-stone-800">
+                    <span className="text-[11px] uppercase font-bold tracking-wider text-stone-500 dark:text-stone-400 block mb-3">
                       {language === "bn" ? "২. চামড়ার স্পেসিফিকেশন ও প্রয়োজনীয়তা" : "2. Leather Requirements"}
                     </span>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {t.inquiry.leatherTypeLabel}
                         </label>
                         <select
                           name="product"
                           value={formData.product}
                           onChange={handleChange}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         >
                           <option value="Crust Leather">{language === "bn" ? "ক্রাস্ট লেদার (Crust Leather)" : "Crust Leather"}</option>
                           <option value="Finished Leather">{language === "bn" ? "ফিনিশড লেদার (Finished Leather)" : "Finished Leather"}</option>
@@ -527,7 +572,7 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {t.inquiry.quantityLabel}
                         </label>
                         <input
@@ -536,12 +581,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.quantity}
                           onChange={handleChange}
                           placeholder={t.inquiry.quantityPlaceholder}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {language === "bn" ? "কাঙ্ক্ষিত পুরুত্ব (Thickness)" : "Target Thickness"}
                         </label>
                         <input
@@ -550,12 +595,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.thickness}
                           onChange={handleChange}
                           placeholder="e.g. 1.1 - 1.3 mm"
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {language === "bn" ? "পছন্দের রঙ / শেড" : "Preferred Color / Shade"}
                         </label>
                         <input
@@ -564,12 +609,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.color}
                           onChange={handleChange}
                           placeholder="e.g. Tan, Black, Cognac, or Swatch"
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {language === "bn" ? "ফিনিশিং / সারফেস ধরন" : "Finish / Surface Type"}
                         </label>
                         <input
@@ -578,12 +623,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.finish}
                           onChange={handleChange}
                           placeholder="e.g. Smooth, Pull-up, Milled, Matte"
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
                       <div>
-                        <label className="block text-xs font-medium text-stone-700 mb-1">
+                        <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                           {language === "bn" ? "টার্গেট মূল্য (USD/বর্গফুট)" : "Target Price (USD/sq ft)"}
                         </label>
                         <input
@@ -592,7 +637,7 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                           value={formData.targetPrice}
                           onChange={handleChange}
                           placeholder={language === "bn" ? "ঐচ্ছিক (উদাঃ $১.০৫)" : "Optional (e.g. $1.05)"}
-                          className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                          className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                         />
                       </div>
 
@@ -600,9 +645,9 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                   </div>
 
                   {/* Section 3: Intended Application & Tech Pack Notes */}
-                  <div className="pt-2 border-t border-stone-200 space-y-4">
+                  <div className="pt-2 border-t border-stone-200 dark:border-stone-800 space-y-4">
                     <div>
-                      <label className="block text-xs font-medium text-stone-700 mb-1">
+                      <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                         {language === "bn" ? "ব্যবহারের ক্ষেত্র (Application)" : "Intended Application"}
                       </label>
                       <input
@@ -611,12 +656,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                         value={formData.application}
                         onChange={handleChange}
                         placeholder={language === "bn" ? "উদাঃ জুতা (Footwear), ব্যাগ, লেদার গুডস, আসবাবপত্র..." : "e.g. Footwear Uppers, Handbags, Small Leather Goods, Furniture Upholstery..."}
-                        className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                        className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-stone-700 mb-1">
+                      <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                         {t.inquiry.detailsLabel}
                       </label>
                       <textarea
@@ -625,23 +670,23 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                         value={formData.message}
                         onChange={handleChange}
                         placeholder={t.inquiry.detailsPlaceholder}
-                        className="w-full px-3 py-2 text-xs bg-white border border-stone-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
+                        className="w-full px-3 py-2.5 text-xs bg-white dark:bg-[#1A140F] text-stone-900 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 border border-stone-300 dark:border-stone-700 rounded-md focus:outline-none focus:ring-1 focus:ring-[#C89D43] focus:border-[#C89D43]"
                       />
                     </div>
 
                     {/* File Attachment Simulation */}
                     <div>
-                      <label className="block text-xs font-medium text-stone-700 mb-1">
+                      <label className="block text-xs font-medium text-stone-700 dark:text-stone-300 mb-1">
                         {language === "bn" ? "রেফারেন্স টেক প্যাক / সোয়াচ ফটো (ঐচ্ছিক)" : "Reference Tech Pack / Swatch Photo (Optional)"}
                       </label>
-                      <div className="border border-dashed border-stone-300 rounded-md p-3 bg-white text-center hover:bg-stone-50 transition-colors relative cursor-pointer">
+                      <div className="border border-dashed border-stone-300 dark:border-stone-700 rounded-md p-3 bg-white dark:bg-[#1A140F] text-center hover:bg-stone-50 dark:hover:bg-[#221A14] transition-colors relative cursor-pointer">
                         <input
                           type="file"
                           multiple
                           onChange={handleSimulatedFileUpload}
                           className="absolute inset-0 opacity-0 cursor-pointer"
                         />
-                        <div className="flex items-center justify-center gap-2 text-xs text-stone-500">
+                        <div className="flex items-center justify-center gap-2 text-xs text-stone-500 dark:text-stone-400">
                           <UploadCloud className="w-4 h-4 text-[#C89D43]" />
                           <span>
                             {language === "bn"
@@ -652,13 +697,13 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                       </div>
 
                       {files.length > 0 && (
-                        <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-stone-600">
+                        <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-stone-600 dark:text-stone-300">
                           {files.map((file, idx) => (
                             <span
                               key={idx}
-                              className="inline-flex items-center gap-1 bg-stone-200/80 px-2 py-0.5 rounded"
+                              className="inline-flex items-center gap-1 bg-stone-200/80 dark:bg-stone-800 px-2 py-0.5 rounded"
                             >
-                              <Paperclip className="w-3 h-3 text-stone-500" />
+                              <Paperclip className="w-3 h-3 text-stone-500 dark:text-stone-400" />
                               <span>{file}</span>
                             </span>
                           ))}
@@ -673,12 +718,12 @@ export const QuoteInquirySection: React.FC<QuoteInquirySectionProps> = ({
                       whileHover={{ scale: 1.015, translateY: -1 }}
                       whileTap={{ scale: 0.98 }}
                       type="submit"
-                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-xs font-bold uppercase tracking-wider text-[#15120E] bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-xl transition-all shadow-gold-subtle hover:shadow-gold-glow cursor-pointer"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 min-h-[48px] text-xs font-bold uppercase tracking-wider text-[#15120E] bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-xl transition-all shadow-gold-subtle hover:shadow-gold-glow cursor-pointer"
                     >
                       <Send className="w-4 h-4 text-[#15120E]" />
                       <span>{t.inquiry.submitBtn}</span>
                     </motion.button>
-                    <p className="text-center text-[11px] text-stone-500 mt-2">
+                    <p className="text-center text-[11px] text-stone-500 dark:text-stone-400 mt-2">
                       {language === "bn"
                         ? "অনুসন্ধান সম্পূর্ণ গোপনীয়তার সাথে পরিচালনা করা হয়। টেকনিক্যাল পর্যালোচনার পর বাণিজ্যিক শর্তাবলী নিশ্চিত করা হয়।"
                         : "Inquiries are handled strictly confidentially. Commercial terms confirmed upon technical review."}

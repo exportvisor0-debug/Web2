@@ -122,13 +122,13 @@ export const ScrollProgressBar: React.FC = () => {
         </div>
       </div>
 
-      {/* Floating Micro Section Indicator (Non-intrusive HUD) */}
+      {/* Floating Micro Section Indicator (Desktop bottom-left so Header WhatsApp & Quote buttons stay 100% clickable) */}
       <aside
         aria-label="Section Reading Progress Indicator"
-        className={`fixed top-3 sm:top-3.5 right-3 sm:right-6 z-50 pointer-events-none transition-all duration-300 transform ${
+        className={`hidden md:block fixed bottom-5 left-5 z-30 pointer-events-none transition-all duration-300 transform ${
           showBadge
             ? "opacity-100 translate-y-0 scale-100"
-            : "opacity-0 -translate-y-1.5 scale-95 pointer-events-none"
+            : "opacity-0 translate-y-2 scale-95 pointer-events-none"
         }`}
       >
         <button

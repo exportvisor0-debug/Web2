@@ -1,25 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>ExportVisor | Redirecting...</title>
-    <script>
-      // Single Page Application redirect for GitHub Pages
-      // Preserves the path and query parameters when redirecting to /
-      (function() {
-        var path = window.location.pathname;
-        var search = window.location.search;
-        var hash = window.location.hash;
-        
-        // Normalize path
-        var cleanPath = path.replace(/^\/+/, '');
-        sessionStorage.setItem('spa_redirect', path + search + hash);
-        
-        window.location.replace('/' + (cleanPath ? '?' + cleanPath : '') + hash);
-      })();
-    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Page Not Found | ExportVisor Bangladesh Leather Export</title>
+    <link rel="canonical" href="https://exportvisor.com/" />
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        background: #FAF8F5;
+        color: #1C1712;
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+      .card {
+        max-width: 520px;
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid #E5DBBE;
+        border-radius: 16px;
+        padding: 36px 28px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(28, 23, 18, 0.06);
+      }
+      h1 { font-size: 1.75rem; margin: 0 0 12px; color: #1C1712; }
+      p { font-size: 0.95rem; line-height: 1.6; color: #57534E; margin: 0 0 24px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      a {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+      .primary { background: #C89D43; color: #15120E; }
+      .secondary { background: #FAF8F5; color: #1C1712; border: 1px solid #DED4BD; }
+    </style>
   </head>
   <body>
-    <p>Redirecting to <a href="/">ExportVisor</a>...</p>
+    <main class="card">
+      <h1>Page Not Found</h1>
+      <p>The requested ExportVisor URL has moved or does not exist. Explore our direct Bangladesh leather catalogue or submit a tannery quotation request.</p>
+      <div class="actions">
+        <a href="/" class="primary">ExportVisor Home</a>
+        <a href="/products" class="secondary">Leather Catalogue</a>
+        <a href="/quote" class="secondary">Request Quote</a>
+      </div>
+    </main>
   </body>
 </html>

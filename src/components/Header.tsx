@@ -9,7 +9,6 @@ import {
   Menu,
   X,
   ArrowUpRight,
-  MessageSquareText,
   Mail,
   Phone,
   Globe,
@@ -26,12 +25,10 @@ import { navigateTo, scrollToSection } from "../utils/router";
 
 interface HeaderProps {
   onRequestQuote: (prefillProduct?: string) => void;
-  onOpenCompanyProfile: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   onRequestQuote,
-  onOpenCompanyProfile,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -190,17 +187,17 @@ export const Header: React.FC<HeaderProps> = ({
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-200 bg-white/95 dark:bg-[#0B0806]/95 backdrop-blur-md ${
           isScrolled
-            ? "border-b border-[#C89D43]/25 dark:border-stone-800/90 shadow-xs py-2.5 sm:py-3"
-            : "border-b border-[#C89D43]/15 dark:border-stone-800/60 py-3 sm:py-3.5 shadow-2xs"
+            ? "border-b border-[#C89D43]/25 dark:border-stone-800/90 shadow-xs py-2 sm:py-2.5"
+            : "border-b border-[#C89D43]/15 dark:border-stone-800/60 py-2.5 sm:py-3 shadow-2xs"
         }`}
       >
         <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-2 lg:gap-3 xl:gap-4">
+          <div className="flex items-center justify-between gap-2 lg:gap-4">
             
             {/* Zone 1: Brand Logo */}
             <a
               href="/"
-              className="flex items-center group py-0.5 shrink-0 max-w-[130px] sm:max-w-[190px]"
+              className="flex items-center group py-0.5 shrink-0 max-w-[125px] sm:max-w-[175px]"
               onClick={(e) => {
                 e.preventDefault();
                 navigateTo("/", true);
@@ -210,7 +207,7 @@ export const Header: React.FC<HeaderProps> = ({
               <img
                 src={logoSrc}
                 alt="ExportVisor - Bangladesh Leather Sourcing & Export"
-                className="h-7 sm:h-9 md:h-10 w-auto max-w-[125px] sm:max-w-[190px] object-contain transition-transform duration-200 group-hover:scale-102"
+                className="h-7 sm:h-8 md:h-9 w-auto max-w-[120px] sm:max-w-[175px] object-contain transition-transform duration-200 group-hover:scale-102"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).src =
                     theme === "dark" ? "/assets/branding/logo-white.png" : "/Logo3_4.png";
@@ -218,17 +215,31 @@ export const Header: React.FC<HeaderProps> = ({
               />
             </a>
 
-            {/* Zone 2: Streamlined Desktop Navigation (Never breaks or wraps across ALL 11 languages) */}
-            <nav className="hidden lg:flex items-center gap-2.5 xl:gap-4 2xl:gap-5 text-xs xl:text-sm font-medium text-stone-700 dark:text-stone-300 shrink">
-              
-              {/* 1. About Link */}
+            {/* Zone 2: Balanced Top-Level Navigation */}
+            <nav
+              aria-label="Primary navigation"
+              className="hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs xl:text-sm font-medium text-stone-700 dark:text-stone-300 shrink"
+            >
+              {/* 1. Leather Catalogue (Direct 1-Click) */}
+              <a
+                href="/products"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("/products");
+                }}
+                className="whitespace-nowrap transition-colors hover:text-[#C89D43] py-1.5 font-semibold"
+              >
+                {language === "bn" ? "ক্যাটালগ" : "Catalogue"}
+              </a>
+
+              {/* 2. About Link */}
               <a
                 href="/about"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick("/about");
                 }}
-                className="whitespace-nowrap transition-colors hover:text-[#C89D43] py-1 font-semibold"
+                className="whitespace-nowrap transition-colors hover:text-[#C89D43] py-1.5 font-semibold"
               >
                 {t.nav.about}
               </a>
@@ -260,7 +271,7 @@ export const Header: React.FC<HeaderProps> = ({
 
                 {/* Dropdown Menu Flyout */}
                 {leatherDropdownOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-[640px] xl:w-[700px] animate-in fade-in-0 zoom-in-95 duration-150">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-[640px] xl:w-[700px] animate-fade-in">
                     <div className="bg-white/98 dark:bg-[#120E0B]/98 backdrop-blur-xl border border-stone-200 dark:border-[#C89D43]/40 rounded-2xl shadow-2xl p-4 space-y-2.5">
                       
                       {/* Dropdown Header Strip */}
@@ -274,7 +285,7 @@ export const Header: React.FC<HeaderProps> = ({
                           </span>
                         </div>
                         <span className="text-[10px] font-mono text-stone-500 dark:text-stone-400">
-                          {language === "bn" ? "সাভার, ঢাকা · ৫টি রিসোর্স" : "Savar, Dhaka · 5 Modules"}
+                          {language === "bn" ? "সাভার, ঢাকা · ৬টি রিসোর্স" : "Savar, Dhaka · 6 Modules"}
                         </span>
                       </div>
 
@@ -336,20 +347,32 @@ export const Header: React.FC<HeaderProps> = ({
                 )}
               </div>
 
-              {/* Company Profile PDF Button */}
-              <button
-                onClick={onOpenCompanyProfile}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-semibold text-stone-600 dark:text-stone-300 hover:text-[#C89D43] dark:hover:text-[#E5BE58] bg-stone-100/70 dark:bg-stone-800/50 hover:bg-[#C89D43]/10 border border-stone-200/80 dark:border-stone-700/60 transition-all cursor-pointer whitespace-nowrap"
-                title="View and download ExportVisor Company Profile PDF"
+              {/* 4. Commercial Terms Link */}
+              <a
+                href="/terms"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("/terms");
+                }}
+                className="whitespace-nowrap transition-colors hover:text-[#C89D43] py-1.5 font-semibold"
               >
-                <span>{t.nav.companyProfile}</span>
-                <span className="text-[9px] font-mono uppercase font-bold px-1 rounded bg-[#C89D43]/20 text-[#7A5A17] dark:text-[#E5BE58]">
-                  PDF
-                </span>
-              </button>
+                {t.nav.terms}
+              </a>
+
+              {/* 5. FAQ Link */}
+              <a
+                href="/faq"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick("/faq");
+                }}
+                className="whitespace-nowrap transition-colors hover:text-[#C89D43] py-1.5 font-semibold"
+              >
+                {language === "bn" ? "জিজ্ঞাসা" : "FAQ"}
+              </a>
             </nav>
 
-            {/* Zone 3: Desktop & Tablet Action Controls */}
+            {/* Zone 3: Desktop, Tablet & Mobile Action Controls */}
             <div className="flex items-center gap-1.5 sm:gap-2 md:gap-2.5 shrink-0">
               
               {/* Theme Switcher - Light / Dark Mode Toggle */}
@@ -360,7 +383,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <LanguageSwitcher />
               </div>
 
-              {/* WhatsApp Quick Link (Responsive visibility) */}
+              {/* Light-Tinted 2nd Action Button (Crisp Soft WhatsApp Mint Surface beside Gold Quote CTA) */}
               <a
                 href={siteConfig.contact.whatsappUrl}
                 target="_blank"
@@ -368,41 +391,39 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() =>
                   trackEvent("whatsapp_click", { location: "header_quick_action" })
                 }
-                className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 border border-emerald-200/80 dark:border-emerald-800/50 rounded-md transition-colors shadow-2xs"
-                title="Connect directly on WhatsApp"
+                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 min-h-[38px] sm:min-h-[36px] py-1.5 text-[11px] sm:text-xs font-bold tracking-wide text-[#0B5B35] bg-[#E8FBF0] hover:bg-[#D2F5E1] dark:bg-[#E7F9EF] dark:hover:bg-[#D1F5E0] dark:text-[#064E3B] border border-[#25D366]/65 hover:border-[#16A34A] rounded-lg transition-all duration-150 shadow-xs hover:shadow-md hover:shadow-emerald-500/15 hover:-translate-y-0.5 active:scale-97 whitespace-nowrap shrink-0 group"
+                title={language === "bn" ? "সরাসরি হোয়াটসঅ্যাপে মেসেজ করুন" : "Chat with ExportVisor on WhatsApp"}
+                aria-label="WhatsApp"
               >
-                <MessageSquareText className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                <span className="whitespace-nowrap hidden 2xl:inline">{t.nav.whatsApp}</span>
+                <span className="w-5 h-5 rounded-full bg-[#25D366] group-hover:bg-[#1EAE52] flex items-center justify-center shrink-0 shadow-2xs transition-colors">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-3 h-3 text-white"
+                    aria-hidden="true"
+                  >
+                    <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.469 3.484 1.344 5l-1.406 5.156 5.281-1.391c1.469.797 3.109 1.219 4.75 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.422-.516.078-1.172.109-1.891-.125-.438-.141-1-.328-1.719-.641-3.016-1.297-4.984-4.344-5.141-4.547-.141-.203-1.219-1.625-1.219-3.094 0-1.469.766-2.188 1.047-2.484.266-.297.594-.375.797-.375.203 0 .391.016.563.016.188 0 .438-.078.672.5.25.594.844 2.063.922 2.219.078.141.125.313.031.516-.094.203-.141.328-.281.5-.141.172-.297.375-.422.516-.141.141-.297.297-.125.578.172.297.766 1.266 1.641 2.047 1.125 1 2.078 1.313 2.375 1.453.297.141.469.125.641-.078.172-.203.75-.875.953-1.172.203-.297.406-.25.672-.141.266.094 1.719.813 2.016.953.297.156.484.234.563.359.078.141.078.797-.172 1.5z" />
+                  </svg>
+                </span>
+                <span>WhatsApp</span>
               </a>
 
-              {/* Primary Request a Quote Button */}
+              {/* Primary Request a Quote Button (Champagne Gold Signature CTA across Light & Dark Mode) */}
               <button
                 onClick={() => {
                   trackEvent("request_quote_click", { location: "header" });
                   onRequestQuote();
                 }}
-                className="hidden sm:inline-flex items-center justify-center px-3 sm:px-3.5 py-2 text-xs font-bold tracking-wide text-[#15120E] dark:text-white bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] dark:from-[#181310] dark:to-[#261E17] dark:hover:from-[#261E17] dark:hover:to-[#382C22] border border-[#C89D43]/50 rounded-md transition-all duration-150 shadow-gold-subtle hover:shadow-md cursor-pointer whitespace-nowrap group"
+                className="hidden sm:inline-flex items-center justify-center px-3 sm:px-3.5 py-2 text-xs font-bold tracking-wide text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#DFB75A] to-[#C89D43] hover:from-[#FCE39D] hover:to-[#D6AC4B] border border-[#E5BE58]/70 rounded-lg transition-all duration-150 shadow-gold-subtle hover:shadow-md cursor-pointer whitespace-nowrap shrink-0 group"
               >
                 <span>{t.nav.requestQuote}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-[#15120E] dark:text-[#E5BE58] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </button>
-
-              {/* Mobile Quick Flag Indicator (<640px) */}
-              <button
-                onClick={() => setMobileMenuOpen(true)}
-                className="sm:hidden flex items-center gap-1 px-2 py-1.5 text-xs font-medium text-stone-700 dark:text-stone-300 bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-md"
-                aria-label="Open language selection"
-              >
-                <span className="text-sm">{currentOption.flag}</span>
-                <span className="text-[10px] font-mono uppercase font-bold text-stone-600 dark:text-stone-300">
-                  {currentOption.code}
-                </span>
+                <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
 
               {/* Mobile Menu Hamburger Toggle (Visible on < lg, i.e. <1024px) */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white lg:hidden focus:outline-none rounded-lg hover:bg-stone-200/60 dark:hover:bg-stone-800 transition-colors cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center"
+                className="p-2 text-stone-700 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white lg:hidden focus:outline-none rounded-lg hover:bg-stone-200/60 dark:hover:bg-stone-800 transition-colors cursor-pointer min-h-[42px] min-w-[42px] flex items-center justify-center shrink-0"
                 aria-label="Toggle navigation menu"
                 aria-expanded={mobileMenuOpen}
               >
@@ -421,7 +442,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Navigation Drawer (100% responsive for all mobile & tablet screens) */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden flex flex-col bg-white dark:bg-[#0B0806] animate-in fade-in-0 duration-150">
+        <div className="fixed inset-0 z-50 lg:hidden flex flex-col bg-white dark:bg-[#0B0806] animate-fade-in">
           
           {/* Drawer Top Bar */}
           <div className="flex items-center justify-between px-4 py-3.5 border-b border-stone-200 dark:border-stone-800 bg-white dark:bg-[#120E0B]">
@@ -457,10 +478,10 @@ export const Header: React.FC<HeaderProps> = ({
                   setMobileMenuOpen(false);
                   onRequestQuote();
                 }}
-                className="flex items-center justify-center gap-1.5 py-3 px-3 rounded-lg text-xs font-bold bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] text-[#15120E] border border-[#C89D43]/60 shadow-xs cursor-pointer active:scale-98 transition-transform"
+                className="flex items-center justify-center gap-1.5 py-3 px-3 rounded-lg text-xs font-bold bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] text-stone-950 border border-[#C89D43]/60 shadow-xs cursor-pointer active:scale-98 transition-transform"
               >
                 <span>{t.nav.requestQuote}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#15120E]" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-stone-950" />
               </button>
               <a
                 href={siteConfig.contact.whatsappUrl}
@@ -469,10 +490,14 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => {
                   trackEvent("whatsapp_click", { location: "mobile_drawer" });
                 }}
-                className="flex items-center justify-center gap-1.5 py-3 px-3 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-xs active:scale-98 transition-transform"
+                className="flex items-center justify-center gap-2 py-3 px-3 rounded-lg text-xs font-bold tracking-wide text-[#0B5B35] bg-[#E8FBF0] hover:bg-[#D2F5E1] dark:bg-[#E7F9EF] dark:hover:bg-[#D1F5E0] dark:text-[#064E3B] border border-[#25D366]/65 shadow-xs active:scale-98 transition-all"
               >
-                <MessageSquareText className="w-3.5 h-3.5" />
-                <span>{t.nav.whatsApp}</span>
+                <span className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3 text-white" aria-hidden="true">
+                    <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.469 3.484 1.344 5l-1.406 5.156 5.281-1.391c1.469.797 3.109 1.219 4.75 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.422-.516.078-1.172.109-1.891-.125-.438-.141-1-.328-1.719-.641-3.016-1.297-4.984-4.344-5.141-4.547-.141-.203-1.219-1.625-1.219-3.094 0-1.469.766-2.188 1.047-2.484.266-.297.594-.375.797-.375.203 0 .391.016.563.016.188 0 .438-.078.672.5.25.594.844 2.063.922 2.219.078.141.125.313.031.516-.094.203-.141.328-.281.5-.141.172-.297.375-.422.516-.141.141-.297.297-.125.578.172.297.766 1.266 1.641 2.047 1.125 1 2.078 1.313 2.375 1.453.297.141.469.125.641-.078.172-.203.75-.875.953-1.172.203-.297.406-.25.672-.141.266.094 1.719.813 2.016.953.297.156.484.234.563.359.078.141.078.797-.172 1.5z" />
+                  </svg>
+                </span>
+                <span>WhatsApp</span>
               </a>
             </div>
 
@@ -597,19 +622,18 @@ export const Header: React.FC<HeaderProps> = ({
                   )}
                 </div>
 
-                {/* Company Profile PDF */}
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenCompanyProfile();
+                {/* FAQ Link */}
+                <a
+                  href="/faq"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick("/faq");
                   }}
-                  className="w-full p-3 bg-white dark:bg-[#120E0B] border border-stone-200 dark:border-stone-800 rounded-xl text-sm font-semibold text-stone-800 dark:text-stone-200 hover:text-[#C89D43] flex items-center justify-between shadow-2xs cursor-pointer text-left"
+                  className="p-3 bg-white dark:bg-[#120E0B] border border-stone-200 dark:border-stone-800 rounded-xl text-sm font-semibold text-stone-800 dark:text-stone-200 hover:text-[#C89D43] flex items-center justify-between shadow-2xs"
                 >
-                  <span>{t.nav.companyProfile}</span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58]">
-                    PDF
-                  </span>
-                </button>
+                  <span>{language === "bn" ? "সচরাচর জিজ্ঞাসিত প্রশ্ন (FAQ)" : "Tannery & Export FAQ"}</span>
+                  <ArrowUpRight className="w-4 h-4 text-stone-400" />
+                </a>
 
               </div>
             </div>

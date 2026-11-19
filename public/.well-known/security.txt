@@ -1,0 +1,5 @@
+Contact: mailto:info@exportvisor.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, bn
+Canonical: https://exportvisor.com/.well-known/security.txt
+Policy: https://exportvisor.com/terms

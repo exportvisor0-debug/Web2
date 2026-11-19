@@ -226,13 +226,14 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
           className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 pb-6 border-b border-[#EAE3D2] dark:border-stone-800/80 gap-6"
         >
           <div className="max-w-2xl">
-            <div className="flex flex-wrap items-center gap-3 mb-2.5">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF3E0] dark:bg-[#C89D43]/20 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/40 text-xs font-bold uppercase tracking-wider font-mono">
+            <div className="flex flex-wrap items-center gap-2.5 mb-2.5">
+              <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.14em] font-mono text-[#8C6214] dark:text-[#F3CE6D]">
                 <Compass className="w-3.5 h-3.5 text-[#C89D43]" />
                 {t.catalogue.kicker}
               </span>
               <span className="text-xs font-mono text-stone-500 dark:text-stone-400">
-                · 74 Official Verified Articles
+                · {stageCounts.All} Verified Articles
               </span>
               <SectionShareButton path="/products" sectionName={t.catalogue.kicker} />
             </div>
@@ -278,35 +279,37 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
             </span>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 p-2 bg-[#F6F2E8]/80 dark:bg-[#15100B] border border-[#E5DBBE] dark:border-[#2C2117] rounded-2xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5 p-1.5 sm:p-2 bg-[#F6F2E8]/80 dark:bg-[#15100B] border border-[#E5DBBE] dark:border-[#2C2117] rounded-2xl">
             
             {/* 1. Crust Leather Tab */}
             <button
               type="button"
               onClick={() => setSelectedStage("Crust")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group ${
+              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
                 selectedStage === "Crust"
                   ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
                   : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
               }`}
             >
-              <div className="flex items-center justify-between gap-1 mb-1.5 flex-wrap">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono ${
+              <div className="flex items-center justify-between gap-1.5 mb-1">
+                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
                   selectedStage === "Crust" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
                 }`}>
-                  {isBn ? "ক্রাস্ট লেদার" : "Crust Leather"}
+                  {isBn ? "ক্রাস্ট" : "Crust"}
                 </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
+                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
                   selectedStage === "Crust"
-                    ? "bg-[#FAF3E0] dark:bg-[#C89D43]/25 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/50"
-                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
+                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
+                    : "text-stone-500 dark:text-stone-400"
                 }`}>
-                  {stageCounts.Crust} Articles
+                  {stageCounts.Crust} {isBn ? "টি" : "Art."}
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white truncate">Chrome & Veg Crust, Drum Dyed</div>
-              <p className="text-[10px] sm:text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Semi-finished substrate for finishing tanneries
+              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "ক্রোম ও ভেজিটেবল ক্রাস্ট" : "Chrome & Veg Crust"}
+              </div>
+              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Semi-finished drum-dyed substrate
               </p>
               {selectedStage === "Crust" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
@@ -317,29 +320,31 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
             <button
               type="button"
               onClick={() => setSelectedStage("Finished")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group ${
+              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
                 selectedStage === "Finished"
                   ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
                   : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
               }`}
             >
-              <div className="flex items-center justify-between gap-1 mb-1.5 flex-wrap">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono ${
+              <div className="flex items-center justify-between gap-1.5 mb-1">
+                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
                   selectedStage === "Finished" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
                 }`}>
-                  {isBn ? "ফিনিশড লেদার" : "Finished Leather"}
+                  {isBn ? "ফিনিশড" : "Finished"}
                 </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
+                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
                   selectedStage === "Finished"
-                    ? "bg-[#FAF3E0] dark:bg-[#C89D43]/25 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/50"
-                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
+                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
+                    : "text-stone-500 dark:text-stone-400"
                 }`}>
-                  {stageCounts.Finished} Articles
+                  {stageCounts.Finished} {isBn ? "টি" : "Art."}
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white truncate">Full Aniline, Pull-Up, Nappa</div>
-              <p className="text-[10px] sm:text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Luxury shoes, bags, garments & upholstery
+              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "অ্যানিলিন, পুল-আপ, নাপ্পা" : "Aniline, Pull-Up, Nappa"}
+              </div>
+              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Shoes, bags, garments & upholstery
               </p>
               {selectedStage === "Finished" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
@@ -350,29 +355,31 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
             <button
               type="button"
               onClick={() => setSelectedStage("Wet Blue")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group ${
+              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
                 selectedStage === "Wet Blue"
                   ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
                   : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
               }`}
             >
-              <div className="flex items-center justify-between gap-1 mb-1.5 flex-wrap">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono ${
+              <div className="flex items-center justify-between gap-1.5 mb-1">
+                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
                   selectedStage === "Wet Blue" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
                 }`}>
-                  {isBn ? "ওয়েট ব্লু ও ওয়েট হোয়াইট" : "Wet Blue & Wet White"}
+                  {isBn ? "ওয়েট ব্লু" : "Wet Blue"}
                 </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
+                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
                   selectedStage === "Wet Blue"
-                    ? "bg-[#FAF3E0] dark:bg-[#C89D43]/25 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/50"
-                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
+                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
+                    : "text-stone-500 dark:text-stone-400"
                 }`}>
-                  {stageCounts["Wet Blue"]} Articles
+                  {stageCounts["Wet Blue"]} {isBn ? "টি" : "Art."}
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white truncate">Full Grain Bovine & Splits</div>
-              <p className="text-[10px] sm:text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Raw chrome tanned hides & chrome-free wet white
+              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "বovin ও ক্রোম-ফ্রি হাইড" : "Full Grain & Wet White"}
+              </div>
+              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Chrome tanned hides & splits
               </p>
               {selectedStage === "Wet Blue" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
@@ -383,29 +390,31 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
             <button
               type="button"
               onClick={() => setSelectedStage("All")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group ${
+              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
                 selectedStage === "All"
                   ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
                   : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
               }`}
             >
-              <div className="flex items-center justify-between gap-1 mb-1.5 flex-wrap">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono ${
+              <div className="flex items-center justify-between gap-1.5 mb-1">
+                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
                   selectedStage === "All" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
                 }`}>
-                  {isBn ? "সকল আর্টিকেল" : "All Collections"}
+                  {isBn ? "সবগুলো" : "All Articles"}
                 </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold px-1.5 sm:px-2 py-0.5 rounded-full ${
+                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
                   selectedStage === "All"
-                    ? "bg-[#FAF3E0] dark:bg-[#C89D43]/25 text-[#8C6214] dark:text-[#F3CE6D] border border-[#C89D43]/50"
-                    : "bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400"
+                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
+                    : "text-stone-500 dark:text-stone-400"
                 }`}>
-                  {stageCounts.All} Total
+                  {stageCounts.All} {isBn ? "মোট" : "Total"}
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white truncate">Full Tannery Export Portfolio</div>
-              <p className="text-[10px] sm:text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Complete Savar collection & bespoke formulations
+              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "সম্পূর্ণ ট্যানারি পোর্টফোলিও" : "Full Export Portfolio"}
+              </div>
+              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                All Savar stages & bespoke hides
               </p>
               {selectedStage === "All" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
@@ -427,8 +436,8 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                 type="text"
                 placeholder={
                   isBn
-                    ? "আর্টিকেল নম্বর (ART-01, CR-05), চামড়ার ধরন, জুতা, সোফা দিয়ে খুঁজুন..."
-                    : "Search by article number (e.g. ART-01, CR-05, WB-01), name, grain, shoe, bag..."
+                    ? "চামড়ার ধরন, ট্যানিং (Chrome/Veg), গ্রেইন, জুতা বা ব্যাগ দিয়ে খুঁজুন..."
+                    : "Search by leather name, grain (Full Grain, Nubuck), tanning, shoe, bag..."
                 }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -849,7 +858,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                     </div>
 
                     {/* Spacious Touch-Friendly Card Footer */}
-                    <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-[#EAE3D2]/70 dark:border-stone-800/80 flex items-center justify-between gap-2">
+                    <div className="px-4 sm:px-6 pb-5 pt-3 border-t border-[#EAE3D2]/70 dark:border-stone-800/80 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
                       <div className="flex items-center gap-1.5 shrink-0">
                         <button
                           type="button"
@@ -857,7 +866,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                             trackEvent("product_detail_view", { product_id: product.id });
                             onSelectProduct(product);
                           }}
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#FAF8F5] dark:bg-stone-800 hover:bg-[#FAF4E2] dark:hover:bg-[#201913] text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-[#8C6214] dark:hover:text-[#F3CE6D] border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-all whitespace-nowrap"
+                          className="inline-flex items-center gap-1.5 px-3.5 min-h-[44px] rounded-xl bg-[#FAF8F5] dark:bg-stone-800 hover:bg-[#FAF4E2] dark:hover:bg-[#201913] text-xs font-bold text-stone-800 dark:text-stone-200 hover:text-[#8C6214] dark:hover:text-[#F3CE6D] border border-[#DED4BD] dark:border-stone-700 hover:border-[#C89D43] cursor-pointer transition-all whitespace-nowrap"
                         >
                           <span>{isBn ? "বিস্তারিত" : "View Specs"}</span>
                           <ArrowUpRight className="w-3.5 h-3.5 text-[#C89D43]" />
@@ -867,7 +876,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                           type="button"
                           onClick={(e) => handleCopyProductLink(e, product.id)}
                           title={`Copy direct link: /product/${product.id}`}
-                          className="p-2.5 rounded-xl text-stone-400 dark:text-stone-500 hover:text-[#C89D43] hover:bg-[#FAF4E2] dark:hover:bg-stone-800 transition-colors cursor-pointer"
+                          className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl text-stone-400 dark:text-stone-500 hover:text-[#C89D43] hover:bg-[#FAF4E2] dark:hover:bg-stone-800 transition-colors cursor-pointer"
                           aria-label={`Copy link for ${product.name}`}
                         >
                           {copiedId === product.id ? (
@@ -885,12 +894,12 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                             location: "product_card",
                             product_name: product.name,
                           });
-                          onRequestQuote(`${product.name} (${product.articleNumber || product.id})`);
+                          onRequestQuote(product.name);
                         }}
-                        className="inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-[#15120E] bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap group/btn flex-1 sm:flex-initial"
+                        className="inline-flex items-center justify-center px-4 min-h-[44px] text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] hover:from-[#FFF0A5] hover:to-[#D6AC4B] rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer whitespace-nowrap group/btn flex-1 sm:flex-initial"
                       >
                         <span>{t.catalogue.requestQuote}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-[#15120E] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </button>
                     </div>
                   </div>
@@ -961,12 +970,12 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                             location: "product_list",
                             product_name: product.name,
                           });
-                          onRequestQuote(`${product.name} (${product.articleNumber || product.id})`);
+                          onRequestQuote(product.name);
                         }}
-                        className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-[#15120E] bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] rounded-xl cursor-pointer whitespace-nowrap"
+                        className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#B8892E] rounded-xl cursor-pointer whitespace-nowrap"
                       >
                         <span>{t.catalogue.requestQuote}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+                        <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950" />
                       </button>
                       <button
                         type="button"

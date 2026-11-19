@@ -4,6 +4,7 @@ import { trackEvent } from "../utils/analytics";
 import { useLanguage } from "../context/LanguageContext";
 import { LeatherImageMagnifier } from "./LeatherImageMagnifier";
 import { generateProductJsonLd } from "../utils/productSchema";
+import { getB2BProductH1 } from "../utils/productSeoFormat";
 import {
   X,
   ArrowUpRight,
@@ -73,11 +74,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         {/* Top Header Bar */}
         <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-[#15100C]">
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            {product.articleNumber && (
-              <span className="font-mono text-xs px-2.5 py-0.5 rounded bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 font-bold">
-                {product.articleNumber}
-              </span>
-            )}
             <span className="text-xs font-bold uppercase tracking-wider text-[#C89D43]">
               {product.stage} Leather
             </span>
@@ -129,7 +125,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 aspectRatioClass="aspect-[4/3]"
                 isSustainable={product.isSustainable}
                 category={product.stage}
-                badgeLabel={product.articleNumber}
+                badgeLabel={product.badgeLabel || product.stage}
               />
             </div>
 
@@ -141,14 +137,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     {product.tanningMethod}
                   </span>
                   {product.badgeLabel && (
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 font-semibold">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 font-semibold">
                       {product.badgeLabel}
                     </span>
                   )}
                 </div>
-                <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#181310] dark:text-[#FAF6F0] tracking-tight leading-tight">
-                  {product.name}
-                </h2>
+                <h1 className="font-display text-xl sm:text-2xl lg:text-[28px] font-bold text-[#181310] dark:text-[#FAF6F0] tracking-tight leading-snug">
+                  {getB2BProductH1(product)}
+                </h1>
                 <p className="mt-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                   {product.overview}
                 </p>
@@ -236,90 +232,88 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </nav>
           </div>
 
-          {/* TAB 1: Technical Specifications */}
+          {/* TAB 1: Structured B2B Technical Specification Table */}
           {activeTab === "specs" && (
             <div className="border border-stone-200 dark:border-stone-800 rounded-lg overflow-hidden animate-fade-in">
-              <div className="divide-y divide-stone-200 dark:divide-stone-800 text-xs">
-                
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "ম্যাটেরিয়াল ও অ্যানিমেল টাইপ" : "Material & Animal Type"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100 font-semibold">
-                    {product.materialType} ({product.animal})
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40 bg-amber-50/30 dark:bg-amber-950/10">
-                  <span className="font-semibold text-[#7A5A17] dark:text-[#E5BE58]">
-                    {isBn ? "পুরুত্ব / থিকনেস" : "Thickness Range"}
-                  </span>
-                  <div className="sm:col-span-2">
-                    <span className="text-stone-900 dark:text-stone-100 font-bold block">
-                      {isBn ? "বায়ারের চাহিদা অনুযায়ী কাস্টমাইজড" : "Customized per Buyer Specification"}
-                    </span>
-                    <span className="text-[11px] text-stone-500 dark:text-stone-400">
-                      {isBn
-                        ? "আপনার প্রয়োজনীয় সাবস্ট্যান্স ও টেক প্যাক অনুসারে প্রতিটি হাইড নিখুঁতভাবে শেভ ও গ্রেড করা হয়।"
-                        : "Tailored to buyer target substance (0.8–1.0mm, 1.1–1.3mm, 1.3–1.5mm, 1.6–1.8mm+) per purchase order."}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "ট্যানিং ও প্রসেসিং পদ্ধতি" : "Tanning Chemistry"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100">
-                    {product.tanningMethod} ({product.stage} Stage)
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "গ্রেইন টাইপ ও সারফেস স্ট্রাকচার" : "Grain Architecture"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100">
-                    {product.grainType}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "উপলব্ধ ফিনিশসমূহ" : "Available Finishes"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100">
-                    {product.availableFinishes.join(" · ")}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "রঙের বৈচিত্র্য ও ডাইং" : "Color Options"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100">
-                    {product.colorOptions} (Pantone Matching & Custom Swatches)
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "সাইজ ও এরিয়া মেজারমেন্ট" : "Size & Area Measurement"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100">
-                    {product.sizeMeasurement}
-                  </span>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 p-3.5 hover:bg-stone-50/50 dark:hover:bg-stone-800/40">
-                  <span className="font-semibold text-stone-600 dark:text-stone-400">
-                    {isBn ? "উৎপাদন উৎস" : "Sourcing Origin"}
-                  </span>
-                  <span className="sm:col-span-2 text-stone-900 dark:text-stone-100">
-                    {product.origin} · Savar Industrial Tannery Zone, Dhaka
-                  </span>
-                </div>
-
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse text-xs">
+                  <thead>
+                    <tr className="bg-stone-100/90 dark:bg-[#1A1410] border-b border-stone-200 dark:border-stone-800">
+                      <th scope="col" className="py-2.5 px-4 font-bold uppercase tracking-wider text-[10px] text-[#7A5A17] dark:text-[#E5BE58] w-2/5 sm:w-1/3">
+                        {isBn ? "স্পেসিফিকেশন প্যারামিটার" : "Specification Parameter"}
+                      </th>
+                      <th scope="col" className="py-2.5 px-4 font-bold uppercase tracking-wider text-[10px] text-stone-600 dark:text-stone-400">
+                        {isBn ? "ট্যানারি রপ্তানি মান" : "Verified Tannery Export Standard"}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-stone-200 dark:divide-stone-800">
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "লেদারের ধরন (Leather Type)" : "Leather Type"}
+                      </th>
+                      <td className="py-3 px-4 text-stone-900 dark:text-stone-100 font-semibold">
+                        {product.stage} {product.grainType} — {product.name} ({product.availableFinishes.slice(0, 3).join(" · ")})
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "কাঁচামাল (Cow/Buff)" : "Raw Material (Cow/Buff)"}
+                      </th>
+                      <td className="py-3 px-4 text-stone-900 dark:text-stone-100">
+                        {product.animal} · {product.materialType}
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "ট্যানেজ (Chrome/Veg)" : "Tannage (Chrome/Veg)"}
+                      </th>
+                      <td className="py-3 px-4 text-stone-900 dark:text-stone-100">
+                        {product.tanningMethod} ({product.stage} Stage)
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30 bg-amber-50/35 dark:bg-amber-950/15">
+                      <th scope="row" className="py-3 px-4 font-semibold text-[#7A5A17] dark:text-[#E5BE58]">
+                        {isBn ? "পুরুত্ব (Thickness mm)" : "Thickness (mm)"}
+                      </th>
+                      <td className="py-3 px-4 text-stone-900 dark:text-stone-100 font-semibold">
+                        {product.thicknessRange || "Custom Calibrated (0.8–1.0mm, 1.1–1.3mm, 1.4–1.6mm, 1.8–2.2mm+) per buyer tech pack"}
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "গড় আকার (sq. ft.)" : "Average Size (sq. ft.)"}
+                      </th>
+                      <td className="py-3 px-4 text-stone-900 dark:text-stone-100">
+                        {product.sizeMeasurement || "18–26 sq. ft. per full hide (Pin-wheel electronic measured)"}
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "ন্যূনতম অর্ডার (MOQ)" : "MOQ"}
+                      </th>
+                      <td className="py-3 px-4 font-mono text-stone-900 dark:text-stone-100 font-semibold">
+                        {product.moq}
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "স্যাম্পল প্রাপ্যতা" : "Sample Availability"}
+                      </th>
+                      <td className="py-3 px-4 text-emerald-700 dark:text-emerald-400 font-semibold">
+                        {product.availabilityNote || "Ready for dispatch — DHL / FedEx lab dip swatches & counter-samples (5–7 days)"}
+                      </td>
+                    </tr>
+                    <tr className="hover:bg-stone-50/70 dark:hover:bg-stone-800/30">
+                      <th scope="row" className="py-3 px-4 font-semibold text-stone-700 dark:text-stone-300">
+                        {isBn ? "লিড টাইম (Lead Time)" : "Lead Time"}
+                      </th>
+                      <td className="py-3 px-4 font-mono text-stone-900 dark:text-stone-100">
+                        {product.leadTime} · Origin: {product.origin}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           )}
@@ -475,17 +469,24 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </div>
 
         {/* Modal Action Footer */}
-        <div className="px-5 sm:px-6 py-4 border-t border-stone-200 dark:border-stone-800 bg-stone-50/70 dark:bg-[#15100C] flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="text-xs text-stone-500 dark:text-stone-400 text-center sm:text-left">
-            Article: <strong className="text-stone-800 dark:text-stone-200">{product.name}</strong>
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-t border-stone-200 dark:border-stone-800 bg-stone-50/80 dark:bg-[#15100C] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="text-xs text-stone-500 dark:text-stone-400 text-center sm:text-left min-w-0">
+            <span className="truncate block">
+              Article: <strong className="text-stone-800 dark:text-stone-200">{product.name}</strong>
+            </span>
+            <span className="text-[10px] font-mono text-emerald-700 dark:text-emerald-400 block mt-0.5">
+              {isBn
+                ? "✓ DHL/FedEx স্যাম্পল সাপোর্ট · L/C ও T/T · SGS/Intertek ইন্সপেকশন অনুমোদিত"
+                : "✓ DHL/FedEx Swatch Samples · L/C at Sight & T/T · SGS/Intertek QA Allowed"}
+            </span>
           </div>
 
-          <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-3 w-full sm:w-auto justify-end">
+          <div className="grid grid-cols-2 sm:flex items-center gap-2 sm:gap-2.5 w-full sm:w-auto justify-end shrink-0">
             <button
               type="button"
               onClick={handleCopyLink}
               title="Copy direct product URL"
-              className="inline-flex items-center justify-center gap-1.5 px-3 py-2 text-xs font-semibold text-stone-700 dark:text-stone-300 bg-white dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-700 border border-stone-200 dark:border-stone-700 rounded-lg transition-colors cursor-pointer"
+              className="hidden sm:inline-flex items-center justify-center gap-1.5 px-3 min-h-[42px] text-xs font-semibold text-stone-700 dark:text-stone-300 bg-white dark:bg-stone-800 hover:bg-stone-100 dark:hover:bg-stone-700 border border-stone-200 dark:border-stone-700 rounded-lg transition-colors cursor-pointer"
             >
               {copiedLink ? (
                 <>
@@ -503,9 +504,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </button>
 
             <a
-              href={`https://wa.me/8801355976619?text=Hello%20ExportVisor%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(
+              href={`https://api.whatsapp.com/send?phone=8801355976619&text=Hello%20ExportVisor%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(
                 product.name
-              )}%20(${product.articleNumber || product.id}).%20Please%20advise%20pricing%20and%20sample%20availability.`}
+              )}.%20Please%20advise%20pricing%20and%20sample%20availability.`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() =>
@@ -514,21 +515,21 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   location: "product_modal",
                 })
               }
-              className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 rounded-lg transition-colors"
+              className="inline-flex items-center justify-center gap-1.5 px-3.5 min-h-[44px] sm:min-h-[42px] text-xs font-bold tracking-wide text-white bg-gradient-to-r from-[#065F46] via-[#047857] to-[#065F46] hover:from-[#059669] hover:to-[#047857] border border-[#E5BE58]/75 rounded-lg transition-all shadow-xs"
             >
-              <MessageSquareText className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>{isBn ? "হোয়াটসঅ্যাপ" : "WhatsApp"}</span>
+              <MessageSquareText className="w-3.5 h-3.5 text-[#A7F3D0]" />
+              <span>WhatsApp</span>
             </a>
 
             <button
               onClick={() => {
                 onClose();
-                onRequestQuote(`${product.name} (${product.articleNumber || product.id})`);
+                onRequestQuote(product.name);
               }}
-              className="flex-1 sm:flex-initial inline-flex items-center justify-center px-4 sm:px-5 py-2 text-xs font-bold text-[#15120E] bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center justify-center px-4 sm:px-5 min-h-[44px] sm:min-h-[42px] text-xs font-bold text-stone-950 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43] hover:from-[#FCE39D] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle cursor-pointer whitespace-nowrap"
             >
-              <span>{isBn ? "কোটেশন রিকোয়েস্ট করুন" : "Request RFQ Quote"}</span>
-              <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-[#15120E]" />
+              <span>{isBn ? "স্যাম্পল / কোটেশন নিন" : "Request Sample / Get Quote"}</span>
+              <ArrowUpRight className="w-3.5 h-3.5 ml-1 text-stone-950" />
             </button>
           </div>
         </div>

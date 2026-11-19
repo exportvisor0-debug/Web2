@@ -1,46 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, type Variants } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { siteConfig } from "../config/siteConfig";
 import { trackEvent } from "../utils/analytics";
 import { useLanguage } from "../context/LanguageContext";
 import {
   heroLeatherImg,
-  heroExportImg,
   crustLeatherImg,
   finishedAnilineImg,
   wetBlueImg,
-  exportShippingImg,
-  containerCargoShipImg,
-  cargoShipVesselImg,
-  portGantryLoadingImg,
 } from "../data/products";
 import {
   ArrowUpRight,
-  ShieldCheck,
   Layers,
-  Globe2,
-  FileText,
-  CheckCircle2,
-  Ship,
   MessageCircle,
   ChevronRight,
   ChevronLeft,
-  Building2,
-  Award,
+  ShieldCheck,
+  Globe2,
   Play,
   Pause,
-  Anchor,
 } from "lucide-react";
 
 interface HeroProps {
   onExploreLeather: () => void;
   onRequestQuote: () => void;
-  onOpenCompanyProfile?: () => void;
 }
 
 interface HeroSlide {
   id: string;
   image: string;
+  mobileImage?: string;
   tag: string;
   tagBn: string;
   caption: string;
@@ -48,150 +37,164 @@ interface HeroSlide {
   alt: string;
 }
 
+const toWebpThumb = (imgPath: string) =>
+  imgPath.replace("/assets/products/", "/assets/products/thumbs/").replace(".jpg", ".webp");
+
 const HERO_SLIDES: HeroSlide[] = [
   {
     id: "slide-ship-open-sea",
     image: "/hero-ship.webp",
-    tag: "Ocean Container Freight",
-    tagBn: "মহাসাগরীয় কনটেইনার ফ্রেইট",
-    caption: "Deep Sea Ocean Container Cargo Shipping · Direct Sailings to 25+ Global Ports",
-    captionBn: "গভীর সমুদ্রে মালবাহী কনটেইনার কার্গো শিপিং · ২৫+ আন্তর্জাতিক বন্দরে সরাসরি জাহাজীকরণ",
-    alt: "Commercial container cargo ship loaded with freight containers for maritime leather export",
+    tag: "Maritime Export",
+    tagBn: "সমুদ্রপথে রপ্তানি",
+    caption: "Chattogram Port (BDCGP) Containerized Freight · 25+ Global Ports",
+    captionBn: "চট্টগ্রাম বন্দর (BDCGP) থেকে ২৫+ আন্তর্জাতিক বন্দরে কনটেইনার শিপিং",
+    alt: "Commercial ocean container cargo ship carrying Bangladesh leather exports worldwide",
   },
   {
-    id: "slide-port-gantry",
-    image: "/hero-ship.webp",
-    tag: "Port Terminal Logistics",
-    tagBn: "পোর্ট টার্মিনাল অপারেশন",
-    caption: "Chattogram Port (BDCGP) Container Terminal · Automated Gantry Vessel Loading",
-    captionBn: "চট্টগ্রাম বন্দর (BDCGP) কনটেইনার টার্মিনাল · স্বয়ংক্রিয় গ্যান্ট্রি ক্রেন লোডিং",
-    alt: "International seaport container terminal with heavy gantry cranes loading export container ship",
-  },
-  {
-    id: "slide-inspection",
-    image: heroLeatherImg.replace("/assets/products/", "/assets/products/thumbs/").replace(".jpg", ".webp"),
-    tag: "LWG Tannery Floor",
-    tagBn: "LWG ট্যানারি ফ্লোর",
-    caption: "LWG-Audited Tannery Quality Inspection & Grain Substance Calibration · Savar, Dhaka",
-    captionBn: "LWG অডিটেড ট্যানারি কোয়ালিটি পরিদর্শন ও গ্রেইন সাবস্ট্যান্স ক্যালিব্রেশন · সাভার",
-    alt: "ExportVisor artisan leather inspection and thickness calibration in Savar, Bangladesh",
-  },
-  {
-    id: "slide-port-vessel",
-    image: "/hero-ship.webp",
-    tag: "Maritime Shipping Lanes",
-    tagBn: "আন্তর্জাতিক সমুদ্রপথ",
-    caption: "Maritime Container Dispatch · FCL Full Container Loads & LCL Consolidation",
-    captionBn: "সমুদ্রপথে কনটেইনার প্রেরণ · FCL ফুল কনটেইনার ও LCL কনসলিডেশন",
-    alt: "Ocean container vessel underway with international export shipping containers",
+    id: "slide-crust-tannery",
+    image: crustLeatherImg,
+    mobileImage: toWebpThumb(crustLeatherImg),
+    tag: "Crust Collections",
+    tagBn: "ক্রাস্ট কালেকশন",
+    caption: "Full Grain Chrome & Vegetable Tanned Crust · Custom Caliper & Temper",
+    captionBn: "ফুল গ্রেইন ক্রোম ও ভেজিটেবল ট্যানড ক্রাস্ট · কাস্টম পুরুত্ব",
+    alt: "Full grain crust bovine leather crafted at Savar Tannery Estate in Bangladesh",
   },
   {
     id: "slide-finished-aniline",
-    image: finishedAnilineImg.replace("/assets/products/", "/assets/products/thumbs/").replace(".jpg", ".webp"),
-    tag: "Finished Leather Export",
-    tagBn: "ফিনিশড লেদার রপ্তানি",
-    caption: "Export-Grade Aniline & Full Grain Leather · Formulated for Global Brand Collections",
-    captionBn: "রপ্তানি মানসম্পন্ন অ্যানিলিন ও ফুল গ্রেইন লেদার · গ্লোবাল ব্র্যান্ড কালেকশন",
-    alt: "Premium aniline finished leather rolls in rich earthy tones",
+    image: finishedAnilineImg,
+    mobileImage: toWebpThumb(finishedAnilineImg),
+    tag: "Finished Aniline",
+    tagBn: "ফিনিশড অ্যানিলিন",
+    caption: "Drum-Dyed Aniline, Pull-Up & Nappa · Precision Color Matching",
+    captionBn: "ড্রাম-ডাইড অ্যানিলিন, পুল-আপ ও নাপ্পা · প্যানটোন কালার ম্যাচিং",
+    alt: "Export-grade aniline finished bovine leather hides for international brands",
   },
   {
-    id: "slide-export-terminal",
-    image: "/hero-ship.webp",
-    tag: "Seaworthy Staging",
-    tagBn: "সি-ওয়ার্থি স্টেজিং",
-    caption: "ISPM-15 Certified Wooden Pallet Packaging & Moisture-Barrier Container Stuffing",
-    captionBn: "ISPM-15 সার্টিফাইড কাঠের প্যালেটে প্যাকিং ও কনটেইনার সুরক্ষিত স্টাফিং",
-    alt: "Maritime cargo container terminal with export containers ready for dispatch",
+    id: "slide-wet-blue-hides",
+    image: wetBlueImg,
+    mobileImage: toWebpThumb(wetBlueImg),
+    tag: "Wet Blue & White",
+    tagBn: "ওয়েট ব্লু ও হোয়াইট",
+    caption: "Grade I–IV Selection · Chrome Tanned & Chrome-Free Wet White Hides",
+    captionBn: "গ্রেড I–IV বাছাইকৃত ক্রোম ও ক্রোম-ফ্রি ওয়েট হোয়াইট হাইডস",
+    alt: "Wet blue chrome tanned bovine hides staged for international tannery shipment",
+  },
+  {
+    id: "slide-inspection",
+    image: heroLeatherImg,
+    mobileImage: toWebpThumb(heroLeatherImg),
+    tag: "Pre-Shipment QA",
+    tagBn: "প্রি-শিপমেন্ট QA",
+    caption: "Piece-by-Piece Gauge Calibration (±0.1mm) & SGS / Intertek Ready Audit",
+    captionBn: "প্রতি পিস ±০.১ মিমি থিকনেস ক্যালিব্রেশন ও SGS / Intertek অডিট সুবিধা",
+    alt: "Detailed hide inspection and substance calibration in Savar, Bangladesh",
   },
 ];
 
-const AMBIENT_GOLD_PARTICLES = [
-  { left: 14, size: 3, delay: 0, duration: 8.5, drift: 18, opacity: 0.65, color: "#F5D275" },
-  { left: 26, size: 2, delay: 2.2, duration: 11, drift: -14, opacity: 0.5, color: "#E5BE58" },
-  { left: 42, size: 3.5, delay: 1, duration: 7.5, drift: 22, opacity: 0.7, color: "#D6AC4B" },
-  { left: 58, size: 2.5, delay: 3.4, duration: 9.5, drift: -18, opacity: 0.55, color: "#C89D43" },
-  { left: 74, size: 4, delay: 0.7, duration: 10, drift: 16, opacity: 0.65, color: "#F5D275" },
-  { left: 86, size: 2, delay: 4.1, duration: 9, drift: -12, opacity: 0.45, color: "#E5BE58" },
-  { left: 32, size: 3, delay: 4.8, duration: 12, drift: 14, opacity: 0.6, color: "#D4A72C" },
-];
+function renderAccentHeadline(headline: string, language: string) {
+  if (language === "en" && headline.includes("Leather Sourcing Partner")) {
+    const [before, after] = headline.split("Leather Sourcing Partner");
+    return (
+      <>
+        {before}
+        <span className="text-hero-gold-gradient">Leather Sourcing Partner</span>
+        {after}
+      </>
+    );
+  }
+
+  if (language === "bn" && headline.includes("বিশ্বস্ত চামড়া সোর্সিং")) {
+    const [before, after] = headline.split("বিশ্বস্ত চামড়া সোর্সিং");
+    return (
+      <>
+        {before}
+        <span className="text-hero-gold-gradient">বিশ্বস্ত চামড়া সোর্সিং</span>
+        {after}
+      </>
+    );
+  }
+
+  const words = headline.trim().split(/\s+/);
+  if (words.length >= 4) {
+    const startIdx = Math.floor(words.length / 3);
+    const endIdx = Math.min(words.length, startIdx + 2);
+    return (
+      <>
+        {words.slice(0, startIdx).join(" ")}{" "}
+        <span className="text-hero-gold-gradient">
+          {words.slice(startIdx, endIdx).join(" ")}
+        </span>
+        {endIdx < words.length ? ` ${words.slice(endIdx).join(" ")}` : ""}
+      </>
+    );
+  }
+
+  return headline;
+}
 
 export const Hero: React.FC<HeroProps> = ({
   onExploreLeather,
   onRequestQuote,
-  onOpenCompanyProfile,
 }) => {
   const { t, language } = useLanguage();
+  const isBn = language === "bn";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Defer non-critical slide preloading so first paint stays instant
+  // Preload only the NEXT single slide gently so initial page reload stays ultra-fast
   useEffect(() => {
+    const nextIdx = (currentSlide + 1) % HERO_SLIDES.length;
+    const nextSlide = HERO_SLIDES[nextIdx];
     const timer = window.setTimeout(() => {
-      HERO_SLIDES.slice(1).forEach((slide) => {
-        const img = new Image();
-        img.src = slide.image;
-      });
-    }, 1500);
+      const img = new Image();
+      const isCompactViewport = typeof window !== "undefined" && window.innerWidth < 1024;
+      img.src =
+        isCompactViewport && nextSlide.mobileImage
+          ? nextSlide.mobileImage
+          : nextSlide.image;
+    }, 2500);
     return () => window.clearTimeout(timer);
-  }, []);
+  }, [currentSlide]);
 
-  // Background slider autoplay with clean cleanup
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
-    }, 6000);
+    }, 6500);
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
 
-  // Stagger animation variants
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.08,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 16 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.45, ease: "easeOut" },
-    },
-  };
+  const activeSlide = HERO_SLIDES[currentSlide];
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-3 pb-4 sm:pt-4 sm:pb-6 lg:pt-10 lg:pb-16 border-b border-[#C89D43]/35 bg-[#070503] text-white transition-colors duration-200">
-      {/* High-Performance Photographic Background Hero Slider with Maritime Export Imagery */}
+    <section
+      id="hero"
+      className="relative overflow-hidden min-h-[480px] sm:min-h-[550px] lg:min-h-[610px] flex flex-col justify-between pt-10 pb-5 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-8 border-b border-[#C89D43]/35 bg-[#070503] text-white"
+    >
+      {/* Full-Bleed Sharp Photographic Background Slider (0ms initial paint delay) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        <AnimatePresence mode="sync">
+        <AnimatePresence initial={false} mode="sync">
           <motion.div
-            key={HERO_SLIDES[currentSlide].id}
-            initial={{ opacity: 0, scale: 1.08 }}
+            key={activeSlide.id}
+            initial={{ opacity: 0, scale: 1.03 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 1.6, ease: [0.25, 0.1, 0.25, 1] }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 w-full h-full"
           >
             <motion.img
-              animate={{
-                scale: [1, 1.06, 1.01],
-                x: [0, -10, 0],
-              }}
-              transition={{
-                duration: 14,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-              src={HERO_SLIDES[currentSlide].image}
-              alt={HERO_SLIDES[currentSlide].alt}
-              className="w-full h-full object-cover object-[70%_25%] sm:object-[65%_30%] md:object-center"
+              animate={{ scale: [1, 1.04, 1.01] }}
+              transition={{ duration: 16, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+              src={activeSlide.mobileImage || activeSlide.image}
+              srcSet={
+                activeSlide.mobileImage
+                  ? `${activeSlide.mobileImage} 960w, ${activeSlide.image} 1920w`
+                  : undefined
+              }
+              sizes="100vw"
+              alt={activeSlide.alt}
+              className="w-full h-full object-cover object-[72%_25%] sm:object-[68%_35%] md:object-center"
               loading={currentSlide === 0 ? "eager" : "lazy"}
               decoding={currentSlide === 0 ? "sync" : "async"}
               // @ts-ignore
@@ -201,278 +204,125 @@ export const Hero: React.FC<HeroProps> = ({
           </motion.div>
         </AnimatePresence>
 
-        {/* ExportVisor Signature Dark-Gold Brand Blend Scrim (Vibrant photographic visibility blended with luxury dark-gold aura) */}
-        {/* Layer 1: Horizontal Vignette keeping typography readable on the left while letting right-side export imagery shine vividly */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080503]/85 via-[#120B05]/50 to-[#181006]/20 pointer-events-none" />
-        
-        {/* Layer 2: Vertical Ambient Depth with dark-gold gradient transition */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080503]/90 via-[#1A1207]/25 to-[#080503]/35 pointer-events-none" />
-        
-        {/* Layer 3: ExportVisor Brand Signature Dark Gold Radiance Blends */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,167,44,0.25)_0%,rgba(200,157,67,0.12)_35%,transparent_70%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(200,157,67,0.22)_0%,rgba(168,124,36,0.08)_45%,transparent_70%)] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(229,190,88,0.08)_0%,transparent_60%)] pointer-events-none" />
+        {/* Precision Directional Scrim: protects crisp typography on left while keeping ocean/leather textures vivid */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#070503]/45 via-[#080604]/76 to-[#070503]/96 sm:bg-gradient-to-r sm:from-[#070503]/92 sm:via-[#0B0805]/68 sm:to-[#070503]/18 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#070503]/95 via-transparent to-[#070503]/30 pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(200,157,67,0.12)_0%,transparent_60%)] pointer-events-none" />
+      </div>
 
-        {/* Layer 4: Eye-Catching Luxury Technical Grid Mesh */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(200,157,67,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(200,157,67,0.06)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)] pointer-events-none" />
+      {/* Main Executive Editorial Content — Zero-latency availability */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 my-auto">
+        <div className="max-w-2xl lg:max-w-[46rem] text-left space-y-3 sm:space-y-4">
+          {/* Monumental Display Serif Headline with Champagne Gold Gradient Focal Words */}
+          <h1 className="font-display text-[30px] sm:text-[46px] lg:text-[58px] font-bold tracking-tight text-white leading-[1.07] text-balance drop-shadow-sm">
+            {renderAccentHeadline(t.hero.headline, language)}
+          </h1>
 
-        {/* Eye-Catching Floating Gold Bokeh Embers */}
-        <div className="absolute inset-0 pointer-events-none z-1 overflow-hidden">
-          {AMBIENT_GOLD_PARTICLES.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ y: "110%", opacity: 0 }}
-              animate={{
-                y: "-15%",
-                opacity: [0, p.opacity, p.opacity * 0.85, 0],
-                x: [0, p.drift, 0],
+          {/* Signature Architectural Champagne Gold Rule */}
+          <div className="flex items-center gap-3 pt-0.5" aria-hidden="true">
+            <span className="w-16 h-[2px] bg-gradient-to-r from-[#FCE39D] via-[#E5BE58] to-[#C89D43]/40 rounded-full" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E5BE58]/80" />
+          </div>
+
+          {/* Crisp Executive Lead Paragraph */}
+          <p className="font-body text-[13.5px] sm:text-[16.5px] lg:text-[18px] text-stone-200/95 leading-[1.6] max-w-xl lg:max-w-2xl text-pretty">
+            {t.hero.subheadline}
+          </p>
+
+          {/* Aligned Primary & Secondary Action Buttons */}
+          <div className="pt-1.5 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3.5">
+            <motion.button
+              whileHover={{ scale: 1.015, y: -1 }}
+              whileTap={{ scale: 0.985 }}
+              onClick={() => {
+                trackEvent("request_quote_click", { location: "hero_primary" });
+                onRequestQuote();
               }}
-              transition={{
-                duration: p.duration,
-                repeat: Infinity,
-                delay: p.delay,
-                ease: "easeInOut",
-              }}
-              className="absolute rounded-full"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 min-h-[48px] sm:min-h-[50px] text-xs sm:text-sm font-bold tracking-wide text-stone-950 rounded-lg shadow-lg shadow-[#C89D43]/25 hover:shadow-[#D6AC4B]/45 transition-all cursor-pointer group whitespace-nowrap shrink-0"
               style={{
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-                left: `${p.left}%`,
-                background: p.color,
-                boxShadow: `0 0 ${p.size * 3}px ${p.color}`,
+                background: "linear-gradient(135deg, #FCE39D 0%, #E5BE58 48%, #C49332 100%)",
               }}
-            />
-          ))}
+            >
+              <span>{t.hero.requestQuote}</span>
+              <ArrowUpRight className="w-4 h-4 text-stone-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.015, y: -1 }}
+              whileTap={{ scale: 0.985 }}
+              onClick={() => {
+                trackEvent("product_detail_view", { source: "hero_explore_primary" });
+                onExploreLeather();
+              }}
+              className="inline-flex items-center justify-center gap-2.5 px-6 min-h-[50px] text-xs sm:text-sm font-semibold tracking-wide text-white bg-black/50 hover:bg-black/70 backdrop-blur-md rounded-lg border border-[#E5BE58]/55 hover:border-[#FCE39D] transition-all cursor-pointer group whitespace-nowrap shrink-0"
+            >
+              <Layers className="w-4 h-4 text-[#E5BE58]" />
+              <span>{t.hero.exploreCatalogue}</span>
+              <ChevronRight className="w-4 h-4 text-stone-300 group-hover:translate-x-0.5 transition-transform hidden sm:inline" />
+            </motion.button>
+          </div>
+
+          {/* Aligned Secondary Utility & Compliance Row */}
+          <div className="pt-2.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-stone-300 border-t border-white/10 max-w-2xl">
+            <a
+              href={siteConfig.contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("whatsapp_click", { location: "hero_direct" })}
+              className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 font-semibold transition-colors py-1"
+            >
+              <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span>{isBn ? "হোয়াটসঅ্যাপ এক্সপোর্ট ডেস্ক" : "WhatsApp Export Desk"}</span>
+            </a>
+
+            <span className="hidden md:inline text-stone-600" aria-hidden="true">|</span>
+            <div className="hidden md:flex items-center gap-3 text-[11px] font-mono text-stone-300">
+              <span className="inline-flex items-center gap-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#E5BE58]" />
+                <span>LWG & REACH</span>
+              </span>
+              <span aria-hidden="true">·</span>
+              <span className="inline-flex items-center gap-1">
+                <Globe2 className="w-3.5 h-3.5 text-[#E5BE58]" />
+                <span>FOB Chattogram · CIF 25+ Ports</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Dynamic Animated Radiant ExportVisor Gold Ambient Auroras & Light Sweeps */}
-      <motion.div
-        animate={{
-          scale: [1, 1.25, 1],
-          opacity: [0.22, 0.40, 0.22],
-          x: [0, 30, 0],
-          y: [0, -20, 0],
-        }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-8 w-[460px] h-[460px] bg-[#D6AC4B]/30 rounded-full blur-[95px] pointer-events-none z-1"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.18, 0.35, 0.18],
-          x: [0, -25, 0],
-          y: [0, 25, 0],
-        }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-10 left-10 w-[420px] h-[420px] bg-[#C89D43]/28 rounded-full blur-[85px] pointer-events-none z-1"
-      />
-
-      {/* Radiant Diagonal Shimmering Gold Light Ray Beam */}
-      <motion.div
-        animate={{
-          opacity: [0.10, 0.28, 0.10],
-          rotate: [-25, -20, -25],
-          scale: [0.95, 1.05, 0.95],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-32 right-1/4 w-[550px] h-[450px] bg-gradient-to-b from-[#E5BE58]/25 via-[#C89D43]/15 to-transparent blur-3xl pointer-events-none z-1 transform -rotate-25"
-      />
-
-      <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-4xl space-y-3 sm:space-y-4 lg:space-y-6"
-        >
-          {/* LWG-Certified Tannery Network Kicker Badge */}
-          <motion.div variants={itemVariants} className="flex items-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-black/85 text-[#E5BE58] text-[10px] sm:text-xs font-semibold tracking-wide border border-[#C89D43]/60 shadow-lg backdrop-blur-md">
-              <Award className="w-3.5 h-3.5 text-[#E5BE58]" />
-              <span className="text-[10px] sm:text-xs font-semibold text-white tracking-wide">
-                {language === "bn"
-                  ? "LWG সার্টিফাইড ট্যানারি নেটওয়ার্ক · সাভার, ঢাকা"
-                  : "LWG-Certified Tannery Network · Savar Leather Estate"}
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Display Headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-[1.16] text-balance drop-shadow-md"
-          >
-            {t.hero.headline}
-          </motion.h1>
-
-          {/* Sub-headline */}
-          <motion.p
-            variants={itemVariants}
-            className="font-body text-xs sm:text-sm lg:text-lg text-stone-200 leading-snug sm:leading-relaxed max-w-3xl text-pretty"
-          >
-            {t.hero.subheadline}
-          </motion.p>
-
-          {/* Streamlined, Eye-Catchy Action Group */}
-          <motion.div variants={itemVariants} className="pt-1 sm:pt-2 space-y-3 sm:space-y-4">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3.5 flex-wrap">
-              {/* Primary Action: Request Commercial Quote with ExportVisor Gold Gradient */}
-              <motion.button
-                whileHover={{ scale: 1.025, translateY: -1 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => {
-                  trackEvent("request_quote_click", { location: "hero_primary" });
-                  onRequestQuote();
-                }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-bold tracking-wide text-[#15120E] rounded-lg shadow-lg shadow-[#C89D43]/35 hover:shadow-xl hover:shadow-[#D6AC4B]/50 transition-all cursor-pointer group w-full sm:w-auto"
-                style={{
-                  background: "linear-gradient(135deg, #F5D275 0%, #D6AC4B 50%, #B8892E 100%)",
-                }}
-              >
-                <span>{t.hero.requestQuote}</span>
-                <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#15120E] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </motion.button>
-
-              {/* Secondary Pair: Clean responsive row */}
-              <div className="grid grid-cols-2 gap-2 w-full sm:w-auto sm:flex sm:items-center sm:gap-3">
-                {/* Explore Products */}
-                <motion.button
-                  whileHover={{ scale: 1.025, translateY: -1 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => {
-                    trackEvent("product_detail_view", { source: "hero_explore_primary" });
-                    onExploreLeather();
-                  }}
-                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide text-white bg-black/75 hover:bg-[#1A140F] rounded-lg shadow-xs hover:shadow-md border border-[#C89D43]/60 hover:border-[#E5BE58] transition-all cursor-pointer group backdrop-blur-xs whitespace-nowrap"
-                >
-                  <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E5BE58] transition-transform group-hover:rotate-6" />
-                  <span>{t.hero.exploreCatalogue}</span>
-                  <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-stone-400 group-hover:translate-x-0.5 transition-transform hidden sm:inline" />
-                </motion.button>
-
-                {/* Direct WhatsApp Desk */}
-                <a
-                  href={siteConfig.contact.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackEvent("whatsapp_click", { location: "hero_direct" })}
-                  className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-4 sm:py-3.5 text-xs font-semibold tracking-wide text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/90 border border-emerald-500/50 rounded-lg transition-all shadow-xs backdrop-blur-xs whitespace-nowrap"
-                  title="Direct WhatsApp Communication"
-                >
-                  <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
-                  <span>{language === "bn" ? "হোয়াটসঅ্যাপ" : "WhatsApp"}</span>
-                </a>
-              </div>
-
-              {/* Company Profile (Deck) */}
-              {onOpenCompanyProfile && (
-                <button
-                  onClick={() => {
-                    trackEvent("company_profile_view", { location: "hero_quick" });
-                    onOpenCompanyProfile();
-                  }}
-                  className="inline-flex items-center justify-center gap-1.5 px-3.5 py-3 text-xs font-semibold text-stone-300 hover:text-[#E5BE58] bg-black/40 hover:bg-black/60 rounded-lg border border-white/10 transition-colors cursor-pointer"
-                >
-                  <FileText className="w-3.5 h-3.5 text-[#E5BE58]" />
-                  <span>{language === "bn" ? "কোম্পানি ডেক" : "Company Deck"}</span>
-                </button>
-              )}
-            </div>
-
-            {/* Clean Trust Verification Ribbon */}
-            <div className="pt-1.5 flex flex-wrap items-center gap-x-3 sm:gap-x-5 gap-y-1.5 text-[11px] sm:text-xs text-stone-200 font-medium">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#E5BE58] shrink-0" />
-                <span>
-                  {language === "bn"
-                    ? "LWG অডিটেড নেটওয়ার্ক"
-                    : "LWG-Audited Network"}
-                </span>
-              </div>
-              <span className="text-stone-500 hidden sm:inline" aria-hidden="true">·</span>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                <span>
-                  {language === "bn"
-                    ? "১০০% প্রি-শিপমেন্ট QA"
-                    : "100% Pre-Shipment Inspection QA"}
-                </span>
-              </div>
-              <span className="text-stone-500 hidden sm:inline" aria-hidden="true">·</span>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                <span>
-                  {language === "bn"
-                    ? "চট্টগ্রাম পোর্ট শিপিং · ২৫+ বন্দর"
-                    : "FOB Chattogram · CIF 25+ Global Ports"}
-                </span>
-              </div>
-              <span className="text-stone-500 hidden sm:inline" aria-hidden="true">·</span>
-              <div className="flex items-center gap-1.5">
-                <Building2 className="w-3.5 h-3.5 text-[#E5BE58] shrink-0" />
-                <span>Savar Tannery Estate, Dhaka</span>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-
-        {/* Mobile-only minimal slide indicator: clean, unobtrusive without clutter */}
-        <div className="flex sm:hidden justify-center items-center gap-1.5 pt-3">
-          {HERO_SLIDES.map((slide, idx) => (
-            <button
-              key={slide.id}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                currentSlide === idx
-                  ? "w-6 bg-[#E5BE58] shadow-[0_0_8px_rgba(229,190,88,0.6)]"
-                  : "w-1.5 bg-white/30 hover:bg-white/50"
-              }`}
-              aria-label={`Jump to slide ${idx + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* Ambient Hero Background Slider Control Bar (Tablet & Desktop only) */}
-        <div className="hidden sm:flex mt-6 lg:mt-8 pt-3 sm:pt-4 border-t border-[#C89D43]/25 flex-wrap items-center justify-between gap-2.5 text-xs text-stone-300">
-          <div className="flex items-center gap-2.5">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-black/80 border border-[#C89D43]/50 text-[#E5BE58] font-bold shadow-2xs shrink-0">
-              <Ship className="w-3 h-3 text-[#E5BE58]" />
-              <span>{language === "bn" ? HERO_SLIDES[currentSlide].tagBn : HERO_SLIDES[currentSlide].tag}</span>
+      {/* Architectural Bottom Showcase Control Strip */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8 sm:mt-10 pt-4 border-t border-white/15">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+          {/* Live Background Scene Caption */}
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="font-mono text-[11px] font-bold text-[#F5D275] tabular-nums shrink-0">
+              0{currentSlide + 1} / 0{HERO_SLIDES.length}
             </span>
-            <span className="text-[11px] font-mono text-stone-300 font-semibold truncate max-w-xs sm:max-w-md">
-              {language === "bn" ? HERO_SLIDES[currentSlide].captionBn : HERO_SLIDES[currentSlide].caption}
+            <span className="text-stone-600 shrink-0" aria-hidden="true">—</span>
+            <span className="text-[11px] font-mono uppercase tracking-wider text-white font-semibold shrink-0">
+              {isBn ? activeSlide.tagBn : activeSlide.tag}
+            </span>
+            <span className="hidden lg:inline text-stone-500 shrink-0" aria-hidden="true">·</span>
+            <span className="hidden lg:inline text-xs text-stone-300 truncate">
+              {isBn ? activeSlide.captionBn : activeSlide.caption}
             </span>
           </div>
 
-          <div className="flex items-center gap-2 bg-black/75 backdrop-blur-md px-3 py-1.5 rounded-lg border border-[#C89D43]/40 shadow-xs text-stone-200">
-            <span className="text-[11px] font-mono font-bold text-[#E5BE58] pr-1">
-              0{currentSlide + 1} <span className="text-stone-500 font-normal">/ 0{HERO_SLIDES.length}</span>
-            </span>
-
-            <button
-              type="button"
-              onClick={() =>
-                setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)
-              }
-              aria-label="Previous background slide"
-              className="p-1 rounded hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
-            >
-              <ChevronLeft className="w-3.5 h-3.5" />
-            </button>
-
-            {/* Sleek Animated Linear Segments */}
-            <div className="flex items-center gap-1.5 px-1">
+          {/* Interactive Slide Chapter Navigation */}
+          <div className="flex items-center justify-between sm:justify-end gap-2">
+            <div className="flex items-center gap-1.5 flex-1 sm:flex-initial">
               {HERO_SLIDES.map((slide, idx) => (
                 <button
                   key={slide.id}
+                  type="button"
                   onClick={() => setCurrentSlide(idx)}
-                  aria-label={`Go to slide ${idx + 1}: ${slide.tag}`}
-                  title={slide.tag}
-                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer overflow-hidden relative ${
+                  aria-label={`View scene ${idx + 1}: ${slide.tag}`}
+                  title={isBn ? slide.tagBn : slide.tag}
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer overflow-hidden ${
                     currentSlide === idx
-                      ? "w-8 bg-black/70 border border-[#C89D43]/60 shadow-[0_0_10px_rgba(200,157,67,0.5)]"
-                      : "w-3 bg-white/25 hover:bg-white/50"
+                      ? "w-8 sm:w-10 bg-white/25"
+                      : "w-3 sm:w-4 bg-white/20 hover:bg-white/45"
                   }`}
                 >
                   {currentSlide === idx && (
@@ -480,31 +330,46 @@ export const Hero: React.FC<HeroProps> = ({
                       key={`progress-${idx}`}
                       initial={{ width: "0%" }}
                       animate={{ width: "100%" }}
-                      transition={{ duration: isAutoPlaying ? 7 : 0.3, ease: "linear" }}
-                      className="h-full bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43] rounded-full"
+                      transition={{ duration: isAutoPlaying ? 6.5 : 0.3, ease: "linear" }}
+                      className="h-full bg-[#E5BE58] rounded-full"
                     />
                   )}
                 </button>
               ))}
             </div>
 
-            <button
-              type="button"
-              onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
-              aria-label="Next background slide"
-              className="p-1 rounded hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
-            >
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              aria-label={isAutoPlaying ? "Pause background slider" : "Play background slider"}
-              className="p-1 rounded hover:bg-white/10 text-stone-300 hover:text-white transition-colors ml-0.5 cursor-pointer"
-            >
-              {isAutoPlaying ? <Pause className="w-3 h-3 text-[#E5BE58]" /> : <Play className="w-3 h-3 text-stone-300" />}
-            </button>
+            <div className="flex items-center gap-1 pl-2 border-l border-white/15 shrink-0">
+              <button
+                type="button"
+                onClick={() =>
+                  setCurrentSlide((prev) => (prev - 1 + HERO_SLIDES.length) % HERO_SLIDES.length)
+                }
+                aria-label="Previous background scene"
+                className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length)}
+                aria-label="Next background scene"
+                className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+                aria-label={isAutoPlaying ? "Pause background slideshow" : "Play background slideshow"}
+                className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
+              >
+                {isAutoPlaying ? (
+                  <Pause className="w-3.5 h-3.5 text-[#E5BE58]" />
+                ) : (
+                  <Play className="w-3.5 h-3.5 text-stone-300" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>

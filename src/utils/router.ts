@@ -4,11 +4,13 @@ import {
   getRouteByPath,
   getRouteById,
   getProductBySlugOrId,
+  normalizeCanonicalPath,
 } from "../config/routes";
-import { LeatherProduct, LEATHER_PRODUCTS } from "../data/products";
+import { LeatherProduct } from "../data/products";
 import { generateProductJsonLd } from "./productSchema";
+import { getB2BProductTitle, getB2BProductDescription } from "./productSeoFormat";
 
-export function scrollToSection(sectionId: string, smooth: boolean = true) {
+export function scrollToSection(sectionId: string, smooth: boolean = true, retries: number = 25) {
   const elem = document.getElementById(sectionId);
   if (elem) {
     // Add header height offset
@@ -20,32 +22,68 @@ export function scrollToSection(sectionId: string, smooth: boolean = true) {
     });
     return true;
   }
+
+  // Retry cleanly while Suspense lazy sections finish hydrating on deep-link reloads
+  if (retries > 0 && typeof window !== "undefined") {
+    window.setTimeout(() => {
+      scrollToSection(sectionId, smooth, retries - 1);
+    }, 80);
+  }
   return false;
 }
 
-export function syncRouteSeo(route: { title: string; metaDescription?: string; path: string }) {
-  document.title = route.title;
-  if (route.metaDescription) {
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", route.metaDescription);
-    }
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle) ogTitle.setAttribute("content", route.title);
-    let ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc) ogDesc.setAttribute("content", route.metaDescription);
-    let ogUrl = document.querySelector('meta[property="og:url"]');
-    if (ogUrl) ogUrl.setAttribute("content", `https://exportvisor.com${route.path}`);
+function ensureCanonicalElement(): HTMLLinkElement {
+  let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+  if (!canonical) {
+    canonical = document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    document.head.appendChild(canonical);
   }
+  return canonical;
+}
+
+export function syncRouteSeo(route: { title: string; metaDescription?: string; path: string }) {
+  const cleanPath = normalizeCanonicalPath(route.path);
+  const canonicalUrl =
+    cleanPath === "/" ? "https://exportvisor.com/" : `https://exportvisor.com${cleanPath}`;
+
+  document.title = route.title;
+  const metaTitle = document.querySelector('meta[name="title"]');
+  if (metaTitle) metaTitle.setAttribute("content", route.title);
+
+  const canonical = ensureCanonicalElement();
+  canonical.setAttribute("href", canonicalUrl);
+
+  if (route.metaDescription) {
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", route.metaDescription);
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute("content", route.metaDescription);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute("content", route.metaDescription);
+  }
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute("content", route.title);
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) twitterTitle.setAttribute("content", route.title);
+  const ogUrl = document.querySelector('meta[property="og:url"]');
+  if (ogUrl) ogUrl.setAttribute("content", canonicalUrl);
+  const twitterUrl = document.querySelector('meta[name="twitter:url"]');
+  if (twitterUrl) twitterUrl.setAttribute("content", canonicalUrl);
+  const ogType = document.querySelector('meta[property="og:type"]');
+  if (ogType) ogType.setAttribute("content", "website");
 }
 
 export function syncProductSeo(product: LeatherProduct | null) {
   if (product) {
-    const title = product.seoTitle || `${product.name} | ExportVisor Bangladesh`;
-    const desc = product.seoDescription || product.shortDescription;
+    const title = getB2BProductTitle(product);
+    const desc = getB2BProductDescription(product);
     const url = `https://exportvisor.com/product/${product.id}`;
 
     document.title = title;
+    const metaTitle = document.querySelector('meta[name="title"]');
+    if (metaTitle) metaTitle.setAttribute("content", title);
 
     // Meta description
     let metaDesc = document.querySelector('meta[name="description"]');
@@ -55,6 +93,9 @@ export function syncProductSeo(product: LeatherProduct | null) {
       document.head.appendChild(metaDesc);
     }
     metaDesc.setAttribute("content", desc);
+
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDesc) twitterDesc.setAttribute("content", desc);
 
     // Meta keywords
     if (product.seoKeywords && product.seoKeywords.length > 0) {
@@ -67,7 +108,7 @@ export function syncProductSeo(product: LeatherProduct | null) {
       metaKw.setAttribute("content", product.seoKeywords.join(", "));
     }
 
-    // OpenGraph
+    // OpenGraph & Twitter
     const setOgTag = (property: string, content: string) => {
       let el = document.querySelector(`meta[property="${property}"]`);
       if (!el) {
@@ -82,17 +123,23 @@ export function syncProductSeo(product: LeatherProduct | null) {
     setOgTag("og:description", desc);
     setOgTag("og:url", url);
     setOgTag("og:type", "product");
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) twitterTitle.setAttribute("content", title);
+    const twitterUrl = document.querySelector('meta[name="twitter:url"]');
+    if (twitterUrl) twitterUrl.setAttribute("content", url);
+
     if (product.image) {
-      setOgTag("og:image", product.image);
+      const absImg = product.image.startsWith("http")
+        ? product.image
+        : `https://exportvisor.com${product.image}`;
+      setOgTag("og:image", absImg);
+      setOgTag("og:image:secure_url", absImg);
+      const twImg = document.querySelector('meta[name="twitter:image"]');
+      if (twImg) twImg.setAttribute("content", absImg);
     }
 
-    // Canonical URL update
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
+    // Self-referencing Canonical URL (never trailing slash)
+    const canonical = ensureCanonicalElement();
     canonical.setAttribute("href", url);
 
     // Product Schema JSON-LD
@@ -105,12 +152,14 @@ export function syncProductSeo(product: LeatherProduct | null) {
     }
     script.textContent = JSON.stringify(generateProductJsonLd(product));
   } else {
-    // Reset to default
-    document.title = "ExportVisor | Bangladesh Leather Sourcing & Export Partner";
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute("href", "https://exportvisor.com/");
-    }
+    const activeRoute =
+      getRouteByPath(window.location.pathname) ||
+      SECTION_ROUTES[0];
+    syncRouteSeo({
+      title: activeRoute.title,
+      metaDescription: activeRoute.metaDescription,
+      path: activeRoute.path.startsWith("/product/") ? "/products" : activeRoute.path,
+    });
     const script = document.getElementById("product-schema-jsonld");
     if (script) {
       script.remove();
@@ -119,34 +168,37 @@ export function syncProductSeo(product: LeatherProduct | null) {
 }
 
 export function navigateTo(path: string, smooth: boolean = true) {
-  const route = getRouteByPath(path);
+  const cleanTarget = normalizeCanonicalPath(path);
+  const route = getRouteByPath(cleanTarget);
   if (route) {
-    if (window.location.pathname !== route.path) {
-      window.history.pushState(null, "", route.path);
+    const routePath = normalizeCanonicalPath(route.path);
+    if (window.location.pathname !== routePath) {
+      window.history.pushState(null, "", routePath);
     }
-    syncRouteSeo(route);
+    syncRouteSeo({ ...route, path: routePath });
     scrollToSection(route.id, smooth);
   } else if (path.startsWith("#")) {
     const id = path.substring(1);
     const r = getRouteById(id);
     if (r) {
-      if (window.location.pathname !== r.path) {
-        window.history.pushState(null, "", r.path);
+      const routePath = normalizeCanonicalPath(r.path);
+      if (window.location.pathname !== routePath) {
+        window.history.pushState(null, "", routePath);
       }
-      syncRouteSeo(r);
+      syncRouteSeo({ ...r, path: routePath });
     }
     scrollToSection(id, smooth);
   } else {
-    // Fallback
-    window.history.pushState(null, "", path);
+    window.history.pushState(null, "", cleanTarget);
   }
 }
 
 /**
  * Custom React hook that handles:
  * 1. Initial route resolution on page load (including /product/:slug)
- * 2. URL synchronization as user scrolls through sections
- * 3. Popstate (Back/Forward buttons) support
+ * 2. Strict trailing-slash stripping + self-referencing <link rel="canonical">
+ * 3. URL synchronization as user scrolls through sections
+ * 4. Popstate (Back/Forward buttons) support
  */
 export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProduct | null) => void) {
   const handleInitialRoute = useCallback(() => {
@@ -154,16 +206,23 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
     let redirectPath = sessionStorage.getItem("spa_redirect");
     if (redirectPath) {
       sessionStorage.removeItem("spa_redirect");
-      window.history.replaceState(null, "", redirectPath);
+      window.history.replaceState(null, "", normalizeCanonicalPath(redirectPath));
     } else if (window.location.search && window.location.search.startsWith("?")) {
       const queryParam = window.location.search.substring(1).split("&")[0];
       if (queryParam.startsWith("/")) {
-        redirectPath = queryParam;
+        redirectPath = normalizeCanonicalPath(queryParam);
         window.history.replaceState(null, "", redirectPath);
       }
     }
 
-    // 2. Check query string for ?product=...
+    // 2. Enforce strict non-trailing-slash pathname on non-root URLs
+    const rawPathname = window.location.pathname;
+    const pathname = normalizeCanonicalPath(rawPathname);
+    if (rawPathname !== pathname) {
+      window.history.replaceState(null, "", `${pathname}${window.location.search}${window.location.hash}`);
+    }
+
+    // 3. Check query string for ?product=...
     const urlParams = new URLSearchParams(window.location.search);
     const productQuery = urlParams.get("product");
     if (productQuery) {
@@ -178,11 +237,8 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
       }
     }
 
-    // 3. Check path or hash
-    const pathname = window.location.pathname;
+    // 4. Check individual product path e.g. /product/:slug
     const hash = window.location.hash;
-
-    // Check individual product path e.g. /product/:slug
     if (pathname.startsWith("/product/") || pathname.startsWith("/products/")) {
       const slug = pathname.split("/")[2];
       if (slug) {
@@ -198,17 +254,21 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
       }
     }
 
+    // 5. Resolve section route & always stamp self-referencing <link rel="canonical">
     let targetRoute = getRouteByPath(pathname);
     if (!targetRoute && hash) {
       targetRoute = getRouteById(hash.replace(/^#/, ""));
     }
 
-    if (targetRoute && targetRoute.id !== "hero") {
-      // Delay slightly for initial render/images
-      setTimeout(() => {
-        scrollToSection(targetRoute.id, false);
-        document.title = targetRoute.title;
-      }, 100);
+    if (targetRoute) {
+      syncRouteSeo(targetRoute);
+      if (targetRoute.id !== "hero") {
+        setTimeout(() => {
+          scrollToSection(targetRoute.id, false);
+        }, 100);
+      }
+    } else {
+      syncRouteSeo(SECTION_ROUTES[0]);
     }
   }, [onSelectProductByRoute]);
 
@@ -217,7 +277,7 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
 
     // Listen to Back / Forward navigation
     const handlePopState = () => {
-      const pathname = window.location.pathname;
+      const pathname = normalizeCanonicalPath(window.location.pathname);
       if (pathname.startsWith("/product/")) {
         const slug = pathname.split("/")[2];
         const prod = getProductBySlugOrId(slug);
@@ -235,7 +295,7 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
 
       const route = getRouteByPath(pathname);
       if (route) {
-        document.title = route.title;
+        syncRouteSeo(route);
         scrollToSection(route.id, true);
       }
     };
@@ -250,6 +310,9 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
     };
 
     const observer = new IntersectionObserver((entries) => {
+      // Only update URL via scroll-spy after the user actually scrolls down
+      if (window.scrollY < 160) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
@@ -258,7 +321,6 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
 
           const route = getRouteById(sectionId);
           if (route) {
-            // Update URL without adding redundant history stack entries
             if (window.location.pathname !== route.path) {
               window.history.replaceState(null, "", route.path);
               syncRouteSeo(route);

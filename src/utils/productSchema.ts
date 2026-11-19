@@ -6,6 +6,11 @@
  */
 
 import { LeatherProduct, LEATHER_PRODUCTS } from "../data/products";
+import {
+  formatB2BBuyerDescriptor,
+  getB2BProductDescription,
+  getB2BProductTitle,
+} from "./productSeoFormat";
 
 export interface ProductPriceBenchmark {
   low: string;
@@ -66,39 +71,55 @@ export const PRODUCT_BENCHMARKS: Record<string, ProductPriceBenchmark> = {
   },
 };
 
+function getBenchmarkForProduct(product: LeatherProduct): ProductPriceBenchmark {
+  if (PRODUCT_BENCHMARKS[product.id]) {
+    return PRODUCT_BENCHMARKS[product.id];
+  }
+  if (product.stage === "Wet Blue") {
+    return { low: "0.95", high: "1.95", offerCount: "1" };
+  }
+  if (product.stage === "Crust") {
+    return { low: "1.65", high: "3.40", offerCount: "1" };
+  }
+  return { low: "2.10", high: "4.80", offerCount: "1" };
+}
+
 /**
- * Generates an SEO & Schema.org compliant Product JSON-LD object for a single leather product.
+ * Generates a Schema.org & Google Rich Results compliant Product JSON-LD object
+ * prioritizing B2B keywords, brand, category, material, technical specs, and valid inquiry offers.
  */
 export function generateProductJsonLd(product: LeatherProduct) {
-  const benchmark = PRODUCT_BENCHMARKS[product.id] || {
-    low: "1.80",
-    high: "4.50",
-    offerCount: "3000",
-  };
-
+  const benchmark = getBenchmarkForProduct(product);
   const productUrl = `https://exportvisor.com/product/${product.id}`;
   const sku = `EV-${product.id.toUpperCase()}`;
   const mpn = `BD-LTR-${product.id.toUpperCase()}`;
 
-  // Absolute image URLs required by Google Rich Snippets
-  const images = [
-    "https://exportvisor.com/og-image.jpg",
-    "https://exportvisor.com/hero-ship.jpg",
-  ];
+  const buyerDescriptor = formatB2BBuyerDescriptor(product, false);
+  const b2bTitle = getB2BProductTitle(product);
+  const b2bDescription = getB2BProductDescription(product);
+
+  // Absolute image URLs required by Google Rich Snippets & Image Search
+  const rawImg = product.image || "/og-image.jpg";
+  const absJpg = rawImg.startsWith("http") ? rawImg : `https://exportvisor.com${rawImg}`;
+  const abs4kWebp =
+    rawImg.startsWith("/assets/products/") && rawImg.endsWith(".jpg")
+      ? `https://exportvisor.com/assets/products/4k/${rawImg.slice("/assets/products/".length, -4)}.webp`
+      : absJpg;
+  const images = Array.from(new Set([absJpg, abs4kWebp]));
 
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${productUrl}#product`,
     url: productUrl,
-    name: product.name,
-    alternateName: product.seoTitle || `${product.name} | ExportVisor Bangladesh`,
-    description: product.seoDescription || product.overview || product.shortDescription,
+    name: buyerDescriptor,
+    alternateName: b2bTitle,
+    description: b2bDescription,
     image: images,
     sku: sku,
     mpn: mpn,
-    category: product.category,
-    material: product.materialType,
+    category: `${product.stage} Leather / ${product.category}`,
+    material: `${product.materialType} (${product.animal} · ${product.tanningMethod})`,
     color: product.colorOptions,
     pattern: product.availableFinishes.join(", "),
     countryOfOrigin: {
@@ -124,12 +145,54 @@ export function generateProductJsonLd(product: LeatherProduct) {
         addressCountry: "BD",
       },
     },
+    additionalProperty: [
+      {
+        "@type": "PropertyValue",
+        name: "Leather Type",
+        value: `${product.stage} ${product.grainType} (${product.name})`,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Raw Material",
+        value: product.animal,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Tannage",
+        value: product.tanningMethod,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Thickness (mm)",
+        value: product.thicknessRange || "Custom calibrated (0.8–2.2mm+ per buyer tech pack)",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Average Size (sq. ft.)",
+        value: product.sizeMeasurement || "18–26 sq. ft. per full hide",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "MOQ",
+        value: product.moq,
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Sample Availability",
+        value: product.availabilityNote || "DHL / FedEx Swatch & Counter-Sample Dispatch",
+      },
+      {
+        "@type": "PropertyValue",
+        name: "Lead Time",
+        value: product.leadTime,
+      },
+    ],
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: "USD",
       lowPrice: benchmark.low,
       highPrice: benchmark.high,
-      offerCount: benchmark.offerCount,
+      offerCount: 1,
       priceValidUntil: "2027-12-31",
       availability: "https://schema.org/InStock",
       itemCondition: "https://schema.org/NewCondition",
@@ -148,36 +211,6 @@ export function generateProductJsonLd(product: LeatherProduct) {
         "@type": "Organization",
         name: "ExportVisor",
         url: "https://exportvisor.com",
-      },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: "Worldwide",
-        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 30,
-        returnMethod: "https://schema.org/ReturnByMail",
-        returnFees: "https://schema.org/FreeReturn",
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: ["US", "DE", "IT", "FR", "ES", "GB", "CN", "VN", "TR", "JP", "BD"],
-        },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: {
-            "@type": "QuantitativeValue",
-            minValue: 7,
-            maxValue: 14,
-            unitCode: "DAY",
-          },
-          transitTime: {
-            "@type": "QuantitativeValue",
-            minValue: 14,
-            maxValue: 30,
-            unitCode: "DAY",
-          },
-        },
       },
     },
     audience: {

@@ -280,7 +280,7 @@ export const CommercialTermsSection: React.FC<CommercialTermsSectionProps> = ({
 
             <div className="flex items-center gap-3 shrink-0">
               <a
-                href="https://maps.app.goo.gl/F9aseXrAYr9og3PT9"
+                href="https://www.google.com/maps/search/?api=1&query=23.7272,90.3541"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[11px] font-bold text-[#8C6214] dark:text-[#F3CE6D] hover:underline flex items-center gap-1"

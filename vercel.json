@@ -4,11 +4,35 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/((?!assets/|.*\\.[\\w]+$).*)",
-      "destination": "/index.html"
-    }
+  "redirects": [
+    { "source": "/leather-products", "destination": "/products", "permanent": true },
+    { "source": "/catalogue", "destination": "/products", "permanent": true },
+    { "source": "/leather", "destination": "/products", "permanent": true },
+    { "source": "/product", "destination": "/products", "permanent": true },
+    { "source": "/contact", "destination": "/quote", "permanent": true },
+    { "source": "/rfq", "destination": "/quote", "permanent": true },
+    { "source": "/inquiry", "destination": "/quote", "permanent": true },
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/company", "destination": "/about", "permanent": true },
+    { "source": "/commercial-terms", "destination": "/terms", "permanent": true },
+    { "source": "/why-exportvisor", "destination": "/why-us", "permanent": true },
+    { "source": "/knowledge", "destination": "/knowledge-hub", "permanent": true },
+    { "source": "/guides", "destination": "/knowledge-hub", "permanent": true },
+    { "source": "/bangladesh", "destination": "/bangladesh-sourcing", "permanent": true },
+    { "source": "/origin", "destination": "/bangladesh-sourcing", "permanent": true },
+    { "source": "/faqs", "destination": "/faq", "permanent": true },
+    { "source": "/questions", "destination": "/faq", "permanent": true },
+    { "source": "/leather-glossary", "destination": "/glossary", "permanent": true },
+    { "source": "/terms-glossary", "destination": "/glossary", "permanent": true },
+    { "source": "/leather-terms", "destination": "/glossary", "permanent": true },
+    { "source": "/export-shipping", "destination": "/quote", "permanent": true },
+    { "source": "/quality-inspection", "destination": "/about", "permanent": true },
+    { "source": "/sourcing-process", "destination": "/about", "permanent": true },
+    { "source": "/market-insights", "destination": "/knowledge-hub", "permanent": true },
+    { "source": "/global-trade-impact", "destination": "/bangladesh-sourcing", "permanent": true },
+    { "source": "/timeline", "destination": "/about", "permanent": true },
+    { "source": "/virtual-tour", "destination": "/products", "permanent": true },
+    { "source": "/products/:slug", "destination": "/product/:slug", "permanent": true }
   ],
   "headers": [
     {
@@ -21,8 +45,38 @@
       ]
     },
     {
+      "source": "/sitemap.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
@@ -32,8 +86,20 @@
           "value": "SAMEORIGIN"
         },
         {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "X-Permitted-Cross-Domain-Policies",
+          "value": "none"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://exportvisor.com https://*.exportvisor.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://api.whatsapp.com https://formspree.io; media-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;"
         }
       ]
     }

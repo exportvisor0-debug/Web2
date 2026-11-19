@@ -1,4 +1,5 @@
 import React, { useState, Suspense, lazy } from "react";
+import { MotionConfig } from "motion/react";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { Header } from "./components/Header";
@@ -41,9 +42,6 @@ const Footer = lazy(() =>
 const ProductDetailModal = lazy(() =>
   import("./components/ProductDetailModal").then((m) => ({ default: m.ProductDetailModal }))
 );
-const CompanyProfileModal = lazy(() =>
-  import("./components/CompanyProfileModal").then((m) => ({ default: m.CompanyProfileModal }))
-);
 const QuoteInquiryModal = lazy(() =>
   import("./components/QuoteInquiryModal").then((m) => ({ default: m.QuoteInquiryModal }))
 );
@@ -55,9 +53,8 @@ function AppContent() {
   const [selectedProduct, setSelectedProduct] = useState<LeatherProduct | null>(null);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [quotePrefill, setQuotePrefill] = useState<string>("");
-  const [isCompanyProfileOpen, setIsCompanyProfileOpen] = useState(false);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [consultationTopic, setConsultationTopic] = useState("Direct Tannery Pricing & Volume MOQ");
+  const [consultationTopic, setConsultationTopic] = useState("Leather Sourcing & Volume MOQ");
 
   // Initialize section routing & scroll synchronization with product deep-linking
   useSectionRouter((prod) => setSelectedProduct(prod));
@@ -110,7 +107,6 @@ function AppContent() {
       {/* 1. Header (Sticky Top Bar with 3-Zone Contract + Multilingual Language Switcher) */}
       <Header
         onRequestQuote={() => handleOpenQuoteModal()}
-        onOpenCompanyProfile={() => setIsCompanyProfileOpen(true)}
       />
 
       <main className="flex-1">
@@ -118,7 +114,6 @@ function AppContent() {
         <Hero
           onExploreLeather={handleExploreLeather}
           onRequestQuote={() => handleOpenQuoteModal()}
-          onOpenCompanyProfile={() => setIsCompanyProfileOpen(true)}
         />
 
         {/* 2.1 Trust & Compliance Strip */}
@@ -144,7 +139,6 @@ function AppContent() {
 
           {/* 4. About ExportVisor */}
           <AboutSection
-            onOpenProfile={() => setIsCompanyProfileOpen(true)}
             onRequestQuote={() => handleScrollToQuoteSection()}
           />
 
@@ -158,6 +152,12 @@ function AppContent() {
 
           {/* 8. Leather Knowledge Hub (Wet Blue vs Finished Technical Advisory) */}
           <LeatherKnowledgeHub
+            onSelectProductById={(productId) => {
+              const found = LEATHER_PRODUCTS.find((p) => p.id === productId);
+              if (found) {
+                handleSelectProduct(found);
+              }
+            }}
             onRequestQuote={(prefill) => handleScrollToQuoteSection(prefill)}
           />
 
@@ -181,7 +181,6 @@ function AppContent() {
       <Suspense fallback={null}>
         {/* 14. Corporate Footer */}
         <Footer
-          onOpenCompanyProfile={() => setIsCompanyProfileOpen(true)}
           onRequestQuote={(productName) => handleScrollToQuoteSection(productName)}
         />
       </Suspense>
@@ -209,16 +208,6 @@ function AppContent() {
           }}
         />
 
-        {/* Company Profile Modal */}
-        <CompanyProfileModal
-          isOpen={isCompanyProfileOpen}
-          onClose={() => setIsCompanyProfileOpen(false)}
-          onRequestQuote={() => {
-            setIsCompanyProfileOpen(false);
-            handleScrollToQuoteSection();
-          }}
-        />
-
         {/* Quick Quote Modal */}
         <QuoteInquiryModal
           isOpen={isQuoteModalOpen}
@@ -233,10 +222,12 @@ function AppContent() {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
-    </ThemeProvider>
+    <MotionConfig reducedMotion="user">
+      <ThemeProvider>
+        <LanguageProvider>
+          <AppContent />
+        </LanguageProvider>
+      </ThemeProvider>
+    </MotionConfig>
   );
 }

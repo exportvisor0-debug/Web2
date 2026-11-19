@@ -115,9 +115,10 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
 
   const handleSendViaWhatsApp = () => {
     const text = encodeURIComponent(buildSummaryText());
-    const url = `https://wa.me/8801355976619?text=${text}`;
+    const digits = siteConfig.contact.whatsappNumber.replace(/[^0-9]/g, "") || "8801355976619";
+    const url = `https://api.whatsapp.com/send?phone=${digits}&text=${text}`;
     trackEvent("whatsapp_click", { location: "consultation_modal_success" });
-    window.open(url, "_blank");
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   const handleSendViaEmail = () => {

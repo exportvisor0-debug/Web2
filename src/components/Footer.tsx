@@ -14,16 +14,13 @@ import {
   Instagram,
   ArrowUpRight,
   Shield,
-  FileText,
 } from "lucide-react";
 
 interface FooterProps {
-  onOpenCompanyProfile: () => void;
   onRequestQuote: (productName?: string) => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  onOpenCompanyProfile,
   onRequestQuote,
 }) => {
   const { t, language } = useLanguage();
@@ -235,14 +232,6 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </li>
               <li>
-                <button
-                  onClick={onOpenCompanyProfile}
-                  className="hover:text-[#C89D43] dark:hover:text-white transition-colors text-left cursor-pointer"
-                >
-                  Company Profile (PDF)
-                </button>
-              </li>
-              <li>
                 <a
                   href="/faq"
                   onClick={(e) => {
@@ -282,10 +271,10 @@ export const Footer: React.FC<FooterProps> = ({
 
             <button
               onClick={() => onRequestQuote()}
-              className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-bold uppercase tracking-wider text-[#15120E] bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle hover:shadow-gold-glow cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-3 text-xs font-bold uppercase tracking-wider text-stone-950 bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle hover:shadow-gold-glow cursor-pointer"
             >
-              <span>Submit Tannery Export RFQ</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#15120E]" />
+              <span>Request Sample / Get Quote</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-stone-950" />
             </button>
           </div>
 

@@ -91,7 +91,8 @@ export const QuoteInquiryModal: React.FC<QuoteInquiryModalProps> = ({
   const handleSendViaWhatsApp = () => {
     trackEvent("whatsapp_click", { location: "modal_submit" });
     const encoded = encodeURIComponent(buildSummaryText());
-    window.open(`https://wa.me/8801355976619?text=${encoded}`, "_blank");
+    const digits = siteConfig.contact.whatsappNumber.replace(/[^0-9]/g, "") || "8801355976619";
+    window.open(`https://api.whatsapp.com/send?phone=${digits}&text=${encoded}`, "_blank", "noopener,noreferrer");
   };
 
   const handleSendViaEmail = () => {

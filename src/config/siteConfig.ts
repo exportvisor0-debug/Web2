@@ -60,13 +60,16 @@ const whatsappNumber = getEnv("VITE_WHATSAPP_NUMBER", "+8801355976619");
 const phoneFormatted = getEnv("VITE_PHONE_NUMBER", "+880 1355-976619");
 const gaId = getEnv("VITE_GA_MEASUREMENT_ID", "G-EXPORTVISOR_GA4");
 const formApiUrl = getEnv("VITE_FORM_API_URL", "");
-const googleMapsUrl = getEnv("VITE_GOOGLE_MAPS_URL", "https://maps.app.goo.gl/F9aseXrAYr9og3PT9");
+const googleMapsUrl = getEnv(
+  "VITE_GOOGLE_MAPS_URL",
+  "https://www.google.com/maps/search/?api=1&query=23.7272,90.3541"
+);
 const linkedinUrl = getEnv("VITE_LINKEDIN_URL", "https://www.linkedin.com/company/leather-exporter/home/");
 const facebookUrl = getEnv("VITE_FACEBOOK_URL", "https://www.facebook.com/leatherexporters");
 const instagramUrl = getEnv("VITE_INSTAGRAM_URL", "https://www.instagram.com/exportvisor");
 
 const whatsappDigits = whatsappNumber.replace(/[^0-9]/g, "") || "8801355976619";
-const whatsappUrl = `https://wa.me/${whatsappDigits}?text=Hello%20ExportVisor%20Team%2C%20I%20am%20interested%20in%20sourcing%20leather%20from%20Bangladesh.%20Could%20we%20discuss%20specifications%20and%20quotation%3F`;
+const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappDigits}&text=Hello%20ExportVisor%20Team%2C%20I%20am%20interested%20in%20sourcing%20leather%20from%20Bangladesh.%20Could%20we%20discuss%20specifications%20and%20quotation%3F`;
 const emailUrl = `mailto:${contactEmail}?subject=ExportVisor%20Leather%20Sourcing%20Inquiry`;
 
 export const siteConfig: SiteConfig = {

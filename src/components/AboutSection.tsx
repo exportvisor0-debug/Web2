@@ -6,12 +6,10 @@ import { SectionShareButton } from "./SectionShareButton";
 import { useLanguage } from "../context/LanguageContext";
 
 interface AboutSectionProps {
-  onOpenProfile: () => void;
   onRequestQuote: () => void;
 }
 
 export const AboutSection: React.FC<AboutSectionProps> = ({
-  onOpenProfile,
   onRequestQuote,
 }) => {
   const { t, language } = useLanguage();
@@ -162,10 +160,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </ul>
               <div className="pt-2">
                 <button
-                  onClick={onOpenProfile}
+                  onClick={onRequestQuote}
                   className="inline-flex items-center text-xs font-bold text-[#C89D43] hover:text-[#A67C24] dark:hover:text-[#E5BE58] transition-colors cursor-pointer group"
                 >
-                  <span>{language === "bn" ? "সম্পূর্ণ কোম্পানি প্রোফাইল দেখুন" : "Read Full Company Profile"}</span>
+                  <span>{t.about.btnQuote}</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

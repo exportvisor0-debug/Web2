@@ -100,9 +100,21 @@ export const SECTION_ROUTES: SectionRoute[] = [
 ];
 
 import { LEATHER_PRODUCTS, LeatherProduct } from "../data/products";
+import { getB2BProductTitle, getB2BProductDescription } from "../utils/productSeoFormat";
+
+export function normalizeCanonicalPath(pathname: string): string {
+  const clean = pathname.trim().replace(/\/+$/, "");
+  return clean || "/";
+}
 
 export function getProductBySlugOrId(identifier: string): LeatherProduct | undefined {
-  const clean = identifier.trim().toLowerCase().replace(/^\/+/, "").replace(/^product\//, "").replace(/^products\//, "").replace(/\/+$/, "");
+  const clean = identifier
+    .trim()
+    .toLowerCase()
+    .replace(/^\/+/, "")
+    .replace(/^product\//, "")
+    .replace(/^products\//, "")
+    .replace(/\/+$/, "");
   return LEATHER_PRODUCTS.find(
     (p) => p.id.toLowerCase() === clean || (p.slug && p.slug.toLowerCase() === clean)
   );
@@ -110,7 +122,7 @@ export function getProductBySlugOrId(identifier: string): LeatherProduct | undef
 
 export function getProductCanonicalUrl(productId: string): string {
   const prod = LEATHER_PRODUCTS.find((p) => p.id === productId || p.slug === productId);
-  const slug = prod?.slug || prod?.id || productId;
+  const slug = (prod?.slug || prod?.id || productId).replace(/^\/+|\/+$/g, "");
   return `https://exportvisor.com/product/${slug}`;
 }
 
@@ -118,8 +130,8 @@ export function getProductCanonicalUrl(productId: string): string {
  * Finds a route by pathname (including aliases) or by section ID
  */
 export function getRouteByPath(pathname: string): SectionRoute | undefined {
-  const normalized = pathname.trim().toLowerCase().replace(/\/+$/, "") || "/";
-  
+  const normalized = normalizeCanonicalPath(pathname).toLowerCase();
+
   // Check if it's an individual product route: e.g. /product/:slug or /products/:slug
   if (normalized.startsWith("/product/") || normalized.startsWith("/products/")) {
     const parts = normalized.split("/");
@@ -130,8 +142,8 @@ export function getRouteByPath(pathname: string): SectionRoute | undefined {
         return {
           id: "leather-products",
           path: `/product/${prod.id}`,
-          title: prod.seoTitle || `${prod.name} | ExportVisor Leather Sourcing`,
-          metaDescription: prod.seoDescription || prod.shortDescription,
+          title: getB2BProductTitle(prod),
+          metaDescription: getB2BProductDescription(prod),
           navLabel: prod.name,
         };
       }
@@ -151,6 +163,6 @@ export function getRouteById(id: string): SectionRoute | undefined {
 
 export function getFullUrl(path: string): string {
   const base = "https://exportvisor.com";
-  const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return cleanPath === "/" ? base : `${base}${cleanPath}`;
+  const cleanPath = normalizeCanonicalPath(path.startsWith("/") ? path : `/${path}`);
+  return cleanPath === "/" ? `${base}/` : `${base}${cleanPath}`;
 }

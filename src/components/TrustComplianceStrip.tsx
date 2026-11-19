@@ -188,44 +188,47 @@ export const TrustComplianceStrip: React.FC = () => {
               hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
-                transition: { staggerChildren: 0.07, delayChildren: 0.05 },
+                transition: { staggerChildren: 0.06, delayChildren: 0.04 },
               },
             }}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 lg:gap-4"
           >
-            {COMPLIANCE_PILLARS.map((pillar) => {
+            {COMPLIANCE_PILLARS.map((pillar, idx) => {
               const Icon = pillar.icon;
+              const isLast = idx === COMPLIANCE_PILLARS.length - 1;
               return (
                 <motion.button
                   key={pillar.id}
                   type="button"
                   variants={{
-                    hidden: { opacity: 0, y: 15 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+                    hidden: { opacity: 0, y: 12 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.35 } },
                   }}
-                  whileHover={{ y: -3, scale: 1.015 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.99 }}
                   onClick={() => setSelectedPillar(pillar)}
-                  className="group flex flex-col text-left p-2.5 sm:p-3.5 bg-white dark:bg-[#181310] hover:bg-[#FAF8F5] dark:hover:bg-[#201A15] border border-[#C89D43]/20 dark:border-stone-800 hover:border-[#C89D43] dark:hover:border-[#C89D43]/80 rounded-xl transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#C89D43]/40"
+                  className={`group flex flex-col text-left p-3 sm:p-3.5 bg-white dark:bg-[#181310] hover:bg-[#FAF8F5] dark:hover:bg-[#201A15] border border-[#C89D43]/20 dark:border-stone-800 hover:border-[#C89D43] dark:hover:border-[#C89D43]/80 rounded-xl transition-all duration-200 cursor-pointer shadow-2xs hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#C89D43]/40 ${
+                    isLast ? "col-span-2 md:col-span-1 lg:col-span-1" : ""
+                  }`}
                 >
-                  <div className="flex items-center justify-between mb-2 sm:mb-2.5">
-                    <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg ${pillar.iconBg} ${pillar.iconColor} border flex items-center justify-center transition-transform group-hover:scale-110 shadow-xs shrink-0`}>
-                      <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg ${pillar.iconBg} ${pillar.iconColor} border flex items-center justify-center transition-transform group-hover:scale-105 shrink-0`}>
+                      <Icon className="w-4 h-4" />
                     </div>
-                    <span className={`text-[9px] sm:text-[10px] font-mono px-1.5 sm:px-2 py-0.5 rounded-full border ${pillar.badgeClass} font-semibold dark:bg-[#251D16] dark:text-[#F5D275] dark:border-[#C89D43]/30 truncate max-w-[85px] sm:max-w-none`}>
+                    <span className="text-[10px] font-mono uppercase tracking-wider font-bold text-[#8C6214] dark:text-[#F5D275] text-right leading-tight">
                       {getPillarBadge(pillar)}
                     </span>
                   </div>
 
-                  <h3 className="text-xs sm:text-sm font-bold text-[#15120E] dark:text-[#F3EFEA] group-hover:text-[#C89D43] transition-colors leading-tight line-clamp-1">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#15120E] dark:text-[#F3EFEA] group-hover:text-[#C89D43] transition-colors leading-snug line-clamp-2 sm:line-clamp-1">
                     {getPillarTitle(pillar)}
                   </h3>
                   
-                  <p className="text-[11px] text-stone-500 dark:text-stone-400 leading-snug mt-1 line-clamp-2">
+                  <p className="text-[11px] text-stone-600 dark:text-stone-400 leading-snug mt-1 line-clamp-2">
                     {getPillarSubtext(pillar)}
                   </p>
 
-                  <div className="mt-2.5 pt-2 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-[10px] font-semibold text-stone-500 dark:text-stone-400 group-hover:text-[#7A5A17] dark:group-hover:text-[#F5D275]">
+                  <div className="mt-auto pt-2.5 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-[10px] font-semibold text-stone-500 dark:text-stone-400 group-hover:text-[#7A5A17] dark:group-hover:text-[#F5D275] w-full">
                     <span>{language === "bn" ? "মানদণ্ড দেখুন" : "View criteria"}</span>
                     <ChevronRight className="w-3 h-3 text-[#C89D43] group-hover:translate-x-0.5 transition-transform" />
                   </div>
