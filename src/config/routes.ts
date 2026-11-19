@@ -11,27 +11,27 @@ export const SECTION_ROUTES: SectionRoute[] = [
   {
     id: "hero",
     path: "/",
-    title: "ExportVisor | Bangladesh Leather Sourcing & Export Partner",
+    title: "Reliable Leather Exporter & Tannery from Bangladesh | Wet Blue, Crust, Finished, Split & Lining Leather - ExportVisor",
     metaDescription:
-      "ExportVisor connects international footwear brands, leather goods manufacturers, and global buyers directly with vetted tanneries in Bangladesh. Direct tannery pricing, pre-shipment quality inspection, and export logistics.",
+      "ExportVisor is a reliable leather exporter & tannery manufacturer from Bangladesh. Source wet blue, crust, finished, split & goat/cow shoe lining leather for B2B export.",
     navLabel: "Home",
   },
   {
     id: "about",
     path: "/about",
     aliases: ["/about-us", "/company"],
-    title: "About ExportVisor | Tannery Export Desk & Manufacturing Operations",
+    title: "About ExportVisor | Reliable Leather Tannery & Exporter Bangladesh",
     metaDescription:
-      "ExportVisor operates as the dedicated international export desk for premier leather tanneries in Savar, Dhaka, handling direct factory gate exports, pre-shipment quality inspection, and maritime shipping.",
+      "ExportVisor operates as a direct leather tannery and reliable leather exporter from Bangladesh in Savar, Dhaka, managing factory-gate exports, pre-shipment quality assurance, and maritime shipping.",
     navLabel: "About",
   },
   {
     id: "leather-products",
     path: "/products",
     aliases: ["/leather-products", "/catalogue", "/leather"],
-    title: "Leather Sourcing Catalogue | Wet Blue, Crust & Finished Leather",
+    title: "Bangladesh Leather Catalogue | Wet Blue, Crust, Finished, Split & Lining Leather - ExportVisor",
     metaDescription:
-      "Source certified genuine leather from Bangladesh: Full Grain, Top Grain, Corrected Grain, Drum Dyed Crust, and Wet Blue bovine and goat hides tailored to buyer specifications.",
+      "Source certified cow & goat leather from Bangladesh: Wet Blue, Crust, Finished Full Grain, Suede Split, and Goat/Cow Shoe Lining leather tailored to buyer tech packs.",
     navLabel: "Products",
   },
   {

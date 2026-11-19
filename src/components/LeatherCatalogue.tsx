@@ -31,9 +31,55 @@ interface LeatherCatalogueProps {
   onRequestQuote: (prefillProduct: string) => void;
 }
 
-type StageFilter = "All" | "Finished" | "Crust" | "Wet Blue";
+type StageFilter = "All" | "Wet Blue" | "Crust" | "Finished" | "Split" | "Lining";
 
 const ITEMS_PER_PAGE = 12;
+
+function matchesCategoryTab(product: LeatherProduct, tab: StageFilter): boolean {
+  if (tab === "All") return true;
+  if (tab === "Split") {
+    return (
+      product.grainType === "Split" ||
+      product.grainType === "Suede" ||
+      product.name.toLowerCase().includes("split")
+    );
+  }
+  if (tab === "Lining") {
+    return (
+      product.id.includes("lining") ||
+      product.name.toLowerCase().includes("lining") ||
+      product.shortDescription.toLowerCase().includes("lining") ||
+      product.applications.some((app) => app.toLowerCase().includes("lining"))
+    );
+  }
+  return product.stage === tab;
+}
+
+const CATEGORY_SEO_BANNERS: Record<
+  Exclude<StageFilter, "All">,
+  { heading: string; copy: string }
+> = {
+  "Wet Blue": {
+    heading: "Wet Blue Cow & Goat Leather (Chrome Tanned & Wet White)",
+    copy: "As a direct wet blue cow leather exporter and wet blue goat leather supplier from Bangladesh, our Savar wet blue tannery and wet blue manufacturer facilities deliver machine-fleshed, grade-sorted hides globally.",
+  },
+  Crust: {
+    heading: "Crust Cow & Goat Leather (Drum-Dyed & Vegetable Tanned)",
+    copy: "Source directly from our crust cow leather exporter and crust goat leather supplier from Bangladesh. Our Savar crust tannery & crust leather manufacturer lines calibrate substance (±0.1mm) to your tech pack.",
+  },
+  Finished: {
+    heading: "Finished Cow & Goat Leather (Full Grain, Aniline, Nappa & Pull-Up)",
+    copy: "Dedicated finished cow leather exporter and finished goat leather supplier from Bangladesh. Our finished leather manufacturer workshops specialize in natural full grain leather, drum-dyed aniline, and pigmented finishes.",
+  },
+  Split: {
+    heading: "Cow Split & Suede Split Leather (Drop Split, Suede & Bicast)",
+    copy: "Your trusted cow split leather exporter and split leather supplier from Bangladesh. Engineered by our suede split leather manufacturer division for casual suede footwear, work boots, and industrial safety gloves.",
+  },
+  Lining: {
+    heading: "Goat & Cow Shoe Lining Leather (Black Bengal Goat & Softee Cow)",
+    copy: "Leading goat lining leather exporter, shoe lining leather supplier from Bangladesh, and cow lining leather manufacturer supplying breathable, sweat-fastness tested linings (0.5–1.1mm) for footwear brands.",
+  },
+};
 
 export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
   onSelectProduct,
@@ -43,7 +89,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
   const isBn = language === "bn";
 
   // Filter States
-  const [selectedStage, setSelectedStage] = useState<StageFilter>("Crust");
+  const [selectedStage, setSelectedStage] = useState<StageFilter>("All");
   const [selectedTanning, setSelectedTanning] = useState<string>("All");
   const [selectedGrain, setSelectedGrain] = useState<string>("All");
   const [selectedAnimal, setSelectedAnimal] = useState<string>("All");
@@ -78,13 +124,15 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
     setTimeout(() => setCopiedId(null), 2000);
   };
 
-  // Stage counts for badges
+  // Stage counts for all 5 core category tabs + All
   const stageCounts = useMemo(() => {
     return {
       All: LEATHER_PRODUCTS.length,
-      Finished: LEATHER_PRODUCTS.filter((p) => p.stage === "Finished").length,
-      Crust: LEATHER_PRODUCTS.filter((p) => p.stage === "Crust").length,
-      "Wet Blue": LEATHER_PRODUCTS.filter((p) => p.stage === "Wet Blue").length,
+      "Wet Blue": LEATHER_PRODUCTS.filter((p) => matchesCategoryTab(p, "Wet Blue")).length,
+      Crust: LEATHER_PRODUCTS.filter((p) => matchesCategoryTab(p, "Crust")).length,
+      Finished: LEATHER_PRODUCTS.filter((p) => matchesCategoryTab(p, "Finished")).length,
+      Split: LEATHER_PRODUCTS.filter((p) => matchesCategoryTab(p, "Split")).length,
+      Lining: LEATHER_PRODUCTS.filter((p) => matchesCategoryTab(p, "Lining")).length,
     };
   }, []);
 
@@ -116,6 +164,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
   const applicationChips = [
     "All",
     "Footwear",
+    "Linings",
     "Bags & Luggage",
     "Upholstery",
     "Small Leather Goods",
@@ -126,8 +175,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
   // Filtered Products Logic
   const filteredProducts = useMemo(() => {
     return LEATHER_PRODUCTS.filter((product) => {
-      const matchesStage =
-        selectedStage === "All" || product.stage === selectedStage;
+      const matchesStage = matchesCategoryTab(product, selectedStage);
 
       const matchesTanning =
         selectedTanning === "All" ||
@@ -197,11 +245,11 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
 
   const hasActiveFilters =
     activeFilterCount > 0 ||
-    selectedStage !== "Crust" ||
+    selectedStage !== "All" ||
     searchQuery.trim() !== "";
 
   const handleResetFilters = () => {
-    setSelectedStage("Crust");
+    setSelectedStage("All");
     setSelectedTanning("All");
     setSelectedGrain("All");
     setSelectedAnimal("All");
@@ -267,154 +315,212 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
           </div>
         </motion.div>
 
-        {/* 1. LUXURY ATELIER STAGE NAVIGATION TABS */}
+        {/* 1. 5 CORE PRODUCT CATEGORY TABS (Wet Blue, Crust, Finished, Split, Lining + All) */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-3">
             <div className="text-xs uppercase font-bold tracking-wider text-[#8C6214] dark:text-[#E5BE58] flex items-center gap-2 font-mono">
               <Layers className="w-4 h-4 text-[#C89D43]" />
-              <span>{isBn ? "প্রোডাকশন পর্যায় নির্বাচন করুন (ক্লিক করে দেখুন)" : "Select Production Stage"}</span>
+              <span>{isBn ? "৫টি প্রধান চামড়ার ক্যাটাগরি নির্বাচন করুন" : "5 Core Export Leather Categories (Cow & Goat)"}</span>
             </div>
             <span className="text-xs font-mono text-stone-500 dark:text-stone-400 hidden sm:inline">
-              Direct Production Stage Filter
+              Wet Blue · Crust · Finished · Split · Lining
             </span>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3.5 p-1.5 sm:p-2 bg-[#F6F2E8]/80 dark:bg-[#15100B] border border-[#E5DBBE] dark:border-[#2C2117] rounded-2xl">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 p-1.5 sm:p-2 bg-[#F6F2E8]/80 dark:bg-[#15100B] border border-[#E5DBBE] dark:border-[#2C2117] rounded-2xl">
             
-            {/* 1. Crust Leather Tab */}
-            <button
-              type="button"
-              onClick={() => setSelectedStage("Crust")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
-                selectedStage === "Crust"
-                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
-                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
-              }`}
-            >
-              <div className="flex items-center justify-between gap-1.5 mb-1">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
-                  selectedStage === "Crust" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
-                }`}>
-                  {isBn ? "ক্রাস্ট" : "Crust"}
-                </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
-                  selectedStage === "Crust"
-                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
-                    : "text-stone-500 dark:text-stone-400"
-                }`}>
-                  {stageCounts.Crust} {isBn ? "টি" : "Art."}
-                </span>
-              </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
-                {isBn ? "ক্রোম ও ভেজিটেবল ক্রাস্ট" : "Chrome & Veg Crust"}
-              </div>
-              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Semi-finished drum-dyed substrate
-              </p>
-              {selectedStage === "Crust" && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
-              )}
-            </button>
-
-            {/* 2. Finished Leather Tab */}
-            <button
-              type="button"
-              onClick={() => setSelectedStage("Finished")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
-                selectedStage === "Finished"
-                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
-                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
-              }`}
-            >
-              <div className="flex items-center justify-between gap-1.5 mb-1">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
-                  selectedStage === "Finished" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
-                }`}>
-                  {isBn ? "ফিনিশড" : "Finished"}
-                </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
-                  selectedStage === "Finished"
-                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
-                    : "text-stone-500 dark:text-stone-400"
-                }`}>
-                  {stageCounts.Finished} {isBn ? "টি" : "Art."}
-                </span>
-              </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
-                {isBn ? "অ্যানিলিন, পুল-আপ, নাপ্পা" : "Aniline, Pull-Up, Nappa"}
-              </div>
-              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Shoes, bags, garments & upholstery
-              </p>
-              {selectedStage === "Finished" && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
-              )}
-            </button>
-
-            {/* 3. Wet Blue & Wet White Tab */}
+            {/* 1. Wet Blue Leather Tab */}
             <button
               type="button"
               onClick={() => setSelectedStage("Wet Blue")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
+              className={`p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
                 selectedStage === "Wet Blue"
                   ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
                   : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
               }`}
             >
-              <div className="flex items-center justify-between gap-1.5 mb-1">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className={`text-[11px] font-bold uppercase tracking-wider font-mono leading-tight ${
                   selectedStage === "Wet Blue" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
                 }`}>
-                  {isBn ? "ওয়েট ব্লু" : "Wet Blue"}
+                  {isBn ? "ওয়েট ব্লু" : "Wet Blue"}
                 </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
-                  selectedStage === "Wet Blue"
-                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
-                    : "text-stone-500 dark:text-stone-400"
+                <span className={`text-[10px] font-mono font-bold tabular-nums shrink-0 ${
+                  selectedStage === "Wet Blue" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-500 dark:text-stone-400"
                 }`}>
-                  {stageCounts["Wet Blue"]} {isBn ? "টি" : "Art."}
+                  {stageCounts["Wet Blue"]}
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
-                {isBn ? "বovin ও ক্রোম-ফ্রি হাইড" : "Full Grain & Wet White"}
+              <div className="text-xs sm:text-[13px] font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "গরু ও ছাগলের হাইডস" : "Cow & Goat Hides"}
               </div>
-              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                Chrome tanned hides & splits
+              <p className="hidden sm:block text-[10.5px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Chrome & Wet White
               </p>
               {selectedStage === "Wet Blue" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
               )}
             </button>
 
-            {/* 4. All Collections Tab */}
+            {/* 2. Crust Leather Tab */}
+            <button
+              type="button"
+              onClick={() => setSelectedStage("Crust")}
+              className={`p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
+                selectedStage === "Crust"
+                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
+                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className={`text-[11px] font-bold uppercase tracking-wider font-mono leading-tight ${
+                  selectedStage === "Crust" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
+                }`}>
+                  {isBn ? "ক্রাস্ট" : "Crust"}
+                </span>
+                <span className={`text-[10px] font-mono font-bold tabular-nums shrink-0 ${
+                  selectedStage === "Crust" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-500 dark:text-stone-400"
+                }`}>
+                  {stageCounts.Crust}
+                </span>
+              </div>
+              <div className="text-xs sm:text-[13px] font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "ক্রোম ও ভেজিটেবল ক্রাস্ট" : "Cow & Goat Crust"}
+              </div>
+              <p className="hidden sm:block text-[10.5px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Chrome & Veg Drum Dyed
+              </p>
+              {selectedStage === "Crust" && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
+              )}
+            </button>
+
+            {/* 3. Finished Leather Tab */}
+            <button
+              type="button"
+              onClick={() => setSelectedStage("Finished")}
+              className={`p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
+                selectedStage === "Finished"
+                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
+                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className={`text-[11px] font-bold uppercase tracking-wider font-mono leading-tight ${
+                  selectedStage === "Finished" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
+                }`}>
+                  {isBn ? "ফিনিশড" : "Finished"}
+                </span>
+                <span className={`text-[10px] font-mono font-bold tabular-nums shrink-0 ${
+                  selectedStage === "Finished" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-500 dark:text-stone-400"
+                }`}>
+                  {stageCounts.Finished}
+                </span>
+              </div>
+              <div className="text-xs sm:text-[13px] font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "ফুল গ্রেইন, নাপ্পা" : "Full Grain & Nappa"}
+              </div>
+              <p className="hidden sm:block text-[10.5px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Aniline, Pull-Up & Cow/Goat
+              </p>
+              {selectedStage === "Finished" && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
+              )}
+            </button>
+
+            {/* 4. Split Leather Tab */}
+            <button
+              type="button"
+              onClick={() => setSelectedStage("Split")}
+              className={`p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
+                selectedStage === "Split"
+                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
+                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className={`text-[11px] font-bold uppercase tracking-wider font-mono leading-tight ${
+                  selectedStage === "Split" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
+                }`}>
+                  {isBn ? "স্প্লিট ও সোয়েড" : "Split"}
+                </span>
+                <span className={`text-[10px] font-mono font-bold tabular-nums shrink-0 ${
+                  selectedStage === "Split" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-500 dark:text-stone-400"
+                }`}>
+                  {stageCounts.Split}
+                </span>
+              </div>
+              <div className="text-xs sm:text-[13px] font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "কাউ স্প্লিট ও সোয়েড" : "Cow Split & Suede"}
+              </div>
+              <p className="hidden sm:block text-[10.5px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Drop Split, Suede & Bicast
+              </p>
+              {selectedStage === "Split" && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
+              )}
+            </button>
+
+            {/* 5. Lining Leather Tab */}
+            <button
+              type="button"
+              onClick={() => setSelectedStage("Lining")}
+              className={`p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
+                selectedStage === "Lining"
+                  ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
+                  : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
+              }`}
+            >
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className={`text-[11px] font-bold uppercase tracking-wider font-mono leading-tight ${
+                  selectedStage === "Lining" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
+                }`}>
+                  {isBn ? "লাইনিং" : "Lining"}
+                </span>
+                <span className={`text-[10px] font-mono font-bold tabular-nums shrink-0 ${
+                  selectedStage === "Lining" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-500 dark:text-stone-400"
+                }`}>
+                  {stageCounts.Lining}
+                </span>
+              </div>
+              <div className="text-xs sm:text-[13px] font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "গোট ও কাউ লাইনিং" : "Goat & Cow Lining"}
+              </div>
+              <p className="hidden sm:block text-[10.5px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                Breathable Shoe Linings
+              </p>
+              {selectedStage === "Lining" && (
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
+              )}
+            </button>
+
+            {/* 6. All Collections Tab */}
             <button
               type="button"
               onClick={() => setSelectedStage("All")}
-              className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
+              className={`p-3 sm:p-3.5 rounded-xl text-left transition-all duration-200 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
                 selectedStage === "All"
                   ? "bg-white dark:bg-[#231A12] text-[#1A140E] dark:text-[#FAF6F0] border border-[#C89D43] shadow-[0_6px_22px_-4px_rgba(200,157,67,0.28)] ring-1 ring-[#C89D43]/30"
                   : "bg-white/60 dark:bg-[#16100C]/70 text-stone-700 dark:text-stone-300 border border-transparent hover:bg-white dark:hover:bg-[#1C150F] hover:border-[#D6AC4B]/40"
               }`}
             >
-              <div className="flex items-center justify-between gap-1.5 mb-1">
-                <span className={`text-[11px] sm:text-xs font-bold uppercase tracking-wider font-mono leading-tight ${
+              <div className="flex items-center justify-between gap-1 mb-1">
+                <span className={`text-[11px] font-bold uppercase tracking-wider font-mono leading-tight ${
                   selectedStage === "All" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-600 dark:text-stone-400"
                 }`}>
                   {isBn ? "সবগুলো" : "All Articles"}
                 </span>
-                <span className={`text-[10px] sm:text-xs font-mono font-bold tabular-nums shrink-0 ${
-                  selectedStage === "All"
-                    ? "text-[#8C6214] dark:text-[#F3CE6D]"
-                    : "text-stone-500 dark:text-stone-400"
+                <span className={`text-[10px] font-mono font-bold tabular-nums shrink-0 ${
+                  selectedStage === "All" ? "text-[#8C6214] dark:text-[#F3CE6D]" : "text-stone-500 dark:text-stone-400"
                 }`}>
-                  {stageCounts.All} {isBn ? "মোট" : "Total"}
+                  {stageCounts.All}
                 </span>
               </div>
-              <div className="text-xs sm:text-sm font-bold text-[#1C1712] dark:text-white line-clamp-1">
-                {isBn ? "সম্পূর্ণ ট্যানারি পোর্টফোলিও" : "Full Export Portfolio"}
+              <div className="text-xs sm:text-[13px] font-bold text-[#1C1712] dark:text-white line-clamp-1">
+                {isBn ? "সম্পূর্ণ পোর্টফোলিও" : "Full Portfolio"}
               </div>
-              <p className="hidden sm:block text-[11px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
-                All Savar stages & bespoke hides
+              <p className="hidden sm:block text-[10.5px] mt-1 text-stone-500 dark:text-stone-400 line-clamp-1">
+                All 5 Categories Combined
               </p>
               {selectedStage === "All" && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5D275] via-[#D6AC4B] to-[#C89D43]" />
@@ -422,6 +528,19 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
             </button>
 
           </div>
+
+          {selectedStage !== "All" && (
+            <div className="mt-3 p-3.5 sm:p-4 rounded-xl bg-white dark:bg-[#140F0B] border border-[#D6AC4B]/35 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
+              <div>
+                <h3 className="font-bold text-[#1C1712] dark:text-[#FAF6F0]">
+                  {CATEGORY_SEO_BANNERS[selectedStage].heading}
+                </h3>
+                <p className="text-stone-600 dark:text-stone-300 mt-0.5 leading-relaxed">
+                  {CATEGORY_SEO_BANNERS[selectedStage].copy}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 2. EXECUTIVE SEARCH & FILTER CONSOLE */}
@@ -788,7 +907,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                       {/* Unobstructed High-Resolution 4:3 Leather Photo */}
                       <LeatherImageMagnifier
                         src={product.image}
-                        alt={`${product.name} hide sample`}
+                        alt={`${product.name} — ${product.animal} ${product.stage} ${product.grainType} leather from Bangladesh tannery ExportVisor`}
                         mode="card"
                         zoomLevel={3}
                         aspectRatioClass="aspect-[4/3]"
@@ -915,7 +1034,7 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                     <div className="w-full sm:w-44 shrink-0 rounded-xl overflow-hidden border border-stone-200 dark:border-stone-800">
                       <LeatherImageMagnifier
                         src={product.image}
-                        alt={`${product.name} hide sample`}
+                        alt={`${product.name} — ${product.animal} ${product.stage} ${product.grainType} leather from Bangladesh tannery ExportVisor`}
                         mode="card"
                         zoomLevel={3}
                         aspectRatioClass="aspect-[4/3]"

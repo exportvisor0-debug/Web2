@@ -69,6 +69,21 @@ export const PRODUCT_BENCHMARKS: Record<string, ProductPriceBenchmark> = {
     high: "5.50",
     offerCount: "2000",
   },
+  "lining-leather": {
+    low: "1.60",
+    high: "3.10",
+    offerCount: "3000",
+  },
+  "goat-lining-leather": {
+    low: "1.65",
+    high: "3.10",
+    offerCount: "1",
+  },
+  "cow-lining-leather": {
+    low: "1.55",
+    high: "2.80",
+    offerCount: "1",
+  },
 };
 
 function getBenchmarkForProduct(product: LeatherProduct): ProductPriceBenchmark {

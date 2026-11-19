@@ -133,6 +133,59 @@ export const WhyExportVisor: React.FC = () => {
           })}
         </motion.div>
 
+        {/* Export & Quality Assurance Panel */}
+        <div
+          id="export-quality-assurance"
+          className="mt-12 p-6 sm:p-8 rounded-2xl bg-[#FAF8F5] dark:bg-[#120E0B] border border-[#D6AC4B]/35 shadow-sm"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#EAE3D2] dark:border-stone-800">
+            <div>
+              <span className="text-[11px] font-mono uppercase tracking-wider font-bold text-[#8C6214] dark:text-[#E5BE58]">
+                {language === "bn" ? "কমপ্লায়েন্স ও রপ্তানি মানদণ্ড" : "Verified Tannery Protocols"}
+              </span>
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#15120E] dark:text-[#FAF6F0] mt-1">
+                {language === "bn" ? "Export & Quality Assurance (রপ্তানি ও মান নিয়ন্ত্রণ)" : "Export & Quality Assurance"}
+              </h3>
+            </div>
+            <span className="text-xs font-mono text-stone-600 dark:text-stone-300 px-3 py-1 rounded-lg bg-white dark:bg-[#1A140F] border border-[#DED4BD] dark:border-stone-700 self-start md:self-center">
+              LWG Audited · EU REACH · ISO Testing
+            </span>
+          </div>
+
+          <p className="mt-4 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
+            {language === "bn"
+              ? "বাংলাদেশ থেকে নির্ভরযোগ্য চামড়া রপ্তানিকারক হিসেবে এক্সপোর্টভাইজর সাভার ট্যানারি এস্টেটে এলডব্লিউজি (LWG) ও রিচ (REACH) মানদণ্ড মেনে প্রতিটি চালানের মান যাচাই করে।"
+              : "Operating as a reliable leather supplier from Bangladesh and direct leather manufacturer liaison, ExportVisor enforces strict pre-shipment verification across all five export streams: our wet blue tannery and wet blue manufacturer hides (cow and goat), drum-dyed crust tannery runs, finished full grain leather, suede split leather manufacturer lots, and breathable cow & goat shoe lining leather. Every container from Chittagong Sea Port carries piece-by-piece electronic caliper gauging (±0.1mm), Cr(VI) < 3ppm safety compliance, and optional SGS/Intertek certification."}
+          </p>
+
+          <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div className="p-3.5 rounded-xl bg-white dark:bg-[#17120E] border border-stone-200 dark:border-stone-800">
+              <strong className="block text-[#15120E] dark:text-white mb-1">Wet Blue &amp; Crust QC</strong>
+              <span className="text-stone-600 dark:text-stone-400 leading-relaxed">
+                Boiling stability, 50–60% transit moisture lock, biocide mold defense &amp; uniform shaving.
+              </span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white dark:bg-[#17120E] border border-stone-200 dark:border-stone-800">
+              <strong className="block text-[#15120E] dark:text-white mb-1">Finished Full Grain QA</strong>
+              <span className="text-stone-600 dark:text-stone-400 leading-relaxed">
+                Pantone ΔE shade matching, Crockmeter dry/wet rub tests &amp; grain flex durability.
+              </span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white dark:bg-[#17120E] border border-stone-200 dark:border-stone-800">
+              <strong className="block text-[#15120E] dark:text-white mb-1">Split &amp; Lining Checks</strong>
+              <span className="text-stone-600 dark:text-stone-400 leading-relaxed">
+                Stitch-tear strength, uniform split nap, perspiration fastness &amp; breathability verification.
+              </span>
+            </div>
+            <div className="p-3.5 rounded-xl bg-white dark:bg-[#17120E] border border-stone-200 dark:border-stone-800">
+              <strong className="block text-[#15120E] dark:text-white mb-1">Export &amp; GSP Compliance</strong>
+              <span className="text-stone-600 dark:text-stone-400 leading-relaxed">
+                ISPM-15 pallets, GSP Certificate of Origin, Phytosanitary &amp; UCP 600 L/C trade docs.
+              </span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

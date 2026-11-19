@@ -66,7 +66,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/wet-blue-chrome-full-grain.jpg",
     "badgeLabel": "Tannery Base",
     "shortDescription": "Chrome-tanned raw bovine hides with complete natural grain layer intact for re-tanning and finishing.",
-    "overview": "Raw chrome-tanned bovine and goat hides preserving the complete unblemished epidermis. Formulated with high-quality basic chromium sulfate for maximum hydrothermal stability (boiling test resistant). Ideal raw substrate for tanneries producing premium full aniline, pull-up, and soft nappa leather collections.",
+    "overview": "As an experienced wet blue cow leather exporter and wet blue goat leather supplier from Bangladesh, we supply raw chrome-tanned hides preserving the complete unblemished epidermis. Formulated in our partner wet blue tannery with basic chromium sulfate for superior hydrothermal stability, ideal for international re-tanning into full aniline, pull-up, and nappa leather.",
     "applications": [
       "Raw material for finishing tanneries",
       "Footwear uppers",
@@ -88,15 +88,15 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment hide-by-hide substance check, boiling test & salt moisture balance",
     "packagingShipping": "Heavy-duty poly-lined wooden pallets or container stuffing from Chittagong Sea Port",
     "buyerRequirementsNote": "Grade selection (I/II/III/IV/V) and thickness grading agreed prior to container sealing.",
-    "availabilityNote": "Regular year-round production aligned with Bangladesh tannery drum capacities.",
-    "seoTitle": "Wet Blue Chrome Full Grain Bovine Hides Exporter Bangladesh",
-    "seoDescription": "Export certified chrome tanned Wet Blue Cow and Goat hides with intact full grain. Machine fleshed, container load shipping from Savar.",
+    "availabilityNote": "Regular year-round production aligned with Bangladesh wet blue manufacturer drum capacities.",
+    "seoTitle": "Wet Blue Cow Leather Exporter & Goat Leather Supplier Bangladesh",
+    "seoDescription": "Source certified chrome tanned Wet Blue Cow and Goat hides directly from our Bangladesh wet blue tannery. Machine fleshed, container load shipping from Savar.",
     "seoKeywords": [
-      "wet blue chrome full grain",
-      "wet blue hides bangladesh",
-      "savar wet blue exporter",
-      "raw bovine leather wholesale",
-      "chrome tanned hides"
+      "wet blue cow leather exporter",
+      "wet blue goat leather supplier from bangladesh",
+      "wet blue tannery",
+      "wet blue manufacturer",
+      "wet blue hides bangladesh"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Full Grain (Chrome Tanned)"
@@ -209,7 +209,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/wet-blue-split.jpg",
     "badgeLabel": "High Tear Strength",
     "shortDescription": "Drop split corium layer engineered for suede, coated split, work gloves, and workwear.",
-    "overview": "Created when thick bovine hides are split horizontally. The drop split corium layer lacks the outer grain but provides outstanding fibrous interlocking, tensile tear resistance, and economic efficiency. Readily re-tanned into suede or polyurethane coated split.",
+    "overview": "Supplied by our dedicated cow split leather exporter division when thick bovine hides are precision split horizontally. The drop split corium layer delivers dense fibrous interlocking, superior tear strength, and value efficiency for re-tanning into suede split leather or industrial workwear.",
     "applications": [
       "Work gloves & safety equipment",
       "Suede shoes & boot counters",
@@ -230,15 +230,15 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "indicativePrice": "Direct Factory Pricing per RFQ",
     "qualityInspection": "Pre-shipment verification of tensile strength and moisture percentage",
     "packagingShipping": "Poly-wrapped export pallets for maritime container freight",
-    "buyerRequirementsNote": "Ideal for industrial workwear, work gloves, and cost-effective suede.",
-    "availabilityNote": "Substantial weekly drum yields in Savar.",
-    "seoTitle": "Wet Blue Split Cowhide Leather Supplier Bangladesh",
-    "seoDescription": "Source Wet Blue Split leather hides from Bangladesh tanneries. High tear strength for work gloves, suede, and bicast leather.",
+    "buyerRequirementsNote": "Ideal for industrial workwear, work gloves, and suede split leather production.",
+    "availabilityNote": "Substantial weekly drum yields from our split leather supplier operations in Savar.",
+    "seoTitle": "Cow Split Leather Exporter & Split Supplier from Bangladesh",
+    "seoDescription": "Source Wet Blue Split leather hides from our Savar split leather supplier in Bangladesh. High tear strength for work gloves and suede split manufacturing.",
     "seoKeywords": [
+      "cow split leather exporter",
+      "split leather supplier from bangladesh",
       "wet blue split leather",
-      "drop split cowhide",
-      "work glove leather supplier",
-      "bangladesh split leather"
+      "drop split cowhide"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Split (Chrome Tanned)"
@@ -352,7 +352,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/crust-article-01-full-grain-chrome.jpg",
     "badgeLabel": "Chrome Tanned",
     "shortDescription": "Natural drum-dyed full grain crust with sophisticated texture for luxury handbags, wallets, and belts.",
-    "overview": "Premium full grain cowhide crust tanned with basic chrome, vacuum dried, and conditioned. Retains the complete organic grain pattern, receptive to custom hand-padding, aniline staining, waxes, or protective micro-topcoats by the buyer.",
+    "overview": "Produced in our Savar crust tannery and crust leather manufacturer facility as an established crust cow leather exporter. Chrome-tanned, vacuum dried, and drum-conditioned while retaining the complete natural full grain structure ready for custom dye staining, waxes, or topcoats.",
     "applications": [
       "Premium handbags & purses",
       "Wallets & card cases",
@@ -374,14 +374,14 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment grain inspection, moisture measurement & substance calibration",
     "packagingShipping": "Paper inter-layered export cartons or wrapped wooden pallets from Chittagong",
     "buyerRequirementsNote": "Ideal base for ateliers and finishing tanneries applying proprietary recipes.",
-    "availabilityNote": "Continuous production in Savar tanneries.",
-    "seoTitle": "Full Grain Chrome Tanned Crust Leather Bangladesh",
-    "seoDescription": "Export-grade full grain chrome tanned crust leather for luxury handbags and leather goods. Direct Savar tannery liaison.",
+    "availabilityNote": "Continuous production in our Savar crust tannery.",
+    "seoTitle": "Crust Cow Leather Exporter & Crust Tannery Bangladesh",
+    "seoDescription": "Direct crust cow leather exporter from our Savar crust tannery. Full grain chrome tanned crust for handbags, footwear, and leather goods.",
     "seoKeywords": [
-      "full grain crust leather",
-      "chrome tanned crust",
-      "handbag crust leather",
-      "savar leather crust"
+      "crust cow leather exporter",
+      "crust leather manufacturer",
+      "crust tannery",
+      "full grain crust leather"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
@@ -541,7 +541,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/crust-article-05-suede-chrome.jpg",
     "badgeLabel": "Chrome Tanned",
     "shortDescription": "Soft, uniform buffed suede crust for casual shoes, fashion jackets, bags, and upholstery.",
-    "overview": "Crafted with fine abrasive wheel buffing to generate a rich, consistent velvet nap on chrome-tanned crust. Outstanding flexibility and tactile softness, ready for water-repellent finishing or color spray.",
+    "overview": "Produced by our suede split leather manufacturer and crust goat leather supplier from Bangladesh with precision abrasive buffing. Delivers a uniform velvety nap and supple temper across both cow split suede and fine Black Bengal goat crust for footwear, apparel, and upholstery.",
     "applications": [
       "Casual footwear & desert boots",
       "Leather jackets & apparel",
@@ -561,15 +561,15 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "indicativePrice": "Direct Factory Pricing per RFQ",
     "qualityInspection": "Pre-shipment nap consistency and color rub verification",
     "packagingShipping": "Cardboard export cartons with tissue interleaving",
-    "buyerRequirementsNote": "Luxurious velvety hand feel suited for high-end casual wear.",
-    "availabilityNote": "Available in cow and goat suede variants.",
-    "seoTitle": "Suede Chrome Tanned Crust Leather Exporter Bangladesh",
-    "seoDescription": "Soft buffed suede chrome crust leather for shoes, jackets, and bags from Savar tanneries.",
+    "buyerRequirementsNote": "Luxurious velvety hand feel suited for high-end casual wear and linings.",
+    "availabilityNote": "Available in both cow and goat variants from our crust tannery.",
+    "seoTitle": "Suede Split Manufacturer & Crust Goat Leather Supplier Bangladesh",
+    "seoDescription": "Direct suede split leather manufacturer & crust goat leather supplier from Bangladesh. Velvety buffed cow suede & goat crust from Savar tanneries.",
     "seoKeywords": [
-      "suede crust leather",
-      "cow suede crust",
-      "goat suede bangladesh",
-      "shoes suede crust"
+      "suede split leather manufacturer",
+      "crust goat leather supplier from bangladesh",
+      "cow split leather exporter",
+      "goat suede bangladesh"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Suede (Chrome Tanned)"
@@ -1434,7 +1434,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/finished-article-01-full-grain-aniline-chrome.jpg",
     "badgeLabel": "Pure Aniline",
     "shortDescription": "Transparent drum-dyed full grain aniline leather for premium furniture, fine shoes, and luxury bags.",
-    "overview": "Dyed purely with soluble transparent dyes that permeate the hide without covering the natural grain pores. Highlights the unique organic hallmarks of the finest Bangladesh cowhides, providing unmatched warmth and breathability.",
+    "overview": "Crafted by our finished cow leather exporter and finished leather manufacturer team using pure soluble dyes that permeate full grain leather without opaque pigments. Preserves the authentic natural pores, tight fiber weave, and rich breathability of Savar bovine hides.",
     "applications": [
       "Designer furniture & executive seating",
       "Artisanal footwear & dress shoes",
@@ -1456,13 +1456,13 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "packagingShipping": "Rolled on heavy tubes or flat packed with tissue protection on pallets",
     "buyerRequirementsNote": "Requires Grade A hide selection with natural pore transparency.",
     "availabilityNote": "Sourced from top-tier drums in Savar.",
-    "seoTitle": "Full Grain Aniline Chrome Tanned Leather Exporter Bangladesh",
-    "seoDescription": "Premium transparent aniline finished bovine leather for luxury furniture and handcrafted shoes from Savar.",
+    "seoTitle": "Finished Cow Leather Exporter & Full Grain Manufacturer Bangladesh",
+    "seoDescription": "Finished cow leather exporter and full grain leather manufacturer in Savar, Bangladesh. Drum-dyed aniline cowhide for shoes, bags & upholstery.",
     "seoKeywords": [
-      "aniline leather bangladesh",
-      "full grain aniline",
-      "luxury furniture leather",
-      "savar finished leather"
+      "finished cow leather exporter",
+      "finished leather manufacturer",
+      "full grain leather",
+      "aniline leather bangladesh"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
@@ -3396,6 +3396,100 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "materialType": "Cow Bonded (Mixed Tanned)"
   },
   {
+    "id": "goat-lining-leather",
+    "slug": "goat-lining-leather",
+    "name": "Goat Shoe Lining Leather (Aniline & Glazed Kid)",
+    "stage": "Finished",
+    "category": "Finished Leather",
+    "articleNumber": "Lining · Black Bengal Goat",
+    "tanningMethod": "Chrome Tanned",
+    "grainType": "Top Grain",
+    "finishType": "Breathable Goat Lining",
+    "animal": "Goat",
+    "image": "/assets/products/finished-article-09-top-grain-nappa-chrome.jpg",
+    "badgeLabel": "Footwear Lining",
+    "shortDescription": "Supple, sweat-absorbing Black Bengal goat lining leather engineered for formal dress shoes and luxury footwear interiors.",
+    "overview": "As a specialized goat lining leather exporter and shoe lining leather supplier from Bangladesh, we craft breathable Black Bengal goat linings with naturally dense pores, high perspiration absorption, and silky abrasion resistance without rigid coatings.",
+    "applications": [
+      "Men's & women's formal dress shoe linings",
+      "Orthopedic & comfort footwear interiors",
+      "Luxury loafer & boot quarter linings",
+      "Fine handbag interior linings"
+    ],
+    "availableFinishes": [
+      "Aniline Drum-Dyed Kid Lining",
+      "Vegetable & Chrome-Free Lining",
+      "Natural Porous Stain-Resistant Coat"
+    ],
+    "thicknessRange": "Customized per Buyer Specification (Calibrated 0.5–0.7mm or 0.7–0.9mm for linings)",
+    "colorOptions": "Beige, Biscuit, Tan, Natural, Cognac, Espresso, Charcoal, Black",
+    "sizeMeasurement": "Averaging 4–7 sq ft per goat skin",
+    "moq": "Evaluated per RFQ (Starting 2,500 sq ft per shade or trial order)",
+    "leadTime": "Scheduled per RFQ & lab-dip approval",
+    "indicativePrice": "Direct Factory Pricing per RFQ",
+    "qualityInspection": "Piece-by-piece substance gauge, wet/dry rub fastness, and breathability check",
+    "packagingShipping": "Tissue-interleaved export cartons shipped via DAC Air Cargo or Chittagong Port",
+    "buyerRequirementsNote": "High perspiration fastness and zero dye bleeding into socks.",
+    "availabilityNote": "Year-round Black Bengal goat lining production in Savar.",
+    "seoTitle": "Goat Lining Leather Exporter & Shoe Lining Supplier Bangladesh",
+    "seoDescription": "Reliable goat lining leather exporter and shoe lining leather supplier from Bangladesh. Breathable 0.5–0.9mm Black Bengal goat skins for footwear.",
+    "seoKeywords": [
+      "goat lining leather exporter",
+      "shoe lining leather supplier from bangladesh",
+      "black bengal goat lining",
+      "finished goat leather supplier from bangladesh"
+    ],
+    "origin": "Bangladesh",
+    "materialType": "Goat Top Grain Lining (Chrome / Veg Tanned)"
+  },
+  {
+    "id": "cow-lining-leather",
+    "slug": "cow-lining-leather",
+    "name": "Cow Shoe & Bag Lining Leather (Softee & Synthetic)",
+    "stage": "Finished",
+    "category": "Finished Leather",
+    "articleNumber": "Lining · Cowhide",
+    "tanningMethod": "Chrome Tanned",
+    "grainType": "Corrected Grain",
+    "finishType": "Calf & Cow Lining",
+    "animal": "Cow",
+    "image": "/assets/products/finished-article-39-corrected-grain-pigmented-synthetic.jpg",
+    "badgeLabel": "Cow Lining",
+    "shortDescription": "High-yield, evenly shaved cow lining leather for athletic sneakers, work boots, dress shoes, and leather bags.",
+    "overview": "Produced by our dedicated cow lining leather manufacturer lines in Savar. Calibrated to smooth uniform thickness for superior cutting yield, excellent tear resistance around heel counters, and reliable moisture absorption inside global footwear brands.",
+    "applications": [
+      "Sneaker & casual footwear linings",
+      "Safety boot & workwear shoe linings",
+      "Leather handbag & brief interiors",
+      "Leather belt backings & small leather goods"
+    ],
+    "availableFinishes": [
+      "Semi-Aniline Porous Finish",
+      "Aniline Softee Drum Dyed",
+      "Chrome-Free Wet White Lining Base"
+    ],
+    "thicknessRange": "Customized per Buyer Specification (Calibrated 0.7–0.9mm, 0.9–1.1mm for linings)",
+    "colorOptions": "Nude Beige, Caramel Tan, Camel, Light Grey, Saddle, Black, White",
+    "sizeMeasurement": "Averaging 18–24 sq ft per cow hide",
+    "moq": "Evaluated per RFQ (Starting 2,500–3,000 sq ft per shade)",
+    "leadTime": "Scheduled per RFQ & drum schedule",
+    "indicativePrice": "Direct Factory Pricing per RFQ",
+    "qualityInspection": "Electronic thickness gauge check, stitch-tear test & dry/wet rub fastness",
+    "packagingShipping": "Moisture-wrapped export cartons & ISPM-15 pallets via Chittagong Sea Port",
+    "buyerRequirementsNote": "High cutting yield with uniform belly-to-butt substance control.",
+    "availabilityNote": "Ready volume supply across Savar partner tanneries.",
+    "seoTitle": "Cow Lining Leather Manufacturer & Shoe Lining Exporter Bangladesh",
+    "seoDescription": "Direct cow lining leather manufacturer and shoe lining leather supplier from Bangladesh. Uniform 0.7–1.1mm cowhide linings for sneakers and dress shoes.",
+    "seoKeywords": [
+      "cow lining leather manufacturer",
+      "shoe lining leather supplier from bangladesh",
+      "cowhide shoe lining",
+      "footwear lining leather exporter"
+    ],
+    "origin": "Bangladesh",
+    "materialType": "Cow Lining Leather (Chrome / Synthetic Tanned)"
+  },
+  {
     "id": "cow-leather-collection",
     "slug": "cow-leather-collection",
     "name": "Bangladesh Bovine (Cow) Leather Collection",
@@ -3456,7 +3550,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/crust-article-05-suede-chrome.jpg",
     "badgeLabel": "Black Bengal Special",
     "shortDescription": "Fine, tight grain with soft hand and light but tough structure for gloves, garments, footwear, and linings.",
-    "overview": "Sourced from the famous indigenous 'Black Bengal' goat breed, celebrated worldwide for its exceptionally dense, tight grain structure and silky hand feel. Preferred internationally for fine dress gloves, luxury shoe linings, and supple garments.",
+    "overview": "Sourced from the famous indigenous Black Bengal breed by our finished goat leather supplier from Bangladesh and goat lining leather exporter teams. Celebrated worldwide for its fine tight grain and tensile durability in dress gloves, garment nappa, and shoe linings.",
     "applications": [
       "Fine dress & golf gloves",
       "Soft leather jackets & garments",
@@ -3477,13 +3571,13 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "packagingShipping": "Paper interleaved export cartons",
     "buyerRequirementsNote": "World-class tight grain density unique to Black Bengal breed.",
     "availabilityNote": "High supply availability in Savar.",
-    "seoTitle": "Black Bengal Goat Leather Exporter Bangladesh",
-    "seoDescription": "Famous Bangladesh Black Bengal goat leather skins for dress gloves, shoe linings, and garments.",
+    "seoTitle": "Finished Goat Leather Supplier & Black Bengal Goat Exporter Bangladesh",
+    "seoDescription": "Trusted finished goat leather supplier from Bangladesh and goat lining leather exporter. Genuine Black Bengal goat skins for shoes, gloves, and garments.",
     "seoKeywords": [
+      "finished goat leather supplier from bangladesh",
+      "goat lining leather exporter",
       "black bengal goat leather",
-      "goat skin supplier",
-      "glove leather bangladesh",
-      "savar goat leather"
+      "wet blue goat leather supplier from bangladesh"
     ],
     "origin": "Bangladesh",
     "materialType": "Goat Top Grain (Chrome Tanned)"

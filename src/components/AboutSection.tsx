@@ -107,14 +107,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed mb-4">
                 {language === "bn"
                   ? "এক্সপোর্টভাইজর সাভার ট্যানারি ক্লাস্টারের সরাসরি রপ্তানি বিভাগ হিসেবে কাজ করে। আমরা চামড়ার পুরুত্ব থেকে শুরু করে শেডের ধারাবাহিকতা—প্রতিটি স্পেসিফিকেশন সরাসরি ফ্যাক্টরি ফ্লোরে কঠোরভাবে পর্যবেক্ষণ ও অনুমোদন করি এবং ফ্যাক্টরি-গেট রেটে সরাসরি রপ্তানি নিশ্চিত করি।"
-                  : "ExportVisor eliminates intermediaries by functioning as the direct international export desk for manufacturing tanneries in Savar, Dhaka. We ensure your specifications—from substance calibration to color uniformity—are monitored directly on the tannery floor, offering genuine factory-gate pricing and verified container export."}
+                  : "Operating as a reliable leather exporter from Bangladesh inside the Savar leather tannery estate, ExportVisor coordinates direct factory-gate manufacturing across wet blue cow & goat hides, drum-dyed crust, finished full grain leather, cow split suede, and breathable shoe lining leather."}
               </p>
-              <div className="pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400">
+              <div className="pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between gap-2 text-xs text-stone-500 dark:text-stone-400">
                 <span className="font-medium text-stone-600 dark:text-stone-300">
-                  {language === "bn" ? "কাজের ক্ষেত্র: চামড়া রপ্তানি" : "Scope: Leather Only"}
+                  {language === "bn" ? "কাজের ক্ষেত্র: চামড়া রপ্তানি" : "Direct B2B Tannery"}
                 </span>
-                <span className="font-bold text-[#7A5A17] dark:text-[#E5BE58] px-2 py-0.5 rounded bg-[#C89D43]/15 border border-[#C89D43]/25">
-                  {language === "bn" ? "ওয়েট ব্লু · ক্রাস্ট · ফিনিশড" : "Wet Blue · Crust · Finished"}
+                <span className="font-bold text-[#7A5A17] dark:text-[#E5BE58] px-2 py-0.5 rounded bg-[#C89D43]/15 border border-[#C89D43]/25 text-right">
+                  {language === "bn" ? "ওয়েট ব্লু · ক্রাস্ট · ফিনিশড · স্প্লিট · লাইনিং" : "Wet Blue · Crust · Finished · Split · Lining"}
                 </span>
               </div>
             </div>

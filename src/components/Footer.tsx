@@ -140,15 +140,23 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="text-xs text-stone-300 space-y-2">
               <li>
                 <button
-                  onClick={() => onRequestQuote("Crust Leather")}
+                  onClick={() => onRequestQuote("Wet Blue Cow & Goat Leather")}
                   className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
                 >
-                  {language === "bn" ? "ক্রাস্ট লেদার (ন্যাচারাল ও মিলিং)" : "Crust Leather (Natural & Milling)"}
+                  {language === "bn" ? "ওয়েট ব্লু (গরু ও ছাগল)" : "Wet Blue Leather (Cow & Goat)"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onRequestQuote("Finished Leather")}
+                  onClick={() => onRequestQuote("Crust Cow & Goat Leather")}
+                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
+                >
+                  {language === "bn" ? "ক্রাস্ট লেদার (গরু ও ছাগল)" : "Crust Leather (Cow & Goat)"}
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onRequestQuote("Finished Full Grain Leather")}
                   className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
                 >
                   {language === "bn" ? "ফিনিশড লেদার (ফুল ও টপ গ্রেইন)" : "Finished Leather (Full / Top Grain)"}
@@ -156,26 +164,18 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={() => onRequestQuote("Wet Blue Leather")}
+                  onClick={() => onRequestQuote("Cow Split & Suede Split Leather")}
                   className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
                 >
-                  {language === "bn" ? "ওয়েট ব্লু ক্রোম ট্যানড হাইডস" : "Wet Blue Chrome Tanned Hides"}
+                  {language === "bn" ? "স্প্লিট ও সোয়েড লেদার" : "Split & Suede Leather (Cow Split)"}
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => onRequestQuote("Aniline & Semi-Aniline")}
+                  onClick={() => onRequestQuote("Goat & Cow Shoe Lining Leather")}
                   className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
                 >
-                  {language === "bn" ? "অ্যানিলিন ও সেমি-অ্যানিলিন লেদার" : "Aniline & Semi-Aniline Leather"}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Corrected Grain Leather")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "কারেক্টেড গ্রেইন ও এমবসিং" : "Corrected Grain & Embossed"}
+                  {language === "bn" ? "শু লাইনিং লেদার (গোট ও কাউ)" : "Lining Leather (Goat & Cow Shoe Lining)"}
                 </button>
               </li>
               <li>
@@ -183,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => onRequestQuote("Custom Sourcing")}
                   className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
                 >
-                  {language === "bn" ? "বায়ার কাস্টম স্পেসিফিকেশন" : "Buyer Custom Specification"}
+                  {language === "bn" ? "বায়ার কাস্টম স্পেসিফিকেশন" : "Custom Specification Sourcing"}
                 </button>
               </li>
             </ul>

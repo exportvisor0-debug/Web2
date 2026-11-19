@@ -36,21 +36,20 @@ export const FAQSection: React.FC = () => {
     },
     {
       q: language === "bn"
-        ? "বায়াররা কি নির্দিষ্ট চামড়ার স্পেসিফিকেশন ও কাস্টম কালার দিতে পারেন?"
-        : "Can buyers request specific custom leather specifications and colors?",
+        ? "বাল্ক লেদার এক্সপোর্টের জন্য আন্তর্জাতিক পেমেন্ট টার্মস ও প্রোডাকশন লিড টাইম কী?"
+        : "What international payment terms and production lead times apply to bulk leather exports?",
       a: language === "bn"
-        ? "হ্যাঁ। বায়ারের সুনির্দিষ্ট টেকনিক্যাল স্পেসিফিকেশন অনুযায়ী চামড়া সোর্সিং আমাদের মূল কাজ। বায়াররা নির্ধারিত পুরুত্ব (উদাঃ ১.১–১.৩ মিমি), টেম্পার, গ্রেইন প্যাটার্ন এবং প্যানটোন কোড বা কাটিং পাঠালে আমরা নমুনা প্রস্তুত করি।"
-        : "Yes. Sourcing to exact buyer specifications is our core business. Buyers can provide target thickness (e.g. 1.1–1.3 mm, 1.4–1.6 mm), temper (soft, medium, firm), grain pattern, and master Pantone references or physical cuttings. We coordinate counter-sample development with matching local tanneries.",
-    },
-    {
-      q: language === "bn"
-        ? "উৎপাদনের সাধারণ লিড টাইম কতদিন?"
-        : "What is the typical production lead time?",
-      a: language === "bn"
-        ? "অর্ডারের পরিধি, ড্রাম সাইজ ও ল্যাব-ডিপ অনুমোদনের ওপর ভিত্তি করে সাধারণত ক্রাস্ট ও ওয়েট ব্লুর ক্ষেত্রে ১৫–২৫ দিন এবং ফিনিশড চামড়ার ক্ষেত্রে ২৫–৩৫ দিনের মধ্যে উৎপাদন সম্পন্ন হয়।"
-        : "Production lead times depend on the RFQ specifics—such as whether raw hides are in stock or require fresh sorting, beamhouse drum cycles, lab dip/counter-sample approvals, and overall order yardage. A realistic delivery schedule is provided with your quotation.",
+        ? "আইসিসি ইউসিপি ৬০০ (ICC UCP 600) নিয়ম অনুযায়ী ১০০% ইরিভোকেবল এল/সি অ্যাট সাইট (L/C at Sight) অথবা ভেরিফায়েড বিলের বিপরীতে টি/টি (T/T) পেমেন্ট গ্রহণ করা হয়। ওয়েট ব্লু ও ক্রাস্ট লেদার ১৫–২৫ দিন এবং ফিনিশড, স্প্লিট ও লাইনিং লেদার ২৫–৩৫ দিনের মধ্যে শিপমেন্টের জন্য প্রস্তুত হয়।"
+        : "We process payments safely under ICC UCP 600 banking rules through Irrevocable Letter of Credit (100% L/C at Sight) or Telegraphic Transfer (T/T deposit with balance against verified Bill of Lading documents). Typical production lead times are 15–25 days for Wet Blue and Crust lots and 25–35 days for Finished, Split, and Shoe Lining programs.",
     },
   ];
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section id="faq" className="py-16 sm:py-24 bg-white dark:bg-[#0B0806] border-b border-stone-200 dark:border-stone-800 transition-colors duration-200">
@@ -97,9 +96,9 @@ export const FAQSection: React.FC = () => {
                   onClick={() => setOpenIdx(isOpen ? null : index)}
                   className="w-full flex items-center justify-between text-left py-2 focus:outline-none cursor-pointer group"
                 >
-                  <span className="text-sm sm:text-base font-semibold text-[#15120E] dark:text-[#FAF6F0] group-hover:text-[#C89D43] transition-colors pr-4">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#15120E] dark:text-[#FAF6F0] group-hover:text-[#C89D43] transition-colors pr-4">
                     {faq.q}
-                  </span>
+                  </h3>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
@@ -127,6 +126,35 @@ export const FAQSection: React.FC = () => {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* Direct B2B Conversion Bar */}
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-[#FAF6F0] dark:bg-[#17120E] px-5 py-4">
+          <p className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 text-center sm:text-left">
+            Need a custom tannery specification sheet, physical leather swatch, or FOB/CIF container quote from Bangladesh?
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
+            <a
+              href="/products"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("products");
+              }}
+              className="px-4 py-2 rounded-lg border border-stone-300 dark:border-stone-700 bg-white dark:bg-[#1F1813] text-xs font-semibold text-stone-800 dark:text-stone-200 hover:border-[#C89D43] transition-colors"
+            >
+              Browse 5 Leather Categories
+            </a>
+            <a
+              href="/quote"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection("inquiry");
+              }}
+              className="px-4 py-2 rounded-lg bg-[#C89D43] hover:bg-[#B48C38] text-xs font-bold text-stone-950 transition-colors"
+            >
+              Request Sample / Get Quote
+            </a>
+          </div>
         </div>
 
       </div>

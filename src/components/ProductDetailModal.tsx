@@ -119,7 +119,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             <div className="md:col-span-5 rounded-xl overflow-hidden border border-stone-200 dark:border-stone-800 shadow-md bg-stone-100 dark:bg-stone-900">
               <LeatherImageMagnifier
                 src={product.image}
-                alt={`${product.name} hide sample`}
+                alt={`${product.name} — ${product.tanningMethod} ${product.animal} ${product.stage} ${product.grainType} leather from Bangladesh tannery ExportVisor`}
                 mode="detail"
                 zoomLevel={3}
                 aspectRatioClass="aspect-[4/3]"

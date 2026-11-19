@@ -504,25 +504,64 @@ const HUB_PRODUCTS = [
     offerCount: "2000",
     image: "/assets/products/bespoke-custom-leather-development.jpg",
   },
+  {
+    id: "lining-leather",
+    articleNumber: "Lining Collection",
+    name: "Lining Leather (Goat & Cow Shoe Lining)",
+    title: "Goat & Cow Shoe Lining Leather Exporter Bangladesh | Footwear Lining",
+    description:
+      "Export-grade Goat Lining Leather and Cow Shoe Lining Leather from Bangladesh tanneries. Breathable, sweat-resistant aniline and synthetic finishes (0.5mm-1.0mm) for global footwear brands.",
+    keywords:
+      "goat lining leather exporter, shoe lining leather supplier from bangladesh, cow lining leather manufacturer, footwear lining leather bangladesh, savar goat skin lining",
+    category: "Finished Leather",
+    stage: "Finished",
+    animal: "Goat & Cow",
+    tanningMethod: "Chrome & Semi-Chrome Tanned",
+    grainType: "Lining (Aniline, Glazed & Softee)",
+    material: "Black Bengal Goat Skin & Selected Cowhide Lining (0.5mm–1.0mm)",
+    finishes: [
+      "Aniline Goat Shoe Lining",
+      "Glazed Kid Goat Lining",
+      "Softee Cow Lining",
+      "Synthetic Drum-Dyed Bag Lining",
+    ],
+    thickness: "0.5–0.7mm (Goat), 0.7–1.0mm (Cow) — Custom calibrated per tech pack",
+    colors: "Natural Tan, Biscuit, Beige, Black, Espresso, Wine, Custom Pantone",
+    origin: "Savar Tannery Industrial Estate, Bangladesh",
+    moq: "2,000 sq ft per shade (Trial batches & container consolidations available)",
+    leadTime: "18–25 days from lab-dip confirmation",
+    applications: [
+      "Men's & women's dress footwear lining",
+      "Casual & athletic leather insoles and quarter linings",
+      "Luxury handbag & small leather goods interiors",
+      "Breathable safety boot linings",
+    ],
+    overview:
+      "ExportVisor supplies sweat-resistant, high-vapor-permeability Goat Lining Leather and Cow Shoe Lining Leather directly from partner tanneries in Savar, Bangladesh. Fine Black Bengal goat skins and uniform cow lining splits offer clean cutting yield, flexible lasting recovery, and EU REACH compliance.",
+    lowPrice: "1.60",
+    highPrice: "3.10",
+    offerCount: "3000",
+    image: "/assets/products/finished-article-09-top-grain-nappa-chrome.jpg",
+  },
 ];
 
 // Canonical Section Pages (Zero duplicate aliases; aliases handled by 301 redirects in vercel.json)
 const SECTION_ROUTES = [
   {
     path: "about",
-    title: "About ExportVisor | Tannery Export Desk & Manufacturing Operations",
+    title: "About ExportVisor | Reliable Leather Exporter & Tannery from Bangladesh",
     description:
-      "ExportVisor operates as the dedicated international export desk for premier leather tanneries in Savar, Dhaka, handling direct factory gate exports, pre-shipment quality inspection, and maritime shipping.",
-    heading: "ExportVisor Direct Tannery Export Desk",
-    lead: "Connecting global leather buyers and footwear brands directly with certified, export-grade tanneries in Savar, Dhaka.",
+      "ExportVisor operates as a reliable leather exporter and direct tannery manufacturer desk in Savar, Bangladesh supplying Wet Blue, Crust, Finished, Split, and Goat/Cow Lining leather.",
+    heading: "Reliable Leather Exporter & Tannery Operations in Bangladesh",
+    lead: "Connecting global footwear and leather goods manufacturers directly with vetted LWG-audited tanneries in Savar, Dhaka.",
   },
   {
     path: "products",
-    title: "Leather Sourcing Catalogue | Wet Blue, Crust & Finished Leather | ExportVisor",
+    title: "Wet Blue, Crust, Finished, Split & Lining Leather Catalogue | ExportVisor",
     description:
-      "Source export-grade genuine leather from Bangladesh: Full Grain, Top Grain, Corrected Grain, Drum Dyed Crust, and Wet Blue bovine and goat hides tailored to buyer specifications.",
-    heading: "Export Leather Products & Specifications Catalogue",
-    lead: "Explore all verified Wet Blue, Crust, and Finished leather articles sourced from LWG-audited tanneries in Savar, Dhaka.",
+      "Source Wet Blue, Crust, Finished Full Grain, Cow Split Suede, and Goat/Cow Shoe Lining leather directly from a reliable Bangladesh leather exporter & tannery.",
+    heading: "Bangladesh Export Leather Catalogue — Wet Blue, Crust, Finished, Split & Lining",
+    lead: "Browse 5 core tannery categories across Cow, Goat, and Buffalo hides sourced from Savar, Dhaka.",
   },
   {
     path: "glossary",
@@ -558,11 +597,11 @@ const SECTION_ROUTES = [
   },
   {
     path: "why-us",
-    title: "Why Partner with ExportVisor | Direct Factory Export Desk",
+    title: "Export & Quality Assurance | Reliable Leather Exporter Bangladesh | ExportVisor",
     description:
-      "Direct factory-gate pricing, verified tannery floor oversight in Savar, technical specification matching, transparent trade terms, and 100% pre-shipment inspection for global buyers.",
-    heading: "Why Partner with ExportVisor?",
-    lead: "Direct factory gate exports from Savar tanneries with zero middleman markup, rigorous quality oversight, and verified container dispatch.",
+      "Direct factory-gate pricing, verified tannery floor oversight in Savar, LWG/REACH compliance, and 100% pre-shipment inspection across Wet Blue, Crust, Finished, Split & Lining leather.",
+    heading: "Export & Quality Assurance from Savar Tanneries",
+    lead: "Direct factory-gate exports from Savar tanneries with zero middleman markup, rigorous quality oversight, and verified container dispatch.",
   },
   {
     path: "quote",
@@ -574,11 +613,11 @@ const SECTION_ROUTES = [
   },
   {
     path: "faq",
-    title: "Frequently Asked Questions (FAQ) | ExportVisor Leather Sourcing",
+    title: "B2B Leather Export FAQ (MOQ, LWG, Shipping) | ExportVisor Bangladesh",
     description:
-      "Factual answers regarding MOQs, sample development, production lead times, international payment terms (LC/TT), and third-party SGS/Intertek inspection arrangements.",
-    heading: "Frequently Asked Procurement Questions",
-    lead: "Factual answers on MOQs, counter-sample lab dips, production timelines, international L/C payment, and third-party QA.",
+      "Answers on MOQs, sample development, LWG/REACH compliance, Wet Blue, Crust, Finished, Split & Lining grades, and international shipping from Bangladesh.",
+    heading: "Frequently Asked B2B Leather Procurement Questions",
+    lead: "Factual answers on MOQs, counter-sample lab dips, LWG/REACH quality assurance, international L/C payment, and global shipping.",
   },
 ];
 
@@ -718,9 +757,10 @@ function buildProductDirectoryHtml(limit = allProductsToGenerate.length) {
     .slice(0, limit)
     .map((p) => {
       const thumbUrl = toThumbWebp(p.image);
+      const seoAlt = `${p.b2bDescriptor || p.name} — ${p.animal || "Cow & Goat"} ${p.stage || ""} ${p.grainType || ""} Leather from Bangladesh Tannery ExportVisor`;
       return `<article style="border:1px solid #e7e5e4;border-radius:12px;overflow:hidden;background:#fff;">
         <a href="/product/${escapeHtml(p.id)}" style="text-decoration:none;color:inherit;display:block;">
-          <img src="${escapeHtml(thumbUrl)}" alt="${escapeHtml(p.name)} — ${escapeHtml(p.tanningMethod || p.category)} Leather Bangladesh" width="480" height="360" loading="lazy" style="width:100%;height:auto;display:block;object-fit:cover;" />
+          <img src="${escapeHtml(thumbUrl)}" alt="${escapeHtml(seoAlt)}" width="480" height="360" loading="lazy" style="width:100%;height:auto;display:block;object-fit:cover;" />
           <div style="padding:14px;">
             <div style="font-size:12px;color:#8c6214;font-weight:700;">${escapeHtml(p.articleNumber || p.id)} · ${escapeHtml(p.stage || p.category)}</div>
             <h3 style="font-size:16px;font-weight:700;margin:6px 0;color:#1c1712;">${escapeHtml(p.name)}</h3>
@@ -754,15 +794,15 @@ const homepageCatalogueHtml = `
   </header>
   <main>
     <section style="margin-bottom:32px;">
-      <h1 style="font-size:36px;font-weight:800;margin:0 0 12px;">Your Trusted Leather Sourcing Partner from Bangladesh</h1>
-      <p style="font-size:18px;color:#44403c;line-height:1.6;">Direct B2B Tannery Export Desk in Savar, Dhaka. Supplying certified Wet Blue, Crust, and Finished Cowhide, Goat, and Buffalo leather with 100% pre-shipment quality inspection and global maritime shipping from Chattogram Sea Port (BDCGP).</p>
+      <h1 style="font-size:36px;font-weight:800;margin:0 0 12px;">Reliable Leather Exporter &amp; Tannery from Bangladesh</h1>
+      <p style="font-size:18px;color:#44403c;line-height:1.6;">Direct leather manufacturer &amp; export tannery partner in Savar, Dhaka. Supplying LWG-compliant <strong>Wet Blue</strong>, <strong>Crust</strong>, <strong>Finished Full Grain</strong>, <strong>Cow Split &amp; Suede</strong>, and <strong>Goat &amp; Cow Shoe Lining</strong> leather worldwide from Chittagong Sea Port (BDCGP).</p>
       <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
         <a href="/quote" style="background:#c89d43;color:#0c0a09;font-weight:700;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;">Request Sample / Get Quote</a>
-        <a href="/products" style="border:1px solid #d6d3d1;color:#1c1712;font-weight:600;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;">Explore Leather Catalogue</a>
+        <a href="/products" style="border:1px solid #d6d3d1;color:#1c1712;font-weight:600;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;">Explore 5 Core Leather Categories</a>
       </div>
     </section>
     <section>
-      <h2 style="font-size:26px;font-weight:700;margin-bottom:16px;">Complete Bangladesh Leather Export Catalogue (${allProductsToGenerate.length} Articles)</h2>
+      <h2 style="font-size:26px;font-weight:700;margin-bottom:16px;">Bangladesh Export Leather Catalogue — Wet Blue, Crust, Finished, Split &amp; Lining (${allProductsToGenerate.length} Articles)</h2>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
         ${buildProductDirectoryHtml()}
       </div>
