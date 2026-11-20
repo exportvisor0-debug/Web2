@@ -6,7 +6,6 @@ import {
   ShieldAlert,
   Sun,
   Warehouse,
-  Thermometer,
   Layers,
   FileCheck2,
   ArrowUpRight,
@@ -15,7 +14,6 @@ import {
   ChevronDown,
   ChevronUp,
   ShieldCheck,
-  TrendingUp,
 } from "lucide-react";
 import { scrollToSection } from "../utils/router";
 import { LeatherGradingGuide } from "./LeatherGradingGuide";
@@ -73,7 +71,7 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
         "Inspect container door seals for watertight integrity before loading at Chittagong Port terminals.",
       ],
       technicalNote:
-        "ExportVisor coordinates with tanneries to ensure standardized active biocidal concentrations for long-haul routes.",
+        "ExportVisor enforces standardized active biocidal concentrations across every long-haul ocean shipment.",
       relatedProducts: [
         {
           id: "wet-blue-chrome-full-grain",
@@ -97,11 +95,11 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
         "Sub-40% humidity causes vegetable and milling crust to stiffen, increasing risk of micro-fractures along belly edges.",
       relatedProducts: [
         {
-          id: "crust-article-01-full-grain-chrome",
+          id: "crust-full-grain-chrome",
           label: "Full Grain Chrome Tanned Crust Cow Leather",
         },
         {
-          id: "crust-article-08-full-grain-veg",
+          id: "crust-full-grain-veg",
           label: "Full Grain Vegetable Tanned Crust Cow & Buffalo Leather",
         },
       ],
@@ -122,11 +120,11 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
         "Vegetable-tanned crust is particularly sensitive to ambient light, which naturally darkens exposed borders.",
       relatedProducts: [
         {
-          id: "crust-article-08-full-grain-veg",
+          id: "crust-full-grain-veg",
           label: "Natural Vegetable Tanned Cow Crust Hides",
         },
         {
-          id: "crust-article-01-full-grain-chrome",
+          id: "crust-full-grain-chrome",
           label: "Drum-Dyed Chrome Crust Cowhide Articles",
         },
       ],
@@ -147,11 +145,11 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
         "High compression stacking on delicate pull-up and patent finishes can transfer surface oils or cause contact gloss variations.",
       relatedProducts: [
         {
-          id: "finished-article-01-full-grain-aniline-chrome",
+          id: "finished-full-grain-aniline-chrome",
           label: "Full Grain Aniline Chrome Tanned Cow Leather",
         },
         {
-          id: "finished-article-03-full-grain-pull-up-chrome",
+          id: "finished-full-grain-pull-up-chrome",
           label: "Full Grain Pull-Up Chrome Tanned Cow Leather",
         },
       ],
@@ -172,11 +170,11 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
         "Pigmented topcoats offer high rub fastness, whereas aniline leathers breathe naturally but remain porous to liquids.",
       relatedProducts: [
         {
-          id: "finished-article-02-full-grain-semi-aniline-chrome",
+          id: "finished-full-grain-semi-aniline-chrome",
           label: "Full Grain Semi-Aniline Chrome Cow Leather",
         },
         {
-          id: "finished-article-01-full-grain-aniline-chrome",
+          id: "finished-full-grain-aniline-chrome",
           label: "Pure Aniline Drum-Dyed Cow Leather",
         },
       ],
@@ -202,11 +200,11 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
           label: "Wet Blue Chrome Full Grain Cow & Goat Leather",
         },
         {
-          id: "crust-article-01-full-grain-chrome",
+          id: "crust-full-grain-chrome",
           label: "Full Grain Chrome Tanned Crust Cow Leather",
         },
         {
-          id: "finished-article-02-full-grain-semi-aniline-chrome",
+          id: "finished-full-grain-semi-aniline-chrome",
           label: "Full Grain Semi-Aniline Chrome Cow Leather",
         },
       ],
@@ -237,11 +235,11 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
           className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-stone-200/80 dark:border-stone-800/80 gap-6"
         >
           <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-3 mb-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
-                <TrendingUp className="w-3.5 h-3.5 text-[#C89D43]" />
-                <span>{t.knowledgeHub.kicker}</span>
-              </div>
+            <div className="flex flex-wrap items-center gap-2.5 mb-2">
+              <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
+                {t.knowledgeHub.kicker}
+              </span>
               <SectionShareButton path="/knowledge-hub" sectionName={t.knowledgeHub.kicker} />
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#15120E] dark:text-[#F8F5F0] leading-tight mt-1">
@@ -275,7 +273,7 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
             </a>
 
             <button
-              onClick={() => onRequestQuote("Technical Sourcing Advisory")}
+              onClick={() => onRequestQuote("Technical Leather Consultation")}
               className="inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-stone-950 bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-lg transition-colors shadow-gold-subtle cursor-pointer whitespace-nowrap"
             >
               <span>{t.knowledgeHub.consultationCta}</span>
@@ -387,7 +385,7 @@ export const LeatherKnowledgeHub: React.FC<LeatherKnowledgeHubProps> = ({
                   {item.relatedProducts && item.relatedProducts.length > 0 && (
                     <div className="space-y-1.5">
                       <span className="block text-[10px] font-mono uppercase tracking-wider text-[#7A5A17] dark:text-[#E5BE58] font-bold">
-                        {language === "bn" ? "সংশ্লিষ্ট চামড়া আর্টিকেল দেখুন" : "Explore Sourcing Articles"}
+                        {language === "bn" ? "সংশ্লিষ্ট লেদার স্পেসিফিকেশন" : "Related Leather Specs"}
                       </span>
                       <div className="flex flex-col gap-1">
                         {item.relatedProducts.map((link) => (

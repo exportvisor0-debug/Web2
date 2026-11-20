@@ -20,40 +20,52 @@ export const WhyExportVisor: React.FC = () => {
       desc: t.whyUs.reason1Desc,
       icon: Compass,
       color: "bg-emerald-500/10 text-emerald-600 border border-emerald-500/25",
+      metaLeft: language === "bn" ? "ফ্যাক্টরি-গেট মূল্য" : "Direct Factory Pricing",
+      metaRight: language === "bn" ? "কোনো মধ্যস্থতাকারী নেই" : "Zero Broker Markup",
     },
     {
       title: t.whyUs.reason2Title,
       desc: t.whyUs.reason2Desc,
       icon: Building2,
       color: "bg-amber-500/10 text-[#C89D43] border border-[#C89D43]/30",
+      metaLeft: language === "bn" ? "সাভার ট্যানারি এস্টেট" : "Savar Industrial Estate",
+      metaRight: language === "bn" ? "দৈনিক ফ্লোর তদারকি" : "Daily Floor Presence",
     },
     {
       title: t.whyUs.reason3Title,
       desc: t.whyUs.reason3Desc,
       icon: MessageSquare,
       color: "bg-blue-500/10 text-blue-600 border border-blue-500/25",
+      metaLeft: language === "bn" ? "আইএসও ও সাতরা টেস্টেড" : "ISO & SATRA Tested",
+      metaRight: language === "bn" ? "±০.১ মিমি নির্ভুলতা" : "±0.1mm Calibrated",
     },
     {
       title: t.whyUs.reason4Title,
       desc: t.whyUs.reason4Desc,
       icon: FileCheck,
       color: "bg-rose-500/10 text-rose-600 border border-rose-500/25",
+      metaLeft: language === "bn" ? "UCP 600 বাণিজ্য সুরক্ষা" : "UCP 600 Trade Terms",
+      metaRight: language === "bn" ? "L/C ও T/T ব্যাংকিং" : "FOB Chattogram / CIF",
     },
     {
-      title: language === "bn" ? "বস্তুনিষ্ঠ পরিদর্শন সমন্বয়" : "Objective Inspection Coordination",
+      title: language === "bn" ? "কঠোর প্রি-শিপমেন্ট মান নিয়ন্ত্রণ" : "Piece-by-Piece Pre-Shipment QC",
       desc: language === "bn"
-        ? "কনটেইনার স্টাফিংয়ের পূর্বে চামড়ার আয়তন, কালার ফাস্টনেস, টেনসাইল শক্তি ও ত্রুটি নিরীক্ষণে নিরপেক্ষ কোয়ালিটি কন্ট্রোল।"
-        : "Coordination of multi-point inspections—measuring hide area, crocking fastness, tensile tolerance, and grain defects before container stuffing.",
+        ? "কনটেইনার স্টাফিংয়ের পূর্বে চামড়ার আয়তন, কালার ফাস্টনেস, টেনসাইল শক্তি ও ত্রুটি নিরীক্ষণে সম্পূর্ণ কোয়ালিটি কন্ট্রোল।"
+        : "Comprehensive multi-point inspection—measuring hide area, crocking fastness, tensile tolerance, and grain defects before container loading.",
       icon: Eye,
       color: "bg-purple-500/10 text-purple-600 border border-purple-500/25",
+      metaLeft: language === "bn" ? "প্রি-স্টাফিং ইন্সপেকশন" : "Pre-Stuffing QC",
+      metaRight: language === "bn" ? "প্রতিটি পিস যাচাইকৃত" : "Hide-by-Hide Audit",
     },
     {
-      title: language === "bn" ? "দীর্ঘমেয়াদী সোর্সিং ধারাবাহিকতা" : "Long-Term Sourcing Continuity",
+      title: language === "bn" ? "দীর্ঘমেয়াদী সাপ্লাই ধারাবাহিকতা" : "Long-Term Supply Continuity",
       desc: language === "bn"
-        ? "এককালীন ব্যবসার বদলে দীর্ঘমেয়াদী আন্তর্জাতিক অংশীদারিত্ব স্থাপন এবং সিজন টু সিজন ধারাবাহিক মানের নিশ্চয়তা।"
-        : "We aim for ongoing buyer partnerships rather than one-off trades, ensuring consistent batch-to-batch leather quality season after season.",
+        ? "এককালীন ব্যবসার বদলে দীর্ঘমেয়াদী বাণিজ্যিক সম্পর্ক স্থাপন এবং সিজন টু সিজন ধারাবাহিক মানের নিশ্চয়তা।"
+        : "Built for repeat seasonal programs rather than one-off orders, ensuring consistent batch-to-batch leather quality and shade stability.",
       icon: HeartHandshake,
       color: "bg-teal-500/10 text-teal-600 border border-teal-500/25",
+      metaLeft: language === "bn" ? "ধারাবাহিক সাপ্লাই" : "Repeat Dye Lots",
+      metaRight: language === "bn" ? "সিজন টু সিজন ম্যাচিং" : "Pantone Continuity",
     },
   ];
 
@@ -69,10 +81,11 @@ export const WhyExportVisor: React.FC = () => {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-3xl mb-12 sm:mb-16"
         >
-          <div className="flex flex-wrap items-center gap-3 mb-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
+          <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
               {t.whyUs.kicker}
-            </div>
+            </span>
             <SectionShareButton path="/why-us" sectionName={t.whyUs.kicker} />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#15120E] dark:text-[#FAF6F0] leading-tight mt-1">
@@ -97,7 +110,7 @@ export const WhyExportVisor: React.FC = () => {
           }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
-          {reasons.map((item, idx) => {
+          {reasons.map((item) => {
             const Icon = item.icon;
             return (
               <motion.div
@@ -120,12 +133,12 @@ export const WhyExportVisor: React.FC = () => {
                     {item.desc}
                   </p>
                 </div>
-                <div className="mt-5 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-[11px] text-stone-400 dark:text-stone-500">
+                <div className="mt-5 pt-3 border-t border-stone-100 dark:border-stone-800 flex items-center justify-between text-[11px] text-stone-500 dark:text-stone-400">
                   <span className="font-mono font-medium">
-                    {language === "bn" ? `সুবিধা ০${idx + 1}` : `Advantage 0${idx + 1}`}
+                    {item.metaLeft}
                   </span>
-                  <span className="text-[#C89D43] font-bold">
-                    {language === "bn" ? "যাচাইকৃত নির্ভরতা" : "Verified Reliability"}
+                  <span className="text-[#9E731C] dark:text-[#E5BE58] font-bold">
+                    {item.metaRight}
                   </span>
                 </div>
               </motion.div>
@@ -154,8 +167,8 @@ export const WhyExportVisor: React.FC = () => {
 
           <p className="mt-4 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
             {language === "bn"
-              ? "বাংলাদেশ থেকে নির্ভরযোগ্য চামড়া রপ্তানিকারক হিসেবে এক্সপোর্টভাইজর সাভার ট্যানারি এস্টেটে এলডব্লিউজি (LWG) ও রিচ (REACH) মানদণ্ড মেনে প্রতিটি চালানের মান যাচাই করে।"
-              : "Operating as a reliable leather supplier from Bangladesh and direct leather manufacturer liaison, ExportVisor enforces strict pre-shipment verification across all five export streams: our wet blue tannery and wet blue manufacturer hides (cow and goat), drum-dyed crust tannery runs, finished full grain leather, suede split leather manufacturer lots, and breathable cow & goat shoe lining leather. Every container from Chittagong Sea Port carries piece-by-piece electronic caliper gauging (±0.1mm), Cr(VI) < 3ppm safety compliance, and optional SGS/Intertek certification."}
+              ? "বাংলাদেশ থেকে নির্ভরযোগ্য চামড়া রপ্তানিকারক ও সরবরাহকারী হিসেবে এক্সপোর্টভাইজর সাভার ট্যানারি এস্টেটে এলডব্লিউজি (LWG) ও রিচ (REACH) মানদণ্ড মেনে প্রতিটি চালানের মান নিশ্চিত করে।"
+              : "As a reliable leather exporter and supplier from Bangladesh, ExportVisor enforces strict pre-shipment verification across all five export categories: our wet blue tannery and wet blue manufacturer hides (cow and goat), drum-dyed crust leather runs, finished full grain leather, suede split leather manufacturer lots, and breathable cow & goat shoe lining leather. Every container from Chittagong Sea Port carries piece-by-piece electronic caliper gauging (±0.1mm), Cr(VI) < 3ppm safety compliance, and optional SGS/Intertek certification."}
           </p>
 
           <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">

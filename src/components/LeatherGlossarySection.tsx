@@ -261,13 +261,11 @@ export const LeatherGlossarySection: React.FC<LeatherGlossarySectionProps> = ({
           className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-stone-200 dark:border-stone-800 gap-6"
         >
           <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-3 mb-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider shadow-xs">
-                <BookOpen className="w-3.5 h-3.5 text-[#C89D43]" />
-                <span>
-                  {language === "bn" ? "লেদার গাইড ও পরিভাষা" : "Leather Sourcing Glossary"}
-                </span>
-              </div>
+            <div className="flex flex-wrap items-center gap-2.5 mb-2">
+              <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
+                {language === "bn" ? "লেদার গাইড ও পরিভাষা" : "Leather Sourcing Glossary"}
+              </span>
               <SectionShareButton
                 path="/glossary"
                 sectionName="Leather Glossary & Industry Terminology"
@@ -282,8 +280,8 @@ export const LeatherGlossarySection: React.FC<LeatherGlossarySectionProps> = ({
 
             <p className="mt-3 text-sm sm:text-base text-stone-600 dark:text-stone-300 leading-relaxed max-w-2xl">
               {language === "bn"
-                ? "ওয়েট ব্লু, ক্রাস্ট, ফুল গ্রেইন ও স্প্লিট লেদারের মতো গুরুত্বপূর্ণ বৈশ্বিক পরিভাষাগুলোর সহজ ও প্রাতিষ্ঠানিক ব্যাখ্যা—যাতে নন-এক্সপার্ট ও আন্তর্জাতিক বায়াররা আত্মবিশ্বাসের সাথে সঠিক স্পেসিফিকেশন নির্বাচন করতে পারেন।"
-                : "A definitive reference guide defining essential tannery terminology—from 'Wet Blue' and 'Crust' to 'Full Grain' and 'Split Leather'—designed to empower global brand managers and procurement specialists."}
+                ? "ওয়েট ব্লু, ক্রাস্ট, ফুল গ্রেইন ও স্প্লিট লেদারের মতো গুরুত্বপূর্ণ বৈশ্বিক পরিভাষাগুলোর সহজ ও প্রাতিষ্ঠানিক ব্যাখ্যা—যাতে আন্তর্জাতিক বায়াররা আত্মবিশ্বাসের সাথে সঠিক স্পেসিফিকেশন নির্বাচন করতে পারেন।"
+                : "A practical trade reference defining essential tannery terminology—from 'Wet Blue' and 'Crust' to 'Full Grain' and 'Split Leather'—written for footwear, handbag, and leather goods buyers."}
             </p>
           </div>
 

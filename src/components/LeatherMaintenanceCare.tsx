@@ -279,15 +279,13 @@ export const LeatherMaintenanceCare: React.FC<{ onRequestQuote?: (topic: string)
           className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6"
         >
           <div className="max-w-3xl">
-            <div className="flex flex-wrap items-center gap-3 mb-2.5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#C89D43]" />
-                <span>
-                  {language === "bn"
-                    ? "টেকনিক্যাল সংরক্ষণ ও শিপিং প্রোটোকল"
-                    : "Technical Preservation & Transit Protocol"}
-                </span>
-              </div>
+            <div className="flex flex-wrap items-center gap-2.5 mb-2.5">
+              <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
+                {language === "bn"
+                  ? "টেকনিক্যাল সংরক্ষণ ও শিপিং প্রোটোকল"
+                  : "Technical Preservation & Transit Protocol"}
+              </span>
               <SectionShareButton
                 path="/#leather-care"
                 sectionName={
@@ -469,15 +467,10 @@ export const LeatherMaintenanceCare: React.FC<{ onRequestQuote?: (topic: string)
                     key={idx}
                     className="p-4 rounded-xl border border-stone-200 dark:border-stone-800 bg-white dark:bg-[#181310] transition-colors"
                   >
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="font-mono-data text-xs font-bold text-[#C89D43]">
-                        0{idx + 1}.
-                      </span>
-                      <h5 className="text-sm font-bold text-[#15120E] dark:text-[#FAF6F0]">
-                        {language === "bn" ? rule.titleBn : rule.title}
-                      </h5>
-                    </div>
-                    <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed pl-5">
+                    <h5 className="text-sm font-bold text-[#15120E] dark:text-[#FAF6F0] mb-1">
+                      {language === "bn" ? rule.titleBn : rule.title}
+                    </h5>
+                    <p className="text-xs text-stone-600 dark:text-stone-300 leading-relaxed">
                       {language === "bn" ? rule.descBn : rule.desc}
                     </p>
                   </div>
@@ -727,8 +720,8 @@ export const LeatherMaintenanceCare: React.FC<{ onRequestQuote?: (topic: string)
             </h4>
             <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
               {language === "bn"
-                ? "আমাদের এক্সপোর্ট ডেস্ক ক্রেতার রুট ও জলবায়ুর ওপর ভিত্তি করে ডেসিক্যান্ট ব্যালান্স, প্যালেট র্যাপিং এবং ভেফার সিল প্রটোকল প্রস্তুত করে দেয়।"
-                : "ExportVisor coordinates customized packaging, desiccant volume calculations, and pre-shipment pallet sign-offs for long-haul maritime routes to Europe, the Americas, and Asia."}
+                ? "ক্রেতার রুট ও জলবায়ুর ওপর ভিত্তি করে আমরা ডেসিক্যান্ট ব্যালান্স, প্যালেট র্যাপিং এবং ভেফার সিল প্রটোকল প্রস্তুত করে সরবরাহ করি।"
+                : "ExportVisor prepares customized export packaging, desiccant calculations, and pre-shipment pallet sealing tailored for long-haul maritime routes to Europe, the Americas, and Asia."}
             </p>
           </div>
 
@@ -745,7 +738,7 @@ export const LeatherMaintenanceCare: React.FC<{ onRequestQuote?: (topic: string)
                 onClick={() => onRequestQuote("Custom Transit Preservation Advisory")}
                 className="px-5 py-3 text-xs font-bold uppercase tracking-wider text-[#15120E] bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-lg transition-all whitespace-nowrap cursor-pointer shadow-gold-subtle hover:shadow-lg"
               >
-                {language === "bn" ? "রপ্তানি পরামর্শ চান" : "Consult Tannery Export Desk"}
+                {language === "bn" ? "রপ্তানি পরামর্শ চান" : "Request Technical Quote"}
               </button>
             )}
           </div>

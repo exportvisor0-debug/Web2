@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { siteConfig } from "../config/siteConfig";
 import { trackEvent } from "../utils/analytics";
 import { useLanguage } from "../context/LanguageContext";
-import { crustLeatherImg } from "../data/products";
 import {
   ArrowUpRight,
   Layers,
@@ -19,21 +18,19 @@ import {
 interface HeroProps {
   onExploreLeather: () => void;
   onRequestQuote: () => void;
+  suppressH1?: boolean;
 }
 
 interface HeroSlide {
   id: string;
   image: string;
-  mobileImage?: string;
+  mobileImage: string;
   tag: string;
   tagBn: string;
   caption: string;
   captionBn: string;
   alt: string;
 }
-
-const toWebpThumb = (imgPath: string) =>
-  imgPath.replace("/assets/products/", "/assets/products/thumbs/").replace(".jpg", ".webp");
 
 const HERO_SLIDES: HeroSlide[] = [
   {
@@ -58,8 +55,8 @@ const HERO_SLIDES: HeroSlide[] = [
   },
   {
     id: "slide-crust-tannery",
-    image: crustLeatherImg,
-    mobileImage: toWebpThumb(crustLeatherImg),
+    image: "/assets/products/4k/crust-article-01-full-grain-chrome.webp",
+    mobileImage: "/assets/products/thumbs/crust-article-01-full-grain-chrome.webp",
     tag: "Crust Collections",
     tagBn: "ক্রাস্ট কালেকশন",
     caption: "Full Grain Chrome & Vegetable Tanned Crust · Custom Caliper & Temper",
@@ -89,23 +86,23 @@ const HERO_SLIDES: HeroSlide[] = [
 ];
 
 function renderAccentHeadline(headline: string, language: string) {
-  if (language === "en" && headline.includes("Leather Sourcing Partner")) {
-    const [before, after] = headline.split("Leather Sourcing Partner");
+  if (language === "en" && headline.includes("Leather Supplier")) {
+    const [before, after] = headline.split("Leather Supplier");
     return (
       <>
         {before}
-        <span className="text-hero-gold-gradient">Leather Sourcing Partner</span>
+        <span className="text-hero-gold-gradient">Leather Supplier</span>
         {after}
       </>
     );
   }
 
-  if (language === "bn" && headline.includes("বিশ্বস্ত চামড়া সোর্সিং")) {
-    const [before, after] = headline.split("বিশ্বস্ত চামড়া সোর্সিং");
+  if (language === "bn" && headline.includes("রপ্তানিযোগ্য চামড়া")) {
+    const [before, after] = headline.split("রপ্তানিযোগ্য চামড়া");
     return (
       <>
         {before}
-        <span className="text-hero-gold-gradient">বিশ্বস্ত চামড়া সোর্সিং</span>
+        <span className="text-hero-gold-gradient">রপ্তানিযোগ্য চামড়া</span>
         {after}
       </>
     );
@@ -132,26 +129,21 @@ function renderAccentHeadline(headline: string, language: string) {
 export const Hero: React.FC<HeroProps> = ({
   onExploreLeather,
   onRequestQuote,
+  suppressH1 = false,
 }) => {
   const { t, language } = useLanguage();
   const isBn = language === "bn";
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  // Defer mounting secondary background slides until right after first paint so Slide 0 paints instantaneously
+  const [mountSecondarySlides, setMountSecondarySlides] = useState(false);
 
-  // Preload only the NEXT single slide gently so initial page reload stays ultra-fast
   useEffect(() => {
-    const nextIdx = (currentSlide + 1) % HERO_SLIDES.length;
-    const nextSlide = HERO_SLIDES[nextIdx];
     const timer = window.setTimeout(() => {
-      const img = new Image();
-      const isCompactViewport = typeof window !== "undefined" && window.innerWidth < 1024;
-      img.src =
-        isCompactViewport && nextSlide.mobileImage
-          ? nextSlide.mobileImage
-          : nextSlide.image;
-    }, 2500);
+      setMountSecondarySlides(true);
+    }, 150);
     return () => window.clearTimeout(timer);
-  }, [currentSlide]);
+  }, []);
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -166,65 +158,110 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <section
       id="hero"
-      className="relative overflow-hidden min-h-[480px] sm:min-h-[550px] lg:min-h-[610px] flex flex-col justify-between pt-10 pb-5 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-8 border-b border-[#C89D43]/35 bg-[#070503] text-white"
+      className="relative overflow-hidden min-h-[450px] sm:min-h-[550px] lg:min-h-[610px] flex flex-col justify-between pt-8 pb-4 sm:pt-16 sm:pb-7 lg:pt-20 lg:pb-8 border-b border-[#C89D43]/35 bg-[#090704] text-white"
     >
-      {/* Full-Bleed Sharp Photographic Background Slider (0ms initial paint delay) */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
-        <AnimatePresence initial={false} mode="sync">
-          <motion.div
-            key={activeSlide.id}
-            initial={{ opacity: currentSlide === 0 ? 1 : 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0 w-full h-full"
-          >
-            <img
-              src={activeSlide.mobileImage || activeSlide.image}
-              srcSet={
-                activeSlide.mobileImage
-                  ? `${activeSlide.mobileImage} 900w, ${activeSlide.image} 1600w`
-                  : undefined
-              }
-              sizes="100vw"
-              alt={activeSlide.alt}
-              className="w-full h-full object-cover object-[78%_35%] sm:object-[70%_45%] md:object-center transition-transform duration-[14000ms] ease-out"
-              loading={currentSlide === 0 ? "eager" : "lazy"}
-              decoding={currentSlide === 0 ? "sync" : "async"}
-              // @ts-ignore
-              fetchPriority={currentSlide === 0 ? "high" : "auto"}
-              referrerPolicy="no-referrer"
-            />
-          </motion.div>
-        </AnimatePresence>
+      {/* Rich Dark Tannery Architectural Base Layer (Guarantees zero blank black flash even before decode) */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none select-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at 75% 30%, rgba(74, 48, 22, 0.55) 0%, rgba(18, 12, 8, 0.92) 55%, #070503 100%)",
+        }}
+      />
 
-        {/* Precision Directional Scrim: keeps luxury leather & ship sharp and vivid on right while ensuring crystal-clear text contrast on left */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#070503]/68 via-[#080604]/78 to-[#070503]/95 sm:bg-gradient-to-r sm:from-[#070503]/95 sm:via-[#070503]/62 sm:to-transparent pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#070503]/90 via-transparent to-[#070503]/25 pointer-events-none" />
-        <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(200,157,67,0.08)_0%,transparent_55%)] pointer-events-none" />
+      {/* Stacked Background Slider: Slide 0 stays unconditionally visible at opacity-100 for instant paint */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        {HERO_SLIDES.map((slide, idx) => {
+          const isActive = currentSlide === idx;
+          if (idx > 0 && !mountSecondarySlides && !isActive) {
+            return null;
+          }
+
+          return (
+            <div
+              key={slide.id}
+              aria-hidden={!isActive}
+              className={
+                idx === 0
+                  ? "absolute inset-0 w-full h-full opacity-100 z-0"
+                  : `absolute inset-0 w-full h-full z-[1] transition-opacity duration-700 ease-out ${
+                      isActive ? "opacity-100" : "opacity-0"
+                    }`
+              }
+            >
+              <picture className="block w-full h-full">
+                {/* Strictly serve lightweight 13KB-41KB mobile WebP on phones regardless of 3x Retina DPR */}
+                <source media="(max-width: 767px)" srcSet={slide.mobileImage} type="image/webp" />
+                <img
+                  src={slide.image}
+                  alt={slide.alt}
+                  width={1600}
+                  height={893}
+                  className="w-full h-full object-cover object-[68%_32%] sm:object-[70%_45%] md:object-center"
+                  loading="eager"
+                  decoding={idx === 0 ? "sync" : "async"}
+                  // @ts-ignore
+                  fetchPriority={idx === 0 ? "high" : "low"}
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const imgEl = e.currentTarget as HTMLImageElement;
+                    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+                    const fallback = isMobile ? "/hero-leather-mobile.webp" : "/hero-leather.webp";
+                    if (!imgEl.dataset.fallbackApplied) {
+                      imgEl.dataset.fallbackApplied = "1";
+                      imgEl.src = fallback;
+                    }
+                  }}
+                />
+              </picture>
+            </div>
+          );
+        })}
+
+        {/* Precision Directional Scrim: keeps mobile focal headline crisp & high-contrast while letting leather photo glow */}
+        <div className="absolute inset-0 z-[2] bg-gradient-to-b from-[#070503]/55 via-[#080604]/68 to-[#070503]/92 sm:bg-gradient-to-r sm:from-[#070503]/94 sm:via-[#070604]/62 sm:to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-[2] bg-gradient-to-t from-[#070503]/88 via-transparent to-[#070503]/25 pointer-events-none" />
+        <div className="hidden md:block absolute inset-0 z-[2] bg-[radial-gradient(ellipse_at_top_right,rgba(200,157,67,0.08)_0%,transparent_55%)] pointer-events-none" />
       </div>
 
-      {/* Main Executive Editorial Content — Zero-latency availability */}
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 my-auto">
-        <div className="max-w-2xl lg:max-w-[46rem] text-left space-y-3 sm:space-y-4">
-          {/* Monumental Display Serif Headline with Champagne Gold Gradient Focal Words */}
-          <h1 className="font-display text-[30px] sm:text-[46px] lg:text-[58px] font-bold tracking-tight text-white leading-[1.07] text-balance drop-shadow-sm">
-            {renderAccentHeadline(t.hero.headline, language)}
-          </h1>
-
-          {/* Signature Architectural Champagne Gold Rule */}
-          <div className="flex items-center gap-3 pt-0.5" aria-hidden="true">
-            <span className="w-16 h-[2px] bg-gradient-to-r from-[#FCE39D] via-[#E5BE58] to-[#C89D43]/40 rounded-full" />
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E5BE58]/80" />
+      {/* Main Executive Editorial Content — Mobile-Optimized Clean Hierarchy & Desktop Presence */}
+      <div className="max-w-7xl w-full mx-auto px-5 sm:px-6 lg:px-8 relative z-10 my-auto">
+        <div className="max-w-2xl lg:max-w-[46rem] text-center sm:text-left mx-auto sm:mx-0 space-y-3 sm:space-y-4">
+          {/* Concise Mobile-First Origin Marker (keeps mobile hero instantly clear without clutter) */}
+          <div className="sm:hidden text-[11px] font-mono uppercase tracking-[0.18em] text-[#F5D275] font-bold">
+            {isBn ? "সাভার ট্যানারি রপ্তানি · বাংলাদেশ" : "Savar Tannery Export · Bangladesh"}
           </div>
 
-          {/* Crisp Executive Lead Paragraph */}
-          <p className="font-body text-[13.5px] sm:text-[16.5px] lg:text-[18px] text-stone-200/95 leading-[1.6] max-w-xl lg:max-w-2xl text-pretty">
+          {/* Monumental Display Serif Headline (switches cleanly so /product/:slug keeps strictly one semantic H1) */}
+          {suppressH1 ? (
+            <p className="font-display text-[33px] sm:text-[46px] lg:text-[58px] font-bold tracking-tight text-white leading-[1.08] text-balance drop-shadow-sm">
+              {renderAccentHeadline(t.hero.headline, language)}
+            </p>
+          ) : (
+            <h1 className="font-display text-[33px] sm:text-[46px] lg:text-[58px] font-bold tracking-tight text-white leading-[1.08] text-balance drop-shadow-sm">
+              {renderAccentHeadline(t.hero.headline, language)}
+            </h1>
+          )}
+
+          {/* Signature Architectural Champagne Gold Rule */}
+          <div className="flex items-center justify-center sm:justify-start pt-0.5" aria-hidden="true">
+            <span className="w-16 sm:w-20 h-[2px] bg-gradient-to-r from-[#FCE39D] via-[#E5BE58] to-[#C89D43]/40" />
+          </div>
+
+          {/* Ultra-clean 1-line Mobile Value Proposition (removes dense paragraph clutter on small screens) */}
+          <p className="sm:hidden font-body text-[13px] font-medium text-stone-200 leading-relaxed max-w-xs mx-auto">
+            {isBn
+              ? "সাভার থেকে আন্তর্জাতিক মানের ওয়েট ব্লু, ক্রাস্ট, ফিনিশড, স্প্লিট ও লাইনিং লেদার।"
+              : "Export-grade Wet Blue, Crust, Finished, Split & Lining leather from Savar."}
+          </p>
+
+          {/* Full Executive Lead Paragraph (Desktop/Tablet visual + always in DOM for SEO) */}
+          <p className="hidden sm:block font-body text-[16.5px] lg:text-[18px] text-stone-200/95 leading-[1.6] max-w-xl lg:max-w-2xl text-pretty">
             {t.hero.subheadline}
           </p>
 
           {/* Aligned Primary & Secondary Action Buttons */}
-          <div className="pt-1.5 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3.5">
+          <div className="pt-2 sm:pt-1.5 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3.5 max-w-xs sm:max-w-none mx-auto sm:mx-0">
             <motion.button
               whileHover={{ scale: 1.015, y: -1 }}
               whileTap={{ scale: 0.985 }}
@@ -232,7 +269,7 @@ export const Hero: React.FC<HeroProps> = ({
                 trackEvent("request_quote_click", { location: "hero_primary" });
                 onRequestQuote();
               }}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 min-h-[48px] sm:min-h-[50px] text-xs sm:text-sm font-bold tracking-wide text-stone-950 rounded-lg shadow-lg shadow-[#C89D43]/25 hover:shadow-[#D6AC4B]/45 transition-all cursor-pointer group whitespace-nowrap shrink-0"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-7 min-h-[46px] sm:min-h-[50px] text-[13px] sm:text-sm font-bold tracking-wide text-stone-950 rounded-lg shadow-lg shadow-[#C89D43]/25 hover:shadow-[#D6AC4B]/45 transition-all cursor-pointer group whitespace-nowrap shrink-0"
               style={{
                 background: "linear-gradient(135deg, #FCE39D 0%, #E5BE58 48%, #C49332 100%)",
               }}
@@ -248,7 +285,7 @@ export const Hero: React.FC<HeroProps> = ({
                 trackEvent("product_detail_view", { source: "hero_explore_primary" });
                 onExploreLeather();
               }}
-              className="inline-flex items-center justify-center gap-2.5 px-6 min-h-[50px] text-xs sm:text-sm font-semibold tracking-wide text-white bg-black/50 hover:bg-black/70 backdrop-blur-md rounded-lg border border-[#E5BE58]/55 hover:border-[#FCE39D] transition-all cursor-pointer group whitespace-nowrap shrink-0"
+              className="inline-flex items-center justify-center gap-2.5 px-6 min-h-[46px] sm:min-h-[50px] text-[13px] sm:text-sm font-semibold tracking-wide text-white bg-black/50 hover:bg-black/70 backdrop-blur-md rounded-lg border border-[#E5BE58]/55 hover:border-[#FCE39D] transition-all cursor-pointer group whitespace-nowrap shrink-0"
             >
               <Layers className="w-4 h-4 text-[#E5BE58]" />
               <span>{t.hero.exploreCatalogue}</span>
@@ -256,8 +293,8 @@ export const Hero: React.FC<HeroProps> = ({
             </motion.button>
           </div>
 
-          {/* Aligned Secondary Utility & Compliance Row */}
-          <div className="pt-2.5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-stone-300 border-t border-white/10 max-w-2xl">
+          {/* Secondary Utility & Compliance Row — Desktop & Tablet only for an ultra-clean mobile hero */}
+          <div className="hidden sm:flex pt-2.5 flex-wrap items-center gap-x-4 gap-y-2 text-xs text-stone-300 border-t border-white/10 max-w-2xl">
             <a
               href={siteConfig.contact.whatsappUrl}
               target="_blank"
@@ -266,7 +303,7 @@ export const Hero: React.FC<HeroProps> = ({
               className="inline-flex items-center gap-1.5 text-emerald-300 hover:text-emerald-200 font-semibold transition-colors py-1"
             >
               <MessageCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span>{isBn ? "হোয়াটসঅ্যাপ এক্সপোর্ট ডেস্ক" : "WhatsApp Export Desk"}</span>
+              <span>{isBn ? "হোয়াটসঅ্যাপ সরাসরি চ্যাট" : "WhatsApp Export Team"}</span>
             </a>
 
             <span className="hidden md:inline text-stone-600" aria-hidden="true">|</span>
@@ -286,15 +323,15 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Architectural Bottom Showcase Control Strip */}
-      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-8 sm:mt-10 pt-4 border-t border-white/15">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+      <div className="max-w-7xl w-full mx-auto px-5 sm:px-6 lg:px-8 relative z-10 mt-6 sm:mt-10 pt-3 sm:pt-4 border-t border-white/15">
+        <div className="flex flex-row items-center justify-between gap-3 text-xs">
           {/* Live Background Scene Caption */}
-          <div className="flex items-center gap-2.5 min-w-0">
+          <div className="flex items-center gap-2 min-w-0">
             <span className="font-mono text-[11px] font-bold text-[#F5D275] tabular-nums shrink-0">
               0{currentSlide + 1} / 0{HERO_SLIDES.length}
             </span>
-            <span className="text-stone-600 shrink-0" aria-hidden="true">—</span>
-            <span className="text-[11px] font-mono uppercase tracking-wider text-white font-semibold shrink-0">
+            <span className="text-stone-500 shrink-0" aria-hidden="true">—</span>
+            <span className="text-[11px] font-mono uppercase tracking-wider text-white font-semibold truncate">
               {isBn ? activeSlide.tagBn : activeSlide.tag}
             </span>
             <span className="hidden lg:inline text-stone-500 shrink-0" aria-hidden="true">·</span>
@@ -304,8 +341,8 @@ export const Hero: React.FC<HeroProps> = ({
           </div>
 
           {/* Interactive Slide Chapter Navigation */}
-          <div className="flex items-center justify-between sm:justify-end gap-2">
-            <div className="flex items-center gap-1.5 flex-1 sm:flex-initial">
+          <div className="flex items-center justify-end gap-2 shrink-0">
+            <div className="hidden sm:flex items-center gap-1.5">
               {HERO_SLIDES.map((slide, idx) => (
                 <button
                   key={slide.id}
@@ -332,7 +369,7 @@ export const Hero: React.FC<HeroProps> = ({
               ))}
             </div>
 
-            <div className="flex items-center gap-1 pl-2 border-l border-white/15 shrink-0">
+            <div className="flex items-center gap-1 sm:pl-2 sm:border-l border-white/15 shrink-0">
               <button
                 type="button"
                 onClick={() =>
@@ -355,7 +392,7 @@ export const Hero: React.FC<HeroProps> = ({
                 type="button"
                 onClick={() => setIsAutoPlaying(!isAutoPlaying)}
                 aria-label={isAutoPlaying ? "Pause background slideshow" : "Play background slideshow"}
-                className="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
+                className="hidden sm:flex w-8 h-8 items-center justify-center rounded-md hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
               >
                 {isAutoPlaying ? (
                   <Pause className="w-3.5 h-3.5 text-[#E5BE58]" />

@@ -244,6 +244,10 @@ export function useSectionRouter(onSelectProductByRoute?: (product: LeatherProdu
       if (slug) {
         const prod = getProductBySlugOrId(slug);
         if (prod && onSelectProductByRoute) {
+          const canonicalPath = `/product/${prod.id}`;
+          if (pathname !== canonicalPath) {
+            window.history.replaceState(null, "", canonicalPath);
+          }
           onSelectProductByRoute(prod);
           syncProductSeo(prod);
           setTimeout(() => {

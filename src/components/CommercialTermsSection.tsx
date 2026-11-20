@@ -46,8 +46,8 @@ export const CommercialTermsSection: React.FC<CommercialTermsSectionProps> = ({
       badge: isBn ? "সরাসরি ভিজিট" : "Open Factory Gate",
       badgeClass: "bg-amber-500/10 text-[#8C6214] dark:text-[#E5BE58] border-[#C89D43]/30",
       description: isBn
-        ? "বিদেশি বায়ার, টেকনিক্যাল অডিটর এবং বায়িং হাউজ প্রতিনিধিদের সাভার ট্যানারি এস্টেটের ফ্যাক্টরি ফ্লোরে ড্রাম প্রসেসিং ও ফিনিশিং লাইন সরাসরি পরিদর্শনে স্বাগত জানাই। বিজনেস ভিসার জন্য অফিসিয়াল ইনভাইটেশন লেটার এবং বিমানবন্দর থেকে ফ্যাক্টরি এসকর্ট সুবিধা প্রদান করা হয়।"
-        : "International buyers, technical auditors, and buying agency delegates are warmly welcomed to inspect our partner drum lines, crust drying sheds, and finishing plants at the Savar Tannery Industrial Estate, Dhaka. Formal visa invitation letters and airport/hotel transport coordination are provided.",
+        ? "বিদেশি বায়ার ও টেকনিক্যাল অডিটরদের সাভার ট্যানারি এস্টেটে আমাদের ড্রাম প্রসেসিং ও ফিনিশিং লাইন সরাসরি পরিদর্শনে স্বাগত জানাই। বিজনেস ভিসার জন্য অফিসিয়াল ইনভাইটেশন লেটার এবং বিমানবন্দর থেকে ফ্যাক্টরি এসকর্ট সুবিধা প্রদান করা হয়।"
+        : "International buyers, technical auditors, and buying delegates are welcomed to inspect our drum lines, crust drying sheds, and finishing plants at the Savar Tannery Industrial Estate, Dhaka. Formal visa invitation letters and airport/hotel transport are arranged upon request.",
       cta: isBn ? "ট্যানারি ভিজিট শিডিউল করুন" : "Schedule Factory Visit",
     },
     {
@@ -97,8 +97,9 @@ export const CommercialTermsSection: React.FC<CommercialTermsSectionProps> = ({
           transition={{ duration: 0.4 }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
+          <div className="flex items-center justify-center gap-2.5 mb-2">
+            <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
               {t.commercial.kicker}
             </span>
             <SectionShareButton path="/terms" sectionName={t.commercial.kicker} />
@@ -108,7 +109,7 @@ export const CommercialTermsSection: React.FC<CommercialTermsSectionProps> = ({
           </h2>
           <p className="text-xs sm:text-sm text-stone-600 dark:text-stone-300 mt-2.5 leading-relaxed text-pretty">
             {isBn
-              ? "সরাসরি ফ্যাক্টরি-গেট রপ্তানি, স্বচ্ছ ব্যাংকিং এবং আন্তর্জাতিক বায়ারদের জন্য নিশ্চিত প্রাতিষ্ঠানিক নিরাপত্তা ফ্রেমওয়ার্ক।"
+              ? "সরাসরি ফ্যাক্টরি-গেট রপ্তানি, স্বচ্ছ ব্যাংকিং এবং আন্তর্জাতিক বায়ারদের জন্য নিশ্চিত প্রাতিষ্ঠানিক সুরক্ষা নীতি।"
               : "Direct factory-floor pricing, authentic export banking, and verified manufacturing safeguards tailored for international footwear and leather goods importers."}
           </p>
         </motion.div>
@@ -209,7 +210,7 @@ export const CommercialTermsSection: React.FC<CommercialTermsSectionProps> = ({
             <div>
               <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#8C6214] dark:text-[#E5BE58] flex items-center gap-2 mb-1">
                 <ShieldCheck className="w-4 h-4 text-[#C89D43]" />
-                <span>{isBn ? "বায়ার নিরাপত্তা ও স্বচ্ছতা ফ্রেমওয়ার্ক" : "Tannery Buyer Safeguards & Direct Factory Standards"}</span>
+                <span>{isBn ? "বায়ার নিরাপত্তা ও স্বচ্ছতা নীতি" : "Tannery Buyer Safeguards & Direct Factory Standards"}</span>
               </div>
               <h3 className="font-display text-xl sm:text-2xl font-bold text-[#15120E] dark:text-white">
                 {isBn ? "জিরো-ফ্রড বাণিজ্য নিশ্চয়তা ও সরাসরি ট্যানারি ক্রেডিবিলিটি" : "Verified Trade Standards: Complete Transparency for Global Importers"}

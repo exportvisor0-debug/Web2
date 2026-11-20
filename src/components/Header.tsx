@@ -383,7 +383,7 @@ export const Header: React.FC<HeaderProps> = ({
                 <LanguageSwitcher />
               </div>
 
-              {/* Light-Tinted 2nd Action Button (Crisp Soft WhatsApp Mint Surface beside Gold Quote CTA) */}
+              {/* WhatsApp Action Button (Visible on Tablet & Desktop; on Mobile it lives cleanly inside the Hamburger Menu) */}
               <a
                 href={siteConfig.contact.whatsappUrl}
                 target="_blank"
@@ -391,15 +391,15 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() =>
                   trackEvent("whatsapp_click", { location: "header_quick_action" })
                 }
-                className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 min-h-[38px] sm:min-h-[36px] py-1.5 text-[11px] sm:text-xs font-bold tracking-wide text-[#0B5B35] bg-[#E8FBF0] hover:bg-[#D2F5E1] dark:bg-[#E7F9EF] dark:hover:bg-[#D1F5E0] dark:text-[#064E3B] border border-[#25D366]/65 hover:border-[#16A34A] rounded-lg transition-all duration-150 shadow-xs hover:shadow-md hover:shadow-emerald-500/15 hover:-translate-y-0.5 active:scale-97 whitespace-nowrap shrink-0 group"
+                className="hidden sm:inline-flex items-center justify-center gap-2 px-3.5 min-h-[36px] py-1.5 text-xs font-bold tracking-wide text-[#0B5B35] bg-[#E8FBF0] hover:bg-[#D2F5E1] border border-[#25D366]/65 hover:border-[#16A34A] dark:text-[#6EE7B7] dark:bg-[#0D2B1D] dark:hover:bg-[#133A27] dark:border-[#10B981]/50 dark:hover:border-[#34D399] rounded-lg transition-all duration-150 shadow-xs hover:shadow-md hover:shadow-emerald-500/15 dark:shadow-emerald-950/40 hover:-translate-y-0.5 active:scale-97 whitespace-nowrap shrink-0 group"
                 title={language === "bn" ? "সরাসরি হোয়াটসঅ্যাপে মেসেজ করুন" : "Chat with ExportVisor on WhatsApp"}
                 aria-label="WhatsApp"
               >
-                <span className="w-5 h-5 rounded-full bg-[#25D366] group-hover:bg-[#1EAE52] flex items-center justify-center shrink-0 shadow-2xs transition-colors">
+                <span className="w-5 h-5 rounded-full bg-[#25D366] group-hover:bg-[#1EAE52] dark:bg-[#10B981] dark:group-hover:bg-[#34D399] flex items-center justify-center shrink-0 shadow-2xs transition-colors">
                   <svg
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="w-3 h-3 text-white"
+                    className="w-3 h-3 text-white dark:text-[#042316]"
                     aria-hidden="true"
                   >
                     <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.469 3.484 1.344 5l-1.406 5.156 5.281-1.391c1.469.797 3.109 1.219 4.75 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.422-.516.078-1.172.109-1.891-.125-.438-.141-1-.328-1.719-.641-3.016-1.297-4.984-4.344-5.141-4.547-.141-.203-1.219-1.625-1.219-3.094 0-1.469.766-2.188 1.047-2.484.266-.297.594-.375.797-.375.203 0 .391.016.563.016.188 0 .438-.078.672.5.25.594.844 2.063.922 2.219.078.141.125.313.031.516-.094.203-.141.328-.281.5-.141.172-.297.375-.422.516-.141.141-.297.297-.125.578.172.297.766 1.266 1.641 2.047 1.125 1 2.078 1.313 2.375 1.453.297.141.469.125.641-.078.172-.203.75-.875.953-1.172.203-.297.406-.25.672-.141.266.094 1.719.813 2.016.953.297.156.484.234.563.359.078.141.078.797-.172 1.5z" />
@@ -490,10 +490,10 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => {
                   trackEvent("whatsapp_click", { location: "mobile_drawer" });
                 }}
-                className="flex items-center justify-center gap-2 py-3 px-3 rounded-lg text-xs font-bold tracking-wide text-[#0B5B35] bg-[#E8FBF0] hover:bg-[#D2F5E1] dark:bg-[#E7F9EF] dark:hover:bg-[#D1F5E0] dark:text-[#064E3B] border border-[#25D366]/65 shadow-xs active:scale-98 transition-all"
+                className="flex items-center justify-center gap-2 py-3 px-3 rounded-lg text-xs font-bold tracking-wide text-[#0B5B35] bg-[#E8FBF0] hover:bg-[#D2F5E1] border border-[#25D366]/65 dark:text-[#6EE7B7] dark:bg-[#0D2B1D] dark:hover:bg-[#133A27] dark:border-[#10B981]/50 shadow-xs active:scale-98 transition-all"
               >
-                <span className="w-5 h-5 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3 text-white" aria-hidden="true">
+                <span className="w-5 h-5 rounded-full bg-[#25D366] dark:bg-[#10B981] flex items-center justify-center shrink-0">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3 text-white dark:text-[#042316]" aria-hidden="true">
                     <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.469 3.484 1.344 5l-1.406 5.156 5.281-1.391c1.469.797 3.109 1.219 4.75 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.422-.516.078-1.172.109-1.891-.125-.438-.141-1-.328-1.719-.641-3.016-1.297-4.984-4.344-5.141-4.547-.141-.203-1.219-1.625-1.219-3.094 0-1.469.766-2.188 1.047-2.484.266-.297.594-.375.797-.375.203 0 .391.016.563.016.188 0 .438-.078.672.5.25.594.844 2.063.922 2.219.078.141.125.313.031.516-.094.203-.141.328-.281.5-.141.172-.297.375-.422.516-.141.141-.297.297-.125.578.172.297.766 1.266 1.641 2.047 1.125 1 2.078 1.313 2.375 1.453.297.141.469.125.641-.078.172-.203.75-.875.953-1.172.203-.297.406-.25.672-.141.266.094 1.719.813 2.016.953.297.156.484.234.563.359.078.141.078.797-.172 1.5z" />
                   </svg>
                 </span>

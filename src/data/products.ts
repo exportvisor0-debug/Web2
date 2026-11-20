@@ -66,7 +66,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/wet-blue-chrome-full-grain.jpg",
     "badgeLabel": "Tannery Base",
     "shortDescription": "Chrome-tanned raw bovine hides with complete natural grain layer intact for re-tanning and finishing.",
-    "overview": "As an experienced wet blue cow leather exporter and wet blue goat leather supplier from Bangladesh, we supply raw chrome-tanned hides preserving the complete unblemished epidermis. Formulated in our partner wet blue tannery with basic chromium sulfate for superior hydrothermal stability, ideal for international re-tanning into full aniline, pull-up, and nappa leather.",
+    "overview": "As an experienced wet blue cow leather exporter and wet blue goat leather supplier from Bangladesh, we supply raw chrome-tanned hides preserving the complete unblemished epidermis. Formulated in our Savar wet blue tannery operations with basic chromium sulfate for superior hydrothermal stability, ideal for international re-tanning into full aniline, pull-up, and nappa leather.",
     "applications": [
       "Raw material for finishing tanneries",
       "Footwear uppers",
@@ -96,7 +96,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "wet blue goat leather supplier from bangladesh",
       "wet blue tannery",
       "wet blue manufacturer",
-      "wet blue hides bangladesh"
+      "wet blue hides bangladesh",
+      "wet blue chrome full grain cow & goat leather exporter bangladesh",
+      "wet blue chrome full grain cow & goat leather supplier bangladesh",
+      "wet blue chrome full grain cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Full Grain (Chrome Tanned)"
@@ -136,14 +139,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment verification of split uniformity and chrome exhaustion",
     "packagingShipping": "Export-grade stretch wrapped pallets dispatched via Chittagong Port",
     "buyerRequirementsNote": "Specified split caliper tolerance maintained across belly, butt, and shoulder.",
-    "availabilityNote": "High drum capacity supply across partner tanneries in Savar.",
+    "availabilityNote": "High drum capacity production across our Savar tannery lines.",
     "seoTitle": "Wet Blue Chrome Top Grain Leather Supplier Bangladesh",
     "seoDescription": "Source export-quality Wet Blue Top Grain cowhide from Savar tanneries. Reliable cutting yield for footwear uppers and bags.",
     "seoKeywords": [
       "wet blue top grain",
       "bangladesh wet blue supplier",
       "shoe upper wet blue",
-      "savar tanneries export"
+      "savar tanneries export",
+      "wet blue chrome top grain cow & goat leather exporter bangladesh",
+      "wet blue chrome top grain cow & goat leather supplier bangladesh",
+      "wet blue chrome top grain cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Top Grain (Chrome Tanned)"
@@ -190,7 +196,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "wet blue corrected grain",
       "affordable wet blue cowhide",
       "bangladesh leather export",
-      "savar leather estate"
+      "savar leather estate",
+      "wet blue chrome corrected grain cow leather exporter bangladesh",
+      "wet blue chrome corrected grain cow leather supplier bangladesh",
+      "wet blue chrome corrected grain cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Chrome Tanned)"
@@ -238,7 +247,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "cow split leather exporter",
       "split leather supplier from bangladesh",
       "wet blue split leather",
-      "drop split cowhide"
+      "drop split cowhide",
+      "wet blue split cow leather exporter bangladesh",
+      "wet blue split cow leather supplier bangladesh",
+      "wet blue split cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Split (Chrome Tanned)"
@@ -278,7 +290,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment chemical screening (zero detectable chromium VI & total chrome)",
     "packagingShipping": "Moisture-sealed pallets with anti-fungal barrier protection",
     "buyerRequirementsNote": "REACH and ZDHC MRSL compliant chemical formulations verified.",
-    "availabilityNote": "Produced on dedicated non-chrome drums in audited partner facilities.",
+    "availabilityNote": "Produced on dedicated non-chrome drums in audited Savar facilities.",
     "seoTitle": "Wet White Chrome Free Full Grain Leather Bangladesh",
     "seoDescription": "Metal-free Wet White full grain bovine hides from Bangladesh. REACH compliant for automotive upholstery and eco children footwear.",
     "seoKeywords": [
@@ -286,7 +298,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "chrome free leather bangladesh",
       "metal free cowhide",
       "automotive wet white",
-      "eco tanning savar"
+      "eco tanning savar",
+      "wet white chrome free full grain cow & goat leather exporter bangladesh",
+      "wet white chrome free full grain cow & goat leather supplier bangladesh",
+      "wet white chrome free full grain cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Full Grain (Chrome Free)"
@@ -326,21 +341,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment verification of substance uniformity and metal-free certification",
     "packagingShipping": "Desiccant-fortified wooden pallets for ocean container shipping",
     "buyerRequirementsNote": "Formulated to exceed European footwear eco-label parameters.",
-    "availabilityNote": "Sourced through certified LWG and CETP-connected Savar mills.",
+    "availabilityNote": "Produced in certified LWG and CETP-connected Savar tannery lines.",
     "seoTitle": "Wet White Top Grain Chrome Free Leather Supplier",
     "seoDescription": "Chrome-free Wet White top grain leather for eco footwear and sustainable fashion accessories. Direct Savar tannery supply.",
     "seoKeywords": [
       "wet white top grain",
       "sustainable leather bangladesh",
       "metal free footwear leather",
-      "savar eco tannery"
+      "savar eco tannery",
+      "wet white chrome free top grain cow & goat leather exporter bangladesh",
+      "wet white chrome free top grain cow & goat leather supplier bangladesh",
+      "wet white chrome free top grain cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Top Grain (Chrome Free)"
   },
   {
-    "id": "crust-article-01-full-grain-chrome",
-    "slug": "crust-article-01-full-grain-chrome",
+    "id": "crust-full-grain-chrome",
+    "slug": "crust-full-grain-chrome",
     "name": "Full Grain Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -381,14 +399,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "crust cow leather exporter",
       "crust leather manufacturer",
       "crust tannery",
-      "full grain crust leather"
+      "full grain crust leather",
+      "full grain chrome tanned crust cow leather exporter bangladesh",
+      "full grain chrome tanned crust cow leather supplier bangladesh",
+      "full grain chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "crust-article-02-top-grain-chrome",
-    "slug": "crust-article-02-top-grain-chrome",
+    "id": "crust-top-grain-chrome",
+    "slug": "crust-top-grain-chrome",
     "name": "Top Grain Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -428,14 +449,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "top grain crust leather",
       "shoe upper crust",
       "bangladesh leather supplier",
-      "savar crust"
+      "savar crust",
+      "top grain chrome tanned crust cow leather exporter bangladesh",
+      "top grain chrome tanned crust cow leather supplier bangladesh",
+      "top grain chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Chrome Tanned)"
   },
   {
-    "id": "crust-article-03-corrected-grain-chrome",
-    "slug": "crust-article-03-corrected-grain-chrome",
+    "id": "crust-corrected-grain-chrome",
+    "slug": "crust-corrected-grain-chrome",
     "name": "Corrected Grain Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -475,14 +499,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "corrected grain crust",
       "snuffed leather crust",
       "embossed base crust",
-      "savar tanneries"
+      "savar tanneries",
+      "corrected grain chrome tanned crust cow leather exporter bangladesh",
+      "corrected grain chrome tanned crust cow leather supplier bangladesh",
+      "corrected grain chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Chrome Tanned)"
   },
   {
-    "id": "crust-article-04-split-chrome",
-    "slug": "crust-article-04-split-chrome",
+    "id": "crust-split-chrome",
+    "slug": "crust-split-chrome",
     "name": "Split Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -522,14 +549,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "split crust leather",
       "suede base crust",
       "work glove leather",
-      "bangladesh split crust"
+      "bangladesh split crust",
+      "split chrome tanned crust cow leather exporter bangladesh",
+      "split chrome tanned crust cow leather supplier bangladesh",
+      "split chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Split (Chrome Tanned)"
   },
   {
-    "id": "crust-article-05-suede-chrome",
-    "slug": "crust-article-05-suede-chrome",
+    "id": "crust-suede-chrome",
+    "slug": "crust-suede-chrome",
     "name": "Suede Chrome Tanned Crust Cow & Goat Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -569,14 +599,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "suede split leather manufacturer",
       "crust goat leather supplier from bangladesh",
       "cow split leather exporter",
-      "goat suede bangladesh"
+      "goat suede bangladesh",
+      "suede chrome tanned crust cow & goat leather exporter bangladesh",
+      "suede chrome tanned crust cow & goat leather supplier bangladesh",
+      "suede chrome tanned crust cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Suede (Chrome Tanned)"
   },
   {
-    "id": "crust-article-06-nubuck-chrome",
-    "slug": "crust-article-06-nubuck-chrome",
+    "id": "crust-nubuck-chrome",
+    "slug": "crust-nubuck-chrome",
     "name": "Nubuck Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -609,21 +642,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment write-effect and grain-nap inspection",
     "packagingShipping": "Protected cartons on shrink-wrapped pallets",
     "buyerRequirementsNote": "Requires high-selection hides with minimal surface scars.",
-    "availabilityNote": "Sourced from selected raw cowhide lots.",
+    "availabilityNote": "Produced from selected raw cowhide lots in Savar.",
     "seoTitle": "Nubuck Chrome Tanned Crust Leather Supplier Savar",
     "seoDescription": "Premium nubuck chrome crust leather with rich velvet nap for boots and fine leather goods.",
     "seoKeywords": [
       "nubuck crust leather",
       "bovine nubuck bangladesh",
       "boot leather crust",
-      "savar nubuck"
+      "savar nubuck",
+      "nubuck chrome tanned crust cow leather exporter bangladesh",
+      "nubuck chrome tanned crust cow leather supplier bangladesh",
+      "nubuck chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Nubuck (Chrome Tanned)"
   },
   {
-    "id": "crust-article-07-buff-snuffed-chrome",
-    "slug": "crust-article-07-buff-snuffed-chrome",
+    "id": "crust-buff-snuffed-chrome",
+    "slug": "crust-buff-snuffed-chrome",
     "name": "Buff Snuffed Chrome Crust Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -635,7 +671,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/crust-article-07-buff-snuffed-chrome.jpg",
     "badgeLabel": "Chrome Tanned",
     "shortDescription": "Precision snuffed crust offering uniform surface absorption for shoe uppers and bags.",
-    "overview": "Lightly buffed to eliminate superficial pasture scratches and insect scars, creating a velvety, uniform absorption profile that bonds seamlessly with polymer basecoats and pigment sprays.",
+    "overview": "Lightly buffed to eliminate superficial pasture scratches and insect scars, creating a velvety, uniform absorption profile that bonds cleanly with polymer basecoats and pigment sprays.",
     "applications": [
       "Uniform shoe uppers",
       "Structured handbags",
@@ -663,14 +699,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "buffed crust leather",
       "snuffed chrome crust",
       "shoe upper base leather",
-      "savar tanneries"
+      "savar tanneries",
+      "buff snuffed chrome crust leather exporter bangladesh",
+      "buff snuffed chrome crust leather supplier bangladesh",
+      "buff snuffed chrome crust leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Buffed (Chrome Tanned)"
   },
   {
-    "id": "crust-article-08-full-grain-veg",
-    "slug": "crust-article-08-full-grain-veg",
+    "id": "crust-full-grain-veg",
+    "slug": "crust-full-grain-veg",
     "name": "Full Grain Vegetable Tanned Crust Cow & Buffalo Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -710,14 +749,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "vegetable tanned crust",
       "veg tan leather bangladesh",
       "saddlery leather crust",
-      "belt leather veg tan"
+      "belt leather veg tan",
+      "full grain vegetable tanned crust cow & buffalo leather exporter bangladesh",
+      "full grain vegetable tanned crust cow & buffalo leather supplier bangladesh",
+      "full grain vegetable tanned crust cow & buffalo leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Buffalo Full Grain (Vegetable Tanned)"
   },
   {
-    "id": "crust-article-09-top-grain-veg",
-    "slug": "crust-article-09-top-grain-veg",
+    "id": "crust-top-grain-veg",
+    "slug": "crust-top-grain-veg",
     "name": "Top Grain Vegetable Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -757,14 +799,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "top grain veg crust",
       "holster leather supplier",
       "belt veg tan leather",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain vegetable tanned crust cow leather exporter bangladesh",
+      "top grain vegetable tanned crust cow leather supplier bangladesh",
+      "top grain vegetable tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Vegetable Tanned)"
   },
   {
-    "id": "crust-article-10-full-grain-semi-chrome",
-    "slug": "crust-article-10-full-grain-semi-chrome",
+    "id": "crust-full-grain-semi-chrome",
+    "slug": "crust-full-grain-semi-chrome",
     "name": "Full Grain Semi-Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -797,21 +842,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment flex test and hydrothermal resistance check",
     "packagingShipping": "Export packaging with moisture barrier",
     "buyerRequirementsNote": "Provides body and substance without becoming stiff.",
-    "availabilityNote": "Sourced through partner drums in Savar.",
+    "availabilityNote": "Produced on dedicated drum lines in Savar.",
     "seoTitle": "Semi-Chrome Tanned Full Grain Crust Leather Bangladesh",
     "seoDescription": "Hybrid semi-chrome crust leather combining chrome strength and veg-tan round hand feel.",
     "seoKeywords": [
       "semi chrome crust leather",
       "hybrid tanning bangladesh",
       "shoe upper leather",
-      "savar tannery"
+      "savar tannery",
+      "full grain semi-chrome tanned crust cow leather exporter bangladesh",
+      "full grain semi-chrome tanned crust cow leather supplier bangladesh",
+      "full grain semi-chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Semi-Chrome)"
   },
   {
-    "id": "crust-article-11-top-grain-semi-chrome",
-    "slug": "crust-article-11-top-grain-semi-chrome",
+    "id": "crust-top-grain-semi-chrome",
+    "slug": "crust-top-grain-semi-chrome",
     "name": "Top Grain Semi-Chrome Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -851,14 +899,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "top grain semi chrome",
       "bangladesh crust leather",
       "shoe leather exporter",
-      "savar leather"
+      "savar leather",
+      "top grain semi-chrome tanned crust cow leather exporter bangladesh",
+      "top grain semi-chrome tanned crust cow leather supplier bangladesh",
+      "top grain semi-chrome tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Semi-Chrome)"
   },
   {
-    "id": "crust-article-12-full-grain-semi-veg",
-    "slug": "crust-article-12-full-grain-semi-veg",
+    "id": "crust-full-grain-semi-veg",
+    "slug": "crust-full-grain-semi-veg",
     "name": "Full Grain Semi-Veg Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -898,14 +949,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "semi veg crust leather",
       "heritage boot leather",
       "vegetable retanned crust",
-      "savar leather export"
+      "savar leather export",
+      "full grain semi-veg tanned crust cow leather exporter bangladesh",
+      "full grain semi-veg tanned crust cow leather supplier bangladesh",
+      "full grain semi-veg tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Semi-Veg)"
   },
   {
-    "id": "crust-article-13-top-grain-semi-veg",
-    "slug": "crust-article-13-top-grain-semi-veg",
+    "id": "crust-top-grain-semi-veg",
+    "slug": "crust-top-grain-semi-veg",
     "name": "Top Grain Semi-Veg Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -945,14 +999,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "top grain semi veg",
       "semi veg crust bangladesh",
       "belt leather",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain semi-veg tanned crust cow leather exporter bangladesh",
+      "top grain semi-veg tanned crust cow leather supplier bangladesh",
+      "top grain semi-veg tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Semi-Veg)"
   },
   {
-    "id": "crust-article-14-full-grain-combination",
-    "slug": "crust-article-14-full-grain-combination",
+    "id": "crust-full-grain-combination",
+    "slug": "crust-full-grain-combination",
     "name": "Full Grain Combination Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -992,14 +1049,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "combination tanned crust",
       "full grain combination leather",
       "shoe upper crust",
-      "savar export"
+      "savar export",
+      "full grain combination tanned crust cow leather exporter bangladesh",
+      "full grain combination tanned crust cow leather supplier bangladesh",
+      "full grain combination tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Combination Tanned)"
   },
   {
-    "id": "crust-article-15-top-grain-combination",
-    "slug": "crust-article-15-top-grain-combination",
+    "id": "crust-top-grain-combination",
+    "slug": "crust-top-grain-combination",
     "name": "Top Grain Combination Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1032,21 +1092,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment caliper and surface defect grading",
     "packagingShipping": "Standard export packaging",
     "buyerRequirementsNote": "Engineered for high-efficiency production lines.",
-    "availabilityNote": "Sourced from reliable Savar mills.",
+    "availabilityNote": "Manufactured in audited Savar tannery lines.",
     "seoTitle": "Top Grain Combination Tanned Crust Leather Supplier",
     "seoDescription": "Top grain combination crust leather for shoes and small leather goods with high cutting yield.",
     "seoKeywords": [
       "top grain combination crust",
       "bangladesh leather sourcing",
       "shoe crust leather",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain combination tanned crust cow leather exporter bangladesh",
+      "top grain combination tanned crust cow leather supplier bangladesh",
+      "top grain combination tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Combination Tanned)"
   },
   {
-    "id": "crust-article-16-corrected-grain-combination",
-    "slug": "crust-article-16-corrected-grain-combination",
+    "id": "crust-corrected-grain-combination",
+    "slug": "crust-corrected-grain-combination",
     "name": "Corrected Grain Combination Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1086,14 +1149,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "embossed base crust",
       "printed leather crust",
       "combination crust bangladesh",
-      "savar leather"
+      "savar leather",
+      "corrected grain combination crust cow leather exporter bangladesh",
+      "corrected grain combination crust cow leather supplier bangladesh",
+      "corrected grain combination crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Combination Tanned)"
   },
   {
-    "id": "crust-article-17-full-grain-chrome-free",
-    "slug": "crust-article-17-full-grain-chrome-free",
+    "id": "crust-full-grain-chrome-free",
+    "slug": "crust-full-grain-chrome-free",
     "name": "Full Grain Chrome Free Crust Cow & Goat Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1133,14 +1199,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "chrome free crust",
       "metal free leather bangladesh",
       "eco leather crust",
-      "savar eco tanneries"
+      "savar eco tanneries",
+      "full grain chrome free crust cow & goat leather exporter bangladesh",
+      "full grain chrome free crust cow & goat leather supplier bangladesh",
+      "full grain chrome free crust cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Full Grain (Chrome Free)"
   },
   {
-    "id": "crust-article-18-top-grain-chrome-free",
-    "slug": "crust-article-18-top-grain-chrome-free",
+    "id": "crust-top-grain-chrome-free",
+    "slug": "crust-top-grain-chrome-free",
     "name": "Top Grain Chrome Free Crust Cow & Goat Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1180,14 +1249,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "top grain chrome free",
       "metal free crust leather",
       "sustainable shoe upper",
-      "savar leather"
+      "savar leather",
+      "top grain chrome free crust cow & goat leather exporter bangladesh",
+      "top grain chrome free crust cow & goat leather supplier bangladesh",
+      "top grain chrome free crust cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Top Grain (Chrome Free)"
   },
   {
-    "id": "crust-article-19-nubuck-chrome-free",
-    "slug": "crust-article-19-nubuck-chrome-free",
+    "id": "crust-nubuck-chrome-free",
+    "slug": "crust-nubuck-chrome-free",
     "name": "Nubuck Chrome Free Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1220,21 +1292,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment nap evaluation and chemical zero-chrome audit",
     "packagingShipping": "Tissue-wrapped export cartons",
     "buyerRequirementsNote": "Velvety write-effect with eco-friendly credentials.",
-    "availabilityNote": "Sourced through certified Savar eco tanneries.",
+    "availabilityNote": "Produced in certified Savar eco-tanning lines.",
     "seoTitle": "Nubuck Chrome Free Crust Leather Exporter Bangladesh",
     "seoDescription": "Eco-certified nubuck chrome free crust leather with velvety touch for luxury footwear and fashion bags.",
     "seoKeywords": [
       "nubuck chrome free",
       "eco nubuck crust",
       "sustainable boot leather",
-      "savar leather export"
+      "savar leather export",
+      "nubuck chrome free crust cow leather exporter bangladesh",
+      "nubuck chrome free crust cow leather supplier bangladesh",
+      "nubuck chrome free crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Nubuck (Chrome Free)"
   },
   {
-    "id": "crust-article-20-top-grain-synthetic",
-    "slug": "crust-article-20-top-grain-synthetic",
+    "id": "crust-top-grain-synthetic",
+    "slug": "crust-top-grain-synthetic",
     "name": "Top Grain Synthetic Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1274,14 +1349,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "synthetic tanned crust",
       "white shoe leather crust",
       "non yellowing leather",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain synthetic tanned crust cow leather exporter bangladesh",
+      "top grain synthetic tanned crust cow leather supplier bangladesh",
+      "top grain synthetic tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Synthetic Tanned)"
   },
   {
-    "id": "crust-article-21-corrected-grain-synthetic",
-    "slug": "crust-article-21-corrected-grain-synthetic",
+    "id": "crust-corrected-grain-synthetic",
+    "slug": "crust-corrected-grain-synthetic",
     "name": "Corrected Grain Synthetic Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1321,14 +1399,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "synthetic crust leather",
       "shoe lining crust",
       "white leather crust",
-      "savar export"
+      "savar export",
+      "corrected grain synthetic crust cow leather exporter bangladesh",
+      "corrected grain synthetic crust cow leather supplier bangladesh",
+      "corrected grain synthetic crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Synthetic Tanned)"
   },
   {
-    "id": "crust-article-22-full-grain-oil-tanned",
-    "slug": "crust-article-22-full-grain-oil-tanned",
+    "id": "crust-full-grain-oil-tanned",
+    "slug": "crust-full-grain-oil-tanned",
     "name": "Full Grain Oil Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1368,14 +1449,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "oil tanned crust",
       "pull up crust leather",
       "boot leather supplier",
-      "savar leather tanneries"
+      "savar leather tanneries",
+      "full grain oil tanned crust cow leather exporter bangladesh",
+      "full grain oil tanned crust cow leather supplier bangladesh",
+      "full grain oil tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Oil Tanned)"
   },
   {
-    "id": "crust-article-23-nubuck-oil-tanned",
-    "slug": "crust-article-23-nubuck-oil-tanned",
+    "id": "crust-nubuck-oil-tanned",
+    "slug": "crust-nubuck-oil-tanned",
     "name": "Nubuck Oil Tanned Crust Cow Leather",
     "stage": "Crust",
     "category": "Intermediate Stage",
@@ -1415,14 +1499,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "oiled nubuck crust",
       "buttery leather crust",
       "casual shoe leather",
-      "savar tanneries export"
+      "savar tanneries export",
+      "nubuck oil tanned crust cow leather exporter bangladesh",
+      "nubuck oil tanned crust cow leather supplier bangladesh",
+      "nubuck oil tanned crust cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Nubuck (Oil Tanned)"
   },
   {
-    "id": "finished-article-01-full-grain-aniline-chrome",
-    "slug": "finished-article-01-full-grain-aniline-chrome",
+    "id": "finished-full-grain-aniline-chrome",
+    "slug": "finished-full-grain-aniline-chrome",
     "name": "Full Grain Aniline Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1455,21 +1542,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment hide-by-hide selection inspection for flawless grain surface",
     "packagingShipping": "Rolled on heavy tubes or flat packed with tissue protection on pallets",
     "buyerRequirementsNote": "Requires Grade A hide selection with natural pore transparency.",
-    "availabilityNote": "Sourced from top-tier drums in Savar.",
+    "availabilityNote": "Manufactured on high-capacity drums in Savar.",
     "seoTitle": "Finished Cow Leather Exporter & Full Grain Manufacturer Bangladesh",
     "seoDescription": "Finished cow leather exporter and full grain leather manufacturer in Savar, Bangladesh. Drum-dyed aniline cowhide for shoes, bags & upholstery.",
     "seoKeywords": [
       "finished cow leather exporter",
       "finished leather manufacturer",
       "full grain leather",
-      "aniline leather bangladesh"
+      "aniline leather bangladesh",
+      "full grain aniline chrome tanned cow leather exporter bangladesh",
+      "full grain aniline chrome tanned cow leather supplier bangladesh",
+      "full grain aniline chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-02-full-grain-semi-aniline-chrome",
-    "slug": "finished-article-02-full-grain-semi-aniline-chrome",
+    "id": "finished-full-grain-semi-aniline-chrome",
+    "slug": "finished-full-grain-semi-aniline-chrome",
     "name": "Full Grain Semi-Aniline Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1509,14 +1599,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "semi aniline leather",
       "bovine semi aniline",
       "automotive leather upholstery",
-      "savar tanneries"
+      "savar tanneries",
+      "full grain semi-aniline chrome cow leather exporter bangladesh",
+      "full grain semi-aniline chrome cow leather supplier bangladesh",
+      "full grain semi-aniline chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-03-full-grain-pull-up-chrome",
-    "slug": "finished-article-03-full-grain-pull-up-chrome",
+    "id": "finished-full-grain-pull-up-chrome",
+    "slug": "finished-full-grain-pull-up-chrome",
     "name": "Full Grain Pull-Up Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1549,21 +1642,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment pull-up color shift and oily hand feel evaluation",
     "packagingShipping": "Protected cartons with silicone paper interleaving",
     "buyerRequirementsNote": "Classic vintage rugged appeal that develops deep patina.",
-    "availabilityNote": "Sourced through specialized Savar drum finishing.",
+    "availabilityNote": "Produced through specialized Savar drum finishing lines.",
     "seoTitle": "Pull-Up Full Grain Chrome Tanned Leather Bangladesh",
     "seoDescription": "Classic oil and wax pull-up leather with dynamic two-tone color burst for boots, bags, and belts.",
     "seoKeywords": [
       "pull up leather",
       "oiled leather boots",
       "full grain pull up",
-      "savar leather export"
+      "savar leather export",
+      "full grain pull-up chrome tanned cow leather exporter bangladesh",
+      "full grain pull-up chrome tanned cow leather supplier bangladesh",
+      "full grain pull-up chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-04-full-grain-oily-waxy-chrome",
-    "slug": "finished-article-04-full-grain-oily-waxy-chrome",
+    "id": "finished-full-grain-oily-waxy-chrome",
+    "slug": "finished-full-grain-oily-waxy-chrome",
     "name": "Full Grain Oily Waxy Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1603,14 +1699,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "oily waxy leather",
       "work boot leather",
       "water resistant cowhide",
-      "savar tanneries"
+      "savar tanneries",
+      "full grain oily waxy chrome tanned cow leather exporter bangladesh",
+      "full grain oily waxy chrome tanned cow leather supplier bangladesh",
+      "full grain oily waxy chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-05-full-grain-crazy-horse-chrome",
-    "slug": "finished-article-05-full-grain-crazy-horse-chrome",
+    "id": "finished-full-grain-crazy-horse-chrome",
+    "slug": "finished-full-grain-crazy-horse-chrome",
     "name": "Full Grain Crazy Horse Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1650,14 +1749,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "crazy horse leather",
       "distressed cow leather",
       "vintage boot leather",
-      "savar leather export"
+      "savar leather export",
+      "full grain crazy horse chrome cow leather exporter bangladesh",
+      "full grain crazy horse chrome cow leather supplier bangladesh",
+      "full grain crazy horse chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-06-full-grain-antique-chrome",
-    "slug": "finished-article-06-full-grain-antique-chrome",
+    "id": "finished-full-grain-antique-chrome",
+    "slug": "finished-full-grain-antique-chrome",
     "name": "Full Grain Antique Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1697,14 +1799,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "antique leather",
       "two tone cowhide",
       "dress shoe leather",
-      "savar leather exporter"
+      "savar leather exporter",
+      "full grain antique chrome tanned cow leather exporter bangladesh",
+      "full grain antique chrome tanned cow leather supplier bangladesh",
+      "full grain antique chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-07-top-grain-semi-aniline-chrome",
-    "slug": "finished-article-07-top-grain-semi-aniline-chrome",
+    "id": "finished-top-grain-semi-aniline-chrome",
+    "slug": "finished-top-grain-semi-aniline-chrome",
     "name": "Top Grain Semi-Aniline Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1744,14 +1849,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "top grain semi aniline",
       "furniture leather supplier",
       "savar leather export",
-      "fashion cowhide"
+      "fashion cowhide",
+      "top grain semi-aniline chrome cow leather exporter bangladesh",
+      "top grain semi-aniline chrome cow leather supplier bangladesh",
+      "top grain semi-aniline chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-08-top-grain-pigmented-chrome",
-    "slug": "finished-article-08-top-grain-pigmented-chrome",
+    "id": "finished-top-grain-pigmented-chrome",
+    "slug": "finished-top-grain-pigmented-chrome",
     "name": "Top Grain Pigmented Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1791,14 +1899,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "pigmented leather",
       "automotive leather",
       "upholstery cowhide",
-      "savar finished leather"
+      "savar finished leather",
+      "top grain pigmented chrome tanned cow leather exporter bangladesh",
+      "top grain pigmented chrome tanned cow leather supplier bangladesh",
+      "top grain pigmented chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-09-top-grain-nappa-chrome",
-    "slug": "finished-article-09-top-grain-nappa-chrome",
+    "id": "finished-top-grain-nappa-chrome",
+    "slug": "finished-top-grain-nappa-chrome",
     "name": "Top Grain Nappa Chrome Tanned Cow & Goat Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1838,14 +1949,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "nappa leather bangladesh",
       "garment leather supplier",
       "soft nappa cowhide",
-      "glove leather"
+      "glove leather",
+      "top grain nappa chrome tanned cow & goat leather exporter bangladesh",
+      "top grain nappa chrome tanned cow & goat leather supplier bangladesh",
+      "top grain nappa chrome tanned cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Top Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-10-top-grain-mild-chrome",
-    "slug": "finished-article-10-top-grain-mild-chrome",
+    "id": "finished-top-grain-mild-chrome",
+    "slug": "finished-top-grain-mild-chrome",
     "name": "Top Grain Mild Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1885,14 +1999,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "mild grain leather",
       "milled pebble cowhide",
       "handbag leather supplier",
-      "savar finished leather"
+      "savar finished leather",
+      "top grain mild chrome tanned cow leather exporter bangladesh",
+      "top grain mild chrome tanned cow leather supplier bangladesh",
+      "top grain mild chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-11-corrected-grain-pigmented-chrome",
-    "slug": "finished-article-11-corrected-grain-pigmented-chrome",
+    "id": "finished-corrected-grain-pigmented-chrome",
+    "slug": "finished-corrected-grain-pigmented-chrome",
     "name": "Corrected Grain Pigmented Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1932,14 +2049,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "corrected grain leather",
       "pigmented cowhide",
       "volume shoe leather",
-      "savar leather export"
+      "savar leather export",
+      "corrected grain pigmented chrome cow leather exporter bangladesh",
+      "corrected grain pigmented chrome cow leather supplier bangladesh",
+      "corrected grain pigmented chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-12-corrected-grain-embossed-chrome",
-    "slug": "finished-article-12-corrected-grain-embossed-chrome",
+    "id": "finished-corrected-grain-embossed-chrome",
+    "slug": "finished-corrected-grain-embossed-chrome",
     "name": "Corrected Grain Embossed Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1980,14 +2100,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "embossed leather bangladesh",
       "croco leather supplier",
       "saffiano cowhide",
-      "savar tanneries"
+      "savar tanneries",
+      "corrected grain embossed chrome cow leather exporter bangladesh",
+      "corrected grain embossed chrome cow leather supplier bangladesh",
+      "corrected grain embossed chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Embossed (Chrome Tanned)"
   },
   {
-    "id": "finished-article-13-corrected-grain-glazed-chrome",
-    "slug": "finished-article-13-corrected-grain-glazed-chrome",
+    "id": "finished-corrected-grain-glazed-chrome",
+    "slug": "finished-corrected-grain-glazed-chrome",
     "name": "Corrected Grain Glazed Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -1999,7 +2122,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/finished-article-13-corrected-grain-glazed-chrome.jpg",
     "badgeLabel": "Glazed",
     "shortDescription": "High-gloss polished glazed leather for fashion shoes, dress boots, and luxury bags.",
-    "overview": "Engineered with hard protein and resin binders followed by high-speed glass roller glazing or hot plating. Produces a mirror-like radiant shine that elevates formal footwear and structured clutches.",
+    "overview": "Engineered with hard protein and resin binders followed by high-speed glass roller glazing or hot plating. Produces a mirror-like radiant shine that suits formal footwear and structured clutches.",
     "applications": [
       "Formal dress shoes & tuxedo shoes",
       "Structured evening bags",
@@ -2027,14 +2150,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "glazed leather",
       "high gloss cowhide",
       "formal dress shoe leather",
-      "savar leather exporter"
+      "savar leather exporter",
+      "corrected grain glazed chrome cow leather exporter bangladesh",
+      "corrected grain glazed chrome cow leather supplier bangladesh",
+      "corrected grain glazed chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-14-corrected-grain-metallic-chrome",
-    "slug": "finished-article-14-corrected-grain-metallic-chrome",
+    "id": "finished-corrected-grain-metallic-chrome",
+    "slug": "finished-corrected-grain-metallic-chrome",
     "name": "Corrected Grain Metallic Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2067,21 +2193,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment foil adhesion tape test and flex crack check",
     "packagingShipping": "Protected cartons with soft interleaving",
     "buyerRequirementsNote": "Striking modern luster that complies with international rub fastness norms.",
-    "availabilityNote": "Sourced through certified Savar finishing units.",
+    "availabilityNote": "Manufactured in certified Savar finishing lines.",
     "seoTitle": "Metallic Finished Leather Exporter Bangladesh",
     "seoDescription": "Gold, bronze, and silver metallic finished cowhide leather for fashion shoes and evening bags.",
     "seoKeywords": [
       "metallic leather bangladesh",
       "gold leather supplier",
       "silver cowhide",
-      "fashion leather savar"
+      "fashion leather savar",
+      "corrected grain metallic chrome cow leather exporter bangladesh",
+      "corrected grain metallic chrome cow leather supplier bangladesh",
+      "corrected grain metallic chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-15-corrected-grain-soft-touch-chrome",
-    "slug": "finished-article-15-corrected-grain-soft-touch-chrome",
+    "id": "finished-corrected-grain-soft-touch-chrome",
+    "slug": "finished-corrected-grain-soft-touch-chrome",
     "name": "Corrected Grain Soft Touch Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2121,14 +2250,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "soft touch leather",
       "matte finished cowhide",
       "automotive interior leather",
-      "savar tanneries"
+      "savar tanneries",
+      "corrected grain soft touch chrome cow leather exporter bangladesh",
+      "corrected grain soft touch chrome cow leather supplier bangladesh",
+      "corrected grain soft touch chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Chrome Tanned)"
   },
   {
-    "id": "finished-article-16-nubuck-finished-chrome",
-    "slug": "finished-article-16-nubuck-finished-chrome",
+    "id": "finished-nubuck-finished-chrome",
+    "slug": "finished-nubuck-finished-chrome",
     "name": "Nubuck Finished Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2161,21 +2293,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment write-effect audit and water droplet contact angle test",
     "packagingShipping": "Paper interleaved cartons on pallets",
     "buyerRequirementsNote": "True nubuck quality derived from the outer grain layer.",
-    "availabilityNote": "Sourced from selected raw hides in Savar.",
+    "availabilityNote": "Produced from selected raw hides in Savar.",
     "seoTitle": "Finished Nubuck Leather Exporter Savar Bangladesh",
     "seoDescription": "Water-repellent finished nubuck cowhide leather with rich velvet nap for boots and bags.",
     "seoKeywords": [
       "finished nubuck",
       "bovine nubuck leather",
       "water repellent nubuck",
-      "savar leather export"
+      "savar leather export",
+      "nubuck finished chrome tanned cow leather exporter bangladesh",
+      "nubuck finished chrome tanned cow leather supplier bangladesh",
+      "nubuck finished chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Nubuck (Chrome Tanned)"
   },
   {
-    "id": "finished-article-17-suede-finished-chrome",
-    "slug": "finished-article-17-suede-finished-chrome",
+    "id": "finished-suede-finished-chrome",
+    "slug": "finished-suede-finished-chrome",
     "name": "Suede Finished Chrome Tanned Cow & Goat Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2215,14 +2350,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "finished suede leather",
       "cow suede supplier",
       "goat suede bangladesh",
-      "footwear suede"
+      "footwear suede",
+      "suede finished chrome tanned cow & goat leather exporter bangladesh",
+      "suede finished chrome tanned cow & goat leather supplier bangladesh",
+      "suede finished chrome tanned cow & goat leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Suede (Chrome Tanned)"
   },
   {
-    "id": "finished-article-18-split-embossed-chrome",
-    "slug": "finished-article-18-split-embossed-chrome",
+    "id": "finished-split-embossed-chrome",
+    "slug": "finished-split-embossed-chrome",
     "name": "Split Embossed Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2262,14 +2400,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "split embossed leather",
       "bicast leather bangladesh",
       "safety boot leather",
-      "work bag leather"
+      "work bag leather",
+      "split embossed chrome tanned cow leather exporter bangladesh",
+      "split embossed chrome tanned cow leather supplier bangladesh",
+      "split embossed chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Split (Chrome Tanned)"
   },
   {
-    "id": "finished-article-19-split-embossed-olive",
-    "slug": "finished-article-19-split-embossed-olive",
+    "id": "finished-split-embossed-olive",
+    "slug": "finished-split-embossed-olive",
     "name": "Split Embossed Olive Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2309,14 +2450,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "coated split leather",
       "olive split leather",
       "work footwear leather",
-      "savar leather"
+      "savar leather",
+      "split embossed olive tanned cow leather exporter bangladesh",
+      "split embossed olive tanned cow leather supplier bangladesh",
+      "split embossed olive tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Split (Chrome Tanned)"
   },
   {
-    "id": "finished-article-20-buff-pigmented-chrome",
-    "slug": "finished-article-20-buff-pigmented-chrome",
+    "id": "finished-buff-pigmented-chrome",
+    "slug": "finished-buff-pigmented-chrome",
     "name": "Buff Pigmented Chrome Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2356,14 +2500,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "buffed pigmented leather",
       "durable cowhide",
       "shoe upper exporter",
-      "savar tanneries"
+      "savar tanneries",
+      "buff pigmented chrome tanned cow leather exporter bangladesh",
+      "buff pigmented chrome tanned cow leather supplier bangladesh",
+      "buff pigmented chrome tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Buffed (Chrome Tanned)"
   },
   {
-    "id": "finished-article-21-full-grain-aniline-veg",
-    "slug": "finished-article-21-full-grain-aniline-veg",
+    "id": "finished-full-grain-aniline-veg",
+    "slug": "finished-full-grain-aniline-veg",
     "name": "Full Grain Aniline Vegetable Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2396,21 +2543,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment grain inspection and edge burnishing response test",
     "packagingShipping": "Cardboard interleaving on reinforced pallets",
     "buyerRequirementsNote": "The gold standard for heirloom-grade leathercraft.",
-    "availabilityNote": "Sourced through certified Savar vegetable pits.",
+    "availabilityNote": "Tanned in certified Savar vegetable tanning pits.",
     "seoTitle": "Full Grain Vegetable Tanned Aniline Leather Bangladesh",
     "seoDescription": "Pure aniline vegetable tanned bovine leather for artisan belts, saddlery, and luxury leather goods.",
     "seoKeywords": [
       "veg tan aniline leather",
       "patina leather bangladesh",
       "saddlery leather supplier",
-      "savar veg tan"
+      "savar veg tan",
+      "full grain aniline vegetable tanned cow leather exporter bangladesh",
+      "full grain aniline vegetable tanned cow leather supplier bangladesh",
+      "full grain aniline vegetable tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Vegetable Tanned)"
   },
   {
-    "id": "finished-article-22-full-grain-antique-veg",
-    "slug": "finished-article-22-full-grain-antique-veg",
+    "id": "finished-full-grain-antique-veg",
+    "slug": "finished-full-grain-antique-veg",
     "name": "Full Grain Antique Vegetable Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2450,14 +2600,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "antique veg leather",
       "holster leather supplier",
       "western belt leather",
-      "savar leather export"
+      "savar leather export",
+      "full grain antique vegetable tanned cow leather exporter bangladesh",
+      "full grain antique vegetable tanned cow leather supplier bangladesh",
+      "full grain antique vegetable tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Vegetable Tanned)"
   },
   {
-    "id": "finished-article-23-full-grain-pull-up-veg",
-    "slug": "finished-article-23-full-grain-pull-up-veg",
+    "id": "finished-full-grain-pull-up-veg",
+    "slug": "finished-full-grain-pull-up-veg",
     "name": "Full Grain Pull-Up Vegetable Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2497,14 +2650,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "veg tan pull up",
       "vegetable pull up leather",
       "artisan belt leather",
-      "savar tanneries"
+      "savar tanneries",
+      "full grain pull-up vegetable tanned cow leather exporter bangladesh",
+      "full grain pull-up vegetable tanned cow leather supplier bangladesh",
+      "full grain pull-up vegetable tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Vegetable Tanned)"
   },
   {
-    "id": "finished-article-24-top-grain-semi-aniline-veg",
-    "slug": "finished-article-24-top-grain-semi-aniline-veg",
+    "id": "finished-top-grain-semi-aniline-veg",
+    "slug": "finished-top-grain-semi-aniline-veg",
     "name": "Top Grain Semi-Aniline Vegetable Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2537,21 +2693,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment water droplet resistance and caliper calibration",
     "packagingShipping": "Protected cartons on pallets",
     "buyerRequirementsNote": "Delivers vegetable aesthetic with reduced susceptibility to stains.",
-    "availabilityNote": "Sourced through certified Savar mills.",
+    "availabilityNote": "Manufactured in certified Savar tannery lines.",
     "seoTitle": "Top Grain Semi-Aniline Vegetable Leather Exporter",
     "seoDescription": "Protected top grain vegetable leather for commercial luxury bags, belts, and accessories.",
     "seoKeywords": [
       "top grain veg tan",
       "protected veg leather",
       "belt leather supplier",
-      "savar leather"
+      "savar leather",
+      "top grain semi-aniline vegetable cow leather exporter bangladesh",
+      "top grain semi-aniline vegetable cow leather supplier bangladesh",
+      "top grain semi-aniline vegetable cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Vegetable Tanned)"
   },
   {
-    "id": "finished-article-25-corrected-grain-printed-veg",
-    "slug": "finished-article-25-corrected-grain-printed-veg",
+    "id": "finished-corrected-grain-printed-veg",
+    "slug": "finished-corrected-grain-printed-veg",
     "name": "Corrected Grain Printed Vegetable Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2591,14 +2750,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "printed veg leather",
       "embossed vegetable cowhide",
       "fashion wallet leather",
-      "savar tanneries"
+      "savar tanneries",
+      "corrected grain printed vegetable cow leather exporter bangladesh",
+      "corrected grain printed vegetable cow leather supplier bangladesh",
+      "corrected grain printed vegetable cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Embossed (Vegetable Tanned)"
   },
   {
-    "id": "finished-article-26-full-grain-semi-aniline-semi-chrome",
-    "slug": "finished-article-26-full-grain-semi-aniline-semi-chrome",
+    "id": "finished-full-grain-semi-aniline-semi-chrome",
+    "slug": "finished-full-grain-semi-aniline-semi-chrome",
     "name": "Full Grain Semi-Aniline Semi-Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2631,21 +2793,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment flex test and color rub fastness audit",
     "packagingShipping": "Palletized export packing",
     "buyerRequirementsNote": "Modern architectural colors with enduring hybrid durability.",
-    "availabilityNote": "Sourced through Savar drum mills.",
+    "availabilityNote": "Produced in Savar drum tanning lines.",
     "seoTitle": "Semi-Chrome Full Grain Semi-Aniline Leather Exporter",
     "seoDescription": "Hybrid semi-chrome full grain leather in slate and earthy shades for footwear and handbags.",
     "seoKeywords": [
       "semi chrome leather",
       "slate grey leather",
       "shoe leather exporter",
-      "savar leather"
+      "savar leather",
+      "full grain semi-aniline semi-chrome cow leather exporter bangladesh",
+      "full grain semi-aniline semi-chrome cow leather supplier bangladesh",
+      "full grain semi-aniline semi-chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Semi-Chrome)"
   },
   {
-    "id": "finished-article-27-top-grain-pigmented-semi-chrome",
-    "slug": "finished-article-27-top-grain-pigmented-semi-chrome",
+    "id": "finished-top-grain-pigmented-semi-chrome",
+    "slug": "finished-top-grain-pigmented-semi-chrome",
     "name": "Top Grain Pigmented Semi-Chrome Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2685,14 +2850,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "pigmented semi chrome",
       "shoe upper cowhide",
       "durable handbag leather",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain pigmented semi-chrome cow leather exporter bangladesh",
+      "top grain pigmented semi-chrome cow leather supplier bangladesh",
+      "top grain pigmented semi-chrome cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Semi-Chrome)"
   },
   {
-    "id": "finished-article-28-full-grain-pull-up-semi-veg",
-    "slug": "finished-article-28-full-grain-pull-up-semi-veg",
+    "id": "finished-full-grain-pull-up-semi-veg",
+    "slug": "finished-full-grain-pull-up-semi-veg",
     "name": "Full Grain Pull-Up Semi-Veg Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2725,21 +2893,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment pull-up shift and tensile tear evaluation",
     "packagingShipping": "Export packaging with wax paper protection",
     "buyerRequirementsNote": "Stunning pull-up character favored by premier heritage brands.",
-    "availabilityNote": "Sourced through Savar drum tanners.",
+    "availabilityNote": "Produced in Savar drum finishing lines.",
     "seoTitle": "Wine Red Pull-Up Semi-Veg Leather Exporter Bangladesh",
     "seoDescription": "Dynamic pull-up semi-veg cowhide leather in rich burgundy and wine shades for boots and luxury bags.",
     "seoKeywords": [
       "wine pull up leather",
       "burgundy boot leather",
       "semi veg pull up",
-      "savar leather export"
+      "savar leather export",
+      "full grain pull-up semi-veg tanned cow leather exporter bangladesh",
+      "full grain pull-up semi-veg tanned cow leather supplier bangladesh",
+      "full grain pull-up semi-veg tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Semi-Veg)"
   },
   {
-    "id": "finished-article-29-top-grain-antique-semi-veg",
-    "slug": "finished-article-29-top-grain-antique-semi-veg",
+    "id": "finished-top-grain-antique-semi-veg",
+    "slug": "finished-top-grain-antique-semi-veg",
     "name": "Top Grain Antique Semi-Veg Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2779,14 +2950,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "antique dress shoe leather",
       "semi veg glaze leather",
       "oxford shoe cowhide",
-      "savar leather"
+      "savar leather",
+      "top grain antique semi-veg tanned cow leather exporter bangladesh",
+      "top grain antique semi-veg tanned cow leather supplier bangladesh",
+      "top grain antique semi-veg tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Semi-Veg)"
   },
   {
-    "id": "finished-article-30-full-grain-aniline-combination",
-    "slug": "finished-article-30-full-grain-aniline-combination",
+    "id": "finished-full-grain-aniline-combination",
+    "slug": "finished-full-grain-aniline-combination",
     "name": "Full Grain Aniline Combination Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2819,21 +2993,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment hide-by-hide selection inspection for flawless grain",
     "packagingShipping": "Rolled on heavy tubes with tissue protection",
     "buyerRequirementsNote": "Requires Grade A hide selection with natural pore transparency.",
-    "availabilityNote": "Sourced from top-tier Savar drums.",
+    "availabilityNote": "Manufactured in high-precision Savar drums.",
     "seoTitle": "Combination Tanned Full Grain Aniline Leather Bangladesh",
     "seoDescription": "Transparent aniline combination finished cowhide for luxury footwear and bespoke leather goods.",
     "seoKeywords": [
       "aniline combination leather",
       "cherry red aniline",
       "luxury shoe cowhide",
-      "savar leather export"
+      "savar leather export",
+      "full grain aniline combination tanned cow leather exporter bangladesh",
+      "full grain aniline combination tanned cow leather supplier bangladesh",
+      "full grain aniline combination tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Combination Tanned)"
   },
   {
-    "id": "finished-article-31-full-grain-pull-up-combination",
-    "slug": "finished-article-31-full-grain-pull-up-combination",
+    "id": "finished-full-grain-pull-up-combination",
+    "slug": "finished-full-grain-pull-up-combination",
     "name": "Full Grain Pull-Up Combination Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2866,21 +3043,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment embossing depth and pull-up contrast audit",
     "packagingShipping": "Protected cartons on pallets",
     "buyerRequirementsNote": "Eye-catching dimensional effect that ages beautifully.",
-    "availabilityNote": "Sourced through Savar embossing facilities.",
+    "availabilityNote": "Finished on Savar hydraulic embossing lines.",
     "seoTitle": "Embossed Croco Pull-Up Combination Leather Supplier",
     "seoDescription": "Exotic croco-embossed pull-up leather with dynamic two-tone lightening for boots and designer bags.",
     "seoKeywords": [
       "croco pull up leather",
       "embossed pull up cowhide",
       "designer boot leather",
-      "savar tanneries"
+      "savar tanneries",
+      "full grain pull-up combination cow leather exporter bangladesh",
+      "full grain pull-up combination cow leather supplier bangladesh",
+      "full grain pull-up combination cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Combination Tanned)"
   },
   {
-    "id": "finished-article-32-full-grain-waxy-oily-combination",
-    "slug": "finished-article-32-full-grain-waxy-oily-combination",
+    "id": "finished-full-grain-waxy-oily-combination",
+    "slug": "finished-full-grain-waxy-oily-combination",
     "name": "Full Grain Waxy Oily Combination Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2920,14 +3100,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "waxy embossed leather",
       "rugged boot cowhide",
       "water repellent leather",
-      "savar leather export"
+      "savar leather export",
+      "full grain waxy oily combination cow leather exporter bangladesh",
+      "full grain waxy oily combination cow leather supplier bangladesh",
+      "full grain waxy oily combination cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Embossed (Combination Tanned)"
   },
   {
-    "id": "finished-article-33-top-grain-pigmented-combination",
-    "slug": "finished-article-33-top-grain-pigmented-combination",
+    "id": "finished-top-grain-pigmented-combination",
+    "slug": "finished-top-grain-pigmented-combination",
     "name": "Top Grain Pigmented Combination Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -2967,14 +3150,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "pigmented combination leather",
       "shoe upper cowhide",
       "handbag leather supplier",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain pigmented combination cow leather exporter bangladesh",
+      "top grain pigmented combination cow leather supplier bangladesh",
+      "top grain pigmented combination cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Combination Tanned)"
   },
   {
-    "id": "finished-article-34-corrected-grain-printed-combination",
-    "slug": "finished-article-34-corrected-grain-printed-combination",
+    "id": "finished-corrected-grain-printed-combination",
+    "slug": "finished-corrected-grain-printed-combination",
     "name": "Corrected Grain Printed Combination Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3007,21 +3193,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment 3D relief sharpness and flex crack evaluation",
     "packagingShipping": "Cartons on wooden pallets with protective sheets",
     "buyerRequirementsNote": "Distinctive high-fashion aesthetic for designer handbag collections.",
-    "availabilityNote": "Sourced through Savar embossing facilities.",
+    "availabilityNote": "Finished on Savar roller & plate embossing lines.",
     "seoTitle": "Quilted Diamond Printed Leather Exporter Bangladesh",
     "seoDescription": "Couture 3D diamond quilted embossed cow leather for fashion bags, wallets, and shoes from Savar.",
     "seoKeywords": [
       "quilted leather",
       "diamond embossed cowhide",
       "couture handbag leather",
-      "savar leather export"
+      "savar leather export",
+      "corrected grain printed combination cow leather exporter bangladesh",
+      "corrected grain printed combination cow leather supplier bangladesh",
+      "corrected grain printed combination cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Embossed (Combination Tanned)"
   },
   {
-    "id": "finished-article-35-full-grain-semi-aniline-chrome-free",
-    "slug": "finished-article-35-full-grain-semi-aniline-chrome-free",
+    "id": "finished-full-grain-semi-aniline-chrome-free",
+    "slug": "finished-full-grain-semi-aniline-chrome-free",
     "name": "Full Grain Semi-Aniline Chrome Free Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3061,14 +3250,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "perforated leather",
       "chrome free automotive leather",
       "eco cowhide",
-      "savar tanneries"
+      "savar tanneries",
+      "full grain semi-aniline chrome free cow leather exporter bangladesh",
+      "full grain semi-aniline chrome free cow leather supplier bangladesh",
+      "full grain semi-aniline chrome free cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Free)"
   },
   {
-    "id": "finished-article-36-top-grain-pigmented-chrome-free",
-    "slug": "finished-article-36-top-grain-pigmented-chrome-free",
+    "id": "finished-top-grain-pigmented-chrome-free",
+    "slug": "finished-top-grain-pigmented-chrome-free",
     "name": "Top Grain Pigmented Chrome Free Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3108,14 +3300,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "chrome free pigmented leather",
       "baby shoe leather",
       "hypoallergenic leather",
-      "savar eco tanneries"
+      "savar eco tanneries",
+      "top grain pigmented chrome free cow leather exporter bangladesh",
+      "top grain pigmented chrome free cow leather supplier bangladesh",
+      "top grain pigmented chrome free cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Chrome Free)"
   },
   {
-    "id": "finished-article-37-nubuck-chrome-free-gold",
-    "slug": "finished-article-37-nubuck-chrome-free-gold",
+    "id": "finished-nubuck-chrome-free-gold",
+    "slug": "finished-nubuck-chrome-free-gold",
     "name": "Nubuck Chrome Free Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3155,14 +3350,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "golden nubuck leather",
       "eco nubuck exporter",
       "sustainable boot leather",
-      "savar leather export"
+      "savar leather export",
+      "nubuck chrome free tanned cow leather exporter bangladesh",
+      "nubuck chrome free tanned cow leather supplier bangladesh",
+      "nubuck chrome free tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Nubuck (Chrome Free)"
   },
   {
-    "id": "finished-article-38-top-grain-pigmented-synthetic",
-    "slug": "finished-article-38-top-grain-pigmented-synthetic",
+    "id": "finished-top-grain-pigmented-synthetic",
+    "slug": "finished-top-grain-pigmented-synthetic",
     "name": "Top Grain Pigmented Synthetic Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3195,21 +3393,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment UV exposure test and flex resistance audit",
     "packagingShipping": "Protected export pallets",
     "buyerRequirementsNote": "Will not yellow under sunlight or intense display lighting.",
-    "availabilityNote": "Sourced through specialized Savar drums.",
+    "availabilityNote": "Produced on specialized Savar drum lines.",
     "seoTitle": "Synthetic Tanned Top Grain Leather Supplier Bangladesh",
     "seoDescription": "UV-stable synthetic tanned cowhide leather for light-colored footwear and modern fashion bags.",
     "seoKeywords": [
       "synthetic tanned leather",
       "uv stable leather",
       "terracotta cowhide",
-      "savar tanneries"
+      "savar tanneries",
+      "top grain pigmented synthetic cow leather exporter bangladesh",
+      "top grain pigmented synthetic cow leather supplier bangladesh",
+      "top grain pigmented synthetic cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Top Grain (Synthetic Tanned)"
   },
   {
-    "id": "finished-article-39-corrected-grain-pigmented-synthetic",
-    "slug": "finished-article-39-corrected-grain-pigmented-synthetic",
+    "id": "finished-corrected-grain-pigmented-synthetic",
+    "slug": "finished-corrected-grain-pigmented-synthetic",
     "name": "Corrected Grain Pigmented Synthetic Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3249,14 +3450,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "white sneaker leather",
       "non yellowing shoe leather",
       "shoe lining cowhide",
-      "savar leather export"
+      "savar leather export",
+      "corrected grain pigmented synthetic cow leather exporter bangladesh",
+      "corrected grain pigmented synthetic cow leather supplier bangladesh",
+      "corrected grain pigmented synthetic cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Corrected Grain (Synthetic Tanned)"
   },
   {
-    "id": "finished-article-40-full-grain-pull-up-oil",
-    "slug": "finished-article-40-full-grain-pull-up-oil",
+    "id": "finished-full-grain-pull-up-oil",
+    "slug": "finished-full-grain-pull-up-oil",
     "name": "Full Grain Pull-Up Oil Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3289,21 +3493,24 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Pre-shipment pull-up shift and water repellency check",
     "packagingShipping": "Protected cartons with wax paper interleaving",
     "buyerRequirementsNote": "Distinctive rustic outdoors aesthetic for heritage collections.",
-    "availabilityNote": "Sourced through specialized Savar drums.",
+    "availabilityNote": "Produced on specialized Savar drum lines.",
     "seoTitle": "Hunter Green Pull-Up Oil Leather Supplier Bangladesh",
     "seoDescription": "Rich green full grain oil pull-up leather for heritage boots, rugged bags, and outdoor accessories.",
     "seoKeywords": [
       "green pull up leather",
       "olive boot leather",
       "oil tanned cowhide",
-      "savar leather"
+      "savar leather",
+      "full grain pull-up oil tanned cow leather exporter bangladesh",
+      "full grain pull-up oil tanned cow leather supplier bangladesh",
+      "full grain pull-up oil tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Oil Tanned)"
   },
   {
-    "id": "finished-article-41-nubuck-oil-tanned",
-    "slug": "finished-article-41-nubuck-oil-tanned",
+    "id": "finished-nubuck-oil-tanned",
+    "slug": "finished-nubuck-oil-tanned",
     "name": "Nubuck Oil Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3343,14 +3550,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "navy nubuck leather",
       "oiled nubuck supplier",
       "casual shoe leather",
-      "savar tanneries"
+      "savar tanneries",
+      "nubuck oil tanned cow leather exporter bangladesh",
+      "nubuck oil tanned cow leather supplier bangladesh",
+      "nubuck oil tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Nubuck (Oil Tanned)"
   },
   {
-    "id": "finished-article-42-bonded-pigmented-mixed",
-    "slug": "finished-article-42-bonded-pigmented-mixed",
+    "id": "finished-bonded-pigmented-mixed",
+    "slug": "finished-bonded-pigmented-mixed",
     "name": "Bonded Pigmented Mixed Tanned Cow Leather",
     "stage": "Finished",
     "category": "Finished Leather",
@@ -3390,7 +3600,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "bonded leather bangladesh",
       "reconstituted leather",
       "bookbinding leather",
-      "savar leather export"
+      "savar leather export",
+      "bonded pigmented mixed tanned cow leather exporter bangladesh",
+      "bonded pigmented mixed tanned cow leather supplier bangladesh",
+      "bonded pigmented mixed tanned cow leather wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Bonded (Mixed Tanned)"
@@ -3437,7 +3650,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "goat lining leather exporter",
       "shoe lining leather supplier from bangladesh",
       "black bengal goat lining",
-      "finished goat leather supplier from bangladesh"
+      "finished goat leather supplier from bangladesh",
+      "goat shoe lining leather (aniline & glazed kid) exporter bangladesh",
+      "goat shoe lining leather (aniline & glazed kid) supplier bangladesh",
+      "goat shoe lining leather (aniline & glazed kid) wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Goat Top Grain Lining (Chrome / Veg Tanned)"
@@ -3477,14 +3693,17 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "qualityInspection": "Electronic thickness gauge check, stitch-tear test & dry/wet rub fastness",
     "packagingShipping": "Moisture-wrapped export cartons & ISPM-15 pallets via Chittagong Sea Port",
     "buyerRequirementsNote": "High cutting yield with uniform belly-to-butt substance control.",
-    "availabilityNote": "Ready volume supply across Savar partner tanneries.",
+    "availabilityNote": "Ready volume supply from our Savar production lines.",
     "seoTitle": "Cow Lining Leather Manufacturer & Shoe Lining Exporter Bangladesh",
     "seoDescription": "Direct cow lining leather manufacturer and shoe lining leather supplier from Bangladesh. Uniform 0.7–1.1mm cowhide linings for sneakers and dress shoes.",
     "seoKeywords": [
       "cow lining leather manufacturer",
       "shoe lining leather supplier from bangladesh",
       "cowhide shoe lining",
-      "footwear lining leather exporter"
+      "footwear lining leather exporter",
+      "cow shoe & bag lining leather (softee & synthetic) exporter bangladesh",
+      "cow shoe & bag lining leather (softee & synthetic) supplier bangladesh",
+      "cow shoe & bag lining leather (softee & synthetic) wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Lining Leather (Chrome / Synthetic Tanned)"
@@ -3525,13 +3744,16 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "packagingShipping": "Full containerload shipping from Chittagong Port",
     "buyerRequirementsNote": "Can be customized to any international brand specification.",
     "availabilityNote": "Year-round volume supply.",
-    "seoTitle": "Bangladesh Cow Leather Exporter & Tannery Liaison",
+    "seoTitle": "Bangladesh Cow Leather Exporter & Direct Supplier",
     "seoDescription": "Source export-quality Bangladesh bovine cowhide leather in wet blue, crust, and finished grades.",
     "seoKeywords": [
       "bangladesh cow leather",
       "bovine hides exporter",
       "savar cow leather",
-      "footwear upper leather"
+      "footwear upper leather",
+      "bangladesh bovine (cow) leather collection exporter bangladesh",
+      "bangladesh bovine (cow) leather collection supplier bangladesh",
+      "bangladesh bovine (cow) leather collection wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow Full Grain (Chrome Tanned)"
@@ -3550,7 +3772,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/crust-article-05-suede-chrome.jpg",
     "badgeLabel": "Black Bengal Special",
     "shortDescription": "Fine, tight grain with soft hand and light but tough structure for gloves, garments, footwear, and linings.",
-    "overview": "Sourced from the famous indigenous Black Bengal breed by our finished goat leather supplier from Bangladesh and goat lining leather exporter teams. Celebrated worldwide for its fine tight grain and tensile durability in dress gloves, garment nappa, and shoe linings.",
+    "overview": "Crafted from the famous indigenous Black Bengal breed by our finished goat leather supplier from Bangladesh and goat lining leather exporter teams. Celebrated worldwide for its fine tight grain and tensile durability in dress gloves, garment nappa, and shoe linings.",
     "applications": [
       "Fine dress & golf gloves",
       "Soft leather jackets & garments",
@@ -3577,7 +3799,10 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
       "finished goat leather supplier from bangladesh",
       "goat lining leather exporter",
       "black bengal goat leather",
-      "wet blue goat leather supplier from bangladesh"
+      "wet blue goat leather supplier from bangladesh",
+      "bangladesh bengal goat leather collection exporter bangladesh",
+      "bangladesh bengal goat leather collection supplier bangladesh",
+      "bangladesh bengal goat leather collection wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Goat Top Grain (Chrome Tanned)"
@@ -3596,7 +3821,7 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "image": "/assets/products/bespoke-custom-leather-development.jpg",
     "badgeLabel": "Bespoke RFQ",
     "shortDescription": "Custom counter-sample formulation to match your physical sample, temper, color swatch, and tech pack.",
-    "overview": "When standard catalogue specifications do not match your exact collection requirements, ExportVisor coordinates custom development with partner tanneries in Savar. We manage lab-dip recipes, counter-samples, and testing dispatches via DHL/FedEx directly to your facility.",
+    "overview": "When standard catalogue specifications do not match your exact collection requirements, ExportVisor executes custom leather formulation in Savar, Bangladesh. We manage lab-dip recipes, counter-samples, and testing dispatches via DHL/FedEx directly to your facility.",
     "applications": [
       "OEM / ODM footwear brands",
       "International fashion houses",
@@ -3618,13 +3843,16 @@ export const LEATHER_PRODUCTS: LeatherProduct[] = [
     "packagingShipping": "Custom export packing agreed with buyer",
     "buyerRequirementsNote": "Send physical swatches or Pantone references for rapid matching.",
     "availabilityNote": "Savar technical labs ready for immediate formulation.",
-    "seoTitle": "Custom Leather Counter Sample Sourcing Bangladesh",
+    "seoTitle": "Custom Leather Development & Counter Samples BD",
     "seoDescription": "Bespoke leather development tailored to your exact physical sample, thickness, and color in Savar tanneries.",
     "seoKeywords": [
       "custom leather sourcing",
       "leather counter samples",
       "oem leather development",
-      "savar leather lab"
+      "savar leather lab",
+      "custom bespoke leather development exporter bangladesh",
+      "custom bespoke leather development supplier bangladesh",
+      "custom bespoke leather development wholesale"
     ],
     "origin": "Bangladesh",
     "materialType": "Cow & Goat Full Grain (Combination Tanned)"

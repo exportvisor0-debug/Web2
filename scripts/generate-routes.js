@@ -58,16 +58,137 @@ function formatB2BBuyerDescriptor(p) {
   return clean;
 }
 
+function seoSafeText(text = "") {
+  return String(text).replace(/\s*&\s*/g, "/").replace(/\s{2,}/g, " ").trim();
+}
+
+function compactDescriptorForTitle(descriptor = "", aggressive = false) {
+  let out = seoSafeText(descriptor)
+    .replace(/\bVegetable Tanned\b/gi, "Veg Tanned")
+    .replace(/\bCombination Tanned\b/gi, "Combination")
+    .replace(/\bChrome Tanned\b/gi, "Chrome")
+    .replace(/\bChrome Free\b/gi, "Chrome-Free")
+    .replace(/\bSemi-Chrome Tanned\b/gi, "Semi-Chrome")
+    .replace(/\bSemi-Veg Tanned\b/gi, "Semi-Veg")
+    .replace(/\bCow\/Buffalo\b/gi, "Cow/Buff")
+    .replace(/\s*\(Softee\/Synthetic\)/gi, "")
+    .replace(/\s*\(Aniline\/Glazed\)/gi, "")
+    .replace(/\s*\(Suede\/Drop Split\)/gi, "")
+    .replace(/\s*\(Goat\/Cow Shoe Lining\)/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+  if (aggressive) {
+    out = out
+      .replace(/\bCorrected Grain\b/gi, "Corrected")
+      .replace(/\bCombination\b/gi, "Combo")
+      .replace(/\bSynthetic\b/gi, "Synth")
+      .replace(/\bVegetable\b/gi, "Veg")
+      .replace(/\bBangladesh\b/gi, "BD")
+      .replace(/\s+\b(?:Cow\/Goat|Cow\/Buff|Cow)\b(?=\s+Leather$)/i, "")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+  }
+  return out;
+}
+
 function getB2BProductTitle(p) {
-  return `${formatB2BBuyerDescriptor(p)} Supplier & Exporter - ExportVisor`;
+  const rawDesc = seoSafeText(formatB2BBuyerDescriptor(p));
+  const candidates = [
+    `${rawDesc} Exporter BD | ExportVisor`,
+    `${rawDesc} Exporter | ExportVisor`,
+    `${rawDesc} BD | ExportVisor`,
+    `${rawDesc} | ExportVisor`,
+  ];
+
+  const matchRaw = candidates.find((c) => c.length <= 60);
+  if (matchRaw) return matchRaw;
+
+  const shortDesc = compactDescriptorForTitle(rawDesc, false);
+  const shortCandidates = [
+    `${shortDesc} Exporter BD | ExportVisor`,
+    `${shortDesc} Exporter | ExportVisor`,
+    `${shortDesc} BD | ExportVisor`,
+    `${shortDesc} | ExportVisor`,
+  ];
+
+  const matchShort = shortCandidates.find((c) => c.length <= 60);
+  if (matchShort) return matchShort;
+
+  const ultraShort = compactDescriptorForTitle(rawDesc, true);
+  const ultraCandidates = [
+    `${ultraShort} Exporter BD | ExportVisor`,
+    `${ultraShort} BD | ExportVisor`,
+    `${ultraShort} | ExportVisor`,
+  ];
+  const matchUltra = ultraCandidates.find((c) => c.length <= 60);
+  if (matchUltra) return matchUltra;
+
+  const maxNameLen = 60 - " | ExportVisor".length;
+  const trimmed = ultraShort.slice(0, maxNameLen).replace(/\s+\S*$/, "").trim();
+  return `${trimmed} | ExportVisor`;
 }
 
 function getB2BProductH1(p) {
-  return `${formatB2BBuyerDescriptor(p)} Supplier & Exporter`;
+  return `${formatB2BBuyerDescriptor(p)} Supplier & Exporter Bangladesh`;
 }
 
 function getB2BProductDescription(p) {
-  return `Source export-grade ${formatB2BBuyerDescriptor(p)} from Bangladesh. Custom thickness, low MOQ, bulk supply, and fast sample dispatch. Request a quote.`;
+  const rawDesc = seoSafeText(formatB2BBuyerDescriptor(p));
+  const shortDesc = compactDescriptorForTitle(rawDesc, false);
+
+  const uniqueBase = (p.seoDescription || p.shortDescription || "")
+    .replace(/\s*&\s*/g, " and ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+  if (uniqueBase) {
+    const cleanBase = uniqueBase.endsWith(".") ? uniqueBase : `${uniqueBase}.`;
+    if (cleanBase.length >= 125 && cleanBase.length <= 152) {
+      return cleanBase;
+    }
+    if (cleanBase.length < 125) {
+      const suffixes = [
+        " Custom thickness, low MOQ and fast DHL samples from Savar.",
+        " Custom caliper, low MOQ and DHL swatch samples from Savar.",
+        " Direct Savar tannery supply, low MOQ and fast DHL swatches.",
+        " Custom specs and fast DHL swatches from Savar, Bangladesh.",
+        " Low MOQ and DHL samples from Savar, Bangladesh.",
+        " Direct Savar tannery export.",
+      ];
+      for (const s of suffixes) {
+        const combined = `${cleanBase}${s}`;
+        if (combined.length >= 125 && combined.length <= 152) {
+          return combined;
+        }
+      }
+      const bestFit = suffixes.map((s) => `${cleanBase}${s}`).find((c) => c.length <= 152);
+      if (bestFit && bestFit.length >= 120) return bestFit;
+    } else if (cleanBase.length <= 155) {
+      return cleanBase;
+    } else {
+      return cleanBase.slice(0, 149).replace(/\s+\S*$/, "").trim() + ".";
+    }
+  }
+
+  const templates = [
+    `Export-grade ${rawDesc} from Savar, Bangladesh. Custom thickness, low MOQ and fast DHL samples. Request quote.`,
+    `Direct Bangladesh ${shortDesc} from Savar tanneries. Custom millimeter thickness, low MOQ and DHL samples. Request quote.`,
+  ];
+
+  const ideal = templates.find((t) => t.length >= 125 && t.length <= 152);
+  if (ideal) return ideal;
+
+  let chosen = templates.find((t) => t.length <= 152) || templates[templates.length - 1];
+  if (chosen.length > 152) {
+    chosen = chosen.slice(0, 149).replace(/\s+\S*$/, "").trim() + "...";
+  } else if (chosen.length < 125) {
+    const pad = " FOB Chattogram and CIF worldwide.";
+    if (chosen.length + pad.length <= 152) {
+      chosen = chosen + pad;
+    }
+  }
+  return chosen;
 }
 
 const KNOWLEDGE_HUB_ARTICLES = [
@@ -93,8 +214,8 @@ const KNOWLEDGE_HUB_ARTICLES = [
     category: "Crust Leather",
     summary: "Store crust bundles at 50%–65% RH under breathable kraft covers with 48h acclimatization before mechanical milling.",
     links: [
-      { id: "crust-article-01-full-grain-chrome", label: "Full Grain Chrome Tanned Crust Cow Leather" },
-      { id: "crust-article-08-full-grain-veg", label: "Full Grain Vegetable Tanned Crust Cow & Buffalo Leather" },
+      { id: "crust-full-grain-chrome", label: "Full Grain Chrome Tanned Crust Cow Leather" },
+      { id: "crust-full-grain-veg", label: "Full Grain Vegetable Tanned Crust Cow & Buffalo Leather" },
     ],
   },
   {
@@ -102,9 +223,9 @@ const KNOWLEDGE_HUB_ARTICLES = [
     category: "Finished Leather",
     summary: "Roll grain-side-in with acid-free tissue interleaving and stack horizontally under 4 layers to protect topcoat finish.",
     links: [
-      { id: "finished-article-01-full-grain-aniline-chrome", label: "Full Grain Aniline Chrome Tanned Cow Leather" },
-      { id: "finished-article-02-full-grain-semi-aniline-chrome", label: "Full Grain Semi-Aniline Chrome Cow Leather" },
-      { id: "finished-article-03-full-grain-pull-up-chrome", label: "Full Grain Pull-Up Chrome Tanned Cow Leather" },
+      { id: "finished-full-grain-aniline-chrome", label: "Full Grain Aniline Chrome Tanned Cow Leather" },
+      { id: "finished-full-grain-semi-aniline-chrome", label: "Full Grain Semi-Aniline Chrome Cow Leather" },
+      { id: "finished-full-grain-pull-up-chrome", label: "Full Grain Pull-Up Chrome Tanned Cow Leather" },
     ],
   },
 ];
@@ -155,7 +276,7 @@ const HUB_PRODUCTS = [
     id: "finished-leather",
     articleNumber: "Finished Collection",
     name: "Finished Leather",
-    title: "Finished Cow Leather Exporter Bangladesh | Factory Sourcing",
+    title: "Finished Cow Leather Exporter Bangladesh | ExportVisor",
     description:
       "Export-grade finished cowhide leather from Bangladesh. Automated spray finish, milled grain, pull-up, glazed finishes tailored for footwear and upholstery.",
     keywords:
@@ -185,7 +306,7 @@ const HUB_PRODUCTS = [
       "Executive office & automotive upholstery",
     ],
     overview:
-      "Finished leather has undergone the complete cycle of coloration, protective topcoats, mechanical softening, and grain regulation. Sourced from partner tanneries with automated spray lines and roller coating systems, it is tailored for volume buyers requiring dependable physical durability and aesthetic uniformity.",
+      "Finished leather has undergone the complete cycle of coloration, protective topcoats, mechanical softening, and grain regulation. Produced on automated spray lines and roller coating systems in Savar, it is tailored for volume buyers requiring dependable physical durability and aesthetic uniformity.",
     lowPrice: "2.10",
     highPrice: "4.50",
     offerCount: "3000",
@@ -224,7 +345,7 @@ const HUB_PRODUCTS = [
       "Split suede production",
     ],
     overview:
-      "Wet Blue represents raw hides immediately after unhairing, liming, deliming, bating, pickling, and primary chrome tanning. ExportVisor coordinates with certified local wet blue producers in Bangladesh, assisting international tanners who perform their own proprietary re-tanning, dyeing, and finishing operations.",
+      "Wet Blue represents raw hides immediately after unhairing, liming, deliming, bating, pickling, and primary chrome tanning. ExportVisor produces and exports wet blue cow, buffalo, and goat hides in Savar for international tanners and footwear brands.",
     lowPrice: "0.95",
     highPrice: "1.85",
     offerCount: "10000",
@@ -469,11 +590,11 @@ const HUB_PRODUCTS = [
     id: "buyer-custom-sourcing",
     articleNumber: "Custom Specification",
     name: "Buyer-Specified Custom Leather",
-    title: "Custom Leather Sourcing & Counter Sample Development Bangladesh",
+    title: "Custom Leather Development & Counter Samples BD",
     description:
       "Bespoke leather development tailored to your exact physical sample, thickness, and color. Counter-samples and lab dip testing from Savar tanneries.",
     keywords:
-      "custom leather sourcing bangladesh, leather counter sample development, oem leather development, bespoke tannery sourcing, savar leather lab dips",
+      "custom leather exporter bangladesh, leather counter sample development, oem leather development, bespoke tannery manufacturer, savar leather lab dips",
     category: "Specialty Finish",
     stage: "Finished",
     animal: "Cow, Buffalo & Goat",
@@ -498,7 +619,7 @@ const HUB_PRODUCTS = [
       "Architectural and interior projects",
     ],
     overview:
-      "When standard catalogue specifications do not align with your product development requirements, ExportVisor coordinates custom development with suitable tannery partners in Bangladesh. We manage counter-sample development, lab dip approvals, and technical verification to replicate your desired hand feel, temper, and finish.",
+      "When standard catalogue specifications do not align with your product development requirements, ExportVisor executes custom leather formulation in Savar, Bangladesh. Our lab manages counter-sample development, lab dip approvals, and technical verification to replicate your desired hand feel, temper, and finish.",
     lowPrice: "1.75",
     highPrice: "5.50",
     offerCount: "2000",
@@ -537,7 +658,7 @@ const HUB_PRODUCTS = [
       "Breathable safety boot linings",
     ],
     overview:
-      "ExportVisor supplies sweat-resistant, high-vapor-permeability Goat Lining Leather and Cow Shoe Lining Leather directly from partner tanneries in Savar, Bangladesh. Fine Black Bengal goat skins and uniform cow lining splits offer clean cutting yield, flexible lasting recovery, and EU REACH compliance.",
+      "ExportVisor manufactures and exports sweat-resistant, high-vapor-permeability Goat Lining Leather and Cow Shoe Lining Leather directly from Savar, Bangladesh. Fine Black Bengal goat skins and uniform cow lining splits offer clean cutting yield, flexible lasting recovery, and EU REACH compliance.",
     lowPrice: "1.60",
     highPrice: "3.10",
     offerCount: "3000",
@@ -549,73 +670,73 @@ const HUB_PRODUCTS = [
 const SECTION_ROUTES = [
   {
     path: "about",
-    title: "About ExportVisor | Reliable Leather Exporter & Tannery from Bangladesh",
+    title: "About ExportVisor | Bangladesh Leather Tannery",
     description:
-      "ExportVisor operates as a reliable leather exporter and direct tannery manufacturer desk in Savar, Bangladesh supplying Wet Blue, Crust, Finished, Split, and Goat/Cow Lining leather.",
+      "ExportVisor is a direct leather tannery and reliable exporter in Savar, Bangladesh supplying Wet Blue, Crust, Finished, Split and Lining leather.",
     heading: "Reliable Leather Exporter & Tannery Operations in Bangladesh",
-    lead: "Connecting global footwear and leather goods manufacturers directly with vetted LWG-audited tanneries in Savar, Dhaka.",
+    lead: "Supplying global footwear and leather goods manufacturers directly with LWG-compliant leather produced in Savar, Dhaka.",
   },
   {
     path: "products",
-    title: "Wet Blue, Crust, Finished, Split & Lining Leather Catalogue | ExportVisor",
+    title: "Bangladesh Leather Catalogue | Wet Blue, Crust, Finished",
     description:
-      "Source Wet Blue, Crust, Finished Full Grain, Cow Split Suede, and Goat/Cow Shoe Lining leather directly from a reliable Bangladesh leather exporter & tannery.",
+      "Browse 76 export cow, goat and buffalo leathers from Bangladesh: Wet Blue, Crust, Finished Full Grain, Cow Split Suede and Shoe Lining leather specs.",
     heading: "Bangladesh Export Leather Catalogue — Wet Blue, Crust, Finished, Split & Lining",
-    lead: "Browse 5 core tannery categories across Cow, Goat, and Buffalo hides sourced from Savar, Dhaka.",
+    lead: "Browse 5 core tannery categories across Cow, Goat, and Buffalo hides exported directly from Savar, Dhaka.",
   },
   {
     path: "glossary",
-    title: "Leather Sourcing Glossary & Industry Terminology | ExportVisor",
+    title: "Leather Sourcing Glossary and Terms | ExportVisor",
     description:
-      "Definitive guide defining Wet Blue, Crust Leather, Full Grain, Split Leather, Temper, and Caliper standards for international footwear and leather goods buyers.",
+      "Definitive B2B leather glossary defining Wet Blue, Crust, Full Grain, Split leather, temper and caliper standards for footwear and bag importers.",
     heading: "Comprehensive Leather Sourcing Glossary",
     lead: "Clear technical definitions of international tannery and leather manufacturing terminology for global importers.",
   },
   {
     path: "terms",
-    title: "Commercial Terms & Export Standards | ExportVisor",
+    title: "Commercial Terms and L/C Export Standards | ExportVisor",
     description:
-      "Transparent RFQ-driven commercial terms: direct factory-floor pricing, custom MOQ evaluation, scheduled production lead times, and secure international payment terms (LC/TT).",
+      "Direct factory-gate pricing, custom MOQ per drum lot, scheduled lead times, SGS inspection rights and secure L/C at Sight or T/T payment terms.",
     heading: "Commercial Terms & Export Standards",
     lead: "Factual, RFQ-driven commercial clarity: container minimums, L/C & T/T payment safeguards, sample dispatches, and FOB/CIF shipping terms.",
   },
   {
     path: "knowledge-hub",
-    title: "Leather Knowledge Hub & Technical Specifications | ExportVisor",
+    title: "Leather Technical Guides and Specs | ExportVisor",
     description:
-      "Technical sourcing guides comparing Wet Blue, Crust, and Finished leather characteristics, grain integrity, substance tolerances, and testing parameters for global buyers.",
+      "Practical tannery guides on Wet Blue moisture control, Crust storage humidity, Finished aniline handling, hide grading and warehouse audit checks.",
     heading: "Technical Leather Knowledge Hub",
     lead: "Engineering guides comparing tensile yield, elongation, temper, drum dyeing recipes, and EU REACH compliance.",
   },
   {
     path: "bangladesh-sourcing",
-    title: "Why Source Leather from Bangladesh | Savar Tannery Ecosystem",
+    title: "Why Source Leather from Bangladesh | Savar Tannery Hub",
     description:
-      "Discover the competitive advantages of sourcing leather from Bangladesh: indigenous raw material fiber density, centralized Savar Tannery Industrial Estate, and GSP duty benefits.",
+      "Explore Bangladesh leather sourcing advantages: dense indigenous cowhide and Black Bengal goat fibers, Savar CETP tanneries and 0% EU/UK GSP duty.",
     heading: "Why Source Leather from Bangladesh?",
     lead: "Unique indigenous cowhide fiber density, competitive direct factory pricing, and centralized CETP eco infrastructure in Savar.",
   },
   {
     path: "why-us",
-    title: "Export & Quality Assurance | Reliable Leather Exporter Bangladesh | ExportVisor",
+    title: "Export and Quality Assurance Standards | ExportVisor BD",
     description:
-      "Direct factory-gate pricing, verified tannery floor oversight in Savar, LWG/REACH compliance, and 100% pre-shipment inspection across Wet Blue, Crust, Finished, Split & Lining leather.",
+      "Factory-gate pricing with LWG-audited Savar tannery oversight, EU REACH chemical testing, caliper thickness checks and Chattogram Sea Port dispatch.",
     heading: "Export & Quality Assurance from Savar Tanneries",
-    lead: "Direct factory-gate exports from Savar tanneries with zero middleman markup, rigorous quality oversight, and verified container dispatch.",
+    lead: "Direct factory-gate exports from Savar, Bangladesh with consistent drum quality control and verified container dispatch.",
   },
   {
     path: "quote",
-    title: "Request a Leather Quotation & Direct Sourcing Desk | ExportVisor",
+    title: "Request Leather Quote and Swatch Samples | ExportVisor",
     description:
-      "Submit your technical leather tech pack, target thickness, color swatches, or volume requirements for rapid tannery matching, feasibility analysis, and direct pricing.",
+      "Submit your leather tech pack, millimeter substance, Pantone swatch and volume for a Savar tannery quote within 24 hours and fast DHL sample dispatch.",
     heading: "Request a Direct Factory Quotation",
     lead: "Submit your leather tech pack, target substance, Pantone swatches, and volume requirements for verified Savar tannery quotation within 24 hours.",
   },
   {
     path: "faq",
-    title: "B2B Leather Export FAQ (MOQ, LWG, Shipping) | ExportVisor Bangladesh",
+    title: "Bangladesh Leather Export FAQ (MOQ, LWG) | ExportVisor",
     description:
-      "Answers on MOQs, sample development, LWG/REACH compliance, Wet Blue, Crust, Finished, Split & Lining grades, and international shipping from Bangladesh.",
+      "Answers for global leather buyers on MOQs, counter-sample lab dips, LWG and REACH compliance, cow and goat grades, L/C payments and ocean shipping.",
     heading: "Frequently Asked B2B Leather Procurement Questions",
     lead: "Factual answers on MOQs, counter-sample lab dips, LWG/REACH quality assurance, international L/C payment, and global shipping.",
   },
@@ -689,7 +810,9 @@ allProductsToGenerate = allProductsToGenerate.map((item) => ({
   b2bDescriptor: item.b2bDescriptor || formatB2BBuyerDescriptor(item),
   title: item.h1 ? item.title : getB2BProductTitle(item),
   h1: item.h1 || getB2BProductH1(item),
-  description: item.h1 ? item.description : getB2BProductDescription(item),
+  description: item.h1
+    ? item.description
+    : getB2BProductDescription({ ...item, seoDescription: item.description }),
   sizeMeasurement: item.sizeMeasurement || "18–26 sq. ft. per full hide",
   availabilityNote:
     item.availabilityNote || "Available — DHL / FedEx counter-samples & swatches (5–7 days)",
@@ -795,7 +918,7 @@ const homepageCatalogueHtml = `
   <main>
     <section style="margin-bottom:32px;">
       <h1 style="font-size:36px;font-weight:800;margin:0 0 12px;">Reliable Leather Exporter &amp; Tannery from Bangladesh</h1>
-      <p style="font-size:18px;color:#44403c;line-height:1.6;">Direct leather manufacturer &amp; export tannery partner in Savar, Dhaka. Supplying LWG-compliant <strong>Wet Blue</strong>, <strong>Crust</strong>, <strong>Finished Full Grain</strong>, <strong>Cow Split &amp; Suede</strong>, and <strong>Goat &amp; Cow Shoe Lining</strong> leather worldwide from Chittagong Sea Port (BDCGP).</p>
+      <p style="font-size:18px;color:#44403c;line-height:1.6;">Your reliable leather supplier in Savar, Dhaka. Export-grade <strong>Wet Blue</strong>, <strong>Crust</strong>, <strong>Finished Full Grain</strong>, <strong>Cow Split &amp; Suede</strong>, and <strong>Goat &amp; Cow Shoe Lining</strong> leather for global footwear and bag manufacturers.</p>
       <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
         <a href="/quote" style="background:#c89d43;color:#0c0a09;font-weight:700;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;">Request Sample / Get Quote</a>
         <a href="/products" style="border:1px solid #d6d3d1;color:#1c1712;font-weight:600;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none;">Explore 5 Core Leather Categories</a>
@@ -865,7 +988,7 @@ SECTION_ROUTES.forEach((route) => {
       }
       ${
         isProductsPage
-          ? `<section><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">All Verified Savar Leather Articles</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">${buildProductDirectoryHtml()}</div></section>`
+          ? `<section><h2 style="font-size:1.5rem;font-weight:700;margin-bottom:1rem;">All Verified Savar Leather Grades</h2><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">${buildProductDirectoryHtml()}</div></section>`
           : ""
       }
     </div>
@@ -934,7 +1057,7 @@ allProductsToGenerate.forEach((product, idx) => {
         manufacturer: {
           "@type": "Organization",
           "@id": "https://exportvisor.com/#organization",
-          name: "ExportVisor Tannery Export Desk & Manufacturing Operations",
+          name: "ExportVisor Leather Exporter & Tannery Operations Bangladesh",
           url: "https://exportvisor.com",
         },
         additionalProperty: [
@@ -1098,7 +1221,7 @@ fs.writeFileSync(path.join(distDir, ".nojekyll"), "# Disable Jekyll processing\n
 // 3. Generate Complete Image-Rich sitemap.xml for Google, Bing, Yahoo, DuckDuckGo & Yandex
 const today = new Date().toISOString().split("T")[0];
 const sectionSitemapEntries = [
-  { loc: "https://exportvisor.com/", changefreq: "weekly", priority: "1.0", img: "https://exportvisor.com/og-image.jpg", imgTitle: "ExportVisor Bangladesh Leather Export & Tannery Desk" },
+  { loc: "https://exportvisor.com/", changefreq: "weekly", priority: "1.0", img: "https://exportvisor.com/og-image.jpg", imgTitle: "ExportVisor Reliable Leather Exporter Bangladesh" },
   { loc: "https://exportvisor.com/about", changefreq: "monthly", priority: "0.85" },
   { loc: "https://exportvisor.com/products", changefreq: "weekly", priority: "0.95", img: "https://exportvisor.com/assets/products/crust-article-01-full-grain-chrome.jpg", imgTitle: "ExportVisor Bangladesh Leather Catalogue" },
   { loc: "https://exportvisor.com/glossary", changefreq: "monthly", priority: "0.85" },

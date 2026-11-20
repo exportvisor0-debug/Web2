@@ -5,34 +5,471 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/leather-products", "destination": "/products", "permanent": true },
-    { "source": "/catalogue", "destination": "/products", "permanent": true },
-    { "source": "/leather", "destination": "/products", "permanent": true },
-    { "source": "/product", "destination": "/products", "permanent": true },
-    { "source": "/contact", "destination": "/quote", "permanent": true },
-    { "source": "/rfq", "destination": "/quote", "permanent": true },
-    { "source": "/inquiry", "destination": "/quote", "permanent": true },
-    { "source": "/about-us", "destination": "/about", "permanent": true },
-    { "source": "/company", "destination": "/about", "permanent": true },
-    { "source": "/commercial-terms", "destination": "/terms", "permanent": true },
-    { "source": "/why-exportvisor", "destination": "/why-us", "permanent": true },
-    { "source": "/knowledge", "destination": "/knowledge-hub", "permanent": true },
-    { "source": "/guides", "destination": "/knowledge-hub", "permanent": true },
-    { "source": "/bangladesh", "destination": "/bangladesh-sourcing", "permanent": true },
-    { "source": "/origin", "destination": "/bangladesh-sourcing", "permanent": true },
-    { "source": "/faqs", "destination": "/faq", "permanent": true },
-    { "source": "/questions", "destination": "/faq", "permanent": true },
-    { "source": "/leather-glossary", "destination": "/glossary", "permanent": true },
-    { "source": "/terms-glossary", "destination": "/glossary", "permanent": true },
-    { "source": "/leather-terms", "destination": "/glossary", "permanent": true },
-    { "source": "/export-shipping", "destination": "/quote", "permanent": true },
-    { "source": "/quality-inspection", "destination": "/about", "permanent": true },
-    { "source": "/sourcing-process", "destination": "/about", "permanent": true },
-    { "source": "/market-insights", "destination": "/knowledge-hub", "permanent": true },
-    { "source": "/global-trade-impact", "destination": "/bangladesh-sourcing", "permanent": true },
-    { "source": "/timeline", "destination": "/about", "permanent": true },
-    { "source": "/virtual-tour", "destination": "/products", "permanent": true },
-    { "source": "/products/:slug", "destination": "/product/:slug", "permanent": true }
+    {
+      "source": "/leather-products",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/catalogue",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/leather",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/product",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/quote",
+      "permanent": true
+    },
+    {
+      "source": "/rfq",
+      "destination": "/quote",
+      "permanent": true
+    },
+    {
+      "source": "/inquiry",
+      "destination": "/quote",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/company",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/commercial-terms",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/why-exportvisor",
+      "destination": "/why-us",
+      "permanent": true
+    },
+    {
+      "source": "/knowledge",
+      "destination": "/knowledge-hub",
+      "permanent": true
+    },
+    {
+      "source": "/guides",
+      "destination": "/knowledge-hub",
+      "permanent": true
+    },
+    {
+      "source": "/bangladesh",
+      "destination": "/bangladesh-sourcing",
+      "permanent": true
+    },
+    {
+      "source": "/origin",
+      "destination": "/bangladesh-sourcing",
+      "permanent": true
+    },
+    {
+      "source": "/faqs",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/questions",
+      "destination": "/faq",
+      "permanent": true
+    },
+    {
+      "source": "/leather-glossary",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/terms-glossary",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/leather-terms",
+      "destination": "/glossary",
+      "permanent": true
+    },
+    {
+      "source": "/export-shipping",
+      "destination": "/quote",
+      "permanent": true
+    },
+    {
+      "source": "/quality-inspection",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/sourcing-process",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/market-insights",
+      "destination": "/knowledge-hub",
+      "permanent": true
+    },
+    {
+      "source": "/global-trade-impact",
+      "destination": "/bangladesh-sourcing",
+      "permanent": true
+    },
+    {
+      "source": "/timeline",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/virtual-tour",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-01-full-grain-chrome",
+      "destination": "/product/crust-full-grain-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-02-top-grain-chrome",
+      "destination": "/product/crust-top-grain-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-03-corrected-grain-chrome",
+      "destination": "/product/crust-corrected-grain-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-04-split-chrome",
+      "destination": "/product/crust-split-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-05-suede-chrome",
+      "destination": "/product/crust-suede-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-06-nubuck-chrome",
+      "destination": "/product/crust-nubuck-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-07-buff-snuffed-chrome",
+      "destination": "/product/crust-buff-snuffed-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-08-full-grain-veg",
+      "destination": "/product/crust-full-grain-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-09-top-grain-veg",
+      "destination": "/product/crust-top-grain-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-10-full-grain-semi-chrome",
+      "destination": "/product/crust-full-grain-semi-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-11-top-grain-semi-chrome",
+      "destination": "/product/crust-top-grain-semi-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-12-full-grain-semi-veg",
+      "destination": "/product/crust-full-grain-semi-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-13-top-grain-semi-veg",
+      "destination": "/product/crust-top-grain-semi-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-14-full-grain-combination",
+      "destination": "/product/crust-full-grain-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-15-top-grain-combination",
+      "destination": "/product/crust-top-grain-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-16-corrected-grain-combination",
+      "destination": "/product/crust-corrected-grain-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-17-full-grain-chrome-free",
+      "destination": "/product/crust-full-grain-chrome-free",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-18-top-grain-chrome-free",
+      "destination": "/product/crust-top-grain-chrome-free",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-19-nubuck-chrome-free",
+      "destination": "/product/crust-nubuck-chrome-free",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-20-top-grain-synthetic",
+      "destination": "/product/crust-top-grain-synthetic",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-21-corrected-grain-synthetic",
+      "destination": "/product/crust-corrected-grain-synthetic",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-22-full-grain-oil-tanned",
+      "destination": "/product/crust-full-grain-oil-tanned",
+      "permanent": true
+    },
+    {
+      "source": "/product/crust-article-23-nubuck-oil-tanned",
+      "destination": "/product/crust-nubuck-oil-tanned",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-01-full-grain-aniline-chrome",
+      "destination": "/product/finished-full-grain-aniline-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-02-full-grain-semi-aniline-chrome",
+      "destination": "/product/finished-full-grain-semi-aniline-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-03-full-grain-pull-up-chrome",
+      "destination": "/product/finished-full-grain-pull-up-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-04-full-grain-oily-waxy-chrome",
+      "destination": "/product/finished-full-grain-oily-waxy-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-05-full-grain-crazy-horse-chrome",
+      "destination": "/product/finished-full-grain-crazy-horse-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-06-full-grain-antique-chrome",
+      "destination": "/product/finished-full-grain-antique-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-07-top-grain-semi-aniline-chrome",
+      "destination": "/product/finished-top-grain-semi-aniline-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-08-top-grain-pigmented-chrome",
+      "destination": "/product/finished-top-grain-pigmented-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-09-top-grain-nappa-chrome",
+      "destination": "/product/finished-top-grain-nappa-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-10-top-grain-mild-chrome",
+      "destination": "/product/finished-top-grain-mild-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-11-corrected-grain-pigmented-chrome",
+      "destination": "/product/finished-corrected-grain-pigmented-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-12-corrected-grain-embossed-chrome",
+      "destination": "/product/finished-corrected-grain-embossed-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-13-corrected-grain-glazed-chrome",
+      "destination": "/product/finished-corrected-grain-glazed-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-14-corrected-grain-metallic-chrome",
+      "destination": "/product/finished-corrected-grain-metallic-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-15-corrected-grain-soft-touch-chrome",
+      "destination": "/product/finished-corrected-grain-soft-touch-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-16-nubuck-finished-chrome",
+      "destination": "/product/finished-nubuck-finished-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-17-suede-finished-chrome",
+      "destination": "/product/finished-suede-finished-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-18-split-embossed-chrome",
+      "destination": "/product/finished-split-embossed-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-19-split-embossed-olive",
+      "destination": "/product/finished-split-embossed-olive",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-20-buff-pigmented-chrome",
+      "destination": "/product/finished-buff-pigmented-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-21-full-grain-aniline-veg",
+      "destination": "/product/finished-full-grain-aniline-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-22-full-grain-antique-veg",
+      "destination": "/product/finished-full-grain-antique-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-23-full-grain-pull-up-veg",
+      "destination": "/product/finished-full-grain-pull-up-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-24-top-grain-semi-aniline-veg",
+      "destination": "/product/finished-top-grain-semi-aniline-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-25-corrected-grain-printed-veg",
+      "destination": "/product/finished-corrected-grain-printed-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-26-full-grain-semi-aniline-semi-chrome",
+      "destination": "/product/finished-full-grain-semi-aniline-semi-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-27-top-grain-pigmented-semi-chrome",
+      "destination": "/product/finished-top-grain-pigmented-semi-chrome",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-28-full-grain-pull-up-semi-veg",
+      "destination": "/product/finished-full-grain-pull-up-semi-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-29-top-grain-antique-semi-veg",
+      "destination": "/product/finished-top-grain-antique-semi-veg",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-30-full-grain-aniline-combination",
+      "destination": "/product/finished-full-grain-aniline-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-31-full-grain-pull-up-combination",
+      "destination": "/product/finished-full-grain-pull-up-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-32-full-grain-waxy-oily-combination",
+      "destination": "/product/finished-full-grain-waxy-oily-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-33-top-grain-pigmented-combination",
+      "destination": "/product/finished-top-grain-pigmented-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-34-corrected-grain-printed-combination",
+      "destination": "/product/finished-corrected-grain-printed-combination",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-35-full-grain-semi-aniline-chrome-free",
+      "destination": "/product/finished-full-grain-semi-aniline-chrome-free",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-36-top-grain-pigmented-chrome-free",
+      "destination": "/product/finished-top-grain-pigmented-chrome-free",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-37-nubuck-chrome-free-gold",
+      "destination": "/product/finished-nubuck-chrome-free-gold",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-38-top-grain-pigmented-synthetic",
+      "destination": "/product/finished-top-grain-pigmented-synthetic",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-39-corrected-grain-pigmented-synthetic",
+      "destination": "/product/finished-corrected-grain-pigmented-synthetic",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-40-full-grain-pull-up-oil",
+      "destination": "/product/finished-full-grain-pull-up-oil",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-41-nubuck-oil-tanned",
+      "destination": "/product/finished-nubuck-oil-tanned",
+      "permanent": true
+    },
+    {
+      "source": "/product/finished-article-42-bonded-pigmented-mixed",
+      "destination": "/product/finished-bonded-pigmented-mixed",
+      "permanent": true
+    },
+    {
+      "source": "/products/:slug",
+      "destination": "/product/:slug",
+      "permanent": true
+    }
   ],
   "headers": [
     {
@@ -99,7 +536,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://exportvisor.com https://*.exportvisor.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://api.whatsapp.com https://formspree.io; media-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https://exportvisor.com https://*.exportvisor.com https://www.google-analytics.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://api.whatsapp.com https://formspree.io; media-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; upgrade-insecure-requests;"
         }
       ]
     }

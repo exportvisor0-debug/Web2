@@ -34,7 +34,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
         <div className="pointer-events-auto bg-white dark:bg-[#181310] text-stone-900 dark:text-white p-3 rounded-xl shadow-xl border border-stone-200 dark:border-stone-800 text-xs max-w-xs animate-fade-in relative mb-1">
           <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-stone-200 dark:border-white/10">
             <span className="font-bold text-[#9E731C] dark:text-[#E5BE58] text-[11px] uppercase tracking-wider font-mono">
-              Tannery Export Desk
+              Bangladesh Leather Exporter
             </span>
             <button
               onClick={() => setShowTooltip(false)}
@@ -45,7 +45,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
             </button>
           </div>
           <p className="text-stone-600 dark:text-stone-300 text-[11px] leading-relaxed">
-            Direct factory desk in Savar, Dhaka: WhatsApp our specialists for immediate specification review and direct factory FOB/CIF pricing.
+            Direct leather supplier in Savar, Dhaka: message us on WhatsApp for quick specifications and FOB/CIF factory pricing.
           </p>
           <div className="mt-2 text-[10px] text-stone-400 font-mono">
             {siteConfig.contact.whatsappFormatted}

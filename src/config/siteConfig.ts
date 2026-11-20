@@ -46,7 +46,7 @@ export interface SiteConfig {
   };
 }
 
-// Safe process.env accessor that seamlessly works across Vite, Vercel, Node, and browser builds
+// Safe process.env accessor that works reliably across Vite, Vercel, Node, and browser builds
 const getEnv = (key: string, fallback: string = ""): string => {
   if (typeof process !== "undefined" && process?.env && process.env[key]) {
     return process.env[key] as string;
@@ -77,9 +77,9 @@ export const siteConfig: SiteConfig = {
     name: "ExportVisor",
     tagline: "Go Global with ExportVisor",
     shortDescription:
-      "Direct Tannery Export Desk & Manufacturing Operations in Dhaka, Bangladesh. Primary factory exports of wet blue, crust, and finished leather from Savar tanneries.",
+      "Reliable Leather Supplier from Dhaka, Bangladesh. Export-grade wet blue, crust, finished full grain, split suede, and shoe lining leather from Savar.",
     fullDescription:
-      "ExportVisor operates as the dedicated international export division for manufacturing tanneries in Savar, Dhaka, Bangladesh. We handle direct global exports of certified wet blue, crust, and finished bovine leather with direct factory gate pricing, technical drum production oversight, pre-shipment quality inspection, and maritime container shipping.",
+      "ExportVisor operates directly in Savar, Dhaka as a reliable leather supplier from Bangladesh. We manufacture and export certified wet blue, crust, finished full grain, suede split, and goat/cow shoe lining leather with factory-gate pricing, 100% pre-shipment quality inspection, and maritime container shipping.",
     origin: "Dhaka, Bangladesh",
     hqLocation: "Dhaka, Bangladesh",
     address: "Beribadh Road, Sikdar Estate, Chorokghata, Nawabganj, Dhaka - 1312, Bangladesh",

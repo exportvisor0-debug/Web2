@@ -149,7 +149,7 @@ export function generateProductJsonLd(product: LeatherProduct) {
     manufacturer: {
       "@type": "Organization",
       "@id": "https://exportvisor.com/#organization",
-      name: "ExportVisor Tannery Export Desk & Manufacturing Division",
+      name: "ExportVisor Leather Exporter & Tannery Operations Bangladesh",
       url: "https://exportvisor.com",
       address: {
         "@type": "PostalAddress",

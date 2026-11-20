@@ -13,10 +13,11 @@ export const BangladeshAdvantage: React.FC = () => {
         
         {/* Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="flex flex-wrap items-center gap-3 mb-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
+          <div className="flex flex-wrap items-center gap-2.5 mb-2">
+            <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+            <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
               {t.bangladesh.kicker}
-            </div>
+            </span>
             <SectionShareButton path="/bangladesh-sourcing" sectionName={t.bangladesh.kicker} />
           </div>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#15120E] dark:text-[#FAF6F0] leading-tight mt-1">
@@ -27,7 +28,7 @@ export const BangladeshAdvantage: React.FC = () => {
           </p>
         </div>
 
-        {/* 2-Column Split: Ecosystem Facts & Strategic Map/Hub Card */}
+        {/* 2-Column Split: Savar Cluster Facts & Strategic Map/Hub Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           
           {/* Left Column: Sourcing Realities */}
@@ -40,12 +41,12 @@ export const BangladeshAdvantage: React.FC = () => {
           >
             <div className="space-y-4">
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#15120E] dark:text-[#FAF6F0]">
-                {language === "bn" ? "বাংলাদেশ লেদার সোর্সিং সুবিধা" : "The Bangladesh Sourcing Advantage"}
+                {language === "bn" ? "বাংলাদেশ থেকে সরাসরি চামড়া আমদানির সুবিধা" : "The Bangladesh Leather Export Advantage"}
               </h3>
               <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                 {language === "bn"
-                  ? "আন্তর্জাতিক ফুটওয়্যার ও চামড়াজাত পণ্য প্রস্তুতকারকদের জন্য বাংলাদেশ বিশ্বমানের কাঁচামাল ও শুল্কমুক্ত বাণিজ্যিক সুবিধা প্রদান করে সরাসরি ট্যানারি পার্টনারশিপের মাধ্যমে:"
-                  : "For international footwear manufacturers, leather goods producers, and raw leather re-tanners, Bangladesh offers distinct advantages when partnering directly with an established tannery export desk:"}
+                  ? "আন্তর্জাতিক ফুটওয়্যার, ব্যাগ ও চামড়াজাত পণ্য প্রস্তুতকারকদের জন্য সরাসরি বাংলাদেশের চামড়া রপ্তানিকারক ও সরবরাহকারীর সাথে কাজ করার বিশেষ সুবিধাসমূহ:"
+                  : "For international footwear manufacturers, leather goods brands, and re-tanners, ordering directly from a dedicated Bangladesh leather exporter delivers clear structural advantages:"}
               </p>
 
               <div className="space-y-3 pt-2">
@@ -101,11 +102,11 @@ export const BangladeshAdvantage: React.FC = () => {
 
             <div className="p-4 bg-[#FBF8F1] dark:bg-[#181310] border border-[#C89D43]/30 rounded-xl text-xs text-stone-700 dark:text-stone-300 shadow-2xs">
               <span className="font-bold text-[#7A5A17] dark:text-[#E5BE58]">
-                {language === "bn" ? "আমাদের প্রতিশ্রুতি:" : "Our Commitment:"}
+                {language === "bn" ? "আমাদের প্রতিশ্রুতি:" : "Our Export Commitment:"}
               </span>{" "}
               {language === "bn"
-                ? "এক্সপোর্টভাইজর বায়ারের স্বার্থে সরাসরি ফ্যাক্টরির সাথে স্বচ্ছ যোগাযোগ, কঠোর মান নিয়ন্ত্রণ এবং ঝামেলাহীন শিপিং নিশ্চিত করে।"
-                : "ExportVisor does not replace the tannery; we make the tannery accessible, accountable, and transparent to international buyers with strict quality oversight."}
+                ? "বাংলাদেশের নির্ভরযোগ্য চামড়া রপ্তানিকারক ও সরবরাহকারী হিসেবে এক্সপোর্টভাইজর প্রতিটি চালানে সরাসরি ফ্যাক্টরি মূল্য, কঠোর মান নিয়ন্ত্রণ এবং সময়মতো শিপমেন্ট নিশ্চিত করে।"
+                : "As an established leather exporter and supplier from Bangladesh, ExportVisor delivers factory-gate pricing, strict thickness calibration, and dependable on-schedule container shipments."}
             </div>
           </motion.div>
 
@@ -123,7 +124,7 @@ export const BangladeshAdvantage: React.FC = () => {
             <div className="relative space-y-6">
               <div className="flex items-center justify-between border-b border-stone-200 dark:border-white/10 pb-4">
                 <span className="text-xs uppercase tracking-widest text-[#9E731C] dark:text-[#E5BE58] font-bold">
-                  Sourcing Hub Profile
+                  Export Operations Profile
                 </span>
                 <span className="font-mono-data text-xs text-[#7A5A17] dark:text-[#E5BE58] font-bold px-2 py-0.5 rounded bg-stone-100 dark:bg-white/10">
                   Dhaka / Savar
@@ -147,7 +148,7 @@ export const BangladeshAdvantage: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-between text-xs pb-2 border-b border-stone-200 dark:border-white/10">
                   <span className="text-stone-500 dark:text-stone-400">Audit & Compliance</span>
-                  <span className="font-bold text-[#9E731C] dark:text-[#E5BE58]">LWG-Audited Network</span>
+                  <span className="font-bold text-[#9E731C] dark:text-[#E5BE58]">LWG-Audited &amp; CETP Compliant</span>
                 </div>
                 <div className="flex items-center justify-between text-xs pb-2 border-b border-stone-200 dark:border-white/10">
                   <span className="text-stone-500 dark:text-stone-400">Primary Sea Freight Port</span>
@@ -166,7 +167,7 @@ export const BangladeshAdvantage: React.FC = () => {
               <div className="space-y-2.5 text-xs text-stone-600 dark:text-stone-300">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#C89D43] dark:text-[#E5BE58] shrink-0" />
-                  <span>Direct tannery coordination in Dhaka & Savar</span>
+                  <span>Direct production &amp; QC floor oversight in Dhaka &amp; Savar</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#C89D43] dark:text-[#E5BE58] shrink-0" />
@@ -181,7 +182,7 @@ export const BangladeshAdvantage: React.FC = () => {
 
             <div className="mt-6 pt-4 border-t border-stone-200 dark:border-white/10 flex items-center justify-between text-xs text-stone-500 dark:text-stone-400">
               <span>Timezone: GMT+6</span>
-              <span className="text-[#9E731C] dark:text-[#E5BE58] font-bold">ExportVisor Field Presence</span>
+              <span className="text-[#9E731C] dark:text-[#E5BE58] font-bold">Savar Export Operations</span>
             </div>
 
           </motion.div>

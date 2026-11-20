@@ -9,7 +9,8 @@ import { TrustComplianceStrip } from "./components/TrustComplianceStrip";
 import { AboutSection } from "./components/AboutSection";
 import { LeatherCatalogue } from "./components/LeatherCatalogue";
 import { FloatingActions } from "./components/FloatingActions";
-import { LeatherProduct, LEATHER_PRODUCTS } from "./data/products";
+import { LeatherProduct } from "./data/products";
+import { getProductBySlugOrId } from "./config/routes";
 import { useSectionRouter, navigateTo, syncProductSeo } from "./utils/router";
 
 const LeatherGlossarySection = lazy(() =>
@@ -54,7 +55,7 @@ function AppContent() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [quotePrefill, setQuotePrefill] = useState<string>("");
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
-  const [consultationTopic, setConsultationTopic] = useState("Leather Sourcing & Volume MOQ");
+  const [consultationTopic, setConsultationTopic] = useState("Leather Specifications & Volume MOQ");
 
   // Initialize section routing & scroll synchronization with product deep-linking
   useSectionRouter((prod) => setSelectedProduct(prod));
@@ -114,6 +115,7 @@ function AppContent() {
         <Hero
           onExploreLeather={handleExploreLeather}
           onRequestQuote={() => handleOpenQuoteModal()}
+          suppressH1={Boolean(selectedProduct)}
         />
 
         {/* 2.1 Trust & Compliance Strip */}
@@ -129,7 +131,7 @@ function AppContent() {
           {/* 3.1 Leather Glossary Section: Industry terms for non-expert buyers */}
           <LeatherGlossarySection
             onSelectProduct={(productId) => {
-              const found = LEATHER_PRODUCTS.find((p) => p.id === productId);
+              const found = getProductBySlugOrId(productId);
               if (found) {
                 handleSelectProduct(found);
               }
@@ -153,7 +155,7 @@ function AppContent() {
           {/* 8. Leather Knowledge Hub (Wet Blue vs Finished Technical Advisory) */}
           <LeatherKnowledgeHub
             onSelectProductById={(productId) => {
-              const found = LEATHER_PRODUCTS.find((p) => p.id === productId);
+              const found = getProductBySlugOrId(productId);
               if (found) {
                 handleSelectProduct(found);
               }
@@ -161,10 +163,10 @@ function AppContent() {
             onRequestQuote={(prefill) => handleScrollToQuoteSection(prefill)}
           />
 
-          {/* 9. Source Leather from Bangladesh (Ecosystem) */}
+          {/* 9. Source Leather from Bangladesh (Savar Hub) */}
           <BangladeshAdvantage />
 
-          {/* 12. Why Partner with ExportVisor */}
+          {/* 12. Why ExportVisor */}
           <WhyExportVisor />
 
           {/* 12. Request a Quote / Inquiry Form (Primary Lead Generation) */}

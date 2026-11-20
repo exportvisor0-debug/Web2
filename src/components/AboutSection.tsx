@@ -67,8 +67,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           className="max-w-3xl mb-12 sm:mb-16"
         >
           <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#C89D43]/15 text-[#7A5A17] dark:text-[#E5BE58] border border-[#C89D43]/30 text-xs font-bold uppercase tracking-wider">
-              {t.about.kicker}
+            <div className="inline-flex items-center gap-2.5">
+              <span className="w-5 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.14em] text-[#7A5A17] dark:text-[#E5BE58]">
+                {t.about.kicker}
+              </span>
             </div>
             <SectionShareButton path="/about" sectionName={t.about.kicker} />
           </div>
@@ -96,22 +99,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="p-6 bg-white dark:bg-[#120E0B] border border-stone-200 dark:border-[#C89D43]/30 rounded-xl shadow-2xs transition-colors duration-200">
               <h3 className="font-display text-2xl font-bold text-[#15120E] dark:text-[#FAF6F0] mb-3">
                 {language === "bn"
-                  ? "আন্তর্জাতিক ক্রেতারা কেন সরাসরি ট্যানারি এক্সপোর্ট ডেস্ক বেছে নেন"
-                  : "Why International Buyers Choose Direct Tannery Export Operations"}
+                  ? "আন্তর্জাতিক ক্রেতারা কেন সরাসরি এক্সপোর্টভাইজর বেছে নেন"
+                  : "Why Global Importers Choose ExportVisor Directly"}
               </h3>
               <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed mb-4">
                 {language === "bn"
-                  ? "আন্তর্জাতিকভাবে চামড়া ক্রয়ের ক্ষেত্রে তৃতীয় পক্ষ দালালের কারণে মূল্য বৃদ্ধি, মানের তারতম্য এবং যোগাযোগে জটিলতা তৈরি হয়।"
-                  : "Sourcing leather internationally often involves middleman price markups, inconsistent grade delivery, and ambiguous technical communication."}
+                  ? "আন্তর্জাতিক চামড়া আমদানিতে মধ্যস্বত্বভোগীর কারণে দাম বেড়ে যায়, গ্রেডিংয়ে তারতম্য ঘটে এবং স্পেসিফিকেশন বুঝতে ভুল হয়।"
+                  : "Ordering directly from ExportVisor eliminates broker markups, inconsistent selection grading, and ambiguous technical communication."}
               </p>
               <p className="text-sm text-stone-600 dark:text-stone-300 leading-relaxed mb-4">
                 {language === "bn"
-                  ? "এক্সপোর্টভাইজর সাভার ট্যানারি ক্লাস্টারের সরাসরি রপ্তানি বিভাগ হিসেবে কাজ করে। আমরা চামড়ার পুরুত্ব থেকে শুরু করে শেডের ধারাবাহিকতা—প্রতিটি স্পেসিফিকেশন সরাসরি ফ্যাক্টরি ফ্লোরে কঠোরভাবে পর্যবেক্ষণ ও অনুমোদন করি এবং ফ্যাক্টরি-গেট রেটে সরাসরি রপ্তানি নিশ্চিত করি।"
-                  : "Operating as a reliable leather exporter from Bangladesh inside the Savar leather tannery estate, ExportVisor coordinates direct factory-gate manufacturing across wet blue cow & goat hides, drum-dyed crust, finished full grain leather, cow split suede, and breathable shoe lining leather."}
+                  ? "বাংলাদেশের সাভারে অবস্থিত নির্ভরযোগ্য চামড়া রপ্তানিকারক ও সরবরাহকারী হিসেবে আমরা ওয়েট ব্লু, ক্রাস্ট, ফিনিশড ফুল গ্রেইন, স্প্লিট ও শু লাইনিং চামড়া সরাসরি ফ্যাক্টরি দরে বিশ্বব্যাপী সরবরাহ করি।"
+                  : "Operating as a reliable leather exporter and leather supplier from Bangladesh in Savar, Dhaka, ExportVisor manufactures and exports wet blue cow & goat hides, drum-dyed crust, finished full grain leather, cow split suede, and breathable shoe lining leather at factory-gate pricing."}
               </p>
               <div className="pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between gap-2 text-xs text-stone-500 dark:text-stone-400">
                 <span className="font-medium text-stone-600 dark:text-stone-300">
-                  {language === "bn" ? "কাজের ক্ষেত্র: চামড়া রপ্তানি" : "Direct B2B Tannery"}
+                  {language === "bn" ? "সরাসরি চামড়া রপ্তানিকারক" : "Direct B2B Leather Exporter"}
                 </span>
                 <span className="font-bold text-[#7A5A17] dark:text-[#E5BE58] px-2 py-0.5 rounded bg-[#C89D43]/15 border border-[#C89D43]/25 text-right">
                   {language === "bn" ? "ওয়েট ব্লু · ক্রাস্ট · ফিনিশড · স্প্লিট · লাইনিং" : "Wet Blue · Crust · Finished · Split · Lining"}
@@ -128,11 +131,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                   <span className="w-4 h-4 rounded-full bg-[#C89D43]/20 text-[#C89D43] flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">✓</span>
                   <span>
                     <strong className="text-stone-800 dark:text-stone-200">
-                      {language === "bn" ? "ক্রেতা-কেন্দ্রিক:" : "Buyer-Centric:"}
+                      {language === "bn" ? "বায়ার-স্পেসিফিক উৎপাদন:" : "Built to Tech Pack:"}
                     </strong>{" "}
                     {language === "bn"
-                      ? "আমরা আপনার স্বার্থ, নির্দিষ্ট টলারেন্স মানদণ্ড এবং অন-সাইট মান নিয়ন্ত্রণ নিরীক্ষা নিশ্চিত করি।"
-                      : "We represent your interests, your tolerance standards, and your inspection protocols."}
+                      ? "আপনার নির্দিষ্ট পুরুত্ব, গ্রেডিং এবং মানদণ্ড অনুযায়ী প্রতিটি ব্যাচ প্রস্তুত ও রপ্তানি করা হয়।"
+                      : "Every hide batch is produced, gauged, and graded strictly to your tolerance standards."}
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -142,8 +145,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                       {language === "bn" ? "সঠিক তথ্য ও বাস্তবতা:" : "Zero Exaggeration:"}
                     </strong>{" "}
                     {language === "bn"
-                      ? "ট্যানারির প্রকৃত সক্ষমতা, কাঁচামালের প্রাপ্যতা ও সুনির্দিষ্ট উৎপাদন সময়সীমার সত্য রিপোর্ট।"
-                      : "Factual reporting on tannery capabilities, lead times, and raw material availability."}
+                      ? "উৎপাদন সক্ষমতা, কাঁচামালের প্রাপ্যতা ও সুনির্দিষ্ট ডেলিভারি সময়সূচির বাস্তবসম্মত প্রতিশ্রুতি।"
+                      : "Factual reporting on production capacity, lead times, and raw hide availability."}
                   </span>
                 </li>
                 <li className="flex items-start gap-2.5">
@@ -153,8 +156,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                       {language === "bn" ? "বাণিজ্যিক স্বচ্ছতা:" : "Commercial Clarity:"}
                     </strong>{" "}
                     {language === "bn"
-                      ? "ফ্যাক্টরি ভিত্তিক মূল্য প্রস্তাবনা এবং নিশ্চিত চামড়া সিলেকশন ফলনের সরাসরি কোটেশন।"
-                      : "Transparent quotations based on current tannery benchmarks and actual grade yields."}
+                      ? "সরাসরি ফ্যাক্টরি মূল্য প্রস্তাবনা এবং নিশ্চিত সিলেকশন ফলনের স্পষ্ট কোটেশন।"
+                      : "Transparent factory quotations based on live raw-hide benchmarks and confirmed grade yields."}
                   </span>
                 </li>
               </ul>
@@ -178,13 +181,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             variants={staggerContainer}
             className="lg:col-span-7 space-y-4"
           >
-            <h3 className="text-xs uppercase tracking-wider text-stone-500 dark:text-stone-400 font-bold mb-4 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#C89D43]" />
-              {language === "bn" ? "কীভাবে আমরা বায়ার অপারেশন সমন্বয় করি" : "How We Coordinate Buyer Operations"}
+            <h3 className="text-xs uppercase tracking-wider text-stone-500 dark:text-stone-400 font-bold mb-4">
+              {language === "bn" ? "প্রতিটি রপ্তানি অর্ডার যেভাবে সম্পন্ন করি" : "How We Deliver Every Export Order"}
             </h3>
 
             <div className="space-y-3">
-              {corePillars.map((pillar, idx) => {
+              {corePillars.map((pillar) => {
                 const IconComponent = pillar.icon;
                 return (
                   <motion.div
@@ -199,14 +201,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                         <IconComponent className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-mono-data text-xs font-bold text-[#C89D43]">
-                            0{idx + 1}.
-                          </span>
-                          <h4 className="text-base font-bold text-[#15120E] dark:text-[#FAF6F0] group-hover:text-[#C89D43] transition-colors">
-                            {pillar.title}
-                          </h4>
-                        </div>
+                        <h4 className="text-base font-bold text-[#15120E] dark:text-[#FAF6F0] group-hover:text-[#C89D43] transition-colors">
+                          {pillar.title}
+                        </h4>
                         <p className="mt-1.5 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                           {pillar.description}
                         </p>

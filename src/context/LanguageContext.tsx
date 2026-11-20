@@ -55,26 +55,36 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     document.documentElement.lang = language;
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
 
-    // Dynamic SEO synchronization
+    // Only apply homepage hero SEO when active route is "/" so deep links & /product/:slug SEO stay intact
+    const currentPath =
+      typeof window !== "undefined" ? window.location.pathname.replace(/\/+$/, "") || "/" : "/";
+    if (currentPath !== "/") {
+      return;
+    }
+
     const activeT = TRANSLATIONS[language] || TRANSLATIONS.en;
     if (activeT && activeT.hero) {
-      if (language === "en") {
-        document.title = "ExportVisor | Bangladesh Leather Sourcing & Export Partner";
-      } else {
-        document.title = `${activeT.hero.headline} | ExportVisor`;
-      }
+      const homeTitle =
+        language === "en"
+          ? "Reliable Leather Exporter Bangladesh | ExportVisor"
+          : `${activeT.hero.headline} | ExportVisor`;
+      const homeDesc =
+        language === "en"
+          ? "Reliable leather exporter from Bangladesh. Direct Savar tannery supplying wet blue, crust, finished full grain, split suede and shoe lining leather."
+          : activeT.hero.subheadline;
 
+      document.title = homeTitle;
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute("content", activeT.hero.subheadline);
+        metaDesc.setAttribute("content", homeDesc);
       }
       const ogTitle = document.querySelector('meta[property="og:title"]');
       if (ogTitle) {
-        ogTitle.setAttribute("content", `${activeT.hero.headline} | ExportVisor`);
+        ogTitle.setAttribute("content", homeTitle);
       }
       const ogDesc = document.querySelector('meta[property="og:description"]');
       if (ogDesc) {
-        ogDesc.setAttribute("content", activeT.hero.subheadline);
+        ogDesc.setAttribute("content", homeDesc);
       }
     }
   }, [language]);

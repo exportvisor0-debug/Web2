@@ -11,90 +11,90 @@ export const SECTION_ROUTES: SectionRoute[] = [
   {
     id: "hero",
     path: "/",
-    title: "Reliable Leather Exporter & Tannery from Bangladesh | Wet Blue, Crust, Finished, Split & Lining Leather - ExportVisor",
+    title: "Reliable Leather Exporter Bangladesh | ExportVisor",
     metaDescription:
-      "ExportVisor is a reliable leather exporter & tannery manufacturer from Bangladesh. Source wet blue, crust, finished, split & goat/cow shoe lining leather for B2B export.",
+      "Reliable leather exporter from Bangladesh. Direct Savar tannery supplying wet blue, crust, finished full grain, split suede and shoe lining leather.",
     navLabel: "Home",
   },
   {
     id: "about",
     path: "/about",
     aliases: ["/about-us", "/company"],
-    title: "About ExportVisor | Reliable Leather Tannery & Exporter Bangladesh",
+    title: "About ExportVisor | Bangladesh Leather Tannery",
     metaDescription:
-      "ExportVisor operates as a direct leather tannery and reliable leather exporter from Bangladesh in Savar, Dhaka, managing factory-gate exports, pre-shipment quality assurance, and maritime shipping.",
+      "ExportVisor is a direct leather tannery and reliable exporter in Savar, Bangladesh supplying Wet Blue, Crust, Finished, Split and Lining leather.",
     navLabel: "About",
   },
   {
     id: "leather-products",
     path: "/products",
     aliases: ["/leather-products", "/catalogue", "/leather"],
-    title: "Bangladesh Leather Catalogue | Wet Blue, Crust, Finished, Split & Lining Leather - ExportVisor",
+    title: "Bangladesh Leather Catalogue | Wet Blue, Crust, Finished",
     metaDescription:
-      "Source certified cow & goat leather from Bangladesh: Wet Blue, Crust, Finished Full Grain, Suede Split, and Goat/Cow Shoe Lining leather tailored to buyer tech packs.",
+      "Browse 76 export cow, goat and buffalo leathers from Bangladesh: Wet Blue, Crust, Finished Full Grain, Cow Split Suede and Shoe Lining leather specs.",
     navLabel: "Products",
   },
   {
     id: "commercial-terms",
     path: "/terms",
     aliases: ["/commercial-terms"],
-    title: "Commercial Terms & Standards | ExportVisor",
+    title: "Commercial Terms and L/C Export Standards | ExportVisor",
     metaDescription:
-      "Transparent RFQ-driven commercial terms: direct factory-floor pricing, custom MOQ evaluation, scheduled production lead times, and secure international payment terms (LC/TT).",
+      "Direct factory-gate pricing, custom MOQ per drum lot, scheduled lead times, SGS inspection rights and secure L/C at Sight or T/T payment terms.",
     navLabel: "Commercial Terms",
   },
   {
     id: "knowledge-hub",
     path: "/knowledge-hub",
     aliases: ["/knowledge", "/guides"],
-    title: "Leather Knowledge Hub & Technical Specifications | ExportVisor",
+    title: "Leather Technical Guides and Specs | ExportVisor",
     metaDescription:
-      "Technical sourcing guides comparing Wet Blue, Crust, and Finished leather characteristics, grain integrity, substance tolerances, and testing parameters for global buyers.",
+      "Practical tannery guides on Wet Blue moisture control, Crust storage humidity, Finished aniline handling, hide grading and warehouse audit checks.",
     navLabel: "Knowledge Hub",
   },
   {
     id: "bangladesh-sourcing",
     path: "/bangladesh-sourcing",
     aliases: ["/bangladesh", "/origin"],
-    title: "Why Source Leather from Bangladesh | Tannery Ecosystem",
+    title: "Why Source Leather from Bangladesh | Savar Tannery Hub",
     metaDescription:
-      "Discover the competitive advantages of sourcing leather from Bangladesh: indigenous raw material quality, centralized Savar Tannery Industrial Estate, and 0% import duty benefits.",
+      "Explore Bangladesh leather sourcing advantages: dense indigenous cowhide and Black Bengal goat fibers, Savar CETP tanneries and 0% EU/UK GSP duty.",
     navLabel: "Bangladesh Advantage",
   },
   {
     id: "why-exportvisor",
     path: "/why-us",
     aliases: ["/why-exportvisor"],
-    title: "Why Partner with ExportVisor | Direct Tannery Export Desk",
+    title: "Export and Quality Assurance Standards | ExportVisor BD",
     metaDescription:
-      "Direct factory-gate pricing, verified tannery floor oversight in Savar, technical specification matching, transparent trade terms, and 100% pre-shipment inspection for global buyers.",
+      "Factory-gate pricing with LWG-audited Savar tannery oversight, EU REACH chemical testing, caliper thickness checks and Chattogram Sea Port dispatch.",
     navLabel: "Why ExportVisor",
   },
   {
     id: "contact",
     path: "/quote",
     aliases: ["/contact", "/rfq", "/inquiry"],
-    title: "Request a Leather Quotation & Direct Tannery Export Desk | ExportVisor",
+    title: "Request Leather Quote and Swatch Samples | ExportVisor",
     metaDescription:
-      "Submit your technical leather tech pack, target thickness, color swatches, or volume requirements for rapid tannery matching, feasibility analysis, and direct pricing.",
+      "Submit your leather tech pack, millimeter substance, Pantone swatch and volume for a Savar tannery quote within 24 hours and fast DHL sample dispatch.",
     navLabel: "Request Quote",
   },
   {
     id: "faq",
     path: "/faq",
     aliases: ["/faqs", "/questions"],
-    title: "Frequently Asked Questions (FAQ) | ExportVisor Tannery Export Desk",
+    title: "Bangladesh Leather Export FAQ (MOQ, LWG) | ExportVisor",
     metaDescription:
-      "Factual answers regarding MOQs, sample development, production lead times, international payment terms (LC/TT), and pre-shipment quality inspection.",
+      "Answers for global leather buyers on MOQs, counter-sample lab dips, LWG and REACH compliance, cow and goat grades, L/C payments and ocean shipping.",
     navLabel: "FAQ",
   },
   {
     id: "leather-glossary",
     path: "/glossary",
     aliases: ["/leather-glossary", "/terms-glossary", "/leather-terms"],
-    title: "Leather Industry Glossary & Technical Terminology | ExportVisor",
+    title: "Leather Sourcing Glossary and Terms | ExportVisor",
     metaDescription:
-      "Definitive guide defining Wet Blue, Crust Leather, Full Grain, Split Leather, Temper, and Caliper standards for international footwear and leather goods buyers.",
+      "Definitive B2B leather glossary defining Wet Blue, Crust, Full Grain, Split leather, temper and caliper standards for footwear and bag importers.",
     navLabel: "Glossary",
   },
 ];
@@ -107,6 +107,19 @@ export function normalizeCanonicalPath(pathname: string): string {
   return clean || "/";
 }
 
+const HUB_PRODUCT_ALIASES: Record<string, string> = {
+  "wet-blue-leather": "wet-blue-chrome-full-grain",
+  "crust-leather": "crust-full-grain-chrome",
+  "finished-leather": "finished-full-grain-aniline-chrome",
+  "full-grain-leather": "finished-full-grain-pull-up-chrome",
+  "split-leather": "crust-suede-chrome",
+  "top-grain-leather": "finished-top-grain-pigmented-chrome",
+  "corrected-grain-leather": "finished-corrected-grain-embossed-chrome",
+  "aniline-semi-aniline": "finished-full-grain-semi-aniline-chrome",
+  "pigmented-leather": "finished-corrected-grain-pigmented-chrome",
+  "lining-leather": "goat-lining-leather",
+};
+
 export function getProductBySlugOrId(identifier: string): LeatherProduct | undefined {
   const clean = identifier
     .trim()
@@ -115,14 +128,21 @@ export function getProductBySlugOrId(identifier: string): LeatherProduct | undef
     .replace(/^product\//, "")
     .replace(/^products\//, "")
     .replace(/\/+$/, "");
+  const normalizedSlug = HUB_PRODUCT_ALIASES[clean] || clean.replace(/-article-\d+-/i, "-");
   return LEATHER_PRODUCTS.find(
-    (p) => p.id.toLowerCase() === clean || (p.slug && p.slug.toLowerCase() === clean)
+    (p) =>
+      p.id.toLowerCase() === clean ||
+      p.id.toLowerCase() === normalizedSlug ||
+      (p.slug && (p.slug.toLowerCase() === clean || p.slug.toLowerCase() === normalizedSlug))
   );
 }
 
 export function getProductCanonicalUrl(productId: string): string {
-  const prod = LEATHER_PRODUCTS.find((p) => p.id === productId || p.slug === productId);
-  const slug = (prod?.slug || prod?.id || productId).replace(/^\/+|\/+$/g, "");
+  const clean = productId.replace(/-article-\d+-/i, "-");
+  const prod = LEATHER_PRODUCTS.find(
+    (p) => p.id === productId || p.id === clean || p.slug === productId || p.slug === clean
+  );
+  const slug = (prod?.slug || prod?.id || clean).replace(/^\/+|\/+$/g, "");
   return `https://exportvisor.com/product/${slug}`;
 }
 

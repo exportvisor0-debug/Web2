@@ -29,14 +29,14 @@ const COMPLIANCE_PILLARS: CompliancePillar[] = [
   {
     id: "lwg-certified-network",
     icon: Award,
-    title: "LWG-Certified Tannery Network",
-    subtext: "Leather Working Group Audited Partner Mills",
+    title: "LWG-Audited Compliance",
+    subtext: "Leather Working Group Environmental Standards",
     badge: "LWG Audited",
     iconBg: "bg-amber-500/10 border-amber-500/30",
     iconColor: "text-[#C89D43]",
     badgeClass: "bg-amber-50 text-[#7A5A17] border-amber-200/80",
     details:
-      "We partner directly with Leather Working Group (LWG) audited and certified tanneries in Bangladesh. Our partner mills comply with rigorous global environmental audit standards, raw hide traceability, advanced wastewater management (CETP), energy efficiency, and restricted chemical protocols.",
+      "Our Savar tannery production follows Leather Working Group (LWG) environmental audit protocols, raw hide traceability, centralized CETP wastewater management, energy efficiency, and restricted chemical compliance.",
     standards: [
       "LWG Protocol Audited Facilities",
       "Traceable Raw Hide Origins",
@@ -67,7 +67,7 @@ const COMPLIANCE_PILLARS: CompliancePillar[] = [
     iconColor: "text-teal-600",
     badgeClass: "bg-teal-50 text-teal-800 border-teal-200/80",
     details:
-      "Partner mills operate within the Savar Tannery Industrial Estate connected to the Central Effluent Treatment Plant (CETP), with dedicated biological stages and chromium recovery recycling.",
+      "Production operates inside the Savar Tannery Industrial Estate connected to the Central Effluent Treatment Plant (CETP), with dedicated biological treatment stages and chromium recovery recycling.",
     standards: ["Savar CETP Connected", "Waterborne Wet White Options", "Solid Waste Management"],
   },
   {
@@ -93,7 +93,7 @@ const COMPLIANCE_PILLARS: CompliancePillar[] = [
     iconColor: "text-blue-600",
     badgeClass: "bg-blue-50 text-blue-800 border-blue-200/80",
     details:
-      "Seamless maritime container shipping (20ft & 40ft dry/reefer) coordinated via Chattogram Port with tier-1 international shipping lines (Maersk, MSC, CMA CGM, Hapag-Lloyd) with full Phytosanitary and Chamber certificates.",
+      "Reliable maritime container shipping (20ft & 40ft dry/reefer) dispatched directly from Chattogram Port with tier-1 international shipping lines (Maersk, MSC, CMA CGM, Hapag-Lloyd), complete with Phytosanitary and Chamber certificates.",
     standards: ["Chattogram Port Export Clearance", "Standard LC at Sight / TT", "Bill of Lading & Origin Docs"],
   },
 ];
@@ -106,7 +106,7 @@ export const TrustComplianceStrip: React.FC = () => {
     if (language !== "bn") return pillar.title;
     switch (pillar.id) {
       case "lwg-certified-network":
-        return "LWG সার্টিফাইড ট্যানারি নেটওয়ার্ক";
+        return "LWG সার্টিফাইড ও কমপ্লায়েন্ট উৎপাদন";
       case "reach-compliance":
         return "REACH ও রাসায়নিক নিরাপত্তা";
       case "cetp-eco":
@@ -114,7 +114,7 @@ export const TrustComplianceStrip: React.FC = () => {
       case "pre-shipment-inspection":
         return "১০০% প্রি-শিপমেন্ট পরিদর্শন";
       case "global-logistics":
-        return "বৈশ্বিক লজিস্টিকস নেটওয়ার্ক";
+        return "বৈশ্বিক রপ্তানি ও শিপিং ব্যবস্থা";
       default:
         return pillar.title;
     }
@@ -124,7 +124,7 @@ export const TrustComplianceStrip: React.FC = () => {
     if (language !== "bn") return pillar.subtext;
     switch (pillar.id) {
       case "lwg-certified-network":
-        return "লেদার ওয়ার্কিং গ্রুপ অডিটেড পার্টনার ট্যানারিসমূহ";
+        return "লেদার ওয়ার্কিং গ্রুপ অডিটেড পরিবেশবান্ধব মানদণ্ড";
       case "reach-compliance":
         return "অ্যাজো-ফ্রি ও ক্রোমিয়াম(VI) নিয়ন্ত্রিত";
       case "cetp-eco":
@@ -166,16 +166,16 @@ export const TrustComplianceStrip: React.FC = () => {
           
           {/* Header Micro-label */}
           <div className="flex items-center justify-between mb-3 text-[11px] font-mono uppercase tracking-wider text-stone-600 dark:text-stone-400">
-            <span className="font-bold text-[#7A5A17] dark:text-[#F5D275] flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-[#C89D43]" />
+            <span className="font-bold text-[#7A5A17] dark:text-[#F5D275] flex items-center gap-2">
+              <span className="w-4 h-[2px] bg-[#C89D43] shrink-0" aria-hidden="true" />
               {language === "bn"
-                ? "B2B বিশ্বাস ও প্রাতিষ্ঠানিক কমপ্লায়েন্স ফ্রেমওয়ার্ক"
-                : "B2B Trust & Institutional Compliance Framework"}
+                ? "ট্যানারি মানদণ্ড ও ক্রেতা সুরক্ষা নীতি"
+                : "Tannery Standards & Buyer Protections"}
             </span>
             <span className="hidden md:inline-block text-stone-500 dark:text-stone-400 font-medium">
               {language === "bn"
-                ? "যাচাইকৃত ট্যানারি অংশীদারিত্ব · আন্তর্জাতিক টেস্টিং মানদণ্ড"
-                : "Verified Tannery Partnerships · International Testing Standards"}
+                ? "LWG অডিটেড · REACH যাচাইকৃত · সাভার, ঢাকা"
+                : "LWG Audited · REACH Verified · Savar, Dhaka"}
             </span>
           </div>
 

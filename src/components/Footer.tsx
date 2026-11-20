@@ -138,54 +138,46 @@ export const Footer: React.FC<FooterProps> = ({
               {t.footer.categories}
             </h4>
             <ul className="text-xs text-stone-300 space-y-2">
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Wet Blue Cow & Goat Leather")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "ওয়েট ব্লু (গরু ও ছাগল)" : "Wet Blue Leather (Cow & Goat)"}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Crust Cow & Goat Leather")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "ক্রাস্ট লেদার (গরু ও ছাগল)" : "Crust Leather (Cow & Goat)"}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Finished Full Grain Leather")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "ফিনিশড লেদার (ফুল ও টপ গ্রেইন)" : "Finished Leather (Full / Top Grain)"}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Cow Split & Suede Split Leather")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "স্প্লিট ও সোয়েড লেদার" : "Split & Suede Leather (Cow Split)"}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Goat & Cow Shoe Lining Leather")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "শু লাইনিং লেদার (গোট ও কাউ)" : "Lining Leather (Goat & Cow Shoe Lining)"}
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onRequestQuote("Custom Sourcing")}
-                  className="hover:text-[#E5BE58] transition-colors text-left cursor-pointer"
-                >
-                  {language === "bn" ? "বায়ার কাস্টম স্পেসিফিকেশন" : "Custom Specification Sourcing"}
-                </button>
-              </li>
+              {[
+                {
+                  href: "/product/wet-blue-leather",
+                  label: language === "bn" ? "ওয়েট ব্লু (গরু ও ছাগল)" : "Wet Blue Leather (Cow & Goat)",
+                },
+                {
+                  href: "/product/crust-leather",
+                  label: language === "bn" ? "ক্রাস্ট লেদার (গরু ও ছাগল)" : "Crust Leather (Cow & Goat)",
+                },
+                {
+                  href: "/product/finished-leather",
+                  label: language === "bn" ? "ফিনিশড লেদার (ফুল ও টপ গ্রেইন)" : "Finished Leather (Full / Top Grain)",
+                },
+                {
+                  href: "/product/split-leather",
+                  label: language === "bn" ? "স্প্লিট ও সোয়েড লেদার" : "Split & Suede Leather (Cow Split)",
+                },
+                {
+                  href: "/product/lining-leather",
+                  label: language === "bn" ? "শু লাইনিং লেদার (গোট ও কাউ)" : "Lining Leather (Goat & Cow Shoe Lining)",
+                },
+                {
+                  href: "/product/buyer-custom-sourcing",
+                  label: language === "bn" ? "বায়ার কাস্টম স্পেসিফিকেশন" : "Custom Specification Leather",
+                },
+              ].map((cat) => (
+                <li key={cat.href}>
+                  <a
+                    href={cat.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.history.pushState(null, "", cat.href);
+                      window.dispatchEvent(new PopStateEvent("popstate"));
+                    }}
+                    className="hover:text-[#E5BE58] transition-colors text-left inline-block"
+                  >
+                    {cat.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -348,7 +340,7 @@ export const Footer: React.FC<FooterProps> = ({
               ) : (
                 <>
                   <p>
-                    <strong>ExportVisor</strong> operates as the dedicated international export desk and manufacturing partner for premier leather tanneries in Savar, Dhaka, Bangladesh.
+                    <strong>ExportVisor</strong> operates as a direct Bangladesh leather exporter and supplier in Savar, Dhaka, manufacturing and shipping certified wet blue, crust, finished, split, and shoe lining leather to international buyers.
                   </p>
                   <p>
                     All commercial terms, batch minimums, and pricing quotations are non-binding until formalized through an official proforma invoice following technical RFQ review. Delivery schedules, exact specifications, and payment conditions are governed exclusively by definitive trade contracts agreed between the parties.

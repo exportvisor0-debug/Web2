@@ -1,561 +1,1018 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://exportvisor.com/</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/og-image.jpg</image:loc>
+      <image:title>ExportVisor Reliable Leather Exporter Bangladesh</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/about</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/products</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-01-full-grain-chrome.jpg</image:loc>
+      <image:title>ExportVisor Bangladesh Leather Catalogue</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/glossary</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/terms</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/knowledge-hub</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/bangladesh-sourcing</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/why-us</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/quote</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/faq</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
   <url>
     <loc>https://exportvisor.com/product/crust-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-01-full-grain-chrome.jpg</image:loc>
+      <image:title>Crust Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Source high-grade Cow, Buffalo and Goat Crust Leather from Bangladesh tanneries. Natural milling, drum-dyed or vegetable tanned crust for footwear.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/finished-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-01-full-grain-aniline-chrome.jpg</image:loc>
+      <image:title>Finished Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Export-grade finished cowhide leather from Bangladesh. Automated spray finish, milled grain, pull-up, glazed finishes tailored for footwear and upholstery.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-blue-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-blue-chrome-full-grain.jpg</image:loc>
+      <image:title>Wet Blue Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Export certified chrome tanned Wet Blue Cow, Buffalo and Goat hides from Bangladesh. High substance yield, machine fleshed, container load shipping.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/full-grain-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-03-full-grain-pull-up-chrome.jpg</image:loc>
+      <image:title>Full Grain Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Export grade authentic Full Grain Cowhide Leather from Bangladesh. Natural unbroken grain pore structure, rich patina, premium footwear and luxury.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/split-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-05-suede-chrome.jpg</image:loc>
+      <image:title>Split Leather (Suede &amp; Drop Split) — Bangladesh Export Leather</image:title>
+      <image:caption>Wholesale Split Leather, Wet Blue drop splits, and finished cow split suede from Bangladesh. Ideal for work gloves, footwear linings, and industrial.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/top-grain-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-08-top-grain-pigmented-chrome.jpg</image:loc>
+      <image:title>Top Grain Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Export top grain bovine leather from Bangladesh. Lightly buffed for flawless consistency, stain resistance, and high yield in commercial footwear.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/corrected-grain-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-12-corrected-grain-embossed-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Source embossed corrected grain cowhide leather from Savar, Bangladesh. Saffiano, Haircell, and Pebble prints with high abrasion resistance.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/aniline-semi-aniline</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-02-full-grain-semi-aniline-chrome.jpg</image:loc>
+      <image:title>Aniline &amp; Semi-Aniline Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Premium transparent drum-dyed Aniline and Semi-Aniline leather from Bangladesh. Luxurious natural hand feel, breathability, and rich earthy colors.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/pigmented-leather</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-11-corrected-grain-pigmented-chrome.jpg</image:loc>
+      <image:title>Pigmented &amp; Coated Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Export-grade pigmented cowhide leather from Bangladesh. Extreme stain resistance, lightfastness, and uniform color matching for contract seating and.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/buyer-custom-sourcing</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/bespoke-custom-leather-development.jpg</image:loc>
+      <image:title>Custom Bespoke Leather Development — Bangladesh Export Leather</image:title>
+      <image:caption>Bespoke leather development tailored to your exact physical sample, thickness, and color in Savar tanneries. Direct Savar tannery export.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://exportvisor.com/product/lining-leather</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-09-top-grain-nappa-chrome.jpg</image:loc>
+      <image:title>Lining Leather (Goat &amp; Cow Shoe Lining) — Bangladesh Export Leather</image:title>
+      <image:caption>Export-grade Goat Lining Leather and Cow Shoe Lining Leather from Bangladesh tanneries. Breathable, sweat-resistant aniline and synthetic finishes.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-blue-chrome-full-grain</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-blue-chrome-full-grain.jpg</image:loc>
+      <image:title>Wet Blue Chrome Full Grain Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Source certified chrome tanned Wet Blue Cow and Goat hides directly from our Bangladesh wet blue tannery. Machine fleshed, container load shipping.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-blue-chrome-top-grain</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-blue-chrome-top-grain.jpg</image:loc>
+      <image:title>Wet Blue Chrome Top Grain Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Source export-quality Wet Blue Top Grain cowhide from Savar tanneries. Reliable cutting yield for footwear uppers and bags. Direct Savar tannery export.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-blue-chrome-corrected-grain</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-blue-chrome-corrected-grain.jpg</image:loc>
+      <image:title>Wet Blue Chrome Corrected Grain Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Commercial-grade corrected grain Wet Blue cow leather hides for institutional footwear and luggage manufacturers. Direct Savar tannery export.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-blue-split</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-blue-split.jpg</image:loc>
+      <image:title>Wet Blue Split Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Source Wet Blue Split leather hides from our Savar split leather supplier in Bangladesh. High tear strength for work gloves and suede split manufacturing.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-white-chrome-free-full-grain</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-white-chrome-free-full-grain.jpg</image:loc>
+      <image:title>Wet White Chrome Free Full Grain Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Metal-free Wet White full grain bovine hides from Bangladesh. REACH compliant for automotive upholstery and eco children footwear.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/wet-white-chrome-free-top-grain</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/wet-white-chrome-free-top-grain.jpg</image:loc>
+      <image:title>Wet White Chrome Free Top Grain Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Chrome-free Wet White top grain leather for eco footwear and sustainable fashion accessories. Direct Savar tannery supply. Direct Savar tannery export.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-01-full-grain-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-01-full-grain-chrome.jpg</image:loc>
+      <image:title>Full Grain Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Direct crust cow leather exporter from our Savar crust tannery. Full grain chrome tanned crust for handbags, footwear, and leather goods.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-02-top-grain-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-02-top-grain-chrome.jpg</image:loc>
+      <image:title>Top Grain Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High yield top grain chrome crust leather for footwear uppers and fashion bags from Bangladesh. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-03-corrected-grain-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-corrected-grain-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-03-corrected-grain-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Snuffed corrected grain chrome crust leather ready for embossing and pigmented finishing. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-04-split-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-split-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-04-split-chrome.jpg</image:loc>
+      <image:title>Split Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High tensile split chrome crust leather for workwear, safety boots, and suede leather goods. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-05-suede-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-suede-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-05-suede-chrome.jpg</image:loc>
+      <image:title>Suede Chrome Tanned Crust Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Direct suede split leather manufacturer and crust goat leather supplier from Bangladesh. Velvety buffed cow suede and goat crust from Savar tanneries.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-06-nubuck-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-nubuck-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-06-nubuck-chrome.jpg</image:loc>
+      <image:title>Nubuck Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Premium nubuck chrome crust leather with rich velvet nap for boots and fine leather goods. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-07-buff-snuffed-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-buff-snuffed-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-07-buff-snuffed-chrome.jpg</image:loc>
+      <image:title>Buff Snuffed Chrome Crust Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Uniform buffed and snuffed chrome crust leather for commercial footwear and leather goods. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-08-full-grain-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-08-full-grain-veg.jpg</image:loc>
+      <image:title>Full Grain Vegetable Tanned Crust Cow &amp; Buffalo Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Natural veg-tan full grain bovine crust leather for belts, saddlery, and tooling from Bangladesh. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-09-top-grain-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-09-top-grain-veg.jpg</image:loc>
+      <image:title>Top Grain Vegetable Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Firm top grain veg-tanned crust leather for belts, holsters, and structured leathercraft. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-10-full-grain-semi-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-semi-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-10-full-grain-semi-chrome.jpg</image:loc>
+      <image:title>Full Grain Semi-Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Hybrid semi-chrome crust leather combining chrome strength and veg-tan round hand feel. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-11-top-grain-semi-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-semi-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-11-top-grain-semi-chrome.jpg</image:loc>
+      <image:title>Top Grain Semi-Chrome Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Top grain semi-chrome crust leather offering high cutting yield for footwear and handbag manufacturers. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-12-full-grain-semi-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-semi-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-12-full-grain-semi-veg.jpg</image:loc>
+      <image:title>Full Grain Semi-Veg Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Semi-vegetable full grain crust leather for heritage boots, belts, and artisan leather goods. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-13-top-grain-semi-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-semi-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-13-top-grain-semi-veg.jpg</image:loc>
+      <image:title>Top Grain Semi-Veg Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High yield top grain semi-veg crust leather for belts, casual shoes, and bags from Savar. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-14-full-grain-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-14-full-grain-combination.jpg</image:loc>
+      <image:title>Full Grain Combination Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Combination tanned full grain crust leather for dress shoes and luxury bags from Bangladesh. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-15-top-grain-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-15-top-grain-combination.jpg</image:loc>
+      <image:title>Top Grain Combination Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Top grain combination crust leather for shoes and small leather goods with high cutting yield. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-16-corrected-grain-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-corrected-grain-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-16-corrected-grain-combination.jpg</image:loc>
+      <image:title>Corrected Grain Combination Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High-definition embossing base crust leather for printed fashion bags and commercial footwear. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-17-full-grain-chrome-free</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-chrome-free</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-17-full-grain-chrome-free.jpg</image:loc>
+      <image:title>Full Grain Chrome Free Crust Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Metal-free full grain crust leather for baby shoes and eco luxury goods from Savar tanneries. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-18-top-grain-chrome-free</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-chrome-free</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-18-top-grain-chrome-free.jpg</image:loc>
+      <image:title>Top Grain Chrome Free Crust Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Top grain metal-free crust leather for sustainable footwear and bags from Bangladesh. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-19-nubuck-chrome-free</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-nubuck-chrome-free</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-19-nubuck-chrome-free.jpg</image:loc>
+      <image:title>Nubuck Chrome Free Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Eco-certified nubuck chrome free crust leather with velvety touch for luxury footwear and fashion bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-20-top-grain-synthetic</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-top-grain-synthetic</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-20-top-grain-synthetic.jpg</image:loc>
+      <image:title>Top Grain Synthetic Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Non-yellowing synthetic tanned crust leather for white sneakers and pastel footwear collections. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-21-corrected-grain-synthetic</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-corrected-grain-synthetic</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-21-corrected-grain-synthetic.jpg</image:loc>
+      <image:title>Corrected Grain Synthetic Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Snuffed synthetic crust leather for shoe linings and white footwear from Savar tanneries. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-22-full-grain-oil-tanned</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-full-grain-oil-tanned</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-22-full-grain-oil-tanned.jpg</image:loc>
+      <image:title>Full Grain Oil Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Heavily nourished oil-tanned full grain crust leather for pull-up boots, rugged bags, and belts. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/crust-article-23-nubuck-oil-tanned</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/crust-nubuck-oil-tanned</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-23-nubuck-oil-tanned.jpg</image:loc>
+      <image:title>Nubuck Oil Tanned Crust Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Soft oiled nubuck crust leather with buttery hand feel for casual footwear and luxury travel bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-01-full-grain-aniline-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-aniline-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-01-full-grain-aniline-chrome.jpg</image:loc>
+      <image:title>Full Grain Aniline Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Finished cow leather exporter and full grain leather manufacturer in Savar, Bangladesh. Drum-dyed aniline cowhide for shoes, bags and upholstery.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-02-full-grain-semi-aniline-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-semi-aniline-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-02-full-grain-semi-aniline-chrome.jpg</image:loc>
+      <image:title>Full Grain Semi-Aniline Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Export-grade semi-aniline cowhide leather with light protective topcoat for furniture, auto, and footwear. Direct Savar tannery export.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-03-full-grain-pull-up-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-pull-up-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-03-full-grain-pull-up-chrome.jpg</image:loc>
+      <image:title>Full Grain Pull-Up Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Classic oil and wax pull-up leather with dynamic two-tone color burst for boots, bags, and belts. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-04-full-grain-oily-waxy-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-oily-waxy-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-04-full-grain-oily-waxy-chrome.jpg</image:loc>
+      <image:title>Full Grain Oily Waxy Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Durable water-resistant oily waxy bovine leather for work boots and heavy outdoor gear. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-05-full-grain-crazy-horse-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-crazy-horse-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-05-full-grain-crazy-horse-chrome.jpg</image:loc>
+      <image:title>Full Grain Crazy Horse Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Authentic distressed crazy horse wax leather for vintage boots, jackets, and messenger bags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-06-full-grain-antique-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-antique-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-06-full-grain-antique-chrome.jpg</image:loc>
+      <image:title>Full Grain Antique Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Sophisticated two-tone antique finished cow leather for classic dress shoes and luxury executive bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-07-top-grain-semi-aniline-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-semi-aniline-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-07-top-grain-semi-aniline-chrome.jpg</image:loc>
+      <image:title>Top Grain Semi-Aniline Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Soft top grain semi-aniline leather in rich earthy tones for furniture and footwear from Savar. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-08-top-grain-pigmented-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-pigmented-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-08-top-grain-pigmented-chrome.jpg</image:loc>
+      <image:title>Top Grain Pigmented Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Heavy wear pigmented cowhide leather for contract upholstery, footwear, and automotive seating. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-09-top-grain-nappa-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-nappa-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-09-top-grain-nappa-chrome.jpg</image:loc>
+      <image:title>Top Grain Nappa Chrome Tanned Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Ultra-soft nappa finished cow and goat leather for garments, gloves, luxury footwear, and soft bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-10-top-grain-mild-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-mild-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-10-top-grain-mild-chrome.jpg</image:loc>
+      <image:title>Top Grain Mild Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Soft drum-milled mild pebble grain cowhide leather for bags, shoes, and furniture from Savar. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-11-corrected-grain-pigmented-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-pigmented-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-11-corrected-grain-pigmented-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Pigmented Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High-yield corrected grain pigmented cowhide leather for volume shoe manufacturing and belts. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-12-corrected-grain-embossed-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-embossed-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-12-corrected-grain-embossed-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Embossed Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High definition embossed croco and saffiano cowhide leather for luxury handbags and wallets. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-13-corrected-grain-glazed-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-glazed-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-13-corrected-grain-glazed-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Glazed Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Polished high-gloss glazed bovine leather for evening shoes and structured luxury bags from Savar. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-14-corrected-grain-metallic-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-metallic-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-14-corrected-grain-metallic-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Metallic Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Gold, bronze, and silver metallic finished cowhide leather for fashion shoes and evening bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-15-corrected-grain-soft-touch-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-soft-touch-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-15-corrected-grain-soft-touch-chrome.jpg</image:loc>
+      <image:title>Corrected Grain Soft Touch Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Velvety low-gloss soft-touch cowhide leather for automotive interiors, bags, and furniture. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-16-nubuck-finished-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-nubuck-finished-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-16-nubuck-finished-chrome.jpg</image:loc>
+      <image:title>Nubuck Finished Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Water-repellent finished nubuck cowhide leather with rich velvet nap for boots and bags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-17-suede-finished-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-suede-finished-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-17-suede-finished-chrome.jpg</image:loc>
+      <image:title>Suede Finished Chrome Tanned Cow &amp; Goat Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Supple, water-resistant finished suede leather for footwear and fashion jackets from Savar. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-18-split-embossed-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-split-embossed-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-18-split-embossed-chrome.jpg</image:loc>
+      <image:title>Split Embossed Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Heavy-duty embossed split cow leather for safety boots and industrial bags from Savar tanneries. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-19-split-embossed-olive</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-split-embossed-olive</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-19-split-embossed-olive.jpg</image:loc>
+      <image:title>Split Embossed Olive Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Economical coated split embossed leather for work shoes and durable commercial bags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-20-buff-pigmented-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-buff-pigmented-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-20-buff-pigmented-chrome.jpg</image:loc>
+      <image:title>Buff Pigmented Chrome Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Easy-care buffed pigmented cowhide leather with high wear endurance for footwear and bags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-21-full-grain-aniline-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-aniline-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-21-full-grain-aniline-veg.jpg</image:loc>
+      <image:title>Full Grain Aniline Vegetable Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Pure aniline vegetable tanned bovine leather for artisan belts, saddlery, and luxury leather goods. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-22-full-grain-antique-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-antique-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-22-full-grain-antique-veg.jpg</image:loc>
+      <image:title>Full Grain Antique Vegetable Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Hand-darkened edge antique veg-tanned cowhide for belts, holsters, and handcrafted accessories. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-23-full-grain-pull-up-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-pull-up-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-23-full-grain-pull-up-veg.jpg</image:loc>
+      <image:title>Full Grain Pull-Up Vegetable Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Eco-friendly vegetable tanned pull-up leather with dynamic two-tone lightening for bags and belts. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-24-top-grain-semi-aniline-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-semi-aniline-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-24-top-grain-semi-aniline-veg.jpg</image:loc>
+      <image:title>Top Grain Semi-Aniline Vegetable Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Protected top grain vegetable leather for commercial luxury bags, belts, and accessories. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-25-corrected-grain-printed-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-printed-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-25-corrected-grain-printed-veg.jpg</image:loc>
+      <image:title>Corrected Grain Printed Vegetable Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Pattern embossed vegetable tanned cow leather for fashion wallets, statement bags, and belts. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-26-full-grain-semi-aniline-semi-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-semi-aniline-semi-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-26-full-grain-semi-aniline-semi-chrome.jpg</image:loc>
+      <image:title>Full Grain Semi-Aniline Semi-Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Hybrid semi-chrome full grain leather in slate and earthy shades for footwear and handbags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-27-top-grain-pigmented-semi-chrome</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-pigmented-semi-chrome</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-27-top-grain-pigmented-semi-chrome.jpg</image:loc>
+      <image:title>Top Grain Pigmented Semi-Chrome Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Durable pigmented semi-chrome bovine leather for commercial footwear and volume handbag orders. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-28-full-grain-pull-up-semi-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-pull-up-semi-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-28-full-grain-pull-up-semi-veg.jpg</image:loc>
+      <image:title>Full Grain Pull-Up Semi-Veg Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Dynamic pull-up semi-veg cowhide leather in rich burgundy and wine shades for boots and luxury bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-29-top-grain-antique-semi-veg</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-antique-semi-veg</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-29-top-grain-antique-semi-veg.jpg</image:loc>
+      <image:title>Top Grain Antique Semi-Veg Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Gleaming antique glazed semi-veg bovine leather for formal footwear and executive belts. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-30-full-grain-aniline-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-aniline-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-30-full-grain-aniline-combination.jpg</image:loc>
+      <image:title>Full Grain Aniline Combination Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Transparent aniline combination finished cowhide for luxury footwear and bespoke leather goods. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-31-full-grain-pull-up-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-pull-up-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-31-full-grain-pull-up-combination.jpg</image:loc>
+      <image:title>Full Grain Pull-Up Combination Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Exotic croco-embossed pull-up leather with dynamic two-tone lightening for boots and designer bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-32-full-grain-waxy-oily-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-waxy-oily-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-32-full-grain-waxy-oily-combination.jpg</image:loc>
+      <image:title>Full Grain Waxy Oily Combination Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Heavy water-repellent tile-embossed bovine leather for rugged outdoor boots and work bags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-33-top-grain-pigmented-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-pigmented-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-33-top-grain-pigmented-combination.jpg</image:loc>
+      <image:title>Top Grain Pigmented Combination Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High-yield pigmented combination leather for commercial footwear and volume leather goods. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-34-corrected-grain-printed-combination</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-printed-combination</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-34-corrected-grain-printed-combination.jpg</image:loc>
+      <image:title>Corrected Grain Printed Combination Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Couture 3D diamond quilted embossed cow leather for fashion bags, wallets, and shoes from Savar. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-35-full-grain-semi-aniline-chrome-free</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-semi-aniline-chrome-free</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-35-full-grain-semi-aniline-chrome-free.jpg</image:loc>
+      <image:title>Full Grain Semi-Aniline Chrome Free Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Micro-perforated metal-free bovine leather for ventilated automotive seating and eco footwear. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-36-top-grain-pigmented-chrome-free</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-pigmented-chrome-free</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-36-top-grain-pigmented-chrome-free.jpg</image:loc>
+      <image:title>Top Grain Pigmented Chrome Free Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Hypoallergenic metal-free pigmented cowhide for children footwear and eco-label leather goods. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-37-nubuck-chrome-free-gold</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-nubuck-chrome-free-gold</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-37-nubuck-chrome-free-gold.jpg</image:loc>
+      <image:title>Nubuck Chrome Free Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Radiant golden nubuck chrome free bovine leather for luxury boots and sustainable fashion bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-38-top-grain-pigmented-synthetic</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-top-grain-pigmented-synthetic</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-38-top-grain-pigmented-synthetic.jpg</image:loc>
+      <image:title>Top Grain Pigmented Synthetic Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>UV-stable synthetic tanned cowhide leather for light-colored footwear and modern fashion bags. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-39-corrected-grain-pigmented-synthetic</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-corrected-grain-pigmented-synthetic</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-39-corrected-grain-pigmented-synthetic.jpg</image:loc>
+      <image:title>Corrected Grain Pigmented Synthetic Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Non-yellowing white and pastel corrected grain synthetic leather for sneaker uppers and linings. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-40-full-grain-pull-up-oil</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-full-grain-pull-up-oil</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-40-full-grain-pull-up-oil.jpg</image:loc>
+      <image:title>Full Grain Pull-Up Oil Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Rich green full grain oil pull-up leather for heritage boots, rugged bags, and outdoor accessories. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-41-nubuck-oil-tanned</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-nubuck-oil-tanned</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-41-nubuck-oil-tanned.jpg</image:loc>
+      <image:title>Nubuck Oil Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>Soft midnight navy oiled nubuck cowhide with velvety write-effect for premium shoes and bags. Custom thickness, low MOQ and fast DHL samples from Savar.</image:caption>
+    </image:image>
   </url>
   <url>
-    <loc>https://exportvisor.com/product/finished-article-42-bonded-pigmented-mixed</loc>
-    <lastmod>2026-11-13</lastmod>
+    <loc>https://exportvisor.com/product/finished-bonded-pigmented-mixed</loc>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-42-bonded-pigmented-mixed.jpg</image:loc>
+      <image:title>Bonded Pigmented Mixed Tanned Cow Leather — Bangladesh Export Leather</image:title>
+      <image:caption>High-yield bonded leather rolls in rich auburn tone for bookbinding, linings, and accessories. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://exportvisor.com/product/goat-lining-leather</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-09-top-grain-nappa-chrome.jpg</image:loc>
+      <image:title>Goat Shoe Lining Leather (Aniline &amp; Glazed Kid) — Bangladesh Export Leather</image:title>
+      <image:caption>Reliable goat lining leather exporter and shoe lining leather supplier from Bangladesh. Breathable 0.5–0.9mm Black Bengal goat skins for footwear.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://exportvisor.com/product/cow-lining-leather</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-39-corrected-grain-pigmented-synthetic.jpg</image:loc>
+      <image:title>Cow Shoe &amp; Bag Lining Leather (Softee &amp; Synthetic) — Bangladesh Export Leather</image:title>
+      <image:caption>Direct cow lining leather manufacturer and shoe lining leather supplier from Bangladesh. Uniform 0.7–1.1mm cowhide linings for sneakers and dress shoes.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/cow-leather-collection</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/finished-article-01-full-grain-aniline-chrome.jpg</image:loc>
+      <image:title>Bangladesh Bovine (Cow) Leather Collection — Bangladesh Export Leather</image:title>
+      <image:caption>Source export-quality Bangladesh bovine cowhide leather in wet blue, crust, and finished grades. Low MOQ and DHL samples from Savar, Bangladesh.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://exportvisor.com/product/goat-leather-collection</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.90</priority>
+    <image:image>
+      <image:loc>https://exportvisor.com/assets/products/crust-article-05-suede-chrome.jpg</image:loc>
+      <image:title>Bangladesh Bengal Goat Leather Collection — Bangladesh Export Leather</image:title>
+      <image:caption>Trusted finished goat leather supplier from Bangladesh and goat lining leather exporter. Genuine Black Bengal goat skins for shoes, gloves, and garments.</image:caption>
+    </image:image>
   </url>
 </urlset>

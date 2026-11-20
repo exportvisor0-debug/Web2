@@ -1191,6 +1191,37 @@ export const LeatherCatalogue: React.FC<LeatherCatalogueProps> = ({
                 </div>
               </div>
             )}
+            {/* Direct Category Hub SEO Links */}
+            <nav
+              aria-label="Core Export Leather Category Pages"
+              className="mt-8 pt-5 border-t border-[#EAE3D2]/60 dark:border-stone-800/70 flex flex-wrap items-center gap-2 text-xs"
+            >
+              <span className="font-mono uppercase tracking-wider text-[11px] text-stone-500 dark:text-stone-400 mr-1">
+                {isBn ? "সরাসরি ক্যাটাগরি পেজ:" : "Category Pages:"}
+              </span>
+              {[
+                { slug: "wet-blue-leather", label: "Wet Blue Leather" },
+                { slug: "crust-leather", label: "Crust Leather" },
+                { slug: "finished-leather", label: "Finished Leather" },
+                { slug: "split-leather", label: "Split & Suede Leather" },
+                { slug: "lining-leather", label: "Shoe Lining Leather" },
+                { slug: "cow-leather-collection", label: "Cow Leather BD" },
+                { slug: "goat-leather-collection", label: "Black Bengal Goat" },
+              ].map((hub) => (
+                <a
+                  key={hub.slug}
+                  href={`/product/${hub.slug}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.history.pushState(null, "", `/product/${hub.slug}`);
+                    window.dispatchEvent(new PopStateEvent("popstate"));
+                  }}
+                  className="px-2.5 py-1 rounded-lg bg-white dark:bg-[#140F0B] border border-[#E5DBBE] dark:border-stone-800 text-[#8C6214] dark:text-[#E5BE58] hover:border-[#C89D43] font-medium transition-colors"
+                >
+                  {hub.label}
+                </a>
+              ))}
+            </nav>
           </div>
         )}
 

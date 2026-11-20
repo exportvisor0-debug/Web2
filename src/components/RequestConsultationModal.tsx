@@ -17,7 +17,11 @@ import {
   Building2,
   FileCheck2,
   ArrowUpRight,
+  Loader2,
 } from "lucide-react";
+
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = "1d674072-889f-4929-8824-dac6d3190280";
 
 interface RequestConsultationModalProps {
   isOpen: boolean;
@@ -45,6 +49,7 @@ export const RequestConsultationModal: React.FC<RequestConsultationModalProps> =
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submittedSummary, setSubmittedSummary] = useState("");
   const [copied, setCopied] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,10 +82,10 @@ export const RequestConsultationModal: React.FC<RequestConsultationModalProps> =
 📝 *Specification Notes:*
 ${formData.specNotes || "Direct consultation requested."}
 ----------------------------------------
-ExportVisor Tannery Export Desk · Savar, Dhaka`;
+ExportVisor Leather Export Team · Savar, Dhaka`;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg("");
 
@@ -94,49 +99,90 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
     }
 
     setIsSubmitting(true);
+    const summarySnapshot = buildSummaryText();
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New ExportVisor Consultation Request: ${formData.companyName} — ${formData.topic}`,
+          from_name: "ExportVisor Export Team",
+          replyto: formData.email,
+          name: formData.fullName,
+          company_name: formData.companyName,
+          email: formData.email,
+          country: formData.country || "Not specified",
+          phone_whatsapp: formData.phone || "Not specified",
+          product_category: formData.topic,
+          quantity_moq: formData.estimatedVolume || "To be discussed",
+          message: formData.specNotes || "Direct tannery export consultation requested.",
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Submission failed. Please try again.");
+      }
+
+      setSubmittedSummary(summarySnapshot);
+      setFormData({
+        fullName: "",
+        companyName: "",
+        country: "",
+        email: "",
+        phone: "",
+        topic: initialTopic,
+        estimatedVolume: "",
+        preferredChannel: "WhatsApp Direct",
+        specNotes: "",
+      });
       setSubmitted(true);
+
       trackEvent("consultation_form_submit", {
         topic: formData.topic,
         company: formData.companyName,
         country: formData.country,
       });
-    }, 450);
+    } catch (err) {
+      const msg =
+        err instanceof Error && err.message && !err.message.includes("fetch")
+          ? err.message
+          : language === "bn"
+            ? "নেটওয়ার্ক সমস্যার কারণে অনুরোধ পাঠানো যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।"
+            : "Unable to send your consultation request due to a network error. Please try again.";
+      setErrorMsg(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleCopySummary = () => {
-    navigator.clipboard.writeText(buildSummaryText());
+    navigator.clipboard.writeText(submittedSummary || buildSummaryText());
     setCopied(true);
     trackEvent("share_link_copied", { type: "consultation_summary" });
     setTimeout(() => setCopied(false), 2500);
   };
 
   const handleSendViaWhatsApp = () => {
-    const text = encodeURIComponent(buildSummaryText());
+    const text = encodeURIComponent(submittedSummary || buildSummaryText());
     const digits = siteConfig.contact.whatsappNumber.replace(/[^0-9]/g, "") || "8801355976619";
     const url = `https://api.whatsapp.com/send?phone=${digits}&text=${text}`;
     trackEvent("whatsapp_click", { location: "consultation_modal_success" });
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleSendViaEmail = () => {
-    const subject = encodeURIComponent(
-      `Consultation Request: ${formData.companyName} - ${formData.topic}`
-    );
-    const body = encodeURIComponent(buildSummaryText());
-    const mailtoUrl = `mailto:${siteConfig.contact.email}?subject=${subject}&body=${body}`;
-    trackEvent("email_click", { location: "consultation_modal_success" });
-    window.location.href = mailtoUrl;
-  };
-
   const consultationTopics = [
-    "Direct Tannery Pricing & Volume MOQ",
-    "Pre-Shipment Quality Inspection Coordination",
+    "Direct Factory Pricing & Volume MOQ",
+    "Pre-Shipment Quality Inspection & Testing",
     "Physical Leather Samples / Counter-Swatches",
     "Wet Blue / Crust Bulk Container Shipment",
-    "Custom Tannery Formulation (Thickness, Temper, Finish)",
+    "Custom Leather Production (Thickness, Temper, Finish)",
     "Port Logistics & Shipping Transit Times",
   ];
 
@@ -161,13 +207,13 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
                   {language === "bn" ? "ট্যানারি এক্সপোর্ট কনসালটেশন" : "Tannery Export Consultation"}
                 </span>
                 <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 text-[10px] font-mono font-semibold border border-stone-200 dark:border-stone-700">
-                  Direct Factory Desk
+                  Direct Leather Exporter
                 </span>
               </div>
               <p className="text-[11px] text-stone-500 dark:text-stone-300 mt-0.5">
                 {language === "bn"
-                  ? "সাভারের অন-সাইট ট্যানারি বিশেষজ্ঞ দলের সাথে সরাসরি রপ্তানি পরামর্শ"
-                  : "Direct technical advisory with on-site tannery export specialists in Savar, Dhaka"}
+                  ? "সাভারের চামড়া রপ্তানি ও টেকনিক্যাল টিমের সাথে সরাসরি পরামর্শ"
+                  : "Direct technical review with our leather export team in Savar, Dhaka"}
               </p>
             </div>
           </div>
@@ -194,15 +240,15 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
               </div>
 
               <div className="max-w-md mx-auto">
-                <h3 className="font-display text-2xl font-bold text-[#15120E]">
+                <h3 className="font-display text-2xl font-bold text-[#15120E] dark:text-white">
                   {language === "bn"
-                    ? "কনসালটেশন অনুরোধ সফলভাবে গৃহীত হয়েছে!"
-                    : "Consultation Request Received!"}
+                    ? "কনসালটেশন অনুরোধ পাঠানো হয়েছে!"
+                    : "Thank You! Your Request Has Been Sent"}
                 </h3>
-                <p className="mt-2 text-xs sm:text-sm text-stone-600 leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-stone-600 dark:text-stone-300 leading-relaxed">
                   {language === "bn"
-                    ? "ধন্যবাদ! আমাদের বাংলাদেশ ট্যানারি এক্সপোর্ট ডেস্ক আপনার স্পেসিফিকেশন পর্যালোচনা করে ২৪ ঘণ্টার মধ্যে সরাসরি যোগাযোগ করবে।"
-                    : "Thank you! Our on-site tannery export desk will review your specifications and prepare direct factory options within 24 hours."}
+                    ? "ধন্যবাদ! আমাদের এক্সপোর্ট টিম ২৪ ঘণ্টার মধ্যে আপনার সাথে যোগাযোগ করবে।"
+                    : "Thank you! Your quote request has been sent. Our export team will contact you within 24 hours."}
                 </p>
               </div>
 
@@ -210,11 +256,12 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
               <div className="p-4.5 bg-stone-50 dark:bg-[#181310] border border-stone-200 dark:border-stone-800 rounded-xl text-left space-y-3.5 max-w-lg mx-auto shadow-2xs">
                 <div className="flex items-center justify-between text-xs pb-2 border-b border-stone-200 dark:border-stone-800">
                   <span className="font-bold text-[#7A5A17] dark:text-[#E5BE58] uppercase tracking-wider text-[11px]">
-                    {language === "bn" ? "তাৎক্ষণিক সংযোগ" : "Fast-Track Options"}
+                    {language === "bn" ? "তাৎক্ষণিক সংযোগ" : "Fast-Track Option"}
                   </span>
                   <button
+                    type="button"
                     onClick={handleCopySummary}
-                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-600 hover:text-stone-900 cursor-pointer"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white cursor-pointer"
                   >
                     {copied ? (
                       <>
@@ -232,23 +279,14 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  <button
-                    onClick={handleSendViaWhatsApp}
-                    className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-xs cursor-pointer"
-                  >
-                    <MessageSquareText className="w-4 h-4" />
-                    <span>{language === "bn" ? "হোয়াটসঅ্যাপে পাঠান" : "Open in WhatsApp"}</span>
-                  </button>
-
-                  <button
-                    onClick={handleSendViaEmail}
-                    className="inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-bold text-stone-800 bg-white hover:bg-stone-100 border border-stone-300 transition-colors shadow-2xs cursor-pointer"
-                  >
-                    <Mail className="w-4 h-4 text-[#C89D43]" />
-                    <span>{language === "bn" ? "ইমেইলে খুলুন" : "Open in Email"}</span>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={handleSendViaWhatsApp}
+                  className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-xs cursor-pointer"
+                >
+                  <MessageSquareText className="w-4 h-4" />
+                  <span>{language === "bn" ? "হোয়াটসঅ্যাপে দ্রুত চ্যাট করুন" : "Fast-Track on WhatsApp"}</span>
+                </button>
               </div>
 
               <div className="pt-2">
@@ -434,7 +472,10 @@ ExportVisor Tannery Export Desk · Savar, Dhaka`;
                   className="inline-flex items-center justify-center gap-2 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-[#15120E] bg-gradient-to-r from-[#D6AC4B] to-[#C89D43] hover:from-[#E5BE58] hover:to-[#D6AC4B] rounded-lg transition-all shadow-gold-subtle hover:shadow-lg cursor-pointer disabled:opacity-50"
                 >
                   {isSubmitting ? (
-                    <span>{language === "bn" ? "অনুরোধ পাঠানো হচ্ছে..." : "Transmitting..."}</span>
+                    <>
+                      <Loader2 className="w-3.5 h-3.5 text-[#15120E] animate-spin" />
+                      <span>{language === "bn" ? "পাঠানো হচ্ছে..." : "Sending..."}</span>
+                    </>
                   ) : (
                     <>
                       <span>{language === "bn" ? "কনসালটেশন অনুরোধ জমা দিন" : "Submit Consultation Request"}</span>
